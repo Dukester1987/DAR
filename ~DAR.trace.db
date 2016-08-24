@@ -1,0 +1,2492 @@
+08-18 15:10:59 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "                      
+                
+                            
+  
+                  
+                                            
+                              
+                      
+
+SET SQL_MODE[*] = ""NO_AUTO_VALUE_ON_ZERO"" "; expected "@, AUTOCOMMIT, MVCC, EXCLUSIVE, IGNORECASE, PASSWORD, SALT, MODE, COMPRESS_LOB, DATABASE, COLLATION, BINARY_COLLATION, CLUSTER, DATABASE_EVENT_LISTENER, ALLOW_LITERALS, DEFAULT_TABLE_TYPE, CREATE, HSQLDB.DEFAULT_TABLE_TYPE, PAGE_STORE, CACHE_TYPE, FILE_LOCK, DB_CLOSE_ON_EXIT, AUTO_SERVER, AUTO_SERVER_PORT, AUTO_RECONNECT, ASSERT, ACCESS_MODE_DATA, OPEN_NEW, JMX, PAGE_SIZE, RECOVER, NAMES, SCHEMA, DATESTYLE, SEARCH_PATH, SCHEMA_SEARCH_PATH, JAVA_OBJECT_SERIALIZER, LOGSIZE, FOREIGN_KEY_CHECKS"; SQL statement:
+-- phpMyAdmin SQL Dump
+-- version 4.3.8
+-- http://www.phpmyadmin.net
+--
+-- Host: localhost
+-- Generation Time: Aug 17, 2016 at 11:58 PM
+-- Server version: 5.6.29-76.2
+-- PHP Version: 5.4.31
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO" [42001-176]
+08-18 15:10:59 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SET TIME_ZONE[*] = ""+00:00"" "; expected "@, AUTOCOMMIT, MVCC, EXCLUSIVE, IGNORECASE, PASSWORD, SALT, MODE, COMPRESS_LOB, DATABASE, COLLATION, BINARY_COLLATION, CLUSTER, DATABASE_EVENT_LISTENER, ALLOW_LITERALS, DEFAULT_TABLE_TYPE, CREATE, HSQLDB.DEFAULT_TABLE_TYPE, PAGE_STORE, CACHE_TYPE, FILE_LOCK, DB_CLOSE_ON_EXIT, AUTO_SERVER, AUTO_SERVER_PORT, AUTO_RECONNECT, ASSERT, ACCESS_MODE_DATA, OPEN_NEW, JMX, PAGE_SIZE, RECOVER, NAMES, SCHEMA, DATESTYLE, SEARCH_PATH, SCHEMA_SEARCH_PATH, JAVA_OBJECT_SERIALIZER, LOGSIZE, FOREIGN_KEY_CHECKS"; SQL statement:
+SET time_zone = "+00:00" [42001-176]
+08-18 15:10:59 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "  
+                           
+  
+
+                                                           
+
+  
+                                        
+  
+
+CREATE TABLE IF NOT EXISTS ""PLANTLIST"" (
+  ""PLANTNO"" VARCHAR(5) COLLATE[*] UTF8_UNICODE_CI NOT NULL,
+  ""PLANTDESC"" VARCHAR(80) COLLATE UTF8_UNICODE_CI NOT NULL,
+  ""RATE"" DECIMAL(10,0) NOT NULL
+) ENGINE=MYISAM DEFAULT CHARSET=UTF8 COLLATE=UTF8_UNICODE_CI "; expected "FOR, UNSIGNED, NOT, NULL, AS, DEFAULT, GENERATED, NOT, NULL, AUTO_INCREMENT, BIGSERIAL, SERIAL, IDENTITY, NULL_TO_DEFAULT, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, PRIMARY, UNIQUE, NOT, NULL, CHECK, REFERENCES, ,, )"; SQL statement:
+--
+-- Database: `sopsioco_DAR`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `PlantList`
+--
+
+CREATE TABLE IF NOT EXISTS `PlantList` (
+  `PlantNo` varchar(5) COLLATE utf8_unicode_ci NOT NULL,
+  `PlantDesc` varchar(80) COLLATE utf8_unicode_ci NOT NULL,
+  `Rate` decimal(10,0) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci [42001-176]
+08-18 15:10:59 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "PLANTLIST" not found; SQL statement:
+--
+-- Dumping data for table `PlantList`
+--
+
+INSERT INTO `PlantList` (`PlantNo`, `PlantDesc`, `Rate`) VALUES
+('P01', 'Caterpillar 936 Loader Sand & Soil Yard', '0'),
+('U50', 'Mitsubishi 4T Single Axle Tipper Rego BI36EY', '0'),
+('U51', 'Mitsubishi 3T Single Axle Tipper Rego BZ32DN', '0'),
+('U52', 'Mitsubishi 3T Single Axle Tipper Rego BZ33DN', '0'),
+('U150', 'Feightliner Twin Steer Tipper Rego CD60ZZ', '0'),
+('U154', 'Freightliner Twin Steer Tipper AH83RP', '0'),
+('U153', 'Freightliner Twin Steer Tipper AH04RQ', '0'),
+('U53', 'Mistubishi 9T Single Axle Tipper Rego BZ60NI', '0'),
+('U54', 'Mistubishi 6T Single Axle  RegoCA93DI Skip Bin Truck', '0'),
+('U159', '12T Sterling CH50RS', '0'),
+('U160', '12T Sterling CI97DG', '0'),
+('U157', 'Sterling Bogie  Tipper AK86OE ', '0'),
+('U158', 'Sterling Bogie  Tipper CG80XG', '0'),
+('P20', 'Leader Watercart', '0'),
+('U31', 'Sterling Bogie  Tipper C73PT Retired to KC Yard', '0'),
+('P157', 'Volvo EC460BL Exc', '0'),
+('P158', 'Volvo EC460BL Exc', '0'),
+('P173', 'Extec S-6 Screen', '0'),
+('P195', 'Komatsu D375A-5 Dozer', '0'),
+('P200', 'Komatsu WA 470-6 Loader', '0'),
+('P201', 'Acco Watercart Kilometer', '0'),
+('P205', 'Komatsu WF550T-3 Compactor', '0'),
+('P209', 'Komatsu WA470-6 Loader', '0'),
+('P216', 'UD Watercart Bogie', '0'),
+('P217', 'UD Watercart', '0'),
+('P234', 'Metso Nordberg LT 1213S Impact Crusher', '0'),
+('P238', 'Komatsu WA 470-6 Loader', '0'),
+('P239', 'Komatsu WA 470-6 Loader', '0'),
+('P249', 'Komatsu WA 500-6 Loader', '0'),
+('P250', 'Volvo A40F Dump Truck', '0'),
+('P251', 'Volvo A40F Dump Truck', '0'),
+('P252', 'Caterpillar D8R Dozer', '0'),
+('P255', 'Komatsu WA 500-6 Loader', '0'),
+('P258', 'Komatsu D475A-5 Dozer', '0'),
+('P264', 'Caterpillar CS563 Smooth Drum 12T Roller', '0'),
+('P265', 'Caterpillar CP533 Padfoot 12T Roller', '0'),
+('P268', 'Hyundai R5.5-9 Exc', '0'),
+('P269', 'Hyundai R80CR-9 Exc', '0'),
+('P270', 'Hyundai R145CDR-9 Exc', '0'),
+('P273', 'Caterpillar  140M Grader Fitted For Gps', '0'),
+('P274', 'Caterpillar 12H Grader', '0'),
+('P275', 'Caterpillar CP533 Padfoot 12T Roller', '0'),
+('P277', 'Caterpillar CB14 Tandem Smooth Drum 1.4T Roller', '0'),
+('P278', 'Bobcat S590 ', '0'),
+('P279', 'Bobcat S650', '0'),
+('P280', 'Bobcat T650 Pozzi Track', '0'),
+('P282', 'Mitsubishi Watercart Single Axle Standpipe YREE0008', '0'),
+('P286', 'Caterpillar CB22  BK Tandem Smooth Drum 2.5T Roller', '0'),
+('P287', 'Caterpillar 345 Exc', '0'),
+('P290', 'Metso Locotrack LT 3054 Crusher', '0'),
+('P293', 'Komatsu HM 400-2 Dump Truck Tail Gate', '0'),
+('P299', 'Komatsu PC200 LC-8 Exc', '0'),
+('P303', 'Keestrack Frontier Screen', '0'),
+('P305', 'Keestrack Frontier Screen', '0'),
+('P306', 'Keestrack Frontier Screen', '0'),
+('P312', 'Caterpillar  CB22B Dual Smooth Drum Roller 2.5T', '0'),
+('P314', 'Bobcat T650 Pozzi Track', '0'),
+('P316', 'Komatsu WA480- Loader', '0'),
+('P320', 'Isuzu FVZ1400 13Kl Watercart Rego CH52RS', '0'),
+('P325', 'Caterpillar 980G Loader', '0'),
+('P327', 'Komatsu WA470-6', '0'),
+('P328', 'Isuzu  FVZ1400 13Kl Watercart Rego CF00YI', '0'),
+('P329', 'Caterpillar  IT62G Tool Carrier, Bucket,Man Basket,Forks & Jib', '0'),
+('P186', 'Extec S-5 Screen', '0'),
+('P206', 'Komatsu WA 470-6 Loader', '0'),
+('P212', 'Komatsu WA 380-6 Loader Traded for P327 27/11/15', '0'),
+('P297', 'Komatsu PC200 LC-8 Exc Grabs, Dig, B/Bucket, Sieve Bucket', '0'),
+('P309', 'Komatsu PC450LC-8 Case Drain', '0'),
+('P317', 'Keestrack Frontier Scalper Purchased from Sceenmaster 28/9/15', '0'),
+('P332', 'Keestrack Screen Purchased from Sceenmaster 23/4/16', '0'),
+('T07', 'Single Axle Tag Along Trailer Rego Z93797', '0'),
+('T08', 'Single Axle Tag Along Trailer Rego TA03UQ', '0'),
+('U57', 'Spare Site Clean Bogie - STEVE SEE CRYSTAL', '0'),
+('P133', 'Volvo A30D  Dump Truck', '0'),
+('P148', 'Metso Nordberg NP 1213-m Impactor Crusher', '0'),
+('P150', 'Volvo A30D Dump Truck', '0'),
+('P184', 'Extec S-5 Screen  ( In Grave Yard )', '0'),
+('P199', 'Adelaide Chieftain 1400 Screen', '0'),
+('P221', 'Finlay 7702002 Trommel', '0'),
+('P266', 'Caterpillar 825H Compactor', '0'),
+('P267', 'Hyundai R5.5-9 Exc', '0'),
+('P271', 'Hyundai R235LCR-9 Exc', '0'),
+('P272', 'Caterpillar 140M Grader', '0'),
+('P276', 'Cat CS573 Smooth Drum Roller 14T', '0'),
+('P281', 'Mitsubishi Watercart Single Axle Standpipe YREE0007', '0'),
+('P284', 'Hyundai 320LC-9 Exc', '0'),
+('P291', 'Komatsu HM 400-2 Dump Truck NoTail Gate', '0'),
+('P292', 'Komatsu HM 400-2 Dump Truck Tail Gate', '0'),
+('P295', 'Komatsu PC138-8 US Exc', '0'),
+('P301', 'Caterpillar D10N Dozer', '0'),
+('P308', 'Komatsu PC450LC-8', '0'),
+('P310', 'Komatsu GD655 Grader Fitted For Gps', '0'),
+('P318', 'Volvo EC480DL Excavator Fitted For Gps', '0'),
+('P326', 'Caterpiller D11T Dozer', '0'),
+('Allco', '6" Pump, 200m Delivery Line, 12m Suction Line C/W Foot Valve', '0'),
+('P126', 'Hitachi ZX 480 Exc', '0'),
+('P181', 'Chieftain EG 2100 Screen', '0'),
+('P190', 'Komatsu PC450-8 LC Exc', '0'),
+('P207', 'Komatsu WA 470-6 Loader', '0'),
+('P229', 'Metso LT7150 Barmac Crusher Sold/Traded', '0'),
+('P237', 'Komatsu WA 470-6 Loader', '0'),
+('P246', 'Screenmaster Frontier Scalper (Keestrac) Screen', '0'),
+('P289', 'Metso Nordberg LT 1315S Impact Crusher', '0'),
+('P298', 'Komatsu PC270 LC-8 Exc Dig & Batter Buckets Remeadiation', '0'),
+('P331', 'Keestrack 1313S Impact Crusher', '0'),
+('P26', '5140 Case Tractor', '0'),
+('P153', '4 Cyl GM Pump 150mm Self Priming', '0'),
+('P155', 'Komatsu D85 Dozer', '0'),
+('P176', 'Perkins & 100mm Water Pump', '0'),
+('P190A', 'Yanmar Diesel Flex Drive Pump', '0'),
+('P210', 'Komatsu PC450-7 Excavator', '0'),
+('P219', 'Sline Water Cart', '0'),
+('P232', 'Deutz 100mm Water Pump', '0'),
+('U274', 'Caterpillar 12H Grader', '0'),
+('P302', 'Aston Atomiser 1600', '0'),
+('P315', 'Caterpillar 836H Trash Compactor', '0'),
+('U221', 'Service Truck 4 x 4 C/W Tools (Tools List In Plant Folder W''shop Office)', '0'),
+('P143', 'Weighbridge Gen Set (in Container 25KVA)', '0'),
+('P142', 'Diesel 6" Pump House Pump', '0'),
+('P178', 'MT 1440 Manitou Tele Handler Forklift & Bucket', '0'),
+('P179', 'Washery Gen Set 1135 KVA', '0'),
+('P182', 'Caterpillar Water Pump 150mm x 125mm', '0'),
+('P123', 'Ford 900 Watercart', '0'),
+('P228', '4 Cyl Ford Motor & Grundfos Water Pump', '0'),
+('P253', 'Tesab Jaw Crusher', '0'),
+('Attac', 'Dig Bucket & Ripper For P287', '0'),
+('P288', 'Caterpillar 815F Compactor', '0'),
+('P135', 'Genset #2 Runs P151  Wash Pant', '0'),
+('P144', 'TQS Mobile Radial Stacker S-62685 Conveyor (Fixed Plant Item)', '0'),
+('P162', 'Diesel Generator', '0'),
+('P163', 'Cummins 100 KVA Genset & 6" Submersable Pump', '0'),
+('P208', 'Komatsu WA 470-6 Loader', '0'),
+('P222', 'Komatsu PC710-5 Exc Long Reach', '0'),
+('P240', 'Komatsu PC800-6 Exc', '0'),
+('P241', 'Track Stacker Conveyor', '0'),
+('P245', 'VSI 2000 (Blown Motor) Crusher', '0'),
+('P283', 'Iveco Watercart Kilometer', '0'),
+('P294', 'Caterpillar D11R Dozer', '0'),
+('P300', 'Caterpillar 325 Exc', '0'),
+('P304', ' Gipo Mag 2700 Vertical Shaft Impactor (Crusher)', '0'),
+('P319', 'Keestrack 230 Track Stacker', '0'),
+('P12', 'Perkins Generator Weighbridge', '0'),
+('P39', 'Powerscreen M100 Mobile Screen', '0'),
+('P79', 'Dredge 4Cyl Caterpillar & Goodwin Sand Pump', '0'),
+('P89', 'Powerscreen 620 Trommel', '0'),
+('P93', 'Stationary Trommel', '0'),
+('P99', 'Water Pump 471 Detroit Pump', '0'),
+('P140', 'Komatsu WA 500-3H Loader', '0'),
+('P147', 'Komatsu PC650-3 Exc', '0'),
+('P174', 'Hazemag Crushing Plant Crusher', '0'),
+('P177', 'MT 1440 Manitou Telehandler Forklift & Bucket', '0'),
+('P183', 'Nirox Mobile Trommel', '0'),
+('P198', 'Sand Wash Plant', '0'),
+('P215', 'L/P Stacker Conveyor', '0'),
+('P220', 'Komatsu D155A-6 Dozer', '0'),
+('P242', 'Power Screen 624 Trommel', '0'),
+('P243', 'Caterpillar 12H Grader', '0'),
+('P248', 'Komatsu WA 500-6 Loader', '0'),
+('P260', 'Komatsu PC850-8 Exc', '0'),
+('P285', 'Hyundai 320LC-9 Exc Fitted For GPS Complete Set', '0'),
+('P307', 'Keestrack Screen S166', '0'),
+('P311', 'Caterpillar 773D Watercart', '0'),
+('P333', 'Metso LT300HP Cone Crusher 43T', '0'),
+('Au1', 'Auger Drive 450mm, 750mm, 2 x 2.5m Extensions', '0') [42102-176]
+08-18 15:11:40 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE IF NOT EXISTS ""PLANTLIST"" (
+  ""PLANTNO"" VARCHAR(5) COLLATE[*] UTF8_UNICODE_CI NOT NULL,
+  ""PLANTDESC"" VARCHAR(80) COLLATE UTF8_UNICODE_CI NOT NULL,
+  ""RATE"" DECIMAL(10,0) NOT NULL
+) ENGINE=MYISAM DEFAULT CHARSET=UTF8 COLLATE=UTF8_UNICODE_CI "; expected "FOR, UNSIGNED, NOT, NULL, AS, DEFAULT, GENERATED, NOT, NULL, AUTO_INCREMENT, BIGSERIAL, SERIAL, IDENTITY, NULL_TO_DEFAULT, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, PRIMARY, UNIQUE, NOT, NULL, CHECK, REFERENCES, ,, )"; SQL statement:
+CREATE TABLE IF NOT EXISTS `PlantList` (
+  `PlantNo` varchar(5) COLLATE utf8_unicode_ci NOT NULL,
+  `PlantDesc` varchar(80) COLLATE utf8_unicode_ci NOT NULL,
+  `Rate` decimal(10,0) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci [42001-176]
+08-18 15:11:58 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE ""PLANTLIST"" (
+  ""PLANTNO"" VARCHAR(5) COLLATE[*] UTF8_UNICODE_CI NOT NULL,
+  ""PLANTDESC"" VARCHAR(80) COLLATE UTF8_UNICODE_CI NOT NULL,
+  ""RATE"" DECIMAL(10,0) NOT NULL
+) ENGINE=MYISAM DEFAULT CHARSET=UTF8 COLLATE=UTF8_UNICODE_CI "; expected "FOR, UNSIGNED, NOT, NULL, AS, DEFAULT, GENERATED, NOT, NULL, AUTO_INCREMENT, BIGSERIAL, SERIAL, IDENTITY, NULL_TO_DEFAULT, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, PRIMARY, UNIQUE, NOT, NULL, CHECK, REFERENCES, ,, )"; SQL statement:
+CREATE TABLE `PlantList` (
+  `PlantNo` varchar(5) COLLATE utf8_unicode_ci NOT NULL,
+  `PlantDesc` varchar(80) COLLATE utf8_unicode_ci NOT NULL,
+  `Rate` decimal(10,0) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci [42001-176]
+08-18 15:12:29 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE ""PLANTLIST"" (
+  ""PLANTNO"" VARCHAR(5)  NOT NULL,
+  ""PLANTDESC"" VARCHAR(80)  NOT NULL,
+  ""RATE"" DECIMAL(10,0) NOT NULL
+) DEFAULT CHARSET=UTF8 COLLATE[*]=UTF8_UNICODE_CI "; SQL statement:
+CREATE TABLE `PlantList` (
+  `PlantNo` varchar(5)  NOT NULL,
+  `PlantDesc` varchar(80)  NOT NULL,
+  `Rate` decimal(10,0) NOT NULL
+) DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci [42000-176]
+08-18 15:12:54 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "NSERT[*] INTO ""PLANTLIST"" (""PLANTNO"", ""PLANTDESC"", ""RATE"") VALUES
+('P01', 'Caterpillar 936 Loader Sand & Soil Yard', '0'),
+('U50', 'Mitsubishi 4T Single Axle Tipper Rego BI36EY', '0'),
+('U51', 'Mitsubishi 3T Single Axle Tipper Rego BZ32DN', '0'),
+('U52', 'Mitsubishi 3T Single Axle Tipper Rego BZ33DN', '0'),
+('U150', 'Feightliner Twin Steer Tipper Rego CD60ZZ', '0'),
+('U154', 'Freightliner Twin Steer Tipper AH83RP', '0'),
+('U153', 'Freightliner Twin Steer Tipper AH04RQ', '0'),
+('U53', 'Mistubishi 9T Single Axle Tipper Rego BZ60NI', '0'),
+('U54', 'Mistubishi 6T Single Axle  RegoCA93DI Skip Bin Truck', '0'),
+('U159', '12T Sterling CH50RS', '0'),
+('U160', '12T Sterling CI97DG', '0'),
+('U157', 'Sterling Bogie  Tipper AK86OE ', '0'),
+('U158', 'Sterling Bogie  Tipper CG80XG', '0'),
+('P20', 'Leader Watercart', '0'),
+('U31', 'Sterling Bogie  Tipper C73PT Retired to KC Yard', '0'),
+('P157', 'Volvo EC460BL Exc', '0'),
+('P158', 'Volvo EC460BL Exc', '0'),
+('P173', 'Extec S-6 Screen', '0'),
+('P195', 'Komatsu D375A-5 Dozer', '0'),
+('P200', 'Komatsu WA 470-6 Loader', '0'),
+('P201', 'Acco Watercart Kilometer', '0'),
+('P205', 'Komatsu WF550T-3 Compactor', '0'),
+('P209', 'Komatsu WA470-6 Loader', '0'),
+('P216', 'UD Watercart Bogie', '0'),
+('P217', 'UD Watercart', '0'),
+('P234', 'Metso Nordberg LT 1213S Impact Crusher', '0'),
+('P238', 'Komatsu WA 470-6 Loader', '0'),
+('P239', 'Komatsu WA 470-6 Loader', '0'),
+('P249', 'Komatsu WA 500-6 Loader', '0'),
+('P250', 'Volvo A40F Dump Truck', '0'),
+('P251', 'Volvo A40F Dump Truck', '0'),
+('P252', 'Caterpillar D8R Dozer', '0'),
+('P255', 'Komatsu WA 500-6 Loader', '0'),
+('P258', 'Komatsu D475A-5 Dozer', '0'),
+('P264', 'Caterpillar CS563 Smooth Drum 12T Roller', '0'),
+('P265', 'Caterpillar CP533 Padfoot 12T Roller', '0'),
+('P268', 'Hyundai R5.5-9 Exc', '0'),
+('P269', 'Hyundai R80CR-9 Exc', '0'),
+('P270', 'Hyundai R145CDR-9 Exc', '0'),
+('P273', 'Caterpillar  140M Grader Fitted For Gps', '0'),
+('P274', 'Caterpillar 12H Grader', '0'),
+('P275', 'Caterpillar CP533 Padfoot 12T Roller', '0'),
+('P277', 'Caterpillar CB14 Tandem Smooth Drum 1.4T Roller', '0'),
+('P278', 'Bobcat S590 ', '0'),
+('P279', 'Bobcat S650', '0'),
+('P280', 'Bobcat T650 Pozzi Track', '0'),
+('P282', 'Mitsubishi Watercart Single Axle Standpipe YREE0008', '0'),
+('P286', 'Caterpillar CB22  BK Tandem Smooth Drum 2.5T Roller', '0'),
+('P287', 'Caterpillar 345 Exc', '0'),
+('P290', 'Metso Locotrack LT 3054 Crusher', '0'),
+('P293', 'Komatsu HM 400-2 Dump Truck Tail Gate', '0'),
+('P299', 'Komatsu PC200 LC-8 Exc', '0'),
+('P303', 'Keestrack Frontier Screen', '0'),
+('P305', 'Keestrack Frontier Screen', '0'),
+('P306', 'Keestrack Frontier Screen', '0'),
+('P312', 'Caterpillar  CB22B Dual Smooth Drum Roller 2.5T', '0'),
+('P314', 'Bobcat T650 Pozzi Track', '0'),
+('P316', 'Komatsu WA480- Loader', '0'),
+('P320', 'Isuzu FVZ1400 13Kl Watercart Rego CH52RS', '0'),
+('P325', 'Caterpillar 980G Loader', '0'),
+('P327', 'Komatsu WA470-6', '0'),
+('P328', 'Isuzu  FVZ1400 13Kl Watercart Rego CF00YI', '0'),
+('P329', 'Caterpillar  IT62G Tool Carrier, Bucket,Man Basket,Forks & Jib', '0'),
+('P186', 'Extec S-5 Screen', '0'),
+('P206', 'Komatsu WA 470-6 Loader', '0'),
+('P212', 'Komatsu WA 380-6 Loader Traded for P327 27/11/15', '0'),
+('P297', 'Komatsu PC200 LC-8 Exc Grabs, Dig, B/Bucket, Sieve Bucket', '0'),
+('P309', 'Komatsu PC450LC-8 Case Drain', '0'),
+('P317', 'Keestrack Frontier Scalper Purchased from Sceenmaster 28/9/15', '0'),
+('P332', 'Keestrack Screen Purchased from Sceenmaster 23/4/16', '0'),
+('T07', 'Single Axle Tag Along Trailer Rego Z93797', '0'),
+('T08', 'Single Axle Tag Along Trailer Rego TA03UQ', '0'),
+('U57', 'Spare Site Clean Bogie - STEVE SEE CRYSTAL', '0'),
+('P133', 'Volvo A30D  Dump Truck', '0'),
+('P148', 'Metso Nordberg NP 1213-m Impactor Crusher', '0'),
+('P150', 'Volvo A30D Dump Truck', '0'),
+('P184', 'Extec S-5 Screen  ( In Grave Yard )', '0'),
+('P199', 'Adelaide Chieftain 1400 Screen', '0'),
+('P221', 'Finlay 7702002 Trommel', '0'),
+('P266', 'Caterpillar 825H Compactor', '0'),
+('P267', 'Hyundai R5.5-9 Exc', '0'),
+('P271', 'Hyundai R235LCR-9 Exc', '0'),
+('P272', 'Caterpillar 140M Grader', '0'),
+('P276', 'Cat CS573 Smooth Drum Roller 14T', '0'),
+('P281', 'Mitsubishi Watercart Single Axle Standpipe YREE0007', '0'),
+('P284', 'Hyundai 320LC-9 Exc', '0'),
+('P291', 'Komatsu HM 400-2 Dump Truck NoTail Gate', '0'),
+('P292', 'Komatsu HM 400-2 Dump Truck Tail Gate', '0'),
+('P295', 'Komatsu PC138-8 US Exc', '0'),
+('P301', 'Caterpillar D10N Dozer', '0'),
+('P308', 'Komatsu PC450LC-8', '0'),
+('P310', 'Komatsu GD655 Grader Fitted For Gps', '0'),
+('P318', 'Volvo EC480DL Excavator Fitted For Gps', '0'),
+('P326', 'Caterpiller D11T Dozer', '0'),
+('Allco', '6"" Pump, 200m Delivery Line, 12m Suction Line C/W Foot Valve', '0'),
+('P126', 'Hitachi ZX 480 Exc', '0'),
+('P181', 'Chieftain EG 2100 Screen', '0'),
+('P190', 'Komatsu PC450-8 LC Exc', '0'),
+('P207', 'Komatsu WA 470-6 Loader', '0'),
+('P229', 'Metso LT7150 Barmac Crusher Sold/Traded', '0'),
+('P237', 'Komatsu WA 470-6 Loader', '0'),
+('P246', 'Screenmaster Frontier Scalper (Keestrac) Screen', '0'),
+('P289', 'Metso Nordberg LT 1315S Impact Crusher', '0'),
+('P298', 'Komatsu PC270 LC-8 Exc Dig & Batter Buckets Remeadiation', '0'),
+('P331', 'Keestrack 1313S Impact Crusher', '0'),
+('P26', '5140 Case Tractor', '0'),
+('P153', '4 Cyl GM Pump 150mm Self Priming', '0'),
+('P155', 'Komatsu D85 Dozer', '0'),
+('P176', 'Perkins & 100mm Water Pump', '0'),
+('P190A', 'Yanmar Diesel Flex Drive Pump', '0'),
+('P210', 'Komatsu PC450-7 Excavator', '0'),
+('P219', 'Sline Water Cart', '0'),
+('P232', 'Deutz 100mm Water Pump', '0'),
+('U274', 'Caterpillar 12H Grader', '0'),
+('P302', 'Aston Atomiser 1600', '0'),
+('P315', 'Caterpillar 836H Trash Compactor', '0'),
+('U221', 'Service Truck 4 x 4 C/W Tools (Tools List In Plant Folder W''shop Office)', '0'),
+('P143', 'Weighbridge Gen Set (in Container 25KVA)', '0'),
+('P142', 'Diesel 6"" Pump House Pump', '0'),
+('P178', 'MT 1440 Manitou Tele Handler Forklift & Bucket', '0'),
+('P179', 'Washery Gen Set 1135 KVA', '0'),
+('P182', 'Caterpillar Water Pump 150mm x 125mm', '0'),
+('P123', 'Ford 900 Watercart', '0'),
+('P228', '4 Cyl Ford Motor & Grundfos Water Pump', '0'),
+('P253', 'Tesab Jaw Crusher', '0'),
+('Attac', 'Dig Bucket & Ripper For P287', '0'),
+('P288', 'Caterpillar 815F Compactor', '0'),
+('P135', 'Genset #2 Runs P151  Wash Pant', '0'),
+('P144', 'TQS Mobile Radial Stacker S-62685 Conveyor (Fixed Plant Item)', '0'),
+('P162', 'Diesel Generator', '0'),
+('P163', 'Cummins 100 KVA Genset & 6"" Submersable Pump', '0'),
+('P208', 'Komatsu WA 470-6 Loader', '0'),
+('P222', 'Komatsu PC710-5 Exc Long Reach', '0'),
+('P240', 'Komatsu PC800-6 Exc', '0'),
+('P241', 'Track Stacker Conveyor', '0'),
+('P245', 'VSI 2000 (Blown Motor) Crusher', '0'),
+('P283', 'Iveco Watercart Kilometer', '0'),
+('P294', 'Caterpillar D11R Dozer', '0'),
+('P300', 'Caterpillar 325 Exc', '0'),
+('P304', ' Gipo Mag 2700 Vertical Shaft Impactor (Crusher)', '0'),
+('P319', 'Keestrack 230 Track Stacker', '0'),
+('P12', 'Perkins Generator Weighbridge', '0'),
+('P39', 'Powerscreen M100 Mobile Screen', '0'),
+('P79', 'Dredge 4Cyl Caterpillar & Goodwin Sand Pump', '0'),
+('P89', 'Powerscreen 620 Trommel', '0'),
+('P93', 'Stationary Trommel', '0'),
+('P99', 'Water Pump 471 Detroit Pump', '0'),
+('P140', 'Komatsu WA 500-3H Loader', '0'),
+('P147', 'Komatsu PC650-3 Exc', '0'),
+('P174', 'Hazemag Crushing Plant Crusher', '0'),
+('P177', 'MT 1440 Manitou Telehandler Forklift & Bucket', '0'),
+('P183', 'Nirox Mobile Trommel', '0'),
+('P198', 'Sand Wash Plant', '0'),
+('P215', 'L/P Stacker Conveyor', '0'),
+('P220', 'Komatsu D155A-6 Dozer', '0'),
+('P242', 'Power Screen 624 Trommel', '0'),
+('P243', 'Caterpillar 12H Grader', '0'),
+('P248', 'Komatsu WA 500-6 Loader', '0'),
+('P260', 'Komatsu PC850-8 Exc', '0'),
+('P285', 'Hyundai 320LC-9 Exc Fitted For GPS Complete Set', '0'),
+('P307', 'Keestrack Screen S166', '0'),
+('P311', 'Caterpillar 773D Watercart', '0'),
+('P333', 'Metso LT300HP Cone Crusher 43T', '0'),
+('Au1', 'Auger Drive 450mm, 750mm, 2 x 2.5m Extensions', '0') "; SQL statement:
+NSERT INTO `PlantList` (`PlantNo`, `PlantDesc`, `Rate`) VALUES
+('P01', 'Caterpillar 936 Loader Sand & Soil Yard', '0'),
+('U50', 'Mitsubishi 4T Single Axle Tipper Rego BI36EY', '0'),
+('U51', 'Mitsubishi 3T Single Axle Tipper Rego BZ32DN', '0'),
+('U52', 'Mitsubishi 3T Single Axle Tipper Rego BZ33DN', '0'),
+('U150', 'Feightliner Twin Steer Tipper Rego CD60ZZ', '0'),
+('U154', 'Freightliner Twin Steer Tipper AH83RP', '0'),
+('U153', 'Freightliner Twin Steer Tipper AH04RQ', '0'),
+('U53', 'Mistubishi 9T Single Axle Tipper Rego BZ60NI', '0'),
+('U54', 'Mistubishi 6T Single Axle  RegoCA93DI Skip Bin Truck', '0'),
+('U159', '12T Sterling CH50RS', '0'),
+('U160', '12T Sterling CI97DG', '0'),
+('U157', 'Sterling Bogie  Tipper AK86OE ', '0'),
+('U158', 'Sterling Bogie  Tipper CG80XG', '0'),
+('P20', 'Leader Watercart', '0'),
+('U31', 'Sterling Bogie  Tipper C73PT Retired to KC Yard', '0'),
+('P157', 'Volvo EC460BL Exc', '0'),
+('P158', 'Volvo EC460BL Exc', '0'),
+('P173', 'Extec S-6 Screen', '0'),
+('P195', 'Komatsu D375A-5 Dozer', '0'),
+('P200', 'Komatsu WA 470-6 Loader', '0'),
+('P201', 'Acco Watercart Kilometer', '0'),
+('P205', 'Komatsu WF550T-3 Compactor', '0'),
+('P209', 'Komatsu WA470-6 Loader', '0'),
+('P216', 'UD Watercart Bogie', '0'),
+('P217', 'UD Watercart', '0'),
+('P234', 'Metso Nordberg LT 1213S Impact Crusher', '0'),
+('P238', 'Komatsu WA 470-6 Loader', '0'),
+('P239', 'Komatsu WA 470-6 Loader', '0'),
+('P249', 'Komatsu WA 500-6 Loader', '0'),
+('P250', 'Volvo A40F Dump Truck', '0'),
+('P251', 'Volvo A40F Dump Truck', '0'),
+('P252', 'Caterpillar D8R Dozer', '0'),
+('P255', 'Komatsu WA 500-6 Loader', '0'),
+('P258', 'Komatsu D475A-5 Dozer', '0'),
+('P264', 'Caterpillar CS563 Smooth Drum 12T Roller', '0'),
+('P265', 'Caterpillar CP533 Padfoot 12T Roller', '0'),
+('P268', 'Hyundai R5.5-9 Exc', '0'),
+('P269', 'Hyundai R80CR-9 Exc', '0'),
+('P270', 'Hyundai R145CDR-9 Exc', '0'),
+('P273', 'Caterpillar  140M Grader Fitted For Gps', '0'),
+('P274', 'Caterpillar 12H Grader', '0'),
+('P275', 'Caterpillar CP533 Padfoot 12T Roller', '0'),
+('P277', 'Caterpillar CB14 Tandem Smooth Drum 1.4T Roller', '0'),
+('P278', 'Bobcat S590 ', '0'),
+('P279', 'Bobcat S650', '0'),
+('P280', 'Bobcat T650 Pozzi Track', '0'),
+('P282', 'Mitsubishi Watercart Single Axle Standpipe YREE0008', '0'),
+('P286', 'Caterpillar CB22  BK Tandem Smooth Drum 2.5T Roller', '0'),
+('P287', 'Caterpillar 345 Exc', '0'),
+('P290', 'Metso Locotrack LT 3054 Crusher', '0'),
+('P293', 'Komatsu HM 400-2 Dump Truck Tail Gate', '0'),
+('P299', 'Komatsu PC200 LC-8 Exc', '0'),
+('P303', 'Keestrack Frontier Screen', '0'),
+('P305', 'Keestrack Frontier Screen', '0'),
+('P306', 'Keestrack Frontier Screen', '0'),
+('P312', 'Caterpillar  CB22B Dual Smooth Drum Roller 2.5T', '0'),
+('P314', 'Bobcat T650 Pozzi Track', '0'),
+('P316', 'Komatsu WA480- Loader', '0'),
+('P320', 'Isuzu FVZ1400 13Kl Watercart Rego CH52RS', '0'),
+('P325', 'Caterpillar 980G Loader', '0'),
+('P327', 'Komatsu WA470-6', '0'),
+('P328', 'Isuzu  FVZ1400 13Kl Watercart Rego CF00YI', '0'),
+('P329', 'Caterpillar  IT62G Tool Carrier, Bucket,Man Basket,Forks & Jib', '0'),
+('P186', 'Extec S-5 Screen', '0'),
+('P206', 'Komatsu WA 470-6 Loader', '0'),
+('P212', 'Komatsu WA 380-6 Loader Traded for P327 27/11/15', '0'),
+('P297', 'Komatsu PC200 LC-8 Exc Grabs, Dig, B/Bucket, Sieve Bucket', '0'),
+('P309', 'Komatsu PC450LC-8 Case Drain', '0'),
+('P317', 'Keestrack Frontier Scalper Purchased from Sceenmaster 28/9/15', '0'),
+('P332', 'Keestrack Screen Purchased from Sceenmaster 23/4/16', '0'),
+('T07', 'Single Axle Tag Along Trailer Rego Z93797', '0'),
+('T08', 'Single Axle Tag Along Trailer Rego TA03UQ', '0'),
+('U57', 'Spare Site Clean Bogie - STEVE SEE CRYSTAL', '0'),
+('P133', 'Volvo A30D  Dump Truck', '0'),
+('P148', 'Metso Nordberg NP 1213-m Impactor Crusher', '0'),
+('P150', 'Volvo A30D Dump Truck', '0'),
+('P184', 'Extec S-5 Screen  ( In Grave Yard )', '0'),
+('P199', 'Adelaide Chieftain 1400 Screen', '0'),
+('P221', 'Finlay 7702002 Trommel', '0'),
+('P266', 'Caterpillar 825H Compactor', '0'),
+('P267', 'Hyundai R5.5-9 Exc', '0'),
+('P271', 'Hyundai R235LCR-9 Exc', '0'),
+('P272', 'Caterpillar 140M Grader', '0'),
+('P276', 'Cat CS573 Smooth Drum Roller 14T', '0'),
+('P281', 'Mitsubishi Watercart Single Axle Standpipe YREE0007', '0'),
+('P284', 'Hyundai 320LC-9 Exc', '0'),
+('P291', 'Komatsu HM 400-2 Dump Truck NoTail Gate', '0'),
+('P292', 'Komatsu HM 400-2 Dump Truck Tail Gate', '0'),
+('P295', 'Komatsu PC138-8 US Exc', '0'),
+('P301', 'Caterpillar D10N Dozer', '0'),
+('P308', 'Komatsu PC450LC-8', '0'),
+('P310', 'Komatsu GD655 Grader Fitted For Gps', '0'),
+('P318', 'Volvo EC480DL Excavator Fitted For Gps', '0'),
+('P326', 'Caterpiller D11T Dozer', '0'),
+('Allco', '6" Pump, 200m Delivery Line, 12m Suction Line C/W Foot Valve', '0'),
+('P126', 'Hitachi ZX 480 Exc', '0'),
+('P181', 'Chieftain EG 2100 Screen', '0'),
+('P190', 'Komatsu PC450-8 LC Exc', '0'),
+('P207', 'Komatsu WA 470-6 Loader', '0'),
+('P229', 'Metso LT7150 Barmac Crusher Sold/Traded', '0'),
+('P237', 'Komatsu WA 470-6 Loader', '0'),
+('P246', 'Screenmaster Frontier Scalper (Keestrac) Screen', '0'),
+('P289', 'Metso Nordberg LT 1315S Impact Crusher', '0'),
+('P298', 'Komatsu PC270 LC-8 Exc Dig & Batter Buckets Remeadiation', '0'),
+('P331', 'Keestrack 1313S Impact Crusher', '0'),
+('P26', '5140 Case Tractor', '0'),
+('P153', '4 Cyl GM Pump 150mm Self Priming', '0'),
+('P155', 'Komatsu D85 Dozer', '0'),
+('P176', 'Perkins & 100mm Water Pump', '0'),
+('P190A', 'Yanmar Diesel Flex Drive Pump', '0'),
+('P210', 'Komatsu PC450-7 Excavator', '0'),
+('P219', 'Sline Water Cart', '0'),
+('P232', 'Deutz 100mm Water Pump', '0'),
+('U274', 'Caterpillar 12H Grader', '0'),
+('P302', 'Aston Atomiser 1600', '0'),
+('P315', 'Caterpillar 836H Trash Compactor', '0'),
+('U221', 'Service Truck 4 x 4 C/W Tools (Tools List In Plant Folder W''shop Office)', '0'),
+('P143', 'Weighbridge Gen Set (in Container 25KVA)', '0'),
+('P142', 'Diesel 6" Pump House Pump', '0'),
+('P178', 'MT 1440 Manitou Tele Handler Forklift & Bucket', '0'),
+('P179', 'Washery Gen Set 1135 KVA', '0'),
+('P182', 'Caterpillar Water Pump 150mm x 125mm', '0'),
+('P123', 'Ford 900 Watercart', '0'),
+('P228', '4 Cyl Ford Motor & Grundfos Water Pump', '0'),
+('P253', 'Tesab Jaw Crusher', '0'),
+('Attac', 'Dig Bucket & Ripper For P287', '0'),
+('P288', 'Caterpillar 815F Compactor', '0'),
+('P135', 'Genset #2 Runs P151  Wash Pant', '0'),
+('P144', 'TQS Mobile Radial Stacker S-62685 Conveyor (Fixed Plant Item)', '0'),
+('P162', 'Diesel Generator', '0'),
+('P163', 'Cummins 100 KVA Genset & 6" Submersable Pump', '0'),
+('P208', 'Komatsu WA 470-6 Loader', '0'),
+('P222', 'Komatsu PC710-5 Exc Long Reach', '0'),
+('P240', 'Komatsu PC800-6 Exc', '0'),
+('P241', 'Track Stacker Conveyor', '0'),
+('P245', 'VSI 2000 (Blown Motor) Crusher', '0'),
+('P283', 'Iveco Watercart Kilometer', '0'),
+('P294', 'Caterpillar D11R Dozer', '0'),
+('P300', 'Caterpillar 325 Exc', '0'),
+('P304', ' Gipo Mag 2700 Vertical Shaft Impactor (Crusher)', '0'),
+('P319', 'Keestrack 230 Track Stacker', '0'),
+('P12', 'Perkins Generator Weighbridge', '0'),
+('P39', 'Powerscreen M100 Mobile Screen', '0'),
+('P79', 'Dredge 4Cyl Caterpillar & Goodwin Sand Pump', '0'),
+('P89', 'Powerscreen 620 Trommel', '0'),
+('P93', 'Stationary Trommel', '0'),
+('P99', 'Water Pump 471 Detroit Pump', '0'),
+('P140', 'Komatsu WA 500-3H Loader', '0'),
+('P147', 'Komatsu PC650-3 Exc', '0'),
+('P174', 'Hazemag Crushing Plant Crusher', '0'),
+('P177', 'MT 1440 Manitou Telehandler Forklift & Bucket', '0'),
+('P183', 'Nirox Mobile Trommel', '0'),
+('P198', 'Sand Wash Plant', '0'),
+('P215', 'L/P Stacker Conveyor', '0'),
+('P220', 'Komatsu D155A-6 Dozer', '0'),
+('P242', 'Power Screen 624 Trommel', '0'),
+('P243', 'Caterpillar 12H Grader', '0'),
+('P248', 'Komatsu WA 500-6 Loader', '0'),
+('P260', 'Komatsu PC850-8 Exc', '0'),
+('P285', 'Hyundai 320LC-9 Exc Fitted For GPS Complete Set', '0'),
+('P307', 'Keestrack Screen S166', '0'),
+('P311', 'Caterpillar 773D Watercart', '0'),
+('P333', 'Metso LT300HP Cone Crusher 43T', '0'),
+('Au1', 'Auger Drive 450mm, 750mm, 2 x 2.5m Extensions', '0') [42000-176]
+08-18 15:14:06 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE ""PLANTUTILIZATION"" (
+  ""SITEID"" INT(11) NOT NULL,
+  ""PLANTNO"" VARCHAR(4) COLLATE[*] UTF8_UNICODE_CI NOT NULL,
+  ""PLANTDESC"" VARCHAR(80) COLLATE UTF8_UNICODE_CI NOT NULL,
+  ""STARTHOURS"" INT(6) DEFAULT NULL,
+  ""ENDHOURS"" INT(6) DEFAULT NULL,
+  ""FUEL"" DOUBLE DEFAULT NULL,
+  ""NOTES"" VARCHAR(80) COLLATE UTF8_UNICODE_CI NOT NULL,
+  ""DATEFOR"" DATE NOT NULL,
+  ""FLAG"" TINYINT(1) NOT NULL
+) "; expected "FOR, UNSIGNED, NOT, NULL, AS, DEFAULT, GENERATED, NOT, NULL, AUTO_INCREMENT, BIGSERIAL, SERIAL, IDENTITY, NULL_TO_DEFAULT, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, PRIMARY, UNIQUE, NOT, NULL, CHECK, REFERENCES, ,, )"; SQL statement:
+CREATE TABLE `PlantUtilization` (
+  `SiteID` int(11) NOT NULL,
+  `PlantNo` varchar(4) COLLATE utf8_unicode_ci NOT NULL,
+  `PlantDesc` varchar(80) COLLATE utf8_unicode_ci NOT NULL,
+  `StartHours` int(6) DEFAULT NULL,
+  `EndHours` int(6) DEFAULT NULL,
+  `Fuel` double DEFAULT NULL,
+  `Notes` varchar(80) COLLATE utf8_unicode_ci NOT NULL,
+  `DateFor` date NOT NULL,
+  `flag` tinyint(1) NOT NULL
+) [42001-176]
+08-18 15:16:34 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Cannot parse "DATE" constant "0000-00-00"; SQL statement:
+INSERT INTO `PlantUtilization` (`SiteID`, `PlantNo`, `PlantDesc`, `StartHours`, `EndHours`, `Fuel`, `Notes`, `DateFor`, `flag`) VALUES
+(1, 'P133', 'Dump Truck', 11034, 0, 343.32, '', '0000-00-00', 0),
+(2, 'P135', 'Genset - Washplant', 10203, 0, 1849.56, '', '0000-00-00', 0),
+(5, 'P144', 'Mobile Radial Stacker ', 6490, 0, 170.67, '', '0000-00-00', 0),
+(6, 'P150', 'Dump Truck ', 9680, 0, 139.22, '', '0000-00-00', 0),
+(7, 'P151', 'Wash Plant ', 0, 0, 0, '', '0000-00-00', 0),
+(53, 'P135', 'Genset #2 Runs P151  Wash Pant', NULL, NULL, NULL, '', '0000-00-00', 0),
+(9, 'P178', 'Manitou ', 1905, 0, 0, '', '0000-00-00', 0),
+(51, 'P243', 'Caterpillar 12H Grader', 248, 255, 0, 'I am glad you like my app', '0000-00-00', 0),
+(11, 'P209', 'Loader', 10548, 10578, 0, '', '0000-00-00', 0) -- (1, 'P133', 'Dump Truck', 11034, 0, 343.32, '', '0000-00-00', 0) [22007-176]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:344)
+	at org.h2.message.DbException.get(DbException.java:167)
+	at org.h2.value.ValueDate.parse(ValueDate.java:71)
+	at org.h2.value.Value.convertTo(Value.java:860)
+	at org.h2.table.Column.convert(Column.java:151)
+	at org.h2.command.dml.Insert.insertRows(Insert.java:144)
+	at org.h2.command.dml.Insert.update(Insert.java:115)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:79)
+	at org.h2.command.Command.executeUpdate(Command.java:254)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:186)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:160)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1391)
+	at org.h2.server.web.WebApp.query(WebApp.java:1064)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1026)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1013)
+	at org.h2.server.web.WebThread.process(WebThread.java:168)
+	at org.h2.server.web.WebThread.run(WebThread.java:94)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.IllegalArgumentException: 0-0-0
+	at org.h2.util.DateTimeUtils.parseDateValue(DateTimeUtils.java:279)
+	at org.h2.value.ValueDate.parse(ValueDate.java:69)
+	... 15 more
+08-18 15:16:59 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Cannot parse "DATE" constant "0000-00-00"; SQL statement:
+INSERT INTO `PlantUtilization` (`SiteID`, `PlantNo`, `PlantDesc`, `StartHours`, `EndHours`, `Fuel`, `Notes`, `DateFor`, `flag`) VALUES
+(1, 'P133', 'Dump Truck', 11034, 0, 343.32, '', '0000-00-00', 0),
+(2, 'P135', 'Genset - Washplant', 10203, 0, 1849.56, '', '0000-00-00', 0),
+(5, 'P144', 'Mobile Radial Stacker ', 6490, 0, 170.67, '', '0000-00-00', 0),
+(6, 'P150', 'Dump Truck ', 9680, 0, 139.22, '', '0000-00-00', 0),
+(7, 'P151', 'Wash Plant ', 0, 0, 0, '', '0000-00-00', 0),
+(53, 'P135', 'Genset #2 Runs P151  Wash Pant', NULL, NULL, NULL, '', '0000-00-00', 0),
+(9, 'P178', 'Manitou ', 1905, 0, 0, '', '0000-00-00', 0),
+(51, 'P243', 'Caterpillar 12H Grader', 248, 255, 0, 'I am glad you like my app', '0000-00-00', 0),
+(11, 'P209', 'Loader', 10548, 10578, 0, '', '0000-00-00', 0) -- (1, 'P133', 'Dump Truck', 11034, 0, 343.32, '', '0000-00-00', 0) [22007-176]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:344)
+	at org.h2.message.DbException.get(DbException.java:167)
+	at org.h2.value.ValueDate.parse(ValueDate.java:71)
+	at org.h2.value.Value.convertTo(Value.java:860)
+	at org.h2.table.Column.convert(Column.java:151)
+	at org.h2.command.dml.Insert.insertRows(Insert.java:144)
+	at org.h2.command.dml.Insert.update(Insert.java:115)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:79)
+	at org.h2.command.Command.executeUpdate(Command.java:254)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:186)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:160)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1391)
+	at org.h2.server.web.WebApp.query(WebApp.java:1064)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1026)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1013)
+	at org.h2.server.web.WebThread.process(WebThread.java:168)
+	at org.h2.server.web.WebThread.run(WebThread.java:94)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.IllegalArgumentException: 0-0-0
+	at org.h2.util.DateTimeUtils.parseDateValue(DateTimeUtils.java:279)
+	at org.h2.value.ValueDate.parse(ValueDate.java:69)
+	... 15 more
+08-18 15:17:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Cannot parse "DATE" constant "0000-00-00"; SQL statement:
+INSERT INTO `PlantUtilization` (`SiteID`, `PlantNo`, `PlantDesc`, `StartHours`, `EndHours`, `Fuel`, `Notes`, `DateFor`, `flag`) VALUES
+(1, 'P133', 'Dump Truck', 11034, 0, 343.32, '', '0000-00-00', 0),
+(2, 'P135', 'Genset - Washplant', 10203, 0, 1849.56, '', '0000-00-00', 0),
+(5, 'P144', 'Mobile Radial Stacker ', 6490, 0, 170.67, '', '0000-00-00', 0),
+(6, 'P150', 'Dump Truck ', 9680, 0, 139.22, '', '0000-00-00', 0),
+(7, 'P151', 'Wash Plant ', 0, 0, 0, '', '0000-00-00', 0),
+(53, 'P135', 'Genset #2 Runs P151  Wash Pant', NULL, NULL, NULL, '', '0000-00-00', 0),
+(9, 'P178', 'Manitou ', 1905, 0, 0, '', '0000-00-00', 0),
+(51, 'P243', 'Caterpillar 12H Grader', 248, 255, 0, 'I am glad you like my app', '0000-00-00', 0),
+(11, 'P209', 'Loader', 10548, 10578, 0, '', '0000-00-00', 0) -- (1, 'P133', 'Dump Truck', 11034, 0, 343.32, '', '0000-00-00', 0) [22007-176]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:344)
+	at org.h2.message.DbException.get(DbException.java:167)
+	at org.h2.value.ValueDate.parse(ValueDate.java:71)
+	at org.h2.value.Value.convertTo(Value.java:860)
+	at org.h2.table.Column.convert(Column.java:151)
+	at org.h2.command.dml.Insert.insertRows(Insert.java:144)
+	at org.h2.command.dml.Insert.update(Insert.java:115)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:79)
+	at org.h2.command.Command.executeUpdate(Command.java:254)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:186)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:160)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1391)
+	at org.h2.server.web.WebApp.query(WebApp.java:1064)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1026)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1013)
+	at org.h2.server.web.WebThread.process(WebThread.java:168)
+	at org.h2.server.web.WebThread.run(WebThread.java:94)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.IllegalArgumentException: 0-0-0
+	at org.h2.util.DateTimeUtils.parseDateValue(DateTimeUtils.java:279)
+	at org.h2.value.ValueDate.parse(ValueDate.java:69)
+	... 15 more
+08-18 15:17:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Cannot parse "DATE" constant "0000-00-00"; SQL statement:
+INSERT INTO `PlantUtilization` (`SiteID`, `PlantNo`, `PlantDesc`, `StartHours`, `EndHours`, `Fuel`, `Notes`, `DateFor`, `flag`) VALUES
+(1, 'P133', 'Dump Truck', 11034, 0, 343.32, '', '0000-00-00', 0),
+(2, 'P135', 'Genset - Washplant', 10203, 0, 1849.56, '', '0000-00-00', 0),
+(5, 'P144', 'Mobile Radial Stacker ', 6490, 0, 170.67, '', '0000-00-00', 0),
+(6, 'P150', 'Dump Truck ', 9680, 0, 139.22, '', '0000-00-00', 0),
+(7, 'P151', 'Wash Plant ', 0, 0, 0, '', '0000-00-00', 0),
+(53, 'P135', 'Genset #2 Runs P151  Wash Pant', NULL, NULL, NULL, '', '0000-00-00', 0),
+(9, 'P178', 'Manitou ', 1905, 0, 0, '', '0000-00-00', 0),
+(51, 'P243', 'Caterpillar 12H Grader', 248, 255, 0, 'I am glad you like my app', '0000-00-00', 0),
+(11, 'P209', 'Loader', 10548, 10578, 0, '', '0000-00-00', 0) -- (1, 'P133', 'Dump Truck', 11034, 0, 343.32, '', '0000-00-00', 0) [22007-176]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:344)
+	at org.h2.message.DbException.get(DbException.java:167)
+	at org.h2.value.ValueDate.parse(ValueDate.java:71)
+	at org.h2.value.Value.convertTo(Value.java:860)
+	at org.h2.table.Column.convert(Column.java:151)
+	at org.h2.command.dml.Insert.insertRows(Insert.java:144)
+	at org.h2.command.dml.Insert.update(Insert.java:115)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:79)
+	at org.h2.command.Command.executeUpdate(Command.java:254)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:186)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:160)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1391)
+	at org.h2.server.web.WebApp.query(WebApp.java:1064)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1026)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1013)
+	at org.h2.server.web.WebThread.process(WebThread.java:168)
+	at org.h2.server.web.WebThread.run(WebThread.java:94)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.IllegalArgumentException: 0-0-0
+	at org.h2.util.DateTimeUtils.parseDateValue(DateTimeUtils.java:279)
+	at org.h2.value.ValueDate.parse(ValueDate.java:69)
+	... 15 more
+08-18 15:17:01 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Cannot parse "DATE" constant "0000-00-00"; SQL statement:
+INSERT INTO `PlantUtilization` (`SiteID`, `PlantNo`, `PlantDesc`, `StartHours`, `EndHours`, `Fuel`, `Notes`, `DateFor`, `flag`) VALUES
+(1, 'P133', 'Dump Truck', 11034, 0, 343.32, '', '0000-00-00', 0),
+(2, 'P135', 'Genset - Washplant', 10203, 0, 1849.56, '', '0000-00-00', 0),
+(5, 'P144', 'Mobile Radial Stacker ', 6490, 0, 170.67, '', '0000-00-00', 0),
+(6, 'P150', 'Dump Truck ', 9680, 0, 139.22, '', '0000-00-00', 0),
+(7, 'P151', 'Wash Plant ', 0, 0, 0, '', '0000-00-00', 0),
+(53, 'P135', 'Genset #2 Runs P151  Wash Pant', NULL, NULL, NULL, '', '0000-00-00', 0),
+(9, 'P178', 'Manitou ', 1905, 0, 0, '', '0000-00-00', 0),
+(51, 'P243', 'Caterpillar 12H Grader', 248, 255, 0, 'I am glad you like my app', '0000-00-00', 0),
+(11, 'P209', 'Loader', 10548, 10578, 0, '', '0000-00-00', 0) -- (1, 'P133', 'Dump Truck', 11034, 0, 343.32, '', '0000-00-00', 0) [22007-176]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:344)
+	at org.h2.message.DbException.get(DbException.java:167)
+	at org.h2.value.ValueDate.parse(ValueDate.java:71)
+	at org.h2.value.Value.convertTo(Value.java:860)
+	at org.h2.table.Column.convert(Column.java:151)
+	at org.h2.command.dml.Insert.insertRows(Insert.java:144)
+	at org.h2.command.dml.Insert.update(Insert.java:115)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:79)
+	at org.h2.command.Command.executeUpdate(Command.java:254)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:186)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:160)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1391)
+	at org.h2.server.web.WebApp.query(WebApp.java:1064)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1026)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1013)
+	at org.h2.server.web.WebThread.process(WebThread.java:168)
+	at org.h2.server.web.WebThread.run(WebThread.java:94)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.IllegalArgumentException: 0-0-0
+	at org.h2.util.DateTimeUtils.parseDateValue(DateTimeUtils.java:279)
+	at org.h2.value.ValueDate.parse(ValueDate.java:69)
+	... 15 more
+08-18 15:17:01 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Cannot parse "DATE" constant "0000-00-00"; SQL statement:
+INSERT INTO `PlantUtilization` (`SiteID`, `PlantNo`, `PlantDesc`, `StartHours`, `EndHours`, `Fuel`, `Notes`, `DateFor`, `flag`) VALUES
+(1, 'P133', 'Dump Truck', 11034, 0, 343.32, '', '0000-00-00', 0),
+(2, 'P135', 'Genset - Washplant', 10203, 0, 1849.56, '', '0000-00-00', 0),
+(5, 'P144', 'Mobile Radial Stacker ', 6490, 0, 170.67, '', '0000-00-00', 0),
+(6, 'P150', 'Dump Truck ', 9680, 0, 139.22, '', '0000-00-00', 0),
+(7, 'P151', 'Wash Plant ', 0, 0, 0, '', '0000-00-00', 0),
+(53, 'P135', 'Genset #2 Runs P151  Wash Pant', NULL, NULL, NULL, '', '0000-00-00', 0),
+(9, 'P178', 'Manitou ', 1905, 0, 0, '', '0000-00-00', 0),
+(51, 'P243', 'Caterpillar 12H Grader', 248, 255, 0, 'I am glad you like my app', '0000-00-00', 0),
+(11, 'P209', 'Loader', 10548, 10578, 0, '', '0000-00-00', 0) -- (1, 'P133', 'Dump Truck', 11034, 0, 343.32, '', '0000-00-00', 0) [22007-176]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:344)
+	at org.h2.message.DbException.get(DbException.java:167)
+	at org.h2.value.ValueDate.parse(ValueDate.java:71)
+	at org.h2.value.Value.convertTo(Value.java:860)
+	at org.h2.table.Column.convert(Column.java:151)
+	at org.h2.command.dml.Insert.insertRows(Insert.java:144)
+	at org.h2.command.dml.Insert.update(Insert.java:115)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:79)
+	at org.h2.command.Command.executeUpdate(Command.java:254)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:186)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:160)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1391)
+	at org.h2.server.web.WebApp.query(WebApp.java:1064)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1026)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1013)
+	at org.h2.server.web.WebThread.process(WebThread.java:168)
+	at org.h2.server.web.WebThread.run(WebThread.java:94)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.IllegalArgumentException: 0-0-0
+	at org.h2.util.DateTimeUtils.parseDateValue(DateTimeUtils.java:279)
+	at org.h2.value.ValueDate.parse(ValueDate.java:69)
+	... 15 more
+08-18 15:17:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Cannot parse "DATE" constant "0000-00-00"; SQL statement:
+INSERT INTO `PlantUtilization` (`SiteID`, `PlantNo`, `PlantDesc`, `StartHours`, `EndHours`, `Fuel`, `Notes`, `DateFor`, `flag`) VALUES
+(1, 'P133', 'Dump Truck', 11034, 0, 343.32, '', '0000-00-00', 0),
+(2, 'P135', 'Genset - Washplant', 10203, 0, 1849.56, '', '0000-00-00', 0),
+(5, 'P144', 'Mobile Radial Stacker ', 6490, 0, 170.67, '', '0000-00-00', 0),
+(6, 'P150', 'Dump Truck ', 9680, 0, 139.22, '', '0000-00-00', 0),
+(7, 'P151', 'Wash Plant ', 0, 0, 0, '', '0000-00-00', 0),
+(53, 'P135', 'Genset #2 Runs P151  Wash Pant', NULL, NULL, NULL, '', '0000-00-00', 0),
+(9, 'P178', 'Manitou ', 1905, 0, 0, '', '0000-00-00', 0),
+(51, 'P243', 'Caterpillar 12H Grader', 248, 255, 0, 'I am glad you like my app', '0000-00-00', 0),
+(11, 'P209', 'Loader', 10548, 10578, 0, '', '0000-00-00', 0) -- (1, 'P133', 'Dump Truck', 11034, 0, 343.32, '', '0000-00-00', 0) [22007-176]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:344)
+	at org.h2.message.DbException.get(DbException.java:167)
+	at org.h2.value.ValueDate.parse(ValueDate.java:71)
+	at org.h2.value.Value.convertTo(Value.java:860)
+	at org.h2.table.Column.convert(Column.java:151)
+	at org.h2.command.dml.Insert.insertRows(Insert.java:144)
+	at org.h2.command.dml.Insert.update(Insert.java:115)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:79)
+	at org.h2.command.Command.executeUpdate(Command.java:254)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:186)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:160)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1391)
+	at org.h2.server.web.WebApp.query(WebApp.java:1064)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1026)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1013)
+	at org.h2.server.web.WebThread.process(WebThread.java:168)
+	at org.h2.server.web.WebThread.run(WebThread.java:94)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.IllegalArgumentException: 0-0-0
+	at org.h2.util.DateTimeUtils.parseDateValue(DateTimeUtils.java:279)
+	at org.h2.value.ValueDate.parse(ValueDate.java:69)
+	... 15 more
+08-18 15:17:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Cannot parse "DATE" constant "0000-00-00"; SQL statement:
+INSERT INTO `PlantUtilization` (`SiteID`, `PlantNo`, `PlantDesc`, `StartHours`, `EndHours`, `Fuel`, `Notes`, `DateFor`, `flag`) VALUES
+(1, 'P133', 'Dump Truck', 11034, 0, 343.32, '', '0000-00-00', 0),
+(2, 'P135', 'Genset - Washplant', 10203, 0, 1849.56, '', '0000-00-00', 0),
+(5, 'P144', 'Mobile Radial Stacker ', 6490, 0, 170.67, '', '0000-00-00', 0),
+(6, 'P150', 'Dump Truck ', 9680, 0, 139.22, '', '0000-00-00', 0),
+(7, 'P151', 'Wash Plant ', 0, 0, 0, '', '0000-00-00', 0),
+(53, 'P135', 'Genset #2 Runs P151  Wash Pant', NULL, NULL, NULL, '', '0000-00-00', 0),
+(9, 'P178', 'Manitou ', 1905, 0, 0, '', '0000-00-00', 0),
+(51, 'P243', 'Caterpillar 12H Grader', 248, 255, 0, 'I am glad you like my app', '0000-00-00', 0),
+(11, 'P209', 'Loader', 10548, 10578, 0, '', '0000-00-00', 0) -- (1, 'P133', 'Dump Truck', 11034, 0, 343.32, '', '0000-00-00', 0) [22007-176]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:344)
+	at org.h2.message.DbException.get(DbException.java:167)
+	at org.h2.value.ValueDate.parse(ValueDate.java:71)
+	at org.h2.value.Value.convertTo(Value.java:860)
+	at org.h2.table.Column.convert(Column.java:151)
+	at org.h2.command.dml.Insert.insertRows(Insert.java:144)
+	at org.h2.command.dml.Insert.update(Insert.java:115)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:79)
+	at org.h2.command.Command.executeUpdate(Command.java:254)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:186)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:160)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1391)
+	at org.h2.server.web.WebApp.query(WebApp.java:1064)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1026)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1013)
+	at org.h2.server.web.WebThread.process(WebThread.java:168)
+	at org.h2.server.web.WebThread.run(WebThread.java:94)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.IllegalArgumentException: 0-0-0
+	at org.h2.util.DateTimeUtils.parseDateValue(DateTimeUtils.java:279)
+	at org.h2.value.ValueDate.parse(ValueDate.java:69)
+	... 15 more
+08-18 15:17:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Cannot parse "DATE" constant "0000-00-00"; SQL statement:
+INSERT INTO `PlantUtilization` (`SiteID`, `PlantNo`, `PlantDesc`, `StartHours`, `EndHours`, `Fuel`, `Notes`, `DateFor`, `flag`) VALUES
+(1, 'P133', 'Dump Truck', 11034, 0, 343.32, '', '0000-00-00', 0),
+(2, 'P135', 'Genset - Washplant', 10203, 0, 1849.56, '', '0000-00-00', 0),
+(5, 'P144', 'Mobile Radial Stacker ', 6490, 0, 170.67, '', '0000-00-00', 0),
+(6, 'P150', 'Dump Truck ', 9680, 0, 139.22, '', '0000-00-00', 0),
+(7, 'P151', 'Wash Plant ', 0, 0, 0, '', '0000-00-00', 0),
+(53, 'P135', 'Genset #2 Runs P151  Wash Pant', NULL, NULL, NULL, '', '0000-00-00', 0),
+(9, 'P178', 'Manitou ', 1905, 0, 0, '', '0000-00-00', 0),
+(51, 'P243', 'Caterpillar 12H Grader', 248, 255, 0, 'I am glad you like my app', '0000-00-00', 0),
+(11, 'P209', 'Loader', 10548, 10578, 0, '', '0000-00-00', 0) -- (1, 'P133', 'Dump Truck', 11034, 0, 343.32, '', '0000-00-00', 0) [22007-176]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:344)
+	at org.h2.message.DbException.get(DbException.java:167)
+	at org.h2.value.ValueDate.parse(ValueDate.java:71)
+	at org.h2.value.Value.convertTo(Value.java:860)
+	at org.h2.table.Column.convert(Column.java:151)
+	at org.h2.command.dml.Insert.insertRows(Insert.java:144)
+	at org.h2.command.dml.Insert.update(Insert.java:115)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:79)
+	at org.h2.command.Command.executeUpdate(Command.java:254)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:186)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:160)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1391)
+	at org.h2.server.web.WebApp.query(WebApp.java:1064)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1026)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1013)
+	at org.h2.server.web.WebThread.process(WebThread.java:168)
+	at org.h2.server.web.WebThread.run(WebThread.java:94)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.IllegalArgumentException: 0-0-0
+	at org.h2.util.DateTimeUtils.parseDateValue(DateTimeUtils.java:279)
+	at org.h2.value.ValueDate.parse(ValueDate.java:69)
+	... 15 more
+08-18 15:17:03 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Cannot parse "DATE" constant "0000-00-00"; SQL statement:
+INSERT INTO `PlantUtilization` (`SiteID`, `PlantNo`, `PlantDesc`, `StartHours`, `EndHours`, `Fuel`, `Notes`, `DateFor`, `flag`) VALUES
+(1, 'P133', 'Dump Truck', 11034, 0, 343.32, '', '0000-00-00', 0),
+(2, 'P135', 'Genset - Washplant', 10203, 0, 1849.56, '', '0000-00-00', 0),
+(5, 'P144', 'Mobile Radial Stacker ', 6490, 0, 170.67, '', '0000-00-00', 0),
+(6, 'P150', 'Dump Truck ', 9680, 0, 139.22, '', '0000-00-00', 0),
+(7, 'P151', 'Wash Plant ', 0, 0, 0, '', '0000-00-00', 0),
+(53, 'P135', 'Genset #2 Runs P151  Wash Pant', NULL, NULL, NULL, '', '0000-00-00', 0),
+(9, 'P178', 'Manitou ', 1905, 0, 0, '', '0000-00-00', 0),
+(51, 'P243', 'Caterpillar 12H Grader', 248, 255, 0, 'I am glad you like my app', '0000-00-00', 0),
+(11, 'P209', 'Loader', 10548, 10578, 0, '', '0000-00-00', 0) -- (1, 'P133', 'Dump Truck', 11034, 0, 343.32, '', '0000-00-00', 0) [22007-176]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:344)
+	at org.h2.message.DbException.get(DbException.java:167)
+	at org.h2.value.ValueDate.parse(ValueDate.java:71)
+	at org.h2.value.Value.convertTo(Value.java:860)
+	at org.h2.table.Column.convert(Column.java:151)
+	at org.h2.command.dml.Insert.insertRows(Insert.java:144)
+	at org.h2.command.dml.Insert.update(Insert.java:115)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:79)
+	at org.h2.command.Command.executeUpdate(Command.java:254)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:186)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:160)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1391)
+	at org.h2.server.web.WebApp.query(WebApp.java:1064)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1026)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1013)
+	at org.h2.server.web.WebThread.process(WebThread.java:168)
+	at org.h2.server.web.WebThread.run(WebThread.java:94)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.IllegalArgumentException: 0-0-0
+	at org.h2.util.DateTimeUtils.parseDateValue(DateTimeUtils.java:279)
+	at org.h2.value.ValueDate.parse(ValueDate.java:69)
+	... 15 more
+08-18 15:17:05 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Cannot parse "DATE" constant "0000-00-00"; SQL statement:
+INSERT INTO `PlantUtilization` (`SiteID`, `PlantNo`, `PlantDesc`, `StartHours`, `EndHours`, `Fuel`, `Notes`, `DateFor`, `flag`) VALUES
+(1, 'P133', 'Dump Truck', 11034, 0, 343.32, '', '0000-00-00', 0),
+(2, 'P135', 'Genset - Washplant', 10203, 0, 1849.56, '', '0000-00-00', 0),
+(5, 'P144', 'Mobile Radial Stacker ', 6490, 0, 170.67, '', '0000-00-00', 0),
+(6, 'P150', 'Dump Truck ', 9680, 0, 139.22, '', '0000-00-00', 0),
+(7, 'P151', 'Wash Plant ', 0, 0, 0, '', '0000-00-00', 0),
+(53, 'P135', 'Genset #2 Runs P151  Wash Pant', NULL, NULL, NULL, '', '0000-00-00', 0),
+(9, 'P178', 'Manitou ', 1905, 0, 0, '', '0000-00-00', 0),
+(51, 'P243', 'Caterpillar 12H Grader', 248, 255, 0, 'I am glad you like my app', '0000-00-00', 0),
+(11, 'P209', 'Loader', 10548, 10578, 0, '', '0000-00-00', 0) -- (1, 'P133', 'Dump Truck', 11034, 0, 343.32, '', '0000-00-00', 0) [22007-176]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:344)
+	at org.h2.message.DbException.get(DbException.java:167)
+	at org.h2.value.ValueDate.parse(ValueDate.java:71)
+	at org.h2.value.Value.convertTo(Value.java:860)
+	at org.h2.table.Column.convert(Column.java:151)
+	at org.h2.command.dml.Insert.insertRows(Insert.java:144)
+	at org.h2.command.dml.Insert.update(Insert.java:115)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:79)
+	at org.h2.command.Command.executeUpdate(Command.java:254)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:186)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:160)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1391)
+	at org.h2.server.web.WebApp.query(WebApp.java:1064)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1026)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1013)
+	at org.h2.server.web.WebThread.process(WebThread.java:168)
+	at org.h2.server.web.WebThread.run(WebThread.java:94)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.IllegalArgumentException: 0-0-0
+	at org.h2.util.DateTimeUtils.parseDateValue(DateTimeUtils.java:279)
+	at org.h2.value.ValueDate.parse(ValueDate.java:69)
+	... 15 more
+08-18 16:01:11 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Cannot parse "DATE" constant "0000-00-00"; SQL statement:
+INSERT INTO `PlantUtilization` (`SiteID`, `PlantNo`, `PlantDesc`, `StartHours`, `EndHours`, `Fuel`, `Notes`, `DateFor`, `flag`) VALUES
+(1, 'P133', 'Dump Truck', 11034, 0, 343.32, '', '0000-00-00', 0),
+(2, 'P135', 'Genset - Washplant', 10203, 0, 1849.56, '', '0000-00-00', 0),
+(5, 'P144', 'Mobile Radial Stacker ', 6490, 0, 170.67, '', '0000-00-00', 0),
+(6, 'P150', 'Dump Truck ', 9680, 0, 139.22, '', '0000-00-00', 0),
+(7, 'P151', 'Wash Plant ', 0, 0, 0, '', '0000-00-00', 0),
+(53, 'P135', 'Genset #2 Runs P151  Wash Pant', NULL, NULL, NULL, '', '0000-00-00', 0),
+(9, 'P178', 'Manitou ', 1905, 0, 0, '', '0000-00-00', 0),
+(51, 'P243', 'Caterpillar 12H Grader', 248, 255, 0, 'I am glad you like my app', '0000-00-00', 0),
+(11, 'P209', 'Loader', 10548, 10578, 0, '', '0000-00-00', 0) -- (1, 'P133', 'Dump Truck', 11034, 0, 343.32, '', '0000-00-00', 0) [22007-176]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:344)
+	at org.h2.message.DbException.get(DbException.java:167)
+	at org.h2.value.ValueDate.parse(ValueDate.java:71)
+	at org.h2.value.Value.convertTo(Value.java:860)
+	at org.h2.table.Column.convert(Column.java:151)
+	at org.h2.command.dml.Insert.insertRows(Insert.java:144)
+	at org.h2.command.dml.Insert.update(Insert.java:115)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:79)
+	at org.h2.command.Command.executeUpdate(Command.java:254)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:186)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:160)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1391)
+	at org.h2.server.web.WebApp.query(WebApp.java:1064)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1026)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1013)
+	at org.h2.server.web.WebThread.process(WebThread.java:168)
+	at org.h2.server.web.WebThread.run(WebThread.java:94)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.IllegalArgumentException: 0-0-0
+	at org.h2.util.DateTimeUtils.parseDateValue(DateTimeUtils.java:279)
+	at org.h2.value.ValueDate.parse(ValueDate.java:69)
+	... 15 more
+08-18 16:01:58 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Cannot parse "DATE" constant "0000/00/00"; SQL statement:
+INSERT INTO `PlantUtilization` (`SiteID`, `PlantNo`, `PlantDesc`, `StartHours`, `EndHours`, `Fuel`, `Notes`, `DateFor`, `flag`) VALUES
+(1, 'P133', 'Dump Truck', 11034, 0, 343.32, '', '0000/00/00', 0) -- (1, 'P133', 'Dump Truck', 11034, 0, 343.32, '', '0000/00/00', 0) [22007-176]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:344)
+	at org.h2.message.DbException.get(DbException.java:167)
+	at org.h2.value.ValueDate.parse(ValueDate.java:71)
+	at org.h2.value.Value.convertTo(Value.java:860)
+	at org.h2.table.Column.convert(Column.java:151)
+	at org.h2.command.dml.Insert.insertRows(Insert.java:144)
+	at org.h2.command.dml.Insert.update(Insert.java:115)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:79)
+	at org.h2.command.Command.executeUpdate(Command.java:254)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:186)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:160)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1391)
+	at org.h2.server.web.WebApp.query(WebApp.java:1064)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1026)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1013)
+	at org.h2.server.web.WebThread.process(WebThread.java:168)
+	at org.h2.server.web.WebThread.run(WebThread.java:94)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.IllegalArgumentException: 0000/00/00
+	at org.h2.util.DateTimeUtils.parseDateValue(DateTimeUtils.java:273)
+	at org.h2.value.ValueDate.parse(ValueDate.java:69)
+	... 15 more
+08-18 16:11:16 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Cannot parse "DATE" constant "0000-00-00 00:00:00"; SQL statement:
+INSERT INTO `PlantUtilization` (`SiteID`, `PlantNo`, `PlantDesc`, `StartHours`, `EndHours`, `Fuel`, `Notes`, `DateFor`, `flag`) VALUES
+(1, 'P133', 'Dump Truck', 11034, 0, 343.32, '', '0000-00-00 00:00:00', 0) -- (1, 'P133', 'Dump Truck', 11034, 0, 343.32, '', '0000-00-00 00:00:00', 0) [22007-176]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:344)
+	at org.h2.message.DbException.get(DbException.java:167)
+	at org.h2.value.ValueDate.parse(ValueDate.java:71)
+	at org.h2.value.Value.convertTo(Value.java:860)
+	at org.h2.table.Column.convert(Column.java:151)
+	at org.h2.command.dml.Insert.insertRows(Insert.java:144)
+	at org.h2.command.dml.Insert.update(Insert.java:115)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:79)
+	at org.h2.command.Command.executeUpdate(Command.java:254)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:186)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:160)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1391)
+	at org.h2.server.web.WebApp.query(WebApp.java:1064)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1026)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1013)
+	at org.h2.server.web.WebThread.process(WebThread.java:168)
+	at org.h2.server.web.WebThread.run(WebThread.java:94)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.NumberFormatException: For input string: "00 00:00:00"
+	at java.lang.NumberFormatException.forInputString(Unknown Source)
+	at java.lang.Integer.parseInt(Unknown Source)
+	at java.lang.Integer.parseInt(Unknown Source)
+	at org.h2.util.DateTimeUtils.parseDateValue(DateTimeUtils.java:277)
+	at org.h2.value.ValueDate.parse(ValueDate.java:69)
+	... 15 more
+08-18 16:14:25 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Cannot parse "DATE" constant "0000-00-00"; SQL statement:
+INSERT INTO `PlantUtilization` (`SiteID`, `PlantNo`, `PlantDesc`, `StartHours`, `EndHours`, `Fuel`, `Notes`, `DateFor`, `flag`) VALUES
+(1, 'P133', 'Dump Truck', 11034, 0, 343.32, '', '0000-00-00', 0) -- (1, 'P133', 'Dump Truck', 11034, 0, 343.32, '', '0000-00-00', 0) [22007-176]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:344)
+	at org.h2.message.DbException.get(DbException.java:167)
+	at org.h2.value.ValueDate.parse(ValueDate.java:71)
+	at org.h2.value.Value.convertTo(Value.java:860)
+	at org.h2.table.Column.convert(Column.java:151)
+	at org.h2.command.dml.Insert.insertRows(Insert.java:144)
+	at org.h2.command.dml.Insert.update(Insert.java:115)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:79)
+	at org.h2.command.Command.executeUpdate(Command.java:254)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:186)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:160)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1391)
+	at org.h2.server.web.WebApp.query(WebApp.java:1064)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1026)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1013)
+	at org.h2.server.web.WebThread.process(WebThread.java:168)
+	at org.h2.server.web.WebThread.run(WebThread.java:94)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.IllegalArgumentException: 0-0-0
+	at org.h2.util.DateTimeUtils.parseDateValue(DateTimeUtils.java:279)
+	at org.h2.value.ValueDate.parse(ValueDate.java:69)
+	... 15 more
+08-18 16:14:26 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Cannot parse "DATE" constant "0000-00-00"; SQL statement:
+INSERT INTO `PlantUtilization` (`SiteID`, `PlantNo`, `PlantDesc`, `StartHours`, `EndHours`, `Fuel`, `Notes`, `DateFor`, `flag`) VALUES
+(1, 'P133', 'Dump Truck', 11034, 0, 343.32, '', '0000-00-00', 0) -- (1, 'P133', 'Dump Truck', 11034, 0, 343.32, '', '0000-00-00', 0) [22007-176]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:344)
+	at org.h2.message.DbException.get(DbException.java:167)
+	at org.h2.value.ValueDate.parse(ValueDate.java:71)
+	at org.h2.value.Value.convertTo(Value.java:860)
+	at org.h2.table.Column.convert(Column.java:151)
+	at org.h2.command.dml.Insert.insertRows(Insert.java:144)
+	at org.h2.command.dml.Insert.update(Insert.java:115)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:79)
+	at org.h2.command.Command.executeUpdate(Command.java:254)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:186)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:160)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1391)
+	at org.h2.server.web.WebApp.query(WebApp.java:1064)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1026)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1013)
+	at org.h2.server.web.WebThread.process(WebThread.java:168)
+	at org.h2.server.web.WebThread.run(WebThread.java:94)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.IllegalArgumentException: 0-0-0
+	at org.h2.util.DateTimeUtils.parseDateValue(DateTimeUtils.java:279)
+	at org.h2.value.ValueDate.parse(ValueDate.java:69)
+	... 15 more
+08-18 16:15:30 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "INSERT INTO ""PLANTUTILIZATION"" (""SITEID"", ""PLANTNO"", ""PLANTDESC"", ""STARTHOURS"", ""ENDHOURS"", ""FUEL"", ""NOTES"", ""DATEFOR"", ""FLAG"") VALUES
+(2, 'P135', 'Genset - Washplant', 10203, 0, 1849.56, '', ''1987[*]-01-01'', 0),
+(5, 'P144', 'Mobile Radial Stacker ', 6490, 0, 170.67, '', ''1987-01-01'', 0),
+(6, 'P150', 'Dump Truck ', 9680, 0, 139.22, '', ''1987-01-01'', 0),
+(7, 'P151', 'Wash Plant ', 0, 0, 0, '', ''1987-01-01'0', 0),
+(53, 'P135', 'Genset #2 Runs P151  Wash Pant', NULL, NULL, NULL, '', ''1987-01-01'', 0),
+(9, 'P178', 'Manitou ', 1905, 0, 0, '', ''1987-01-01'', 0),
+(51, 'P243', 'Caterpillar 12H Grader', 248, 255, 0, 'I am glad you like my app', ''1987-01-01'', 0),
+(11, 'P209', 'Loader', 10548, 10578, 0, '', ''1987-01-01'', 0) "; expected "[, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"; SQL statement:
+INSERT INTO `PlantUtilization` (`SiteID`, `PlantNo`, `PlantDesc`, `StartHours`, `EndHours`, `Fuel`, `Notes`, `DateFor`, `flag`) VALUES
+(2, 'P135', 'Genset - Washplant', 10203, 0, 1849.56, '', ''1987-01-01'', 0),
+(5, 'P144', 'Mobile Radial Stacker ', 6490, 0, 170.67, '', ''1987-01-01'', 0),
+(6, 'P150', 'Dump Truck ', 9680, 0, 139.22, '', ''1987-01-01'', 0),
+(7, 'P151', 'Wash Plant ', 0, 0, 0, '', ''1987-01-01'0', 0),
+(53, 'P135', 'Genset #2 Runs P151  Wash Pant', NULL, NULL, NULL, '', ''1987-01-01'', 0),
+(9, 'P178', 'Manitou ', 1905, 0, 0, '', ''1987-01-01'', 0),
+(51, 'P243', 'Caterpillar 12H Grader', 248, 255, 0, 'I am glad you like my app', ''1987-01-01'', 0),
+(11, 'P209', 'Loader', 10548, 10578, 0, '', ''1987-01-01'', 0) [42001-176]
+08-18 16:15:57 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "INSERT INTO ""PLANTUTILIZATION"" (""SITEID"", ""PLANTNO"", ""PLANTDESC"", ""STARTHOURS"", ""ENDHOURS"", ""FUEL"", ""NOTES"", ""DATEFOR"", ""FLAG"") VALUES
+(2, 'P135', 'Genset - Washplant', 10203, 0, 1849.56, '', ''1987[*]-01-01'', 0) "; expected "[, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"; SQL statement:
+INSERT INTO `PlantUtilization` (`SiteID`, `PlantNo`, `PlantDesc`, `StartHours`, `EndHours`, `Fuel`, `Notes`, `DateFor`, `flag`) VALUES
+(2, 'P135', 'Genset - Washplant', 10203, 0, 1849.56, '', ''1987-01-01'', 0) [42001-176]
+08-18 16:16:29 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "INSERT INTO ""PLANTUTILIZATION"" (""SITEID"", ""PLANTNO"", ""PLANTDESC"", ""STARTHOURS"", ""ENDHOURS"", ""FUEL"", ""NOTES"", ""DATEFOR"", ""FLAG"") VALUES
+(2, 'P135', 'Genset - Washplant', 10203, 0, 1849.56, '', ''1987[*]-01-01'', 0) "; expected "[, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"; SQL statement:
+INSERT INTO `PlantUtilization` (`SiteID`, `PlantNo`, `PlantDesc`, `StartHours`, `EndHours`, `Fuel`, `Notes`, `DateFor`, `flag`) VALUES
+(2, 'P135', 'Genset - Washplant', 10203, 0, 1849.56, '', ''1987-01-01'', 0) [42001-176]
+08-18 16:17:21 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "INSERT INTO ""PLANTUTILIZATION"" (""SITEID"", ""PLANTNO"", ""PLANTDESC"", ""STARTHOURS"", ""ENDHOURS"", ""FUEL"", ""NOTES"", ""DATEFOR"", ""FLAG"") VALUES
+(2, 'P135', 'Genset - Washplant', 10203, 0, 1849.56, '', ''1987[*]-01-01'', 0) "; expected "[, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"; SQL statement:
+INSERT INTO `PlantUtilization` (`SiteID`, `PlantNo`, `PlantDesc`, `StartHours`, `EndHours`, `Fuel`, `Notes`, `DateFor`, `flag`) VALUES
+(2, 'P135', 'Genset - Washplant', 10203, 0, 1849.56, '', ''1987-01-01'', 0) [42001-176]
+08-18 16:17:22 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "INSERT INTO ""PLANTUTILIZATION"" (""SITEID"", ""PLANTNO"", ""PLANTDESC"", ""STARTHOURS"", ""ENDHOURS"", ""FUEL"", ""NOTES"", ""DATEFOR"", ""FLAG"") VALUES
+(2, 'P135', 'Genset - Washplant', 10203, 0, 1849.56, '', ''1987[*]-01-01'', 0) "; expected "[, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"; SQL statement:
+INSERT INTO `PlantUtilization` (`SiteID`, `PlantNo`, `PlantDesc`, `StartHours`, `EndHours`, `Fuel`, `Notes`, `DateFor`, `flag`) VALUES
+(2, 'P135', 'Genset - Washplant', 10203, 0, 1849.56, '', ''1987-01-01'', 0) [42001-176]
+08-18 16:17:22 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "INSERT INTO ""PLANTUTILIZATION"" (""SITEID"", ""PLANTNO"", ""PLANTDESC"", ""STARTHOURS"", ""ENDHOURS"", ""FUEL"", ""NOTES"", ""DATEFOR"", ""FLAG"") VALUES
+(2, 'P135', 'Genset - Washplant', 10203, 0, 1849.56, '', ''1987[*]-01-01'', 0) "; expected "[, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"; SQL statement:
+INSERT INTO `PlantUtilization` (`SiteID`, `PlantNo`, `PlantDesc`, `StartHours`, `EndHours`, `Fuel`, `Notes`, `DateFor`, `flag`) VALUES
+(2, 'P135', 'Genset - Washplant', 10203, 0, 1849.56, '', ''1987-01-01'', 0) [42001-176]
+08-18 16:17:22 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "INSERT INTO ""PLANTUTILIZATION"" (""SITEID"", ""PLANTNO"", ""PLANTDESC"", ""STARTHOURS"", ""ENDHOURS"", ""FUEL"", ""NOTES"", ""DATEFOR"", ""FLAG"") VALUES
+(2, 'P135', 'Genset - Washplant', 10203, 0, 1849.56, '', ''1987[*]-01-01'', 0) "; expected "[, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"; SQL statement:
+INSERT INTO `PlantUtilization` (`SiteID`, `PlantNo`, `PlantDesc`, `StartHours`, `EndHours`, `Fuel`, `Notes`, `DateFor`, `flag`) VALUES
+(2, 'P135', 'Genset - Washplant', 10203, 0, 1849.56, '', ''1987-01-01'', 0) [42001-176]
+08-18 16:17:23 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "INSERT INTO ""PLANTUTILIZATION"" (""SITEID"", ""PLANTNO"", ""PLANTDESC"", ""STARTHOURS"", ""ENDHOURS"", ""FUEL"", ""NOTES"", ""DATEFOR"", ""FLAG"") VALUES
+(2, 'P135', 'Genset - Washplant', 10203, 0, 1849.56, '', ''1987[*]-01-01'', 0) "; expected "[, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"; SQL statement:
+INSERT INTO `PlantUtilization` (`SiteID`, `PlantNo`, `PlantDesc`, `StartHours`, `EndHours`, `Fuel`, `Notes`, `DateFor`, `flag`) VALUES
+(2, 'P135', 'Genset - Washplant', 10203, 0, 1849.56, '', ''1987-01-01'', 0) [42001-176]
+08-18 16:17:23 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "INSERT INTO ""PLANTUTILIZATION"" (""SITEID"", ""PLANTNO"", ""PLANTDESC"", ""STARTHOURS"", ""ENDHOURS"", ""FUEL"", ""NOTES"", ""DATEFOR"", ""FLAG"") VALUES
+(2, 'P135', 'Genset - Washplant', 10203, 0, 1849.56, '', ''1987[*]-01-01'', 0) "; expected "[, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"; SQL statement:
+INSERT INTO `PlantUtilization` (`SiteID`, `PlantNo`, `PlantDesc`, `StartHours`, `EndHours`, `Fuel`, `Notes`, `DateFor`, `flag`) VALUES
+(2, 'P135', 'Genset - Washplant', 10203, 0, 1849.56, '', ''1987-01-01'', 0) [42001-176]
+08-19 11:51:42 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Column "p150" not found; SQL statement:
+update PLANTUTILIZATION set siteID = 2 where plantNo = "p150" [42122-176]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:344)
+	at org.h2.message.DbException.get(DbException.java:178)
+	at org.h2.message.DbException.get(DbException.java:154)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:148)
+	at org.h2.expression.Comparison.optimize(Comparison.java:181)
+	at org.h2.command.dml.Update.prepare(Update.java:182)
+	at org.h2.command.Parser.prepareCommand(Parser.java:248)
+	at org.h2.engine.Session.prepareLocal(Session.java:442)
+	at org.h2.engine.Session.prepareCommand(Session.java:384)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1188)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:172)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:160)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1391)
+	at org.h2.server.web.WebApp.query(WebApp.java:1064)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1026)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1013)
+	at org.h2.server.web.WebThread.process(WebThread.java:168)
+	at org.h2.server.web.WebThread.run(WebThread.java:94)
+	at java.lang.Thread.run(Unknown Source)
+08-19 11:52:30 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM PLANTUTILIZATION
+UPDATE PLANTUTILIZATION[*] SET SITEID = 2 WHERE PLANTNO = 'P150' "; SQL statement:
+SELECT * FROM PLANTUTILIZATION
+update PLANTUTILIZATION set siteID = 2 where plantNo = 'P150' [42000-176]
+08-19 11:53:34 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "insert into sites ('sitename') VALUES ([*]'Wallacia"")"; SQL statement:
+insert into sites ('sitename') VALUES ('Wallacia") [42000-176]
+08-19 11:53:46 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "INSERT INTO SITES ('sitename'[*]) VALUES ('Wallacia') "; expected "identifier"; SQL statement:
+insert into sites ('sitename') VALUES ('Wallacia') [42001-176]
+08-19 11:53:51 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "INSERT INTO SITES ('sitename'[*]) VALUES ('Wallacia') "; expected "identifier"; SQL statement:
+insert into sites ('sitename') VALUES ('Wallacia') [42001-176]
+08-19 12:06:22 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "REATE[*] TABLE IF NOT EXISTS ""SITES"" (
+  ""SITEID"" INT(2) AUTO_INCREMENT NOT NULL,
+  ""SITENAME"" VARCHAR(20) COLLATE UTF8_UNICODE_CI NOT NULL
+) "; expected "ROLLBACK, REVOKE, RUNSCRIPT, RELEASE, REPLACE, {"; SQL statement:
+REATE TABLE IF NOT EXISTS `Sites` (
+  `SiteID` int(2) auto_increment NOT NULL,
+  `SiteName` varchar(20) COLLATE utf8_unicode_ci NOT NULL
+) [42001-176]
+08-19 12:06:30 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "REATE[*] TABLE IF NOT EXISTS ""SITES"" (
+  ""SITEID"" INT(2) AUTO_INCREMENT NOT NULL,
+  ""SITENAME"" VARCHAR(20) NOT NULL
+) "; expected "ROLLBACK, REVOKE, RUNSCRIPT, RELEASE, REPLACE, {"; SQL statement:
+REATE TABLE IF NOT EXISTS `Sites` (
+  `SiteID` int(2) auto_increment NOT NULL,
+  `SiteName` varchar(20) NOT NULL
+) [42001-176]
+08-19 12:06:37 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "REATE[*] TABLE IF NOT EXISTS ""SITES"" (
+  ""SITEID"" INT(2) AUTO_INCREMENT,
+  ""SITENAME"" VARCHAR(20) NOT NULL
+) "; expected "ROLLBACK, REVOKE, RUNSCRIPT, RELEASE, REPLACE, {"; SQL statement:
+REATE TABLE IF NOT EXISTS `Sites` (
+  `SiteID` int(2) auto_increment,
+  `SiteName` varchar(20) NOT NULL
+) [42001-176]
+08-19 12:07:17 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "INSERT INTO SITES ('SiteName'[*]) VALUES ('Menangle') "; expected "identifier"; SQL statement:
+insert into sites ('SiteName') VALUES ('Menangle') [42001-176]
+08-19 12:07:45 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "INSERT INTO ""SITES"" (""SITEID"", ""SITENAME"") VALUES
+(NULL 'Menangle'[*]) "; expected "[, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"; SQL statement:
+INSERT INTO `Sites` (`SiteID`, `SiteName`) VALUES
+(null 'Menangle') [42001-176]
+08-19 12:09:00 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Schema "SOPSIOCO_DAR" not found; SQL statement:
+INSERT INTO `sopsioco_DAR`.`Sites` (`SiteID`, `SiteName`) VALUES (NULL, 'Wallacia') [90079-176]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:344)
+	at org.h2.message.DbException.get(DbException.java:178)
+	at org.h2.message.DbException.get(DbException.java:154)
+	at org.h2.command.Parser.getSchema(Parser.java:655)
+	at org.h2.command.Parser.getSchema(Parser.java:662)
+	at org.h2.command.Parser.readTableOrView(Parser.java:5196)
+	at org.h2.command.Parser.readTableOrView(Parser.java:5190)
+	at org.h2.command.Parser.parseInsert(Parser.java:1024)
+	at org.h2.command.Parser.parsePrepared(Parser.java:402)
+	at org.h2.command.Parser.parse(Parser.java:306)
+	at org.h2.command.Parser.parse(Parser.java:278)
+	at org.h2.command.Parser.prepareCommand(Parser.java:243)
+	at org.h2.engine.Session.prepareLocal(Session.java:442)
+	at org.h2.engine.Session.prepareCommand(Session.java:384)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1188)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:172)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:160)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1391)
+	at org.h2.server.web.WebApp.query(WebApp.java:1064)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1026)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1013)
+	at org.h2.server.web.WebThread.process(WebThread.java:168)
+	at org.h2.server.web.WebThread.run(WebThread.java:94)
+	at java.lang.Thread.run(Unknown Source)
+08-19 12:12:25 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "DROP TABLE USERS
+
+CREATE[*] TABLE IF NOT EXISTS ""USERS"" (
+  ""USERID"" INT(10) AUTO_INCREMENT NOT NULL,
+  ""SITEID"" INT(2) NOT NULL,
+  ""USERNAME"" VARCHAR(20) NOT NULL,
+  ""PASSWORD"" VARCHAR(32) NOT NULL,
+  ""EMAIL"" VARCHAR(50)  NOT NULL,
+  ""TIMEADDED"" TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+) "; SQL statement:
+drop table users
+
+CREATE TABLE IF NOT EXISTS `Users` (
+  `userID` int(10) auto_increment NOT NULL,
+  `siteID` int(2) NOT NULL,
+  `username` varchar(20) NOT NULL,
+  `password` varchar(32) NOT NULL,
+  `email` varchar(50)  NOT NULL,
+  `timeAdded` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) [42000-176]
+08-19 12:17:55 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Schema "SOPSIOCO_DAR" not found; SQL statement:
+UPDATE `sopsioco_DAR`.`PlantUtilization` SET `PlantNo` = 'P150', `PlantDesc` = 'Dump Truck ', `StartHours` = '9680', `EndHours` = '0', `Fuel` = '139.22', `Notes` = '' WHERE `PlantUtilization`.`ID` = 2; [90079-176]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:344)
+	at org.h2.message.DbException.get(DbException.java:178)
+	at org.h2.message.DbException.get(DbException.java:154)
+	at org.h2.command.Parser.getSchema(Parser.java:655)
+	at org.h2.command.Parser.getSchema(Parser.java:662)
+	at org.h2.command.Parser.readTableOrView(Parser.java:5196)
+	at org.h2.command.Parser.readTableOrView(Parser.java:5190)
+	at org.h2.command.Parser.readSimpleTableFilter(Parser.java:758)
+	at org.h2.command.Parser.parseUpdate(Parser.java:707)
+	at org.h2.command.Parser.parsePrepared(Parser.java:456)
+	at org.h2.command.Parser.parse(Parser.java:306)
+	at org.h2.command.Parser.parse(Parser.java:278)
+	at org.h2.command.Parser.prepareCommand(Parser.java:243)
+	at org.h2.engine.Session.prepareLocal(Session.java:442)
+	at org.h2.engine.Session.prepareCommand(Session.java:384)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1188)
+	at org.h2.jdbc.JdbcStatement.executeUpdateInternal(JdbcStatement.java:128)
+	at org.h2.jdbc.JdbcStatement.executeUpdate(JdbcStatement.java:117)
+	at dar.locDB.LocalWraper.executeQuery(LocalWraper.java:147)
+	at dar.Gui.PlantUtilPropertyChange(Gui.java:584)
+	at dar.Gui.access$100(Gui.java:21)
+	at dar.Gui$3.propertyChange(Gui.java:133)
+	at java.beans.PropertyChangeSupport.fire(PropertyChangeSupport.java:335)
+	at java.beans.PropertyChangeSupport.firePropertyChange(PropertyChangeSupport.java:327)
+	at java.beans.PropertyChangeSupport.firePropertyChange(PropertyChangeSupport.java:263)
+	at java.awt.Component.firePropertyChange(Component.java:8428)
+	at javax.swing.JTable.setCellEditor(JTable.java:5625)
+	at javax.swing.JTable.removeEditor(JTable.java:5814)
+	at javax.swing.JTable.editingStopped(JTable.java:4724)
+	at javax.swing.AbstractCellEditor.fireEditingStopped(AbstractCellEditor.java:141)
+	at javax.swing.DefaultCellEditor$EditorDelegate.stopCellEditing(DefaultCellEditor.java:368)
+	at javax.swing.DefaultCellEditor.stopCellEditing(DefaultCellEditor.java:233)
+	at javax.swing.JTable$GenericEditor.stopCellEditing(JTable.java:5467)
+	at javax.swing.plaf.basic.BasicTableUI$Handler.mousePressed(BasicTableUI.java:1010)
+	at java.awt.AWTEventMulticaster.mousePressed(AWTEventMulticaster.java:280)
+	at java.awt.Component.processMouseEvent(Component.java:6530)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3324)
+	at java.awt.Component.processEvent(Component.java:6298)
+	at java.awt.Container.processEvent(Container.java:2236)
+	at java.awt.Component.dispatchEventImpl(Component.java:4889)
+	at java.awt.Container.dispatchEventImpl(Container.java:2294)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4888)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4522)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4466)
+	at java.awt.Container.dispatchEventImpl(Container.java:2280)
+	at java.awt.Window.dispatchEventImpl(Window.java:2746)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:758)
+	at java.awt.EventQueue.access$500(EventQueue.java:97)
+	at java.awt.EventQueue$3.run(EventQueue.java:709)
+	at java.awt.EventQueue$3.run(EventQueue.java:703)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:86)
+	at java.awt.EventQueue$4.run(EventQueue.java:731)
+	at java.awt.EventQueue$4.run(EventQueue.java:729)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:728)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:201)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+08-19 12:53:20 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Schema "SOPSIOCO_DAR" not found; SQL statement:
+UPDATE `sopsioco_DAR`.`PlantUtilization` SET `PlantNo` = 'P209s', `PlantDesc` = 'Loader', `StartHours` = '10548', `EndHours` = '10578', `Fuel` = '0.0', `Notes` = '' WHERE `PlantUtilization`.`ID` = 1; [90079-176]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:344)
+	at org.h2.message.DbException.get(DbException.java:178)
+	at org.h2.message.DbException.get(DbException.java:154)
+	at org.h2.command.Parser.getSchema(Parser.java:655)
+	at org.h2.command.Parser.getSchema(Parser.java:662)
+	at org.h2.command.Parser.readTableOrView(Parser.java:5196)
+	at org.h2.command.Parser.readTableOrView(Parser.java:5190)
+	at org.h2.command.Parser.readSimpleTableFilter(Parser.java:758)
+	at org.h2.command.Parser.parseUpdate(Parser.java:707)
+	at org.h2.command.Parser.parsePrepared(Parser.java:456)
+	at org.h2.command.Parser.parse(Parser.java:306)
+	at org.h2.command.Parser.parse(Parser.java:278)
+	at org.h2.command.Parser.prepareCommand(Parser.java:243)
+	at org.h2.engine.Session.prepareLocal(Session.java:442)
+	at org.h2.engine.Session.prepareCommand(Session.java:384)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1188)
+	at org.h2.jdbc.JdbcStatement.executeUpdateInternal(JdbcStatement.java:128)
+	at org.h2.jdbc.JdbcStatement.executeUpdate(JdbcStatement.java:117)
+	at dar.locDB.LocalWraper.executeQuery(LocalWraper.java:147)
+	at dar.Gui.PlantUtilPropertyChange(Gui.java:584)
+	at dar.Gui.access$100(Gui.java:21)
+	at dar.Gui$3.propertyChange(Gui.java:133)
+	at java.beans.PropertyChangeSupport.fire(PropertyChangeSupport.java:335)
+	at java.beans.PropertyChangeSupport.firePropertyChange(PropertyChangeSupport.java:327)
+	at java.beans.PropertyChangeSupport.firePropertyChange(PropertyChangeSupport.java:263)
+	at java.awt.Component.firePropertyChange(Component.java:8428)
+	at javax.swing.JTable.setCellEditor(JTable.java:5625)
+	at javax.swing.JTable.removeEditor(JTable.java:5814)
+	at javax.swing.JTable.editingStopped(JTable.java:4724)
+	at javax.swing.AbstractCellEditor.fireEditingStopped(AbstractCellEditor.java:141)
+	at javax.swing.DefaultCellEditor$EditorDelegate.stopCellEditing(DefaultCellEditor.java:368)
+	at javax.swing.DefaultCellEditor.stopCellEditing(DefaultCellEditor.java:233)
+	at javax.swing.JTable$GenericEditor.stopCellEditing(JTable.java:5467)
+	at javax.swing.DefaultCellEditor$EditorDelegate.actionPerformed(DefaultCellEditor.java:385)
+	at javax.swing.JTextField.fireActionPerformed(JTextField.java:508)
+	at javax.swing.JTextField.postActionEvent(JTextField.java:721)
+	at javax.swing.JTextField$NotifyAction.actionPerformed(JTextField.java:836)
+	at javax.swing.SwingUtilities.notifyAction(SwingUtilities.java:1663)
+	at javax.swing.JComponent.processKeyBinding(JComponent.java:2882)
+	at javax.swing.JComponent.processKeyBindings(JComponent.java:2929)
+	at javax.swing.JComponent.processKeyEvent(JComponent.java:2845)
+	at java.awt.Component.processEvent(Component.java:6310)
+	at java.awt.Container.processEvent(Container.java:2236)
+	at java.awt.Component.dispatchEventImpl(Component.java:4889)
+	at java.awt.Container.dispatchEventImpl(Container.java:2294)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.KeyboardFocusManager.redispatchEvent(KeyboardFocusManager.java:1954)
+	at java.awt.DefaultKeyboardFocusManager.dispatchKeyEvent(DefaultKeyboardFocusManager.java:806)
+	at java.awt.DefaultKeyboardFocusManager.preDispatchKeyEvent(DefaultKeyboardFocusManager.java:1074)
+	at java.awt.DefaultKeyboardFocusManager.typeAheadAssertions(DefaultKeyboardFocusManager.java:945)
+	at java.awt.DefaultKeyboardFocusManager.dispatchEvent(DefaultKeyboardFocusManager.java:771)
+	at java.awt.Component.dispatchEventImpl(Component.java:4760)
+	at java.awt.Container.dispatchEventImpl(Container.java:2294)
+	at java.awt.Window.dispatchEventImpl(Window.java:2746)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:758)
+	at java.awt.EventQueue.access$500(EventQueue.java:97)
+	at java.awt.EventQueue$3.run(EventQueue.java:709)
+	at java.awt.EventQueue$3.run(EventQueue.java:703)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:86)
+	at java.awt.EventQueue$4.run(EventQueue.java:731)
+	at java.awt.EventQueue$4.run(EventQueue.java:729)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:728)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:201)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+08-19 12:54:37 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Schema "SOPSIOCO_DAR" not found; SQL statement:
+UPDATE `sopsioco_DAR`.`PlantUtilization` SET `PlantNo` = 'P135', `PlantDesc` = 'Genset - Washplant', `StartHours` = '10203', `EndHours` = '0', `Fuel` = '1849.56', `Notes` = '' WHERE `PlantUtilization`.`ID` = 1; [90079-176]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:344)
+	at org.h2.message.DbException.get(DbException.java:178)
+	at org.h2.message.DbException.get(DbException.java:154)
+	at org.h2.command.Parser.getSchema(Parser.java:655)
+	at org.h2.command.Parser.getSchema(Parser.java:662)
+	at org.h2.command.Parser.readTableOrView(Parser.java:5196)
+	at org.h2.command.Parser.readTableOrView(Parser.java:5190)
+	at org.h2.command.Parser.readSimpleTableFilter(Parser.java:758)
+	at org.h2.command.Parser.parseUpdate(Parser.java:707)
+	at org.h2.command.Parser.parsePrepared(Parser.java:456)
+	at org.h2.command.Parser.parse(Parser.java:306)
+	at org.h2.command.Parser.parse(Parser.java:278)
+	at org.h2.command.Parser.prepareCommand(Parser.java:243)
+	at org.h2.engine.Session.prepareLocal(Session.java:442)
+	at org.h2.engine.Session.prepareCommand(Session.java:384)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1188)
+	at org.h2.jdbc.JdbcStatement.executeUpdateInternal(JdbcStatement.java:128)
+	at org.h2.jdbc.JdbcStatement.executeUpdate(JdbcStatement.java:117)
+	at dar.locDB.LocalWraper.executeQuery(LocalWraper.java:147)
+	at dar.Gui.PlantUtilPropertyChange(Gui.java:585)
+	at dar.Gui.access$100(Gui.java:21)
+	at dar.Gui$3.propertyChange(Gui.java:134)
+	at java.beans.PropertyChangeSupport.fire(PropertyChangeSupport.java:335)
+	at java.beans.PropertyChangeSupport.firePropertyChange(PropertyChangeSupport.java:327)
+	at java.beans.PropertyChangeSupport.firePropertyChange(PropertyChangeSupport.java:263)
+	at java.awt.Component.firePropertyChange(Component.java:8428)
+	at javax.swing.JTable.setCellEditor(JTable.java:5625)
+	at javax.swing.JTable.removeEditor(JTable.java:5814)
+	at javax.swing.JTable.editingStopped(JTable.java:4724)
+	at javax.swing.AbstractCellEditor.fireEditingStopped(AbstractCellEditor.java:141)
+	at javax.swing.DefaultCellEditor$EditorDelegate.stopCellEditing(DefaultCellEditor.java:368)
+	at javax.swing.DefaultCellEditor.stopCellEditing(DefaultCellEditor.java:233)
+	at javax.swing.JTable$GenericEditor.stopCellEditing(JTable.java:5467)
+	at javax.swing.plaf.basic.BasicTableUI$Handler.mousePressed(BasicTableUI.java:1010)
+	at java.awt.AWTEventMulticaster.mousePressed(AWTEventMulticaster.java:280)
+	at java.awt.Component.processMouseEvent(Component.java:6530)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3324)
+	at java.awt.Component.processEvent(Component.java:6298)
+	at java.awt.Container.processEvent(Container.java:2236)
+	at java.awt.Component.dispatchEventImpl(Component.java:4889)
+	at java.awt.Container.dispatchEventImpl(Container.java:2294)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4888)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4522)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4466)
+	at java.awt.Container.dispatchEventImpl(Container.java:2280)
+	at java.awt.Window.dispatchEventImpl(Window.java:2746)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:758)
+	at java.awt.EventQueue.access$500(EventQueue.java:97)
+	at java.awt.EventQueue$3.run(EventQueue.java:709)
+	at java.awt.EventQueue$3.run(EventQueue.java:703)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:86)
+	at java.awt.EventQueue$4.run(EventQueue.java:731)
+	at java.awt.EventQueue$4.run(EventQueue.java:729)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:728)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:201)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+08-19 12:54:37 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Schema "SOPSIOCO_DAR" not found; SQL statement:
+UPDATE `sopsioco_DAR`.`PlantUtilization` SET `PlantNo` = 'P151', `PlantDesc` = 'Wash Plant ', `StartHours` = '0', `EndHours` = '0', `Fuel` = '0.0', `Notes` = '' WHERE `PlantUtilization`.`ID` = 1; [90079-176]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:344)
+	at org.h2.message.DbException.get(DbException.java:178)
+	at org.h2.message.DbException.get(DbException.java:154)
+	at org.h2.command.Parser.getSchema(Parser.java:655)
+	at org.h2.command.Parser.getSchema(Parser.java:662)
+	at org.h2.command.Parser.readTableOrView(Parser.java:5196)
+	at org.h2.command.Parser.readTableOrView(Parser.java:5190)
+	at org.h2.command.Parser.readSimpleTableFilter(Parser.java:758)
+	at org.h2.command.Parser.parseUpdate(Parser.java:707)
+	at org.h2.command.Parser.parsePrepared(Parser.java:456)
+	at org.h2.command.Parser.parse(Parser.java:306)
+	at org.h2.command.Parser.parse(Parser.java:278)
+	at org.h2.command.Parser.prepareCommand(Parser.java:243)
+	at org.h2.engine.Session.prepareLocal(Session.java:442)
+	at org.h2.engine.Session.prepareCommand(Session.java:384)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1188)
+	at org.h2.jdbc.JdbcStatement.executeUpdateInternal(JdbcStatement.java:128)
+	at org.h2.jdbc.JdbcStatement.executeUpdate(JdbcStatement.java:117)
+	at dar.locDB.LocalWraper.executeQuery(LocalWraper.java:147)
+	at dar.Gui.PlantUtilPropertyChange(Gui.java:585)
+	at dar.Gui.access$100(Gui.java:21)
+	at dar.Gui$3.propertyChange(Gui.java:134)
+	at java.beans.PropertyChangeSupport.fire(PropertyChangeSupport.java:335)
+	at java.beans.PropertyChangeSupport.firePropertyChange(PropertyChangeSupport.java:327)
+	at java.beans.PropertyChangeSupport.firePropertyChange(PropertyChangeSupport.java:263)
+	at java.awt.Component.firePropertyChange(Component.java:8428)
+	at javax.swing.JTable.setCellEditor(JTable.java:5625)
+	at javax.swing.JTable.removeEditor(JTable.java:5814)
+	at javax.swing.JTable.editingStopped(JTable.java:4724)
+	at javax.swing.AbstractCellEditor.fireEditingStopped(AbstractCellEditor.java:141)
+	at javax.swing.DefaultCellEditor$EditorDelegate.stopCellEditing(DefaultCellEditor.java:368)
+	at javax.swing.DefaultCellEditor.stopCellEditing(DefaultCellEditor.java:233)
+	at javax.swing.JTable$GenericEditor.stopCellEditing(JTable.java:5467)
+	at javax.swing.plaf.basic.BasicTableUI$Handler.mousePressed(BasicTableUI.java:1010)
+	at java.awt.AWTEventMulticaster.mousePressed(AWTEventMulticaster.java:280)
+	at java.awt.Component.processMouseEvent(Component.java:6530)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3324)
+	at java.awt.Component.processEvent(Component.java:6298)
+	at java.awt.Container.processEvent(Container.java:2236)
+	at java.awt.Component.dispatchEventImpl(Component.java:4889)
+	at java.awt.Container.dispatchEventImpl(Container.java:2294)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4888)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4522)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4466)
+	at java.awt.Container.dispatchEventImpl(Container.java:2280)
+	at java.awt.Window.dispatchEventImpl(Window.java:2746)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:758)
+	at java.awt.EventQueue.access$500(EventQueue.java:97)
+	at java.awt.EventQueue$3.run(EventQueue.java:709)
+	at java.awt.EventQueue$3.run(EventQueue.java:703)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:86)
+	at java.awt.EventQueue$4.run(EventQueue.java:731)
+	at java.awt.EventQueue$4.run(EventQueue.java:729)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:728)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:201)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+08-19 12:54:38 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Schema "SOPSIOCO_DAR" not found; SQL statement:
+UPDATE `sopsioco_DAR`.`PlantUtilization` SET `PlantNo` = 'P135', `PlantDesc` = 'Genset - Washplant', `StartHours` = '10203', `EndHours` = '0', `Fuel` = '1849.56', `Notes` = '' WHERE `PlantUtilization`.`ID` = 1; [90079-176]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:344)
+	at org.h2.message.DbException.get(DbException.java:178)
+	at org.h2.message.DbException.get(DbException.java:154)
+	at org.h2.command.Parser.getSchema(Parser.java:655)
+	at org.h2.command.Parser.getSchema(Parser.java:662)
+	at org.h2.command.Parser.readTableOrView(Parser.java:5196)
+	at org.h2.command.Parser.readTableOrView(Parser.java:5190)
+	at org.h2.command.Parser.readSimpleTableFilter(Parser.java:758)
+	at org.h2.command.Parser.parseUpdate(Parser.java:707)
+	at org.h2.command.Parser.parsePrepared(Parser.java:456)
+	at org.h2.command.Parser.parse(Parser.java:306)
+	at org.h2.command.Parser.parse(Parser.java:278)
+	at org.h2.command.Parser.prepareCommand(Parser.java:243)
+	at org.h2.engine.Session.prepareLocal(Session.java:442)
+	at org.h2.engine.Session.prepareCommand(Session.java:384)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1188)
+	at org.h2.jdbc.JdbcStatement.executeUpdateInternal(JdbcStatement.java:128)
+	at org.h2.jdbc.JdbcStatement.executeUpdate(JdbcStatement.java:117)
+	at dar.locDB.LocalWraper.executeQuery(LocalWraper.java:147)
+	at dar.Gui.PlantUtilPropertyChange(Gui.java:585)
+	at dar.Gui.access$100(Gui.java:21)
+	at dar.Gui$3.propertyChange(Gui.java:134)
+	at java.beans.PropertyChangeSupport.fire(PropertyChangeSupport.java:335)
+	at java.beans.PropertyChangeSupport.firePropertyChange(PropertyChangeSupport.java:327)
+	at java.beans.PropertyChangeSupport.firePropertyChange(PropertyChangeSupport.java:263)
+	at java.awt.Component.firePropertyChange(Component.java:8428)
+	at javax.swing.JTable.setCellEditor(JTable.java:5625)
+	at javax.swing.JTable.removeEditor(JTable.java:5814)
+	at javax.swing.JTable.editingStopped(JTable.java:4724)
+	at javax.swing.AbstractCellEditor.fireEditingStopped(AbstractCellEditor.java:141)
+	at javax.swing.DefaultCellEditor$EditorDelegate.stopCellEditing(DefaultCellEditor.java:368)
+	at javax.swing.DefaultCellEditor.stopCellEditing(DefaultCellEditor.java:233)
+	at javax.swing.JTable$GenericEditor.stopCellEditing(JTable.java:5467)
+	at javax.swing.plaf.basic.BasicTableUI$Handler.mousePressed(BasicTableUI.java:1010)
+	at java.awt.AWTEventMulticaster.mousePressed(AWTEventMulticaster.java:280)
+	at java.awt.Component.processMouseEvent(Component.java:6530)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3324)
+	at java.awt.Component.processEvent(Component.java:6298)
+	at java.awt.Container.processEvent(Container.java:2236)
+	at java.awt.Component.dispatchEventImpl(Component.java:4889)
+	at java.awt.Container.dispatchEventImpl(Container.java:2294)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4888)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4522)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4466)
+	at java.awt.Container.dispatchEventImpl(Container.java:2280)
+	at java.awt.Window.dispatchEventImpl(Window.java:2746)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:758)
+	at java.awt.EventQueue.access$500(EventQueue.java:97)
+	at java.awt.EventQueue$3.run(EventQueue.java:709)
+	at java.awt.EventQueue$3.run(EventQueue.java:703)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:86)
+	at java.awt.EventQueue$4.run(EventQueue.java:731)
+	at java.awt.EventQueue$4.run(EventQueue.java:729)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:728)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:201)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+08-19 12:54:39 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Schema "SOPSIOCO_DAR" not found; SQL statement:
+UPDATE `sopsioco_DAR`.`PlantUtilization` SET `PlantNo` = 'P133', `PlantDesc` = 'Dump Truck', `StartHours` = '11034', `EndHours` = '0', `Fuel` = '343.32', `Notes` = '' WHERE `PlantUtilization`.`ID` = 1; [90079-176]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:344)
+	at org.h2.message.DbException.get(DbException.java:178)
+	at org.h2.message.DbException.get(DbException.java:154)
+	at org.h2.command.Parser.getSchema(Parser.java:655)
+	at org.h2.command.Parser.getSchema(Parser.java:662)
+	at org.h2.command.Parser.readTableOrView(Parser.java:5196)
+	at org.h2.command.Parser.readTableOrView(Parser.java:5190)
+	at org.h2.command.Parser.readSimpleTableFilter(Parser.java:758)
+	at org.h2.command.Parser.parseUpdate(Parser.java:707)
+	at org.h2.command.Parser.parsePrepared(Parser.java:456)
+	at org.h2.command.Parser.parse(Parser.java:306)
+	at org.h2.command.Parser.parse(Parser.java:278)
+	at org.h2.command.Parser.prepareCommand(Parser.java:243)
+	at org.h2.engine.Session.prepareLocal(Session.java:442)
+	at org.h2.engine.Session.prepareCommand(Session.java:384)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1188)
+	at org.h2.jdbc.JdbcStatement.executeUpdateInternal(JdbcStatement.java:128)
+	at org.h2.jdbc.JdbcStatement.executeUpdate(JdbcStatement.java:117)
+	at dar.locDB.LocalWraper.executeQuery(LocalWraper.java:147)
+	at dar.Gui.PlantUtilPropertyChange(Gui.java:585)
+	at dar.Gui.access$100(Gui.java:21)
+	at dar.Gui$3.propertyChange(Gui.java:134)
+	at java.beans.PropertyChangeSupport.fire(PropertyChangeSupport.java:335)
+	at java.beans.PropertyChangeSupport.firePropertyChange(PropertyChangeSupport.java:327)
+	at java.beans.PropertyChangeSupport.firePropertyChange(PropertyChangeSupport.java:263)
+	at java.awt.Component.firePropertyChange(Component.java:8428)
+	at javax.swing.JTable.setCellEditor(JTable.java:5625)
+	at javax.swing.JTable.removeEditor(JTable.java:5814)
+	at javax.swing.JTable.editingStopped(JTable.java:4724)
+	at javax.swing.AbstractCellEditor.fireEditingStopped(AbstractCellEditor.java:141)
+	at javax.swing.DefaultCellEditor$EditorDelegate.stopCellEditing(DefaultCellEditor.java:368)
+	at javax.swing.DefaultCellEditor.stopCellEditing(DefaultCellEditor.java:233)
+	at javax.swing.JTable$GenericEditor.stopCellEditing(JTable.java:5467)
+	at javax.swing.plaf.basic.BasicTableUI$Handler.mousePressed(BasicTableUI.java:1010)
+	at java.awt.AWTEventMulticaster.mousePressed(AWTEventMulticaster.java:280)
+	at java.awt.Component.processMouseEvent(Component.java:6530)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3324)
+	at java.awt.Component.processEvent(Component.java:6298)
+	at java.awt.Container.processEvent(Container.java:2236)
+	at java.awt.Component.dispatchEventImpl(Component.java:4889)
+	at java.awt.Container.dispatchEventImpl(Container.java:2294)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4888)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4522)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4466)
+	at java.awt.Container.dispatchEventImpl(Container.java:2280)
+	at java.awt.Window.dispatchEventImpl(Window.java:2746)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:758)
+	at java.awt.EventQueue.access$500(EventQueue.java:97)
+	at java.awt.EventQueue$3.run(EventQueue.java:709)
+	at java.awt.EventQueue$3.run(EventQueue.java:703)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:86)
+	at java.awt.EventQueue$4.run(EventQueue.java:731)
+	at java.awt.EventQueue$4.run(EventQueue.java:729)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:728)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:201)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+08-19 12:55:31 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Schema "SOPSIOCO_DAR" not found; SQL statement:
+UPDATE `sopsioco_DAR`.`PlantUtilization` SET `PlantNo` = 'P151', `PlantDesc` = 'Wash Plant ', `StartHours` = '0', `EndHours` = '250', `Fuel` = '0.0', `Notes` = '' WHERE `PlantUtilization`.`ID` = 1; [90079-176]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:344)
+	at org.h2.message.DbException.get(DbException.java:178)
+	at org.h2.message.DbException.get(DbException.java:154)
+	at org.h2.command.Parser.getSchema(Parser.java:655)
+	at org.h2.command.Parser.getSchema(Parser.java:662)
+	at org.h2.command.Parser.readTableOrView(Parser.java:5196)
+	at org.h2.command.Parser.readTableOrView(Parser.java:5190)
+	at org.h2.command.Parser.readSimpleTableFilter(Parser.java:758)
+	at org.h2.command.Parser.parseUpdate(Parser.java:707)
+	at org.h2.command.Parser.parsePrepared(Parser.java:456)
+	at org.h2.command.Parser.parse(Parser.java:306)
+	at org.h2.command.Parser.parse(Parser.java:278)
+	at org.h2.command.Parser.prepareCommand(Parser.java:243)
+	at org.h2.engine.Session.prepareLocal(Session.java:442)
+	at org.h2.engine.Session.prepareCommand(Session.java:384)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1188)
+	at org.h2.jdbc.JdbcStatement.executeUpdateInternal(JdbcStatement.java:128)
+	at org.h2.jdbc.JdbcStatement.executeUpdate(JdbcStatement.java:117)
+	at dar.locDB.LocalWraper.executeQuery(LocalWraper.java:147)
+	at dar.Gui.PlantUtilPropertyChange(Gui.java:585)
+	at dar.Gui.access$100(Gui.java:21)
+	at dar.Gui$3.propertyChange(Gui.java:134)
+	at java.beans.PropertyChangeSupport.fire(PropertyChangeSupport.java:335)
+	at java.beans.PropertyChangeSupport.firePropertyChange(PropertyChangeSupport.java:327)
+	at java.beans.PropertyChangeSupport.firePropertyChange(PropertyChangeSupport.java:263)
+	at java.awt.Component.firePropertyChange(Component.java:8428)
+	at javax.swing.JTable.setCellEditor(JTable.java:5625)
+	at javax.swing.JTable.removeEditor(JTable.java:5814)
+	at javax.swing.JTable.editingStopped(JTable.java:4724)
+	at javax.swing.AbstractCellEditor.fireEditingStopped(AbstractCellEditor.java:141)
+	at javax.swing.DefaultCellEditor$EditorDelegate.stopCellEditing(DefaultCellEditor.java:368)
+	at javax.swing.DefaultCellEditor.stopCellEditing(DefaultCellEditor.java:233)
+	at javax.swing.JTable$GenericEditor.stopCellEditing(JTable.java:5467)
+	at javax.swing.DefaultCellEditor$EditorDelegate.actionPerformed(DefaultCellEditor.java:385)
+	at javax.swing.JTextField.fireActionPerformed(JTextField.java:508)
+	at javax.swing.JTextField.postActionEvent(JTextField.java:721)
+	at javax.swing.JTextField$NotifyAction.actionPerformed(JTextField.java:836)
+	at javax.swing.SwingUtilities.notifyAction(SwingUtilities.java:1663)
+	at javax.swing.JComponent.processKeyBinding(JComponent.java:2882)
+	at javax.swing.JComponent.processKeyBindings(JComponent.java:2929)
+	at javax.swing.JComponent.processKeyEvent(JComponent.java:2845)
+	at java.awt.Component.processEvent(Component.java:6310)
+	at java.awt.Container.processEvent(Container.java:2236)
+	at java.awt.Component.dispatchEventImpl(Component.java:4889)
+	at java.awt.Container.dispatchEventImpl(Container.java:2294)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.KeyboardFocusManager.redispatchEvent(KeyboardFocusManager.java:1954)
+	at java.awt.DefaultKeyboardFocusManager.dispatchKeyEvent(DefaultKeyboardFocusManager.java:806)
+	at java.awt.DefaultKeyboardFocusManager.preDispatchKeyEvent(DefaultKeyboardFocusManager.java:1074)
+	at java.awt.DefaultKeyboardFocusManager.typeAheadAssertions(DefaultKeyboardFocusManager.java:945)
+	at java.awt.DefaultKeyboardFocusManager.dispatchEvent(DefaultKeyboardFocusManager.java:771)
+	at java.awt.Component.dispatchEventImpl(Component.java:4760)
+	at java.awt.Container.dispatchEventImpl(Container.java:2294)
+	at java.awt.Window.dispatchEventImpl(Window.java:2746)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:758)
+	at java.awt.EventQueue.access$500(EventQueue.java:97)
+	at java.awt.EventQueue$3.run(EventQueue.java:709)
+	at java.awt.EventQueue$3.run(EventQueue.java:703)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:86)
+	at java.awt.EventQueue$4.run(EventQueue.java:731)
+	at java.awt.EventQueue$4.run(EventQueue.java:729)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:728)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:201)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+08-19 12:55:34 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Schema "SOPSIOCO_DAR" not found; SQL statement:
+UPDATE `sopsioco_DAR`.`PlantUtilization` SET `PlantNo` = 'P151', `PlantDesc` = 'Wash Plant ', `StartHours` = '0', `EndHours` = '25', `Fuel` = '0.0', `Notes` = '' WHERE `PlantUtilization`.`ID` = 1; [90079-176]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:344)
+	at org.h2.message.DbException.get(DbException.java:178)
+	at org.h2.message.DbException.get(DbException.java:154)
+	at org.h2.command.Parser.getSchema(Parser.java:655)
+	at org.h2.command.Parser.getSchema(Parser.java:662)
+	at org.h2.command.Parser.readTableOrView(Parser.java:5196)
+	at org.h2.command.Parser.readTableOrView(Parser.java:5190)
+	at org.h2.command.Parser.readSimpleTableFilter(Parser.java:758)
+	at org.h2.command.Parser.parseUpdate(Parser.java:707)
+	at org.h2.command.Parser.parsePrepared(Parser.java:456)
+	at org.h2.command.Parser.parse(Parser.java:306)
+	at org.h2.command.Parser.parse(Parser.java:278)
+	at org.h2.command.Parser.prepareCommand(Parser.java:243)
+	at org.h2.engine.Session.prepareLocal(Session.java:442)
+	at org.h2.engine.Session.prepareCommand(Session.java:384)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1188)
+	at org.h2.jdbc.JdbcStatement.executeUpdateInternal(JdbcStatement.java:128)
+	at org.h2.jdbc.JdbcStatement.executeUpdate(JdbcStatement.java:117)
+	at dar.locDB.LocalWraper.executeQuery(LocalWraper.java:147)
+	at dar.Gui.PlantUtilPropertyChange(Gui.java:585)
+	at dar.Gui.access$100(Gui.java:21)
+	at dar.Gui$3.propertyChange(Gui.java:134)
+	at java.beans.PropertyChangeSupport.fire(PropertyChangeSupport.java:335)
+	at java.beans.PropertyChangeSupport.firePropertyChange(PropertyChangeSupport.java:327)
+	at java.beans.PropertyChangeSupport.firePropertyChange(PropertyChangeSupport.java:263)
+	at java.awt.Component.firePropertyChange(Component.java:8428)
+	at javax.swing.JTable.setCellEditor(JTable.java:5625)
+	at javax.swing.JTable.removeEditor(JTable.java:5814)
+	at javax.swing.JTable.editingStopped(JTable.java:4724)
+	at javax.swing.AbstractCellEditor.fireEditingStopped(AbstractCellEditor.java:141)
+	at javax.swing.DefaultCellEditor$EditorDelegate.stopCellEditing(DefaultCellEditor.java:368)
+	at javax.swing.DefaultCellEditor.stopCellEditing(DefaultCellEditor.java:233)
+	at javax.swing.JTable$GenericEditor.stopCellEditing(JTable.java:5467)
+	at javax.swing.DefaultCellEditor$EditorDelegate.actionPerformed(DefaultCellEditor.java:385)
+	at javax.swing.JTextField.fireActionPerformed(JTextField.java:508)
+	at javax.swing.JTextField.postActionEvent(JTextField.java:721)
+	at javax.swing.JTextField$NotifyAction.actionPerformed(JTextField.java:836)
+	at javax.swing.SwingUtilities.notifyAction(SwingUtilities.java:1663)
+	at javax.swing.JComponent.processKeyBinding(JComponent.java:2882)
+	at javax.swing.JComponent.processKeyBindings(JComponent.java:2929)
+	at javax.swing.JComponent.processKeyEvent(JComponent.java:2845)
+	at java.awt.Component.processEvent(Component.java:6310)
+	at java.awt.Container.processEvent(Container.java:2236)
+	at java.awt.Component.dispatchEventImpl(Component.java:4889)
+	at java.awt.Container.dispatchEventImpl(Container.java:2294)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.KeyboardFocusManager.redispatchEvent(KeyboardFocusManager.java:1954)
+	at java.awt.DefaultKeyboardFocusManager.dispatchKeyEvent(DefaultKeyboardFocusManager.java:806)
+	at java.awt.DefaultKeyboardFocusManager.preDispatchKeyEvent(DefaultKeyboardFocusManager.java:1074)
+	at java.awt.DefaultKeyboardFocusManager.typeAheadAssertions(DefaultKeyboardFocusManager.java:945)
+	at java.awt.DefaultKeyboardFocusManager.dispatchEvent(DefaultKeyboardFocusManager.java:771)
+	at java.awt.Component.dispatchEventImpl(Component.java:4760)
+	at java.awt.Container.dispatchEventImpl(Container.java:2294)
+	at java.awt.Window.dispatchEventImpl(Window.java:2746)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:758)
+	at java.awt.EventQueue.access$500(EventQueue.java:97)
+	at java.awt.EventQueue$3.run(EventQueue.java:709)
+	at java.awt.EventQueue$3.run(EventQueue.java:703)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:86)
+	at java.awt.EventQueue$4.run(EventQueue.java:731)
+	at java.awt.EventQueue$4.run(EventQueue.java:729)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:728)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:201)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+08-19 12:55:39 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Schema "SOPSIOCO_DAR" not found; SQL statement:
+UPDATE `sopsioco_DAR`.`PlantUtilization` SET `PlantNo` = 'P151', `PlantDesc` = 'Wash Plant ', `StartHours` = '0', `EndHours` = '25', `Fuel` = '0.0', `Notes` = '' WHERE `PlantUtilization`.`ID` = 1; [90079-176]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:344)
+	at org.h2.message.DbException.get(DbException.java:178)
+	at org.h2.message.DbException.get(DbException.java:154)
+	at org.h2.command.Parser.getSchema(Parser.java:655)
+	at org.h2.command.Parser.getSchema(Parser.java:662)
+	at org.h2.command.Parser.readTableOrView(Parser.java:5196)
+	at org.h2.command.Parser.readTableOrView(Parser.java:5190)
+	at org.h2.command.Parser.readSimpleTableFilter(Parser.java:758)
+	at org.h2.command.Parser.parseUpdate(Parser.java:707)
+	at org.h2.command.Parser.parsePrepared(Parser.java:456)
+	at org.h2.command.Parser.parse(Parser.java:306)
+	at org.h2.command.Parser.parse(Parser.java:278)
+	at org.h2.command.Parser.prepareCommand(Parser.java:243)
+	at org.h2.engine.Session.prepareLocal(Session.java:442)
+	at org.h2.engine.Session.prepareCommand(Session.java:384)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1188)
+	at org.h2.jdbc.JdbcStatement.executeUpdateInternal(JdbcStatement.java:128)
+	at org.h2.jdbc.JdbcStatement.executeUpdate(JdbcStatement.java:117)
+	at dar.locDB.LocalWraper.executeQuery(LocalWraper.java:147)
+	at dar.Gui.PlantUtilPropertyChange(Gui.java:585)
+	at dar.Gui.access$100(Gui.java:21)
+	at dar.Gui$3.propertyChange(Gui.java:134)
+	at java.beans.PropertyChangeSupport.fire(PropertyChangeSupport.java:335)
+	at java.beans.PropertyChangeSupport.firePropertyChange(PropertyChangeSupport.java:327)
+	at java.beans.PropertyChangeSupport.firePropertyChange(PropertyChangeSupport.java:263)
+	at java.awt.Component.firePropertyChange(Component.java:8428)
+	at javax.swing.JTable.setCellEditor(JTable.java:5625)
+	at javax.swing.JTable.removeEditor(JTable.java:5814)
+	at javax.swing.JTable.editingStopped(JTable.java:4724)
+	at javax.swing.AbstractCellEditor.fireEditingStopped(AbstractCellEditor.java:141)
+	at javax.swing.DefaultCellEditor$EditorDelegate.stopCellEditing(DefaultCellEditor.java:368)
+	at javax.swing.DefaultCellEditor.stopCellEditing(DefaultCellEditor.java:233)
+	at javax.swing.JTable$GenericEditor.stopCellEditing(JTable.java:5467)
+	at javax.swing.plaf.basic.BasicTableUI$Handler.mousePressed(BasicTableUI.java:1010)
+	at java.awt.AWTEventMulticaster.mousePressed(AWTEventMulticaster.java:280)
+	at java.awt.Component.processMouseEvent(Component.java:6530)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3324)
+	at java.awt.Component.processEvent(Component.java:6298)
+	at java.awt.Container.processEvent(Container.java:2236)
+	at java.awt.Component.dispatchEventImpl(Component.java:4889)
+	at java.awt.Container.dispatchEventImpl(Container.java:2294)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4888)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4522)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4466)
+	at java.awt.Container.dispatchEventImpl(Container.java:2280)
+	at java.awt.Window.dispatchEventImpl(Window.java:2746)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:758)
+	at java.awt.EventQueue.access$500(EventQueue.java:97)
+	at java.awt.EventQueue$3.run(EventQueue.java:709)
+	at java.awt.EventQueue$3.run(EventQueue.java:703)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:86)
+	at java.awt.EventQueue$4.run(EventQueue.java:731)
+	at java.awt.EventQueue$4.run(EventQueue.java:729)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:728)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:201)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+08-19 12:55:40 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Schema "SOPSIOCO_DAR" not found; SQL statement:
+UPDATE `sopsioco_DAR`.`PlantUtilization` SET `PlantNo` = 'P151', `PlantDesc` = 'Wash Plant ', `StartHours` = '0', `EndHours` = '25', `Fuel` = '0.0', `Notes` = '' WHERE `PlantUtilization`.`ID` = 1; [90079-176]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:344)
+	at org.h2.message.DbException.get(DbException.java:178)
+	at org.h2.message.DbException.get(DbException.java:154)
+	at org.h2.command.Parser.getSchema(Parser.java:655)
+	at org.h2.command.Parser.getSchema(Parser.java:662)
+	at org.h2.command.Parser.readTableOrView(Parser.java:5196)
+	at org.h2.command.Parser.readTableOrView(Parser.java:5190)
+	at org.h2.command.Parser.readSimpleTableFilter(Parser.java:758)
+	at org.h2.command.Parser.parseUpdate(Parser.java:707)
+	at org.h2.command.Parser.parsePrepared(Parser.java:456)
+	at org.h2.command.Parser.parse(Parser.java:306)
+	at org.h2.command.Parser.parse(Parser.java:278)
+	at org.h2.command.Parser.prepareCommand(Parser.java:243)
+	at org.h2.engine.Session.prepareLocal(Session.java:442)
+	at org.h2.engine.Session.prepareCommand(Session.java:384)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1188)
+	at org.h2.jdbc.JdbcStatement.executeUpdateInternal(JdbcStatement.java:128)
+	at org.h2.jdbc.JdbcStatement.executeUpdate(JdbcStatement.java:117)
+	at dar.locDB.LocalWraper.executeQuery(LocalWraper.java:147)
+	at dar.Gui.PlantUtilPropertyChange(Gui.java:585)
+	at dar.Gui.access$100(Gui.java:21)
+	at dar.Gui$3.propertyChange(Gui.java:134)
+	at java.beans.PropertyChangeSupport.fire(PropertyChangeSupport.java:335)
+	at java.beans.PropertyChangeSupport.firePropertyChange(PropertyChangeSupport.java:327)
+	at java.beans.PropertyChangeSupport.firePropertyChange(PropertyChangeSupport.java:263)
+	at java.awt.Component.firePropertyChange(Component.java:8428)
+	at javax.swing.JTable.setCellEditor(JTable.java:5625)
+	at javax.swing.JTable.removeEditor(JTable.java:5814)
+	at javax.swing.JTable.editingStopped(JTable.java:4724)
+	at javax.swing.AbstractCellEditor.fireEditingStopped(AbstractCellEditor.java:141)
+	at javax.swing.DefaultCellEditor$EditorDelegate.stopCellEditing(DefaultCellEditor.java:368)
+	at javax.swing.DefaultCellEditor.stopCellEditing(DefaultCellEditor.java:233)
+	at javax.swing.JTable$GenericEditor.stopCellEditing(JTable.java:5467)
+	at javax.swing.plaf.basic.BasicTableUI$Handler.mousePressed(BasicTableUI.java:1010)
+	at java.awt.AWTEventMulticaster.mousePressed(AWTEventMulticaster.java:280)
+	at java.awt.Component.processMouseEvent(Component.java:6530)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3324)
+	at java.awt.Component.processEvent(Component.java:6298)
+	at java.awt.Container.processEvent(Container.java:2236)
+	at java.awt.Component.dispatchEventImpl(Component.java:4889)
+	at java.awt.Container.dispatchEventImpl(Container.java:2294)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4888)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4522)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4466)
+	at java.awt.Container.dispatchEventImpl(Container.java:2280)
+	at java.awt.Window.dispatchEventImpl(Window.java:2746)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:758)
+	at java.awt.EventQueue.access$500(EventQueue.java:97)
+	at java.awt.EventQueue$3.run(EventQueue.java:709)
+	at java.awt.EventQueue$3.run(EventQueue.java:703)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:86)
+	at java.awt.EventQueue$4.run(EventQueue.java:731)
+	at java.awt.EventQueue$4.run(EventQueue.java:729)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:728)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:201)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+08-19 12:55:41 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Schema "SOPSIOCO_DAR" not found; SQL statement:
+UPDATE `sopsioco_DAR`.`PlantUtilization` SET `PlantNo` = 'P151', `PlantDesc` = 'Wash Plant ', `StartHours` = '0', `EndHours` = '225', `Fuel` = '0.0', `Notes` = '' WHERE `PlantUtilization`.`ID` = 1; [90079-176]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:344)
+	at org.h2.message.DbException.get(DbException.java:178)
+	at org.h2.message.DbException.get(DbException.java:154)
+	at org.h2.command.Parser.getSchema(Parser.java:655)
+	at org.h2.command.Parser.getSchema(Parser.java:662)
+	at org.h2.command.Parser.readTableOrView(Parser.java:5196)
+	at org.h2.command.Parser.readTableOrView(Parser.java:5190)
+	at org.h2.command.Parser.readSimpleTableFilter(Parser.java:758)
+	at org.h2.command.Parser.parseUpdate(Parser.java:707)
+	at org.h2.command.Parser.parsePrepared(Parser.java:456)
+	at org.h2.command.Parser.parse(Parser.java:306)
+	at org.h2.command.Parser.parse(Parser.java:278)
+	at org.h2.command.Parser.prepareCommand(Parser.java:243)
+	at org.h2.engine.Session.prepareLocal(Session.java:442)
+	at org.h2.engine.Session.prepareCommand(Session.java:384)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1188)
+	at org.h2.jdbc.JdbcStatement.executeUpdateInternal(JdbcStatement.java:128)
+	at org.h2.jdbc.JdbcStatement.executeUpdate(JdbcStatement.java:117)
+	at dar.locDB.LocalWraper.executeQuery(LocalWraper.java:147)
+	at dar.Gui.PlantUtilPropertyChange(Gui.java:585)
+	at dar.Gui.access$100(Gui.java:21)
+	at dar.Gui$3.propertyChange(Gui.java:134)
+	at java.beans.PropertyChangeSupport.fire(PropertyChangeSupport.java:335)
+	at java.beans.PropertyChangeSupport.firePropertyChange(PropertyChangeSupport.java:327)
+	at java.beans.PropertyChangeSupport.firePropertyChange(PropertyChangeSupport.java:263)
+	at java.awt.Component.firePropertyChange(Component.java:8428)
+	at javax.swing.JTable.setCellEditor(JTable.java:5625)
+	at javax.swing.JTable.removeEditor(JTable.java:5814)
+	at javax.swing.JTable.editingStopped(JTable.java:4724)
+	at javax.swing.AbstractCellEditor.fireEditingStopped(AbstractCellEditor.java:141)
+	at javax.swing.DefaultCellEditor$EditorDelegate.stopCellEditing(DefaultCellEditor.java:368)
+	at javax.swing.DefaultCellEditor.stopCellEditing(DefaultCellEditor.java:233)
+	at javax.swing.JTable$GenericEditor.stopCellEditing(JTable.java:5467)
+	at javax.swing.DefaultCellEditor$EditorDelegate.actionPerformed(DefaultCellEditor.java:385)
+	at javax.swing.JTextField.fireActionPerformed(JTextField.java:508)
+	at javax.swing.JTextField.postActionEvent(JTextField.java:721)
+	at javax.swing.JTextField$NotifyAction.actionPerformed(JTextField.java:836)
+	at javax.swing.SwingUtilities.notifyAction(SwingUtilities.java:1663)
+	at javax.swing.JComponent.processKeyBinding(JComponent.java:2882)
+	at javax.swing.JComponent.processKeyBindings(JComponent.java:2929)
+	at javax.swing.JComponent.processKeyEvent(JComponent.java:2845)
+	at java.awt.Component.processEvent(Component.java:6310)
+	at java.awt.Container.processEvent(Container.java:2236)
+	at java.awt.Component.dispatchEventImpl(Component.java:4889)
+	at java.awt.Container.dispatchEventImpl(Container.java:2294)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.KeyboardFocusManager.redispatchEvent(KeyboardFocusManager.java:1954)
+	at java.awt.DefaultKeyboardFocusManager.dispatchKeyEvent(DefaultKeyboardFocusManager.java:806)
+	at java.awt.DefaultKeyboardFocusManager.preDispatchKeyEvent(DefaultKeyboardFocusManager.java:1074)
+	at java.awt.DefaultKeyboardFocusManager.typeAheadAssertions(DefaultKeyboardFocusManager.java:945)
+	at java.awt.DefaultKeyboardFocusManager.dispatchEvent(DefaultKeyboardFocusManager.java:771)
+	at java.awt.Component.dispatchEventImpl(Component.java:4760)
+	at java.awt.Container.dispatchEventImpl(Container.java:2294)
+	at java.awt.Window.dispatchEventImpl(Window.java:2746)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:758)
+	at java.awt.EventQueue.access$500(EventQueue.java:97)
+	at java.awt.EventQueue$3.run(EventQueue.java:709)
+	at java.awt.EventQueue$3.run(EventQueue.java:703)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:86)
+	at java.awt.EventQueue$4.run(EventQueue.java:731)
+	at java.awt.EventQueue$4.run(EventQueue.java:729)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:728)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:201)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+08-19 12:58:03 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Schema "SOPSIOCO_DAR" not found; SQL statement:
+UPDATE `sopsioco_DAR`.`PlantUtilization` SET `PlantNo` = 'P151', `PlantDesc` = 'Wash Plant ', `StartHours` = '0', `EndHours` = '200', `Fuel` = '0.0', `Notes` = '' WHERE `PlantUtilization`.`ID` = 1; [90079-176]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:344)
+	at org.h2.message.DbException.get(DbException.java:178)
+	at org.h2.message.DbException.get(DbException.java:154)
+	at org.h2.command.Parser.getSchema(Parser.java:655)
+	at org.h2.command.Parser.getSchema(Parser.java:662)
+	at org.h2.command.Parser.readTableOrView(Parser.java:5196)
+	at org.h2.command.Parser.readTableOrView(Parser.java:5190)
+	at org.h2.command.Parser.readSimpleTableFilter(Parser.java:758)
+	at org.h2.command.Parser.parseUpdate(Parser.java:707)
+	at org.h2.command.Parser.parsePrepared(Parser.java:456)
+	at org.h2.command.Parser.parse(Parser.java:306)
+	at org.h2.command.Parser.parse(Parser.java:278)
+	at org.h2.command.Parser.prepareCommand(Parser.java:243)
+	at org.h2.engine.Session.prepareLocal(Session.java:442)
+	at org.h2.engine.Session.prepareCommand(Session.java:384)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1188)
+	at org.h2.jdbc.JdbcStatement.executeUpdateInternal(JdbcStatement.java:128)
+	at org.h2.jdbc.JdbcStatement.executeUpdate(JdbcStatement.java:117)
+	at dar.locDB.LocalWraper.executeQuery(LocalWraper.java:147)
+	at dar.Gui.PlantUtilPropertyChange(Gui.java:585)
+	at dar.Gui.access$100(Gui.java:21)
+	at dar.Gui$3.propertyChange(Gui.java:134)
+	at java.beans.PropertyChangeSupport.fire(PropertyChangeSupport.java:335)
+	at java.beans.PropertyChangeSupport.firePropertyChange(PropertyChangeSupport.java:327)
+	at java.beans.PropertyChangeSupport.firePropertyChange(PropertyChangeSupport.java:263)
+	at java.awt.Component.firePropertyChange(Component.java:8428)
+	at javax.swing.JTable.setCellEditor(JTable.java:5625)
+	at javax.swing.JTable.removeEditor(JTable.java:5814)
+	at javax.swing.JTable.editingStopped(JTable.java:4724)
+	at javax.swing.AbstractCellEditor.fireEditingStopped(AbstractCellEditor.java:141)
+	at javax.swing.DefaultCellEditor$EditorDelegate.stopCellEditing(DefaultCellEditor.java:368)
+	at javax.swing.DefaultCellEditor.stopCellEditing(DefaultCellEditor.java:233)
+	at javax.swing.JTable$GenericEditor.stopCellEditing(JTable.java:5467)
+	at javax.swing.DefaultCellEditor$EditorDelegate.actionPerformed(DefaultCellEditor.java:385)
+	at javax.swing.JTextField.fireActionPerformed(JTextField.java:508)
+	at javax.swing.JTextField.postActionEvent(JTextField.java:721)
+	at javax.swing.JTextField$NotifyAction.actionPerformed(JTextField.java:836)
+	at javax.swing.SwingUtilities.notifyAction(SwingUtilities.java:1663)
+	at javax.swing.JComponent.processKeyBinding(JComponent.java:2882)
+	at javax.swing.JComponent.processKeyBindings(JComponent.java:2929)
+	at javax.swing.JComponent.processKeyEvent(JComponent.java:2845)
+	at java.awt.Component.processEvent(Component.java:6310)
+	at java.awt.Container.processEvent(Container.java:2236)
+	at java.awt.Component.dispatchEventImpl(Component.java:4889)
+	at java.awt.Container.dispatchEventImpl(Container.java:2294)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.KeyboardFocusManager.redispatchEvent(KeyboardFocusManager.java:1954)
+	at java.awt.DefaultKeyboardFocusManager.dispatchKeyEvent(DefaultKeyboardFocusManager.java:806)
+	at java.awt.DefaultKeyboardFocusManager.preDispatchKeyEvent(DefaultKeyboardFocusManager.java:1074)
+	at java.awt.DefaultKeyboardFocusManager.typeAheadAssertions(DefaultKeyboardFocusManager.java:945)
+	at java.awt.DefaultKeyboardFocusManager.dispatchEvent(DefaultKeyboardFocusManager.java:771)
+	at java.awt.Component.dispatchEventImpl(Component.java:4760)
+	at java.awt.Container.dispatchEventImpl(Container.java:2294)
+	at java.awt.Window.dispatchEventImpl(Window.java:2746)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:758)
+	at java.awt.EventQueue.access$500(EventQueue.java:97)
+	at java.awt.EventQueue$3.run(EventQueue.java:709)
+	at java.awt.EventQueue$3.run(EventQueue.java:703)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:86)
+	at java.awt.EventQueue$4.run(EventQueue.java:731)
+	at java.awt.EventQueue$4.run(EventQueue.java:729)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:728)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:201)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+08-19 13:01:27 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Column "P135" not found; SQL statement:
+UPDATE `PlantUtilization` SET `PlantNo` = 'P135', `PlantDesc` = 'Genset #2 Runs P151  Wash Pant', `StartHours` = '0', `EndHours` = '20', `Fuel` = '0.0', `Notes` = '' WHERE `PlantUtilization`.`SiteID` = 1 AND PlantNo = P135; [42122-176]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:344)
+	at org.h2.message.DbException.get(DbException.java:178)
+	at org.h2.message.DbException.get(DbException.java:154)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:148)
+	at org.h2.expression.Comparison.optimize(Comparison.java:181)
+	at org.h2.expression.ConditionAndOr.optimize(ConditionAndOr.java:132)
+	at org.h2.command.dml.Update.prepare(Update.java:182)
+	at org.h2.command.Parser.prepareCommand(Parser.java:248)
+	at org.h2.engine.Session.prepareLocal(Session.java:442)
+	at org.h2.engine.Session.prepareCommand(Session.java:384)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1188)
+	at org.h2.jdbc.JdbcStatement.executeUpdateInternal(JdbcStatement.java:128)
+	at org.h2.jdbc.JdbcStatement.executeUpdate(JdbcStatement.java:117)
+	at dar.locDB.LocalWraper.executeQuery(LocalWraper.java:147)
+	at dar.Gui.PlantUtilPropertyChange(Gui.java:585)
+	at dar.Gui.access$100(Gui.java:21)
+	at dar.Gui$3.propertyChange(Gui.java:134)
+	at java.beans.PropertyChangeSupport.fire(PropertyChangeSupport.java:335)
+	at java.beans.PropertyChangeSupport.firePropertyChange(PropertyChangeSupport.java:327)
+	at java.beans.PropertyChangeSupport.firePropertyChange(PropertyChangeSupport.java:263)
+	at java.awt.Component.firePropertyChange(Component.java:8428)
+	at javax.swing.JTable.setCellEditor(JTable.java:5625)
+	at javax.swing.JTable.removeEditor(JTable.java:5814)
+	at javax.swing.JTable.editingStopped(JTable.java:4724)
+	at javax.swing.AbstractCellEditor.fireEditingStopped(AbstractCellEditor.java:141)
+	at javax.swing.DefaultCellEditor$EditorDelegate.stopCellEditing(DefaultCellEditor.java:368)
+	at javax.swing.DefaultCellEditor.stopCellEditing(DefaultCellEditor.java:233)
+	at javax.swing.JTable$GenericEditor.stopCellEditing(JTable.java:5467)
+	at javax.swing.DefaultCellEditor$EditorDelegate.actionPerformed(DefaultCellEditor.java:385)
+	at javax.swing.JTextField.fireActionPerformed(JTextField.java:508)
+	at javax.swing.JTextField.postActionEvent(JTextField.java:721)
+	at javax.swing.JTextField$NotifyAction.actionPerformed(JTextField.java:836)
+	at javax.swing.SwingUtilities.notifyAction(SwingUtilities.java:1663)
+	at javax.swing.JComponent.processKeyBinding(JComponent.java:2882)
+	at javax.swing.JComponent.processKeyBindings(JComponent.java:2929)
+	at javax.swing.JComponent.processKeyEvent(JComponent.java:2845)
+	at java.awt.Component.processEvent(Component.java:6310)
+	at java.awt.Container.processEvent(Container.java:2236)
+	at java.awt.Component.dispatchEventImpl(Component.java:4889)
+	at java.awt.Container.dispatchEventImpl(Container.java:2294)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.KeyboardFocusManager.redispatchEvent(KeyboardFocusManager.java:1954)
+	at java.awt.DefaultKeyboardFocusManager.dispatchKeyEvent(DefaultKeyboardFocusManager.java:806)
+	at java.awt.DefaultKeyboardFocusManager.preDispatchKeyEvent(DefaultKeyboardFocusManager.java:1074)
+	at java.awt.DefaultKeyboardFocusManager.typeAheadAssertions(DefaultKeyboardFocusManager.java:945)
+	at java.awt.DefaultKeyboardFocusManager.dispatchEvent(DefaultKeyboardFocusManager.java:771)
+	at java.awt.Component.dispatchEventImpl(Component.java:4760)
+	at java.awt.Container.dispatchEventImpl(Container.java:2294)
+	at java.awt.Window.dispatchEventImpl(Window.java:2746)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:758)
+	at java.awt.EventQueue.access$500(EventQueue.java:97)
+	at java.awt.EventQueue$3.run(EventQueue.java:709)
+	at java.awt.EventQueue$3.run(EventQueue.java:703)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:86)
+	at java.awt.EventQueue$4.run(EventQueue.java:731)
+	at java.awt.EventQueue$4.run(EventQueue.java:729)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:728)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:201)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+08-19 13:12:09 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "INSERT INTO `PlantUtilization`(`SiteNo`, `PlantNo`, `PlantDesc`, `StartHours`, `EndHours`, `Fuel`, `Notes`) VALUES ('1',P245','VSI 2000 (Blown Motor) Crusher',null,null,null,'[*]')"; SQL statement:
+INSERT INTO `PlantUtilization`(`SiteNo`, `PlantNo`, `PlantDesc`, `StartHours`, `EndHours`, `Fuel`, `Notes`) VALUES ('1',P245','VSI 2000 (Blown Motor) Crusher',null,null,null,'') [42000-176]
+08-19 13:12:21 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Column "ID" not found; SQL statement:
+DELETE FROM `PlantUtilization` WHERE ID=1 [42122-176]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:344)
+	at org.h2.message.DbException.get(DbException.java:178)
+	at org.h2.message.DbException.get(DbException.java:154)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:148)
+	at org.h2.expression.Comparison.optimize(Comparison.java:179)
+	at org.h2.command.dml.Delete.prepare(Delete.java:131)
+	at org.h2.command.Parser.prepareCommand(Parser.java:248)
+	at org.h2.engine.Session.prepareLocal(Session.java:442)
+	at org.h2.engine.Session.prepareCommand(Session.java:384)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1188)
+	at org.h2.jdbc.JdbcStatement.executeUpdateInternal(JdbcStatement.java:128)
+	at org.h2.jdbc.JdbcStatement.executeUpdate(JdbcStatement.java:117)
+	at dar.locDB.LocalWraper.executeQuery(LocalWraper.java:139)
+	at dar.Gui.removePActionPerformed(Gui.java:559)
+	at dar.Gui.access$200(Gui.java:21)
+	at dar.Gui$4.actionPerformed(Gui.java:147)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2022)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2348)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:252)
+	at java.awt.Component.processMouseEvent(Component.java:6533)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3324)
+	at java.awt.Component.processEvent(Component.java:6298)
+	at java.awt.Container.processEvent(Container.java:2236)
+	at java.awt.Component.dispatchEventImpl(Component.java:4889)
+	at java.awt.Container.dispatchEventImpl(Container.java:2294)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4888)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4525)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4466)
+	at java.awt.Container.dispatchEventImpl(Container.java:2280)
+	at java.awt.Window.dispatchEventImpl(Window.java:2746)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:758)
+	at java.awt.EventQueue.access$500(EventQueue.java:97)
+	at java.awt.EventQueue$3.run(EventQueue.java:709)
+	at java.awt.EventQueue$3.run(EventQueue.java:703)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:86)
+	at java.awt.EventQueue$4.run(EventQueue.java:731)
+	at java.awt.EventQueue$4.run(EventQueue.java:729)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:728)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:201)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+08-19 13:22:54 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "INSERT INTO `PlantUtilization`(`SiteNo`, `PlantNo`, `PlantDesc`, `StartHours`, `EndHours`, `Fuel`, `DateFor`, `Notes`) VALUES ('1',P248','Komatsu WA 500-6 Loader',null,null,null,'2016/08/19','[*]')"; SQL statement:
+INSERT INTO `PlantUtilization`(`SiteNo`, `PlantNo`, `PlantDesc`, `StartHours`, `EndHours`, `Fuel`, `DateFor`, `Notes`) VALUES ('1',P248','Komatsu WA 500-6 Loader',null,null,null,'2016/08/19','') [42000-176]
+08-19 13:24:06 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "INSERT INTO `PlantUtilization`(`SiteNo`, `PlantNo`, `PlantDesc`, `StartHours`, `EndHours`, `Fuel`, `DateFor`, `Notes`) VALUES ('1',P245','VSI 2000 (Blown Motor) Crusher',null,null,null,'2016/08/19[*]',null)"; SQL statement:
+INSERT INTO `PlantUtilization`(`SiteNo`, `PlantNo`, `PlantDesc`, `StartHours`, `EndHours`, `Fuel`, `DateFor`, `Notes`) VALUES ('1',P245','VSI 2000 (Blown Motor) Crusher',null,null,null,'2016/08/19',null) [42000-176]
+08-19 13:26:59 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "INSERT INTO `PlantUtilization`(`SiteID`, `PlantNo`, `PlantDesc`, `StartHours`, `EndHours`, `Fuel`, `DateFor`, `Notes`) VALUES ('1',P248','Komatsu WA 500-6 Loader',null,null,null,'2016-08-19[*]',null)"; SQL statement:
+INSERT INTO `PlantUtilization`(`SiteID`, `PlantNo`, `PlantDesc`, `StartHours`, `EndHours`, `Fuel`, `DateFor`, `Notes`) VALUES ('1',P248','Komatsu WA 500-6 Loader',null,null,null,'2016-08-19',null) [42000-176]
+08-19 13:30:26 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "INSERT INTO `PlantUtilization`(`SiteID`, `PlantNo`, `PlantDesc`, `StartHours`, `EndHours`, `Fuel`, `DateFor`, `Notes`) VALUES ('1',P245','VSI 2000 (Blown Motor) Crusher',null,null,null,'Fri Aug 19 13:30:26 AEST 2016[*]',null)"; SQL statement:
+INSERT INTO `PlantUtilization`(`SiteID`, `PlantNo`, `PlantDesc`, `StartHours`, `EndHours`, `Fuel`, `DateFor`, `Notes`) VALUES ('1',P245','VSI 2000 (Blown Motor) Crusher',null,null,null,'Fri Aug 19 13:30:26 AEST 2016',null) [42000-176]
+08-19 13:31:15 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "INSERT INTO `PlantUtilization`(`SiteID`, `PlantNo`, `PlantDesc`, `StartHours`, `EndHours`, `Fuel`, `DateFor`, `Notes`) VALUES ('1',P245','VSI 2000 (Blown Motor) Crusher',null,null,null,'1987-01-01[*]',null)"; SQL statement:
+INSERT INTO `PlantUtilization`(`SiteID`, `PlantNo`, `PlantDesc`, `StartHours`, `EndHours`, `Fuel`, `DateFor`, `Notes`) VALUES ('1',P245','VSI 2000 (Blown Motor) Crusher',null,null,null,'1987-01-01',null) [42000-176]
+08-19 14:04:51 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Cannot parse "DATE" constant "0000-00-00"; SQL statement:
+INSERT INTO `PlantUtilization` (`SiteID`, `PlantNo`, `PlantDesc`, `StartHours`, `EndHours`, `Fuel`, `Notes`, `DateFor`, `flag`) VALUES
+(1, 'P133', 'Dump Truck', 11034, 0, 343.32, '', '0000-00-00', 0) -- (1, 'P133', 'Dump Truck', 11034, 0, 343.32, '', '0000-00-00', 0) [22007-176]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:344)
+	at org.h2.message.DbException.get(DbException.java:167)
+	at org.h2.value.ValueDate.parse(ValueDate.java:71)
+	at org.h2.value.Value.convertTo(Value.java:860)
+	at org.h2.table.Column.convert(Column.java:151)
+	at org.h2.command.dml.Insert.insertRows(Insert.java:144)
+	at org.h2.command.dml.Insert.update(Insert.java:115)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:79)
+	at org.h2.command.Command.executeUpdate(Command.java:254)
+	at org.h2.jdbc.JdbcStatement.executeUpdateInternal(JdbcStatement.java:132)
+	at org.h2.jdbc.JdbcStatement.executeUpdate(JdbcStatement.java:117)
+	at dar.locDB.LocalWraper.executeQuery(LocalWraper.java:139)
+	at dar.Gui.addpActionPerformed(Gui.java:540)
+	at dar.Gui.access$000(Gui.java:25)
+	at dar.Gui$1.actionPerformed(Gui.java:110)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2022)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2348)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:252)
+	at java.awt.Component.processMouseEvent(Component.java:6533)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3324)
+	at java.awt.Component.processEvent(Component.java:6298)
+	at java.awt.Container.processEvent(Container.java:2236)
+	at java.awt.Component.dispatchEventImpl(Component.java:4889)
+	at java.awt.Container.dispatchEventImpl(Container.java:2294)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4888)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4525)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4466)
+	at java.awt.Container.dispatchEventImpl(Container.java:2280)
+	at java.awt.Window.dispatchEventImpl(Window.java:2746)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:758)
+	at java.awt.EventQueue.access$500(EventQueue.java:97)
+	at java.awt.EventQueue$3.run(EventQueue.java:709)
+	at java.awt.EventQueue$3.run(EventQueue.java:703)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:86)
+	at java.awt.EventQueue$4.run(EventQueue.java:731)
+	at java.awt.EventQueue$4.run(EventQueue.java:729)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:728)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:201)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+Caused by: java.lang.IllegalArgumentException: 0-0-0
+	at org.h2.util.DateTimeUtils.parseDateValue(DateTimeUtils.java:279)
+	at org.h2.value.ValueDate.parse(ValueDate.java:69)
+	... 48 more
+08-19 14:05:26 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Column "ID" not found; SQL statement:
+DELETE FROM `PlantUtilization` WHERE ID=1 [42122-176]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:344)
+	at org.h2.message.DbException.get(DbException.java:178)
+	at org.h2.message.DbException.get(DbException.java:154)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:148)
+	at org.h2.expression.Comparison.optimize(Comparison.java:179)
+	at org.h2.command.dml.Delete.prepare(Delete.java:131)
+	at org.h2.command.Parser.prepareCommand(Parser.java:248)
+	at org.h2.engine.Session.prepareLocal(Session.java:442)
+	at org.h2.engine.Session.prepareCommand(Session.java:384)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1188)
+	at org.h2.jdbc.JdbcStatement.executeUpdateInternal(JdbcStatement.java:128)
+	at org.h2.jdbc.JdbcStatement.executeUpdate(JdbcStatement.java:117)
+	at dar.locDB.LocalWraper.executeQuery(LocalWraper.java:139)
+	at dar.Gui.removePActionPerformed(Gui.java:566)
+	at dar.Gui.access$200(Gui.java:25)
+	at dar.Gui$4.actionPerformed(Gui.java:152)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2022)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2348)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:252)
+	at java.awt.Component.processMouseEvent(Component.java:6533)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3324)
+	at java.awt.Component.processEvent(Component.java:6298)
+	at java.awt.Container.processEvent(Container.java:2236)
+	at java.awt.Component.dispatchEventImpl(Component.java:4889)
+	at java.awt.Container.dispatchEventImpl(Container.java:2294)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4888)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4525)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4466)
+	at java.awt.Container.dispatchEventImpl(Container.java:2280)
+	at java.awt.Window.dispatchEventImpl(Window.java:2746)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:758)
+	at java.awt.EventQueue.access$500(EventQueue.java:97)
+	at java.awt.EventQueue$3.run(EventQueue.java:709)
+	at java.awt.EventQueue$3.run(EventQueue.java:703)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:86)
+	at java.awt.EventQueue$4.run(EventQueue.java:731)
+	at java.awt.EventQueue$4.run(EventQueue.java:729)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:728)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:201)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+08-19 14:08:34 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Column "P133" not found; SQL statement:
+DELETE FROM `PlantUtilization` WHERE PlantNo=P133 AND SiteID = 1 [42122-176]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:344)
+	at org.h2.message.DbException.get(DbException.java:178)
+	at org.h2.message.DbException.get(DbException.java:154)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:148)
+	at org.h2.expression.Comparison.optimize(Comparison.java:181)
+	at org.h2.expression.ConditionAndOr.optimize(ConditionAndOr.java:131)
+	at org.h2.command.dml.Delete.prepare(Delete.java:131)
+	at org.h2.command.Parser.prepareCommand(Parser.java:248)
+	at org.h2.engine.Session.prepareLocal(Session.java:442)
+	at org.h2.engine.Session.prepareCommand(Session.java:384)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1188)
+	at org.h2.jdbc.JdbcStatement.executeUpdateInternal(JdbcStatement.java:128)
+	at org.h2.jdbc.JdbcStatement.executeUpdate(JdbcStatement.java:117)
+	at dar.locDB.LocalWraper.executeQuery(LocalWraper.java:139)
+	at dar.Gui.removePActionPerformed(Gui.java:566)
+	at dar.Gui.access$200(Gui.java:25)
+	at dar.Gui$4.actionPerformed(Gui.java:152)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2022)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2348)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:252)
+	at java.awt.Component.processMouseEvent(Component.java:6533)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3324)
+	at java.awt.Component.processEvent(Component.java:6298)
+	at java.awt.Container.processEvent(Container.java:2236)
+	at java.awt.Component.dispatchEventImpl(Component.java:4889)
+	at java.awt.Container.dispatchEventImpl(Container.java:2294)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4888)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4525)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4466)
+	at java.awt.Container.dispatchEventImpl(Container.java:2280)
+	at java.awt.Window.dispatchEventImpl(Window.java:2746)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:758)
+	at java.awt.EventQueue.access$500(EventQueue.java:97)
+	at java.awt.EventQueue$3.run(EventQueue.java:709)
+	at java.awt.EventQueue$3.run(EventQueue.java:703)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:86)
+	at java.awt.EventQueue$4.run(EventQueue.java:731)
+	at java.awt.EventQueue$4.run(EventQueue.java:729)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:728)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:201)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+08-19 15:01:34 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM PLANTUTILIZATION WHERE SITEID='1' AND  "; expected "NOT, EXISTS, INTERSECTS"; SQL statement:
+SELECT * FROM PlantUtilization WHERE SiteID='1' AND  [42001-176]
+08-19 15:04:44 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM PLANTUTILIZATION WHERE SITEID='1' AND  "; expected "NOT, EXISTS, INTERSECTS"; SQL statement:
+SELECT * FROM PlantUtilization WHERE SiteID='1' AND  [42001-176]
+08-19 15:08:11 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM PLANTUTILIZATION WHERE SITEID='1' AND PLANTNO='P245' AND  "; expected "NOT, EXISTS, INTERSECTS"; SQL statement:
+SELECT * FROM PlantUtilization WHERE SiteID='1' AND PlantNo='P245' AND  [42001-176]
