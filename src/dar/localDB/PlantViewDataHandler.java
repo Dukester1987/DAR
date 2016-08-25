@@ -11,6 +11,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.sql.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
@@ -25,9 +27,10 @@ public class PlantViewDataHandler {
     public ArrayList<PlantView> plantView;
     private Date dateFor;
 
-    public PlantViewDataHandler(LocalWraper con, User user) {
+    public PlantViewDataHandler(LocalWraper con, User user,JTable table) {
         this.con = con;
         this.user = user;
+        hideID(table);
     }   
         
     public ArrayList<PlantView> getPlantView(){
@@ -66,7 +69,7 @@ public class PlantViewDataHandler {
         DefaultTableModel model = (DefaultTableModel) table.getModel();
         refreshTable(model);
         for(int i = 0;i<list.size();i++){
-            model.addRow(new Object[]{list.get(i).getSiteID(),
+            model.addRow(new Object[]{list.get(i).getUtilizationID(),
                 list.get(i).getPlantID(),
                 list.get(i).getPlantDesc(),
                 list.get(i).getStartHours(),
@@ -84,7 +87,7 @@ public class PlantViewDataHandler {
     }
 
     public boolean isPlantDescription(String message) {
-        Object[][] where = {{"PlantNo"},{"="},{message},{}};
+        Object[][] where = {{"ID"},{"="},{message},{}};
         ResultSet rs = con.dbSelect("PlantList", where);
         try {
             return rs.last();
@@ -95,7 +98,19 @@ public class PlantViewDataHandler {
     }
 
     public String getPlantDescrition(String message) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Object[][] where = {{"ID"},{"="},{message},{}};
+        ResultSet rs = con.dbSelect("PlantList", where);
+        try {
+            rs.first();
+            return rs.getString("PlantDesc");
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return null;        
+    }
+
+    private void hideID(JTable table) {
+        table.removeColumn(table.getColumn("ID"));
     }
     
 }
