@@ -30,7 +30,7 @@ public class PlantViewDataHandler {
     public PlantViewDataHandler(LocalWraper con, User user,JTable table) {
         this.con = con;
         this.user = user;
-        hideID(table);
+        hideID(table); //hide ID in JTable
     }   
         
     public ArrayList<PlantView> getPlantView(){
@@ -70,6 +70,7 @@ public class PlantViewDataHandler {
         refreshTable(model);
         for(int i = 0;i<list.size();i++){
             model.addRow(new Object[]{list.get(i).getUtilizationID(),
+                list.get(i).getAllocationID(),
                 list.get(i).getPlantID(),
                 list.get(i).getPlantDesc(),
                 list.get(i).getStartHours(),
@@ -110,7 +111,8 @@ public class PlantViewDataHandler {
     }
 
     private void hideID(JTable table) {
-        table.removeColumn(table.getColumn("ID"));
+        table.removeColumn(table.getColumn("UtilizationID"));
+        table.removeColumn(table.getColumn("AllocationID"));
     }
     
 }

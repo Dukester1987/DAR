@@ -93,14 +93,14 @@ public class Gui extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID", "Plant No", "Plant Desc", "Start Hours", "End hours", "Fuel", "Notes"
+                "UtilizationID", "AllocationID", "Plant No", "Plant Desc", "Start Hours", "End hours", "Fuel", "Notes"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Double.class, java.lang.String.class
+                java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Double.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, true, true, true, true
+                false, false, false, false, true, true, true, true
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -120,8 +120,10 @@ public class Gui extends javax.swing.JFrame {
         if (PlantUtil.getColumnModel().getColumnCount() > 0) {
             PlantUtil.getColumnModel().getColumn(0).setResizable(false);
             PlantUtil.getColumnModel().getColumn(0).setPreferredWidth(0);
-            PlantUtil.getColumnModel().getColumn(1).setPreferredWidth(50);
-            PlantUtil.getColumnModel().getColumn(2).setPreferredWidth(400);
+            PlantUtil.getColumnModel().getColumn(1).setResizable(false);
+            PlantUtil.getColumnModel().getColumn(1).setPreferredWidth(0);
+            PlantUtil.getColumnModel().getColumn(2).setPreferredWidth(50);
+            PlantUtil.getColumnModel().getColumn(3).setPreferredWidth(400);
         }
 
         removeP.setMnemonic('R');
@@ -290,16 +292,25 @@ public class Gui extends javax.swing.JFrame {
         int k = PlantUtil.getEditingRow();
         if(k>-1){
             DefaultTableModel model = (DefaultTableModel) PlantUtil.getModel();
-            int ID = (int) model.getValueAt(k, 0);
-            String PlantNo = (String) model.getValueAt(k, 1);
-            String PlantDesc = (String) model.getValueAt(k, 2);
-            int StartHours = (int) model.getValueAt(k, 3);
-            int EndHours = (int) model.getValueAt(k, 4);
-            double Fuel = (double) model.getValueAt(k, 5);
-            String Notes = (String) model.getValueAt(k, 6);
-
-            String query = String.format("UPDATE `PlantUtilization` SET `PlantNo` = '%s', `PlantDesc` = '%s', `StartHours` = '%d', `EndHours` = '%d', `Fuel` = '%s', `Notes` = '%s', `Flag` = '0' WHERE `PlantUtilization`.`SiteID` = %d AND PlantNo = '%s';",PlantNo,PlantDesc,StartHours,EndHours,Fuel,Notes,ID,PlantNo);
-            db.executeQuery(query, "insert", false);
+            int PlantUtilizationID = (int) model.getValueAt(k, 0);
+            int PlantAllocationID = (int) model.getValueAt(k, 1);
+            String PlantNo = (String) model.getValueAt(k, 2);
+            String PlantDesc = (String) model.getValueAt(k, 3);
+            int StartHours = (int) model.getValueAt(k, 4);
+            int EndHours = (int) model.getValueAt(k, 5);
+            double Fuel = (double) model.getValueAt(k, 6);
+            String Notes = (String) model.getValueAt(k, 7);
+            
+            if(PlantUtilizationID==0){
+                Object[][] query = new Object[][]{{"PlantAllocationID","StartHours","EndHours","DateFor","Fuel","Notes"},{PlantAllocationID,StartHours,EndHours,date,Fuel,Notes}};
+                db.dbInsert("PlantUtilization", query);
+                pw.displayPlantViewInTable(PlantUtil, date); // refresh table
+            } else {
+                // update operation
+                Object[][] query = new Object[][]{{"StartHours","EndHours","Fuel","Notes"},{StartHours,EndHours,Fuel,Notes}};
+                Object[][] where = new Object[][]{{"ID"},{"="},{PlantUtilizationID},{}};
+                db.dbUpdate("PlantUtilization", query, where);             
+            }            
         }
         //System.out.println(k);
     }//GEN-LAST:event_PlantUtilPropertyChange
@@ -342,8 +353,8 @@ public class Gui extends javax.swing.JFrame {
         int optimum = model.getRowCount()*8;
         long percentage;
         for(int i=0;i<model.getRowCount(); i++){
-            if(model.getValueAt(i, 4)!=null && (int) model.getValueAt(i, 4) != 0){
-                hoursTotal += (int) model.getValueAt(i, 4) - (int) model.getValueAt(i, 3);                
+            if(model.getValueAt(i, 5)!=null && (int) model.getValueAt(i, 5) != 0){
+                hoursTotal += (int) model.getValueAt(i, 5) - (int) model.getValueAt(i, 4);                
             }   
         }
         if(hoursTotal<0 || optimum<=0){
@@ -397,8 +408,6 @@ public class Gui extends javax.swing.JFrame {
     private Date today() {
         Date date;
         date = new Date(System.currentTimeMillis());
-        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");   
-        String today = dateFormat.format(date);
         return date;
     }
 

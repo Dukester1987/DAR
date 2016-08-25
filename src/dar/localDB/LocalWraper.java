@@ -5,7 +5,6 @@
  */
 package dar.localDB;
 
-import dar.Gui.Login;
 import dar.dbObjects.User;
 import dar.hash.hash;
 import java.sql.Connection;
@@ -148,8 +147,7 @@ public class LocalWraper {
         Object[] answer = where[2];
         Object[] delimiter = where[3];
         for (int i = 0; i < question.length; i++) {
-            String objComa = isSurrounded(answer[i]);
-            query += question[i] + " " + operand[i] + " "+ objComa + answer[i] + objComa +" ";  
+            query += question[i] + " " + operand[i] + " '" + answer[i] + "' ";  
             
             if(i<question.length-1){
                 query += delimiter[i] + " ";
@@ -166,8 +164,8 @@ public class LocalWraper {
         Object[] answer = where[2];
         Object[] delimiter = where[3];
         for (int i = 0; i < question.length; i++) {
-            String objComa = isSurrounded(answer[i]);
-            query += question[i] + " " + operand[i] + " "+ objComa + answer[i] + objComa +" ";  
+            Object objComa = isSurrounded(answer[i]);
+            query += question[i] + " " + operand[i] + " "+ objComa +" ";  
             
             if(i<question.length-1){
                 query += delimiter[i] + " ";
@@ -233,7 +231,8 @@ public class LocalWraper {
         
         for (int i = 0; i < values.length; i++) {
             Object value = values[i];
-            inputs += "'"+value+"'";
+            Object coma = isSurrounded(value);
+            inputs += coma;
             if(i<values.length-1)
                 inputs += ", ";
             
@@ -241,16 +240,51 @@ public class LocalWraper {
 
         String query = String.format("INSERT INTO %s (%s) VALUES (%s)",table,columns,inputs);
         System.out.println(query);
-        executeQuery(query, "inserted", true);
+        executeQuery(query, "inserted", false);
     }
 
-    private String isSurrounded(Object object) {
-        String returnComa = "";
-        System.out.println(object.getClass().getName());
-        if(!object.equals("NULL")){
-            returnComa = "'";
+    private Object isSurrounded(Object object) {
+        String returnComa;
+        Object result;
+        //System.out.println(object.getClass().getName());
+        if(object != null){
+            if(object.equals("NULL")){
+                returnComa = "";
+            } else {
+                returnComa = "'";
+            }
+            result = returnComa+object+returnComa;
+        } else {
+            result = "''";
+        }          
+
+        return result;
+    }
+
+    public void dbUpdate(String table, Object[][] what, Object[][] where) {
+        String query = "UPDATE "+table+" SET ";
+        for (int i = 0; i < what[0].length; i++) {
+            String wh = (String) what[0][i];
+            query += what[0][i]+" = '" +what[1][i]+ "' ";
+                if(i<what[0].length-1){
+                    query += ", ";
+                }
         }
-        return returnComa;
+        query += "WHERE ";
+        Object[] question = where[0];
+        Object[] operand = where[1];
+        Object[] answer = where[2];
+        Object[] delimiter = where[3];
+        for (int i = 0; i < question.length; i++) {
+            Object coma = isSurrounded(answer[i]);
+            query += question[i] + " " + operand[i] + " " + coma + " ";  
+            
+            if(i<question.length-1){
+                query += delimiter[i] + " ";
+            }    
+        }
+        System.out.println(query);
+        executeQuery(query, "updated", false);
     }
     
 }
