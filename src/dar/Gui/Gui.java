@@ -10,8 +10,6 @@ import dar.localDB.LocalWraper;
 import dar.localDB.PlantViewDataHandler;
 import java.awt.Color;
 import java.awt.Toolkit;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.sql.Date;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -27,16 +25,18 @@ public class Gui extends javax.swing.JFrame {
     private DBWrapper db1;
     private PlantViewDataHandler pw;
     private Date date;
+    private boolean actionListenerGo = false;
 
     public Gui(LocalWraper db) {      
-        initComponents();
         date = today();
+        initComponents();
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("hqlogo.png")));
         
         this.db = db;
         
         pw = new PlantViewDataHandler(this.db, db.userData,PlantUtil);
-        pw.displayPlantViewInTable(PlantUtil, today());
+        pw.displayPlantViewInTable(PlantUtil, date);
+        actionListenerGo = true;
         setName(title);
         utilPercChange();
         
@@ -60,13 +60,13 @@ public class Gui extends javax.swing.JFrame {
         addp = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         PlantUtil = new javax.swing.JTable();
-        removeP = new javax.swing.JButton();
         Filter = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
         utilPerc = new javax.swing.JLabel();
         title = new javax.swing.JLabel();
         refreshP = new javax.swing.JButton();
         label = new javax.swing.JLabel();
+        datePicker = new com.toedter.calendar.JDateChooser();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
@@ -79,6 +79,7 @@ public class Gui extends javax.swing.JFrame {
         jMenu3 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1080, 720));
 
         addp.setMnemonic('A');
         addp.setText("Add Plant");
@@ -93,14 +94,14 @@ public class Gui extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID", "Plant No", "Plant Desc", "Start Hours", "End hours", "Fuel", "Notes"
+                "UtilizationID", "AllocationID", "Plant No", "Plant Desc", "Start Hours", "End hours", "Fuel", "Notes", "Hours total"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Double.class, java.lang.String.class
+                java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Double.class, java.lang.String.class, java.lang.Integer.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, true, true, true, true
+                false, false, false, false, true, true, true, true, true
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -120,17 +121,11 @@ public class Gui extends javax.swing.JFrame {
         if (PlantUtil.getColumnModel().getColumnCount() > 0) {
             PlantUtil.getColumnModel().getColumn(0).setResizable(false);
             PlantUtil.getColumnModel().getColumn(0).setPreferredWidth(0);
-            PlantUtil.getColumnModel().getColumn(1).setPreferredWidth(50);
-            PlantUtil.getColumnModel().getColumn(2).setPreferredWidth(400);
+            PlantUtil.getColumnModel().getColumn(1).setResizable(false);
+            PlantUtil.getColumnModel().getColumn(1).setPreferredWidth(0);
+            PlantUtil.getColumnModel().getColumn(2).setPreferredWidth(50);
+            PlantUtil.getColumnModel().getColumn(3).setPreferredWidth(400);
         }
-
-        removeP.setMnemonic('R');
-        removeP.setText("Remove Plant/s");
-        removeP.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                removePActionPerformed(evt);
-            }
-        });
 
         Filter.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "All", "Not Finished", "Finished" }));
 
@@ -146,17 +141,17 @@ public class Gui extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(addp)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(removeP)
-                .addGap(272, 272, 272)
-                .addComponent(utilPerc, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 177, Short.MAX_VALUE)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Filter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(addp)
+                        .addGap(385, 385, 385)
+                        .addComponent(utilPerc, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Filter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1))
                 .addContainerGap())
-            .addComponent(jScrollPane1)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -164,18 +159,17 @@ public class Gui extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(addp)
-                    .addComponent(removeP)
                     .addComponent(Filter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2)
                     .addComponent(utilPerc))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 516, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 499, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Plant Utilization", jPanel1);
 
         title.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        title.setText("15/8/16 - Menangle");
+        title.setText("Menangle");
 
         refreshP.setText("Refresh data");
         refreshP.addActionListener(new java.awt.event.ActionListener() {
@@ -186,6 +180,16 @@ public class Gui extends javax.swing.JFrame {
 
         label.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
         label.setText("Trying to connect...");
+
+        datePicker.setDate(date);
+        datePicker.setMaxSelectableDate(today());
+        datePicker.setMinSelectableDate(firstDate());
+        datePicker.setName("dateFor"); // NOI18N
+        datePicker.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                datePickerPropertyChange(evt);
+            }
+        });
 
         jMenu1.setText("File");
 
@@ -234,12 +238,15 @@ public class Gui extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(title, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(216, 216, 216)
-                        .addComponent(label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(title, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(label, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(refreshP, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(datePicker, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jTabbedPane1))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -250,8 +257,10 @@ public class Gui extends javax.swing.JFrame {
                     .addComponent(title, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
                     .addComponent(refreshP)
                     .addComponent(label))
+                .addGap(4, 4, 4)
+                .addComponent(datePicker, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 575, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -263,69 +272,59 @@ public class Gui extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, "Utilization data has been sucessfully loaded!");
     }//GEN-LAST:event_refreshPActionPerformed
 
-    private void removePActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removePActionPerformed
-
-        if(PlantUtil.getSelectedRow()==-1){
-            JOptionPane.showMessageDialog(this, "No rows selected");
-        } else {
-            DefaultTableModel model = (DefaultTableModel) PlantUtil.getModel();
-            int[] val = PlantUtil.getSelectedRows();
-            String queryPrefix = "DELETE FROM `PlantUtilization` WHERE ";
-            String query = "";
-            for(int  i = 0;i < PlantUtil.getSelectedRowCount();i++){
-                query = query+"PlantNo='"+ model.getValueAt(val[i], 1) +"'";
-                if(i < PlantUtil.getSelectedRowCount()-1)
-                query = query+" OR ";
-                //model.removeRow(val[i]);
-            }
-            query = queryPrefix+query+" AND SiteID = "+db.userData.getSiteID();
-            db.executeQuery(query, "deleted",true);
-            pw.displayPlantViewInTable(PlantUtil,today());
-            System.out.println(query);
-        }
-    }//GEN-LAST:event_removePActionPerformed
-
     private void PlantUtilPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_PlantUtilPropertyChange
         utilPercChange();
         int k = PlantUtil.getEditingRow();
         if(k>-1){
             DefaultTableModel model = (DefaultTableModel) PlantUtil.getModel();
-            int ID = (int) model.getValueAt(k, 0);
-            String PlantNo = (String) model.getValueAt(k, 1);
-            String PlantDesc = (String) model.getValueAt(k, 2);
-            int StartHours = (int) model.getValueAt(k, 3);
-            int EndHours = (int) model.getValueAt(k, 4);
-            double Fuel = (double) model.getValueAt(k, 5);
-            String Notes = (String) model.getValueAt(k, 6);
-
-            String query = String.format("UPDATE `PlantUtilization` SET `PlantNo` = '%s', `PlantDesc` = '%s', `StartHours` = '%d', `EndHours` = '%d', `Fuel` = '%s', `Notes` = '%s', `Flag` = '0' WHERE `PlantUtilization`.`SiteID` = %d AND PlantNo = '%s';",PlantNo,PlantDesc,StartHours,EndHours,Fuel,Notes,ID,PlantNo);
-            db.executeQuery(query, "insert", false);
+            int PlantUtilizationID = (int) model.getValueAt(k, 0);
+            int PlantAllocationID = (int) model.getValueAt(k, 1);
+            String PlantNo = (String) model.getValueAt(k, 2);
+            String PlantDesc = (String) model.getValueAt(k, 3);
+            int StartHours = (int) model.getValueAt(k, 4);
+            int EndHours = (int) model.getValueAt(k, 5);
+            double Fuel = (double) model.getValueAt(k, 6);
+            String Notes = (String) model.getValueAt(k, 7);
+            
+            if(PlantUtilizationID==0){
+                Object[][] query = new Object[][]{{"PlantAllocationID","StartHours","EndHours","DateFor","Fuel","Notes"},{PlantAllocationID,StartHours,EndHours,date,Fuel,Notes}};
+                db.dbInsert("PlantUtilization", query);
+                pw.displayPlantViewInTable(PlantUtil, date); // refresh table
+            } else {
+                // update operation
+                Object[][] query = new Object[][]{{"StartHours","EndHours","Fuel","Notes"},{StartHours,EndHours,Fuel,Notes}};
+                Object[][] where = new Object[][]{{"ID"},{"="},{PlantUtilizationID},{}};
+                db.dbUpdate("PlantUtilization", query, where);             
+            }            
         }
         //System.out.println(k);
     }//GEN-LAST:event_PlantUtilPropertyChange
 
     private void addpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addpActionPerformed
-        DefaultTableModel model = (DefaultTableModel) PlantUtil.getModel();
-        String message = JOptionPane.showInputDialog(null, "Insert plant Number");
-        if(message!=null){
+        if(date.toString().equals(today().toString())){
+            DefaultTableModel model = (DefaultTableModel) PlantUtil.getModel();
+            String message = JOptionPane.showInputDialog(null, "Insert plant Number");
+            if(message!=null){
 
-            Object[][] Query = new Object[][]{{"SiteID", "PlantID", "StartDate", "EndDate"},
-                                              {"=","=","<=",">=","IS"},
-                                              {db.userData.getSiteID(),message,date,date},
-                                              {"AND","AND","AND","OR"}};
-            if(pw.isPlantDescription(message)){
-                if(db.hasDuplicity(db.dbSelect("PlantAllocation", Query))){
-                    JOptionPane.showMessageDialog(null, "Plant is already in the list");
+                Object[][] Query = new Object[][]{{"SiteID", "PlantID", "StartDate", "EndDate"},
+                                                  {"=","=","<=",">=","IS"},
+                                                  {db.userData.getSiteID(),message,date,date},
+                                                  {"AND","AND","AND","OR"}};
+                if(pw.isPlantDescription(message)){
+                    if(db.hasDuplicity(db.dbSelect("PlantAllocation", Query))){
+                        JOptionPane.showMessageDialog(null, "Plant is already in the list");
+                    } else {
+                        Object[][] dataset = new Object[][]{{"PlantID","SiteID","StartDate","EndDate"},{message,db.userData.getSiteID(),date,nextDate()}};
+                        db.dbInsert("PlantAllocation",dataset);
+                        pw.displayPlantViewInTable(PlantUtil,date);
+                    }
                 } else {
-                    Object[][] dataset = new Object[][]{{"PlantID","SiteID","StartDate","EndDate"},{message,db.userData.getSiteID(),date,nextDate()}};
-                    db.dbInsert("PlantAllocation",dataset);
-                    pw.displayPlantViewInTable(PlantUtil,today());
+                    JOptionPane.showMessageDialog(null, "Selected Plant No doesn't exists in the database");
                 }
-            } else {
-                JOptionPane.showMessageDialog(null, "Selected Plant No doesn't exists in the database");
             }
-        }
-
+        } else {
+            JOptionPane.showMessageDialog(null, "To add plant for previous days please contact your administrator!");
+        }       
     }//GEN-LAST:event_addpActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
@@ -336,14 +335,27 @@ public class Gui extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem4MouseClicked
 
+    private void datePickerPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_datePickerPropertyChange
+        if(actionListenerGo){
+            date = setDate(datePicker.getDate());
+            pw.displayPlantViewInTable(PlantUtil, date); //refresh table
+            utilPercChange();
+            if(!today().toString().equals(date.toString())){
+                addp.setEnabled(false);
+            } else {
+                addp.setEnabled(true);
+            }
+        }
+    }//GEN-LAST:event_datePickerPropertyChange
+
     private void utilPercChange(){
         TableModel model = PlantUtil.getModel();
         int hoursTotal = 0;
         int optimum = model.getRowCount()*8;
         long percentage;
         for(int i=0;i<model.getRowCount(); i++){
-            if(model.getValueAt(i, 4)!=null && (int) model.getValueAt(i, 4) != 0){
-                hoursTotal += (int) model.getValueAt(i, 4) - (int) model.getValueAt(i, 3);                
+            if(model.getValueAt(i, 5)!=null && (int) model.getValueAt(i, 5) != 0){
+                hoursTotal += (int) model.getValueAt(i, 5) - (int) model.getValueAt(i, 4);                
             }   
         }
         if(hoursTotal<0 || optimum<=0){
@@ -369,6 +381,7 @@ public class Gui extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> Filter;
     public javax.swing.JTable PlantUtil;
     private javax.swing.JButton addp;
+    private com.toedter.calendar.JDateChooser datePicker;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
@@ -385,7 +398,6 @@ public class Gui extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JLabel label;
     private javax.swing.JButton refreshP;
-    private javax.swing.JButton removeP;
     private javax.swing.JLabel title;
     private javax.swing.JLabel utilPerc;
     // End of variables declaration//GEN-END:variables
@@ -397,19 +409,27 @@ public class Gui extends javax.swing.JFrame {
     private Date today() {
         Date date;
         date = new Date(System.currentTimeMillis());
-        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");   
-        String today = dateFormat.format(date);
         return date;
     }
 
     private void setName(JLabel title) {
         String name = db.userData.getLoginName();
-        Date date = today();
-        title.setText(String.format("%s - %s",date,name));
+        title.setText(name);
     }
 
     private Date nextDate() {
         long add = 315360000000L;
         return new Date(System.currentTimeMillis()+add);
+    }
+
+    private java.util.Date firstDate(){
+        java.util.Date d = new java.util.Date();
+        d.setTime(System.currentTimeMillis()-432000000);
+        return d;
+    }
+    
+    private Date setDate(java.util.Date date) {
+        Date sqldate = new Date(date.getTime());
+        return sqldate;       
     }
 }
