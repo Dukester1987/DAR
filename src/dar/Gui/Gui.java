@@ -23,18 +23,19 @@ import javax.swing.table.TableModel;
  * @author ldulka
  */
 public class Gui extends javax.swing.JFrame {
-    LocalWraper db;
-    DBWrapper db1;
-    PlantViewDataHandler pw;
+    private LocalWraper db;
+    private DBWrapper db1;
+    private PlantViewDataHandler pw;
+    private Date date;
 
     public Gui(LocalWraper db) {      
         initComponents();
-
+        date = today();
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("hqlogo.png")));
         
         this.db = db;
         
-        pw = new PlantViewDataHandler(this.db, db.userData);
+        pw = new PlantViewDataHandler(this.db, db.userData,PlantUtil);
         pw.displayPlantViewInTable(PlantUtil, today());
         setName(title);
         utilPercChange();
@@ -99,7 +100,7 @@ public class Gui extends javax.swing.JFrame {
                 java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Double.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, true, true, true, true, true, true
+                false, false, false, true, true, true, true
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -119,6 +120,8 @@ public class Gui extends javax.swing.JFrame {
         if (PlantUtil.getColumnModel().getColumnCount() > 0) {
             PlantUtil.getColumnModel().getColumn(0).setResizable(false);
             PlantUtil.getColumnModel().getColumn(0).setPreferredWidth(0);
+            PlantUtil.getColumnModel().getColumn(1).setPreferredWidth(50);
+            PlantUtil.getColumnModel().getColumn(2).setPreferredWidth(400);
         }
 
         removeP.setMnemonic('R');
@@ -303,22 +306,19 @@ public class Gui extends javax.swing.JFrame {
 
     private void addpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addpActionPerformed
         DefaultTableModel model = (DefaultTableModel) PlantUtil.getModel();
-        boolean intAdded = true;
         String message = JOptionPane.showInputDialog(null, "Insert plant Number");
         if(message!=null){
 
-            Object[] operands = new Object[]{"SiteID", "PlantNo"};
-            Object[] checkedVals = new Object[]{db.userData.getSiteID(),message};
-
+            Object[][] Query = new Object[][]{{"SiteID", "PlantID", "StartDate", "EndDate"},
+                                              {"=","=","<=",">=","IS"},
+                                              {db.userData.getSiteID(),message,date,date},
+                                              {"AND","AND","AND","OR"}};
             if(pw.isPlantDescription(message)){
-                if(db.hasDuplicity("PlantUtilization", operands, checkedVals)){
+                if(db.hasDuplicity(db.dbSelect("PlantAllocation", Query))){
                     JOptionPane.showMessageDialog(null, "Plant is already in the list");
                 } else {
-                    String PlantDesc = pw.getPlantDescrition(message);
-                    Date date = today();
-                    Object[][] dataset;
-                    dataset = new Object[][]{{"SiteID","PlantNo","PlantDesc","DateFor","Notes","flag"},{db.userData.getSiteID(), message, PlantDesc, date,"",0}};
-                    db.insert("PlantUtilization",dataset);
+                    Object[][] dataset = new Object[][]{{"PlantID","SiteID","StartDate","EndDate"},{message,db.userData.getSiteID(),date,nextDate()}};
+                    db.dbInsert("PlantAllocation",dataset);
                     pw.displayPlantViewInTable(PlantUtil,today());
                 }
             } else {
@@ -406,5 +406,10 @@ public class Gui extends javax.swing.JFrame {
         String name = db.userData.getLoginName();
         Date date = today();
         title.setText(String.format("%s - %s",date,name));
+    }
+
+    private Date nextDate() {
+        long add = 315360000000L;
+        return new Date(System.currentTimeMillis()+add);
     }
 }
