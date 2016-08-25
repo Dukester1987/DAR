@@ -15,6 +15,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
+import static javax.swing.text.html.HTML.Tag.HEAD;
 
 /**
  *
@@ -42,8 +43,7 @@ public class Gui extends javax.swing.JFrame {
         
         db1 = new DBWrapper(label);
         Thread t = new Thread(db1);
-        t.start();
-        
+        t.start();       
     }
 
     /**
