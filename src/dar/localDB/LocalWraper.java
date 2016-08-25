@@ -148,14 +148,11 @@ public class LocalWraper {
         Object[] answer = where[2];
         Object[] delimiter = where[3];
         for (int i = 0; i < question.length; i++) {
-            String q = (String) question[i];
-            String o = (String) operand[i];
-            String a = (String) answer[i];
-            query += q + " " + o + " '" + a + "' ";  
+            String objComa = isSurrounded(answer[i]);
+            query += question[i] + " " + operand[i] + " "+ objComa + answer[i] + objComa +" ";  
             
             if(i<question.length-1){
-                String d = (String) delimiter[i];
-                query += d + " ";
+                query += delimiter[i] + " ";
             }            
         }        
         
@@ -169,17 +166,14 @@ public class LocalWraper {
         Object[] answer = where[2];
         Object[] delimiter = where[3];
         for (int i = 0; i < question.length; i++) {
-            String q = (String) question[i];
-            String o = (String) operand[i];
-            String a = (String) answer[i];
-            query += q + " " + o + " '" + a + "' ";  
+            String objComa = isSurrounded(answer[i]);
+            query += question[i] + " " + operand[i] + " "+ objComa + answer[i] + objComa +" ";  
             
             if(i<question.length-1){
-                String d = (String) delimiter[i];
-                query += d + " ";
+                query += delimiter[i] + " ";
             }            
         }        
-        
+        System.out.println(query);
         return runQuery(query);          
     }
     
@@ -188,26 +182,14 @@ public class LocalWraper {
         return runQuery(query);
     }
 
-    public boolean hasDuplicity(String tableName, Object[] columnNames, Object[] rowValues) {
+    public boolean hasDuplicity(ResultSet rs) {
         boolean result = false;
-        if(columnNames.length == rowValues.length){
-            String query = "SELECT * FROM "+tableName+" WHERE ";
-            for (int i = 0; i < columnNames.length; i++) {
-                Object colName = columnNames[i];     
-                Object rowVal = rowValues[i];       
-                query = query+colName+"='"+rowVal+"'";
-                if(i<columnNames.length-1)
-                    query=query+" AND ";
+            if(numRows(rs)>0){
+                result = true;
+            } else {
+                result = false;
             }
-                if(numRows(query)>0){
-                    result = true;
-                } else {
-                    result = false;
-                }            
-        } else {
-            result = true;
-        }
-        return result;
+        return result;                
     }
     
 
@@ -222,8 +204,7 @@ public class LocalWraper {
         return rs;        
     }
 
-    private int numRows(String query) {
-        ResultSet rs = runQuery(query);
+    private int numRows(ResultSet rs) {
         int num = 0;
         
         try {
@@ -236,7 +217,7 @@ public class LocalWraper {
         return num;                              
     }
 
-    public void insert(String table, Object[][] dataset) {
+    public void dbInsert(String table, Object[][] dataset) {
         Object[] names = dataset[0];
         Object[] values = dataset[1];
         
@@ -261,6 +242,15 @@ public class LocalWraper {
         String query = String.format("INSERT INTO %s (%s) VALUES (%s)",table,columns,inputs);
         System.out.println(query);
         executeQuery(query, "inserted", true);
+    }
+
+    private String isSurrounded(Object object) {
+        String returnComa = "";
+        System.out.println(object.getClass().getName());
+        if(!object.equals("NULL")){
+            returnComa = "'";
+        }
+        return returnComa;
     }
     
 }
