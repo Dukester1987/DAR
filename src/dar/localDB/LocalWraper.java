@@ -5,6 +5,7 @@
  */
 package dar.localDB;
 
+import dar.Functions.Functions;
 import dar.dbObjects.User;
 import dar.hash.hash;
 import java.sql.Connection;
@@ -61,26 +62,33 @@ public class LocalWraper {
     
 
     
-    public void executeQuery(String query, String message, boolean displaymsg){
+    public int executeQuery(String query, String message, boolean displaymsg){
         Statement st;
+        int lastID = 0;
         try {
-            st = con.createStatement();
+            st = con.createStatement();  
+            int result = st.executeUpdate(query, Statement.RETURN_GENERATED_KEYS);
             if(displaymsg){
-                if(st.executeUpdate(query) == 1){
+                if(result == 1){
                     JOptionPane.showMessageDialog(null, "Data "+message+" Succesfully");
-                } else if(st.executeUpdate(query) == 0 && message.equals("deleted")) {
+                    
+                } else if(result == 0 && message.equals("deleted")) {
                     JOptionPane.showMessageDialog(null, "Data "+message+" Succesfully");
                 } else {
                     JOptionPane.showMessageDialog(null, "Data not "+message);
                 }
-            } else {
-                st.executeUpdate(query);
+            }
+            
+            ResultSet rs = st.getGeneratedKeys();
+            if(rs.next()){
+                lastID = rs.getInt(1);
+                System.out.println("ID changed: "+lastID);
             }
                 
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
-        
+        return lastID;
     }
     
     private void getConnection(){
@@ -220,7 +228,7 @@ public class LocalWraper {
         Object[] values = dataset[1];
         
         String columns="";
-        String inputs="";
+        String inputs="";        
         
         for (int i = 0; i < names.length; i++) {
             Object name = names[i];
@@ -240,10 +248,11 @@ public class LocalWraper {
 
         String query = String.format("INSERT INTO %s (%s) VALUES (%s)",table,columns,inputs);
         System.out.println(query);
-        executeQuery(query, "inserted", false);
+        int updatedID = executeQuery(query, "inserted", false);
+        changeLog(table,updatedID,"insert",columns+" VALUES = "+inputs,userData.getId());
     }
 
-    private Object isSurrounded(Object object) {
+    private static Object isSurrounded(Object object) {
         String returnComa;
         Object result;
         //System.out.println(object.getClass().getName());
@@ -262,29 +271,51 @@ public class LocalWraper {
     }
 
     public void dbUpdate(String table, Object[][] what, Object[][] where) {
-        String query = "UPDATE "+table+" SET ";
+        String whatToUpdate = "";
+        String conditions = "";
+        
+        int updatedID = 0;
         for (int i = 0; i < what[0].length; i++) {
             String wh = (String) what[0][i];
-            query += what[0][i]+" = '" +what[1][i]+ "' ";
+            whatToUpdate += what[0][i]+" = '" +what[1][i]+ "' ";
                 if(i<what[0].length-1){
-                    query += ", ";
+                    whatToUpdate += ", ";
                 }
         }
-        query += "WHERE ";
         Object[] question = where[0];
         Object[] operand = where[1];
         Object[] answer = where[2];
         Object[] delimiter = where[3];
         for (int i = 0; i < question.length; i++) {
             Object coma = isSurrounded(answer[i]);
-            query += question[i] + " " + operand[i] + " " + coma + " ";  
-            
+            conditions += question[i] + " " + operand[i] + " " + coma + " ";  
             if(i<question.length-1){
-                query += delimiter[i] + " ";
+                conditions += delimiter[i] + " ";
             }    
+            if(question[i].equals("ID")){
+                updatedID = (int) answer[i];
+            }            
         }
+        String query = String.format("UPDATE %s SET %s WHERE %s", table, whatToUpdate, conditions);
         System.out.println(query);
         executeQuery(query, "updated", false);
+        changeLog(table, updatedID, "update", whatToUpdate, userData.getId());
+    }
+
+    private void changeLog(String tbl, int ID, String insert, String inputs, int loginId) {
+        try {
+            Functions fn = new Functions();
+            String fixInputs = fn.forHTML(inputs);
+            String query = String.format("INSERT INTO ChangeLog (AffectedTable, RowID, Operation, NewValue, LoginID) VALUES ('%s','%s','%s','%s','%s')",tbl,ID,insert,fixInputs,loginId);
+            Statement st;
+
+            System.out.println(query);
+            st = con.createStatement();            
+            st.executeUpdate(query);            
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(LocalWraper.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
 }
