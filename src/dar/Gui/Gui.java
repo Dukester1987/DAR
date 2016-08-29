@@ -6,7 +6,6 @@
 package dar.Gui;
 
 import dar.Functions.Functions;
-import dar.dbObjects.User;
 import dar.localDB.AFViewDataHandler;
 import dar.remoteDB.DBWrapper;
 import dar.localDB.LocalWraper;
@@ -463,7 +462,7 @@ public class Gui extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private void setIcon() {
-        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("hqlogo.png")));
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("res/hqlogo.png")));
     }
 
     private Date today() {
