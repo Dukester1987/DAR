@@ -12,6 +12,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.sql.Date;
 import javax.swing.JTable;
+import javax.swing.SwingConstants;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -36,23 +38,29 @@ public class PlantViewDataHandler {
         if(user.getSiteID()!=0){
             plantView = new ArrayList<PlantView>();
             String query = String.format("select `PlantAllocation`.`ID` AS `AllocationID`,\n" +
-                            "`SiteList`.`ID` AS `SiteID`,\n" +
-                            "`PlantUtilization`.`ID` AS `UtilizationID`,\n" +
-                            "`PlantList`.`ID` AS `PlantID`,\n" +
-                            "`PlantList`.`PlantDesc` AS `PlantDesc`,\n" +
-                            "`PlantList`.`Rate` AS `Rate`,\n" +
-                            "`PlantUtilization`.`StartHours` AS `StartHours`,\n" +
-                            "`PlantUtilization`.`EndHours` AS `EndHours`,\n" +
-                            "`PlantUtilization`.`DateFor` AS `DateFor`,\n" +
-                            "`PlantUtilization`.`Fuel` AS `Fuel`,\n" +
-                            "`PlantAllocation`.`StartDate` AS `StartDate`,\n" +
-                            "`PlantAllocation`.`EndDate` AS `EndDate`,\n" +
-                            "`PlantUtilization`.`Notes` AS `Notes` \n" +
-                            "from `PlantAllocation` \n" +
-                            "left join `PlantUtilization` on`PlantAllocation`.`ID` = `PlantUtilization`.`PlantAllocationID` AND DateFor = '%s'\n" +
-                            "left join `PlantList` on `PlantAllocation`.`PlantID` = `PlantList`.`ID`\n" +
-                            "left join `SiteList` on `SiteList`.`ID` = `PlantAllocation`.`SiteID`\n" +
-                            "WHERE StartDate <= '%s' AND EndDate >= '%s' AND SiteID = '%s'",dateFor,dateFor,dateFor,user.getSiteID());
+"                            `SiteList`.`ID` AS `SiteID`,\n" +
+"                            `PlantUtilization`.`ID` AS `UtilizationID`,\n" +
+"                            `PlantList`.`ID` AS `PlantID`,\n" +
+"                            `PlantList`.`PlantDesc` AS `PlantDesc`,\n" +
+"                            `PlantList`.`Rate` AS `Rate`,\n" +
+"                            CASE WHEN PlantUtilization.StartHours IS NULL THEN \n" +
+"(SELECT PlantUtilization.EndHours FROM PlantAllocation\n" +
+"LEFT JOIN PlantUtilization on PlantAllocation.ID = PlantUtilization.PlantAllocationID\n" +
+"WHERE PlantID = PlantList.ID\n" +
+"ORDER BY PlantUtilization.EndHours DESC\n" +
+"LIMIT 0,1)                             \n" +
+"                             ELSE PlantUtilization.StartHours END as StartHours,\n" +
+"                            `PlantUtilization`.EndHours as EndHours,\n" +
+"                            `PlantUtilization`.`DateFor` AS `DateFor`,\n" +
+"                            `PlantUtilization`.`Fuel` AS `Fuel`,\n" +
+"                            `PlantAllocation`.`StartDate` AS `StartDate`,\n" +
+"                            `PlantAllocation`.`EndDate` AS `EndDate`,\n" +
+"                            `PlantUtilization`.`Notes` AS `Notes` \n" +
+"                            from `PlantAllocation` \n" +
+"                            left join `PlantUtilization` on`PlantAllocation`.`ID` = `PlantUtilization`.`PlantAllocationID` AND DateFor = '%s'\n" +
+"                            left join `PlantList` on `PlantAllocation`.`PlantID` = `PlantList`.`ID`\n" +
+"                            left join `SiteList` on `SiteList`.`ID` = `PlantAllocation`.`SiteID`\n" +
+"                            WHERE StartDate <= '%s' AND EndDate >= '%s' AND SiteID = '%s'",dateFor,dateFor,dateFor,user.getSiteID());
             ResultSet rs = con.runQuery(query);
             try {
                 while(rs.next()){
@@ -129,9 +137,12 @@ public class PlantViewDataHandler {
         return null;        
     }
 
-    private void hideID(JTable table) {
+    private void hideID(JTable table) { 
+        DefaultTableCellRenderer rightRenderer = new DefaultTableCellRenderer();
+        rightRenderer.setHorizontalAlignment(SwingConstants.CENTER);
+        table.getColumnModel().getColumn(8).setCellRenderer(rightRenderer);
         table.removeColumn(table.getColumn("UtilizationID"));
-        table.removeColumn(table.getColumn("AllocationID"));
+        table.removeColumn(table.getColumn("AllocationID"));        
     }
     
 }

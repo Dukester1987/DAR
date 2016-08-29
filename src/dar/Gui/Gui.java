@@ -9,6 +9,7 @@ import dar.remoteDB.DBWrapper;
 import dar.localDB.LocalWraper;
 import dar.localDB.PlantViewDataHandler;
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Toolkit;
 import java.sql.Date;
 import javax.swing.JLabel;
@@ -25,12 +26,14 @@ public class Gui extends javax.swing.JFrame {
     private DBWrapper db1;
     private PlantViewDataHandler pw;
     private Date date;
-    private boolean actionListenerGo = false;
+    private boolean actionListenerGo = false;  
 
     public Gui(LocalWraper db) {      
         date = today();
         initComponents();
-        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("hqlogo.png")));
+        //change headers of tables
+        changeHeaders();
+        setIcon();
         
         this.db = db;
         
@@ -51,11 +54,16 @@ public class Gui extends javax.swing.JFrame {
     private void initComponents() {
 
         jTabbedPane1 = new javax.swing.JTabbedPane();
-        jPanel1 = new javax.swing.JPanel();
+        jLayeredPane1 = new javax.swing.JLayeredPane();
         addp = new javax.swing.JButton();
+        utilPerc = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         PlantUtil = new javax.swing.JTable();
-        utilPerc = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         title = new javax.swing.JLabel();
         label = new javax.swing.JLabel();
         datePicker = new com.toedter.calendar.JDateChooser();
@@ -73,6 +81,10 @@ public class Gui extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1080, 720));
 
+        jTabbedPane1.setTabLayoutPolicy(javax.swing.JTabbedPane.SCROLL_TAB_LAYOUT);
+        jTabbedPane1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jTabbedPane1.setFont(jTabbedPane1.getFont().deriveFont(jTabbedPane1.getFont().getStyle() | java.awt.Font.BOLD, jTabbedPane1.getFont().getSize()+3));
+
         addp.setMnemonic('A');
         addp.setText("Add Plant");
         addp.addActionListener(new java.awt.event.ActionListener() {
@@ -81,19 +93,25 @@ public class Gui extends javax.swing.JFrame {
             }
         });
 
+        utilPerc.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        utilPerc.setForeground(new java.awt.Color(255, 51, 51));
+        utilPerc.setText("Utilization 32%");
+
+        PlantUtil.setAutoCreateRowSorter(true);
+        PlantUtil.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         PlantUtil.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "UtilizationID", "AllocationID", "Plant No", "Plant Desc", "Start Hours", "End hours", "Fuel", "Notes"
+                "UtilizationID", "AllocationID", "Plant No", "Plant Desc", "Start Hours", "End hours", "Fuel", "Notes", "Hours"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Double.class, java.lang.String.class
+                java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Double.class, java.lang.String.class, java.lang.Integer.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, true, true, true, true
+                false, false, false, false, true, true, true, true, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -104,6 +122,10 @@ public class Gui extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        PlantUtil.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        PlantUtil.setDoubleBuffered(true);
+        PlantUtil.setDragEnabled(true);
+        PlantUtil.setIntercellSpacing(new java.awt.Dimension(2, 2));
         PlantUtil.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
                 PlantUtilPropertyChange(evt);
@@ -117,38 +139,83 @@ public class Gui extends javax.swing.JFrame {
             PlantUtil.getColumnModel().getColumn(1).setPreferredWidth(0);
             PlantUtil.getColumnModel().getColumn(2).setPreferredWidth(50);
             PlantUtil.getColumnModel().getColumn(3).setPreferredWidth(400);
+            PlantUtil.getColumnModel().getColumn(8).setResizable(false);
         }
 
-        utilPerc.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        utilPerc.setForeground(new java.awt.Color(255, 51, 51));
-        utilPerc.setText("Utilization 32%");
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "UnitNo", "Rego", "Description", "Fuel Amount"
+            }
+        ));
+        jScrollPane2.setViewportView(jTable1);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        jLabel1.setText("Aditional Fuel:");
+
+        jButton1.setText("Add new");
+
+        jButton2.setText("Remove");
+
+        jLayeredPane1.setLayer(addp, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(utilPerc, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(jScrollPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(jScrollPane2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(jButton1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(jButton2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
+        jLayeredPane1.setLayout(jLayeredPane1Layout);
+        jLayeredPane1Layout.setHorizontalGroup(
+            jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jLayeredPane1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 827, Short.MAX_VALUE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jLayeredPane1Layout.createSequentialGroup()
                         .addComponent(addp)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(utilPerc, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(utilPerc, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                        .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 547, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGap(0, 376, Short.MAX_VALUE)))
                 .addContainerGap())
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        jLayeredPane1Layout.setVerticalGroup(
+            jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jLayeredPane1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(addp)
                     .addComponent(utilPerc))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 518, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                        .addComponent(jButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton2)
+                        .addGap(0, 132, Short.MAX_VALUE)))
+                .addContainerGap())
         );
 
-        jTabbedPane1.addTab("Plant Utilization", jPanel1);
+        jTabbedPane1.addTab("Plant Utilization", jLayeredPane1);
 
         title.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         title.setText("Menangle");
@@ -225,12 +292,13 @@ public class Gui extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(title, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
                             .addComponent(label))
-                        .addGap(11, 11, 11))
+                        .addGap(29, 29, 29))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(datePicker, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 594, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 594, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
@@ -251,11 +319,16 @@ public class Gui extends javax.swing.JFrame {
     private void datePickerPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_datePickerPropertyChange
         changeDate();
     }//GEN-LAST:event_datePickerPropertyChange
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu About;
     public javax.swing.JTable PlantUtil;
     private javax.swing.JButton addp;
     private com.toedter.calendar.JDateChooser datePicker;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
@@ -264,17 +337,18 @@ public class Gui extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JLabel label;
     private javax.swing.JLabel title;
     private javax.swing.JLabel utilPerc;
     // End of variables declaration//GEN-END:variables
 
     private void setIcon() {
-        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("iconframe.png")));
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("hqlogo.png")));
     }
 
     private Date today() {
@@ -377,8 +451,10 @@ public class Gui extends javax.swing.JFrame {
 
     private void updateTable() {
         utilPercChange();
-        int k = PlantUtil.getEditingRow();
-        if(k>-1){
+        int viewRow = PlantUtil.getEditingRow();
+        System.out.println(viewRow);
+        if(viewRow>-1){
+            int k = PlantUtil.convertRowIndexToModel(viewRow);
             DefaultTableModel model = (DefaultTableModel) PlantUtil.getModel();
             int PlantUtilizationID = (int) model.getValueAt(k, 0);
             int PlantAllocationID = (int) model.getValueAt(k, 1);
@@ -389,18 +465,31 @@ public class Gui extends javax.swing.JFrame {
             double Fuel = (double) model.getValueAt(k, 6);
             String Notes = (String) model.getValueAt(k, 7);
             
-            if(PlantUtilizationID==0){
-                Object[][] query = new Object[][]{{"PlantAllocationID","StartHours","EndHours","DateFor","Fuel","Notes"},{PlantAllocationID,StartHours,EndHours,date,Fuel,Notes}};
-                db.dbInsert("PlantUtilization", query);
-                pw.displayPlantViewInTable(PlantUtil, date); // refresh table
+            if(EndHours<StartHours){
+                JOptionPane.showMessageDialog(null,"End hours can not be lower than start hours!");
+                pw.displayPlantViewInTable(PlantUtil, date);
             } else {
-                // update operation
-                Object[][] query = new Object[][]{{"StartHours","EndHours","Fuel","Notes"},{StartHours,EndHours,Fuel,Notes}};
-                Object[][] where = new Object[][]{{"ID"},{"="},{PlantUtilizationID},{}};
-                db.dbUpdate("PlantUtilization", query, where);             
-            }            
+                if(PlantUtilizationID==0){
+                    Object[][] query = {{"PlantAllocationID","StartHours","EndHours","DateFor","Fuel","Notes"},{PlantAllocationID,StartHours,EndHours,date,Fuel,Notes}};
+                    db.dbInsert("PlantUtilization", query);
+                    pw.displayPlantViewInTable(PlantUtil, date); // refresh table
+                } else {
+                    // update operation
+                    Object[][] query = {{"StartHours","EndHours","Fuel","Notes"},{StartHours,EndHours,Fuel,Notes}};
+                    Object[][] where = {{"ID"},{"="},{PlantUtilizationID},{}};
+                    db.dbUpdate("PlantUtilization", query, where);   
+                    pw.displayPlantViewInTable(PlantUtil, date);
+                }     
+            }
         }
         //System.out.println(k);
     }
+
+    private void changeHeaders() {
+        // plant utilization
+        PlantUtil.getTableHeader().setFont(new Font("Tahoma", Font.BOLD, 14));
+    }
+    
+
     
 }

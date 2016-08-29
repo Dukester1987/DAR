@@ -6,6 +6,7 @@
 package dar;
 
 import dar.Gui.Login;
+import javax.swing.SwingUtilities;
 
 /**
  *
@@ -17,13 +18,18 @@ public class DAR {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
-        Login login = new Login();
-        login.setTitle("eDAR - Hi Quality - Login");
-        login.setResizable(false);
-        login.setSize(433, 220);
-        login.setLocationRelativeTo(null);
-        login.setVisible(true);
+        SwingUtilities.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                Login login = new Login();
+                login.setTitle("eDAR - Hi Quality - Login");
+                login.setResizable(false);
+                login.setSize(433, 220);
+                login.setLocationRelativeTo(null);
+                login.setVisible(true);                
+            }
+        });
+
       
 //        Gui gui = new Gui();
 //        gui.setTitle("DAR v1.1 - Hi Quality Group");
