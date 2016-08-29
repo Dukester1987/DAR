@@ -223,7 +223,7 @@ public class LocalWraper {
         return num;                              
     }
 
-    public void dbInsert(String table, Object[][] dataset) {
+    public int dbInsert(String table, Object[][] dataset) {
         Object[] names = dataset[0];
         Object[] values = dataset[1];
         
@@ -250,6 +250,7 @@ public class LocalWraper {
         System.out.println(query);
         int updatedID = executeQuery(query, "inserted", false);
         changeLog(table,updatedID,"insert",columns+" VALUES = "+inputs,userData.getId());
+        return updatedID;
     }
 
     private static Object isSurrounded(Object object) {

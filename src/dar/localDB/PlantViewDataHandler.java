@@ -37,7 +37,7 @@ public class PlantViewDataHandler {
         
         if(user.getSiteID()!=0){
             plantView = new ArrayList<PlantView>();
-            String query = String.format("select `PlantAllocation`.`ID` AS `AllocationID`,\n" +
+            String query = String.format("SELECT PlantAllocation.ID AS AllocationID,\n" +
 "                            `SiteList`.`ID` AS `SiteID`,\n" +
 "                            `PlantUtilization`.`ID` AS `UtilizationID`,\n" +
 "                            `PlantList`.`ID` AS `PlantID`,\n" +
