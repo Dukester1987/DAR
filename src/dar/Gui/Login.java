@@ -21,7 +21,7 @@ public class Login extends javax.swing.JFrame {
      */
     public Login() {
         initComponents();
-        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("res/hqlogo.png")));
+        GuiIcon icon = new GuiIcon(this);
     }
 
     /**

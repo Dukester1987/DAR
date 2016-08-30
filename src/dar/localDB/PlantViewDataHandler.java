@@ -5,16 +5,23 @@
  */
 package dar.localDB;
 
+import dar.Functions.TimeWrapper;
 import dar.dbObjects.PlantView;
 import dar.dbObjects.User;
+import java.awt.Color;
+import java.awt.Font;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.sql.Date;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JProgressBar;
 import javax.swing.JTable;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 
 /**
  *
@@ -26,11 +33,20 @@ public class PlantViewDataHandler {
     private User user;
     public ArrayList<PlantView> plantView;
     private Date dateFor;
+    private JTable table;
+    private JLabel utilPerc;
+    private TimeWrapper ti;
+    private JProgressBar utilProgressBar;
 
-    public PlantViewDataHandler(LocalWraper con, User user,JTable table) {
+    public PlantViewDataHandler(LocalWraper con, User user,JTable table,JLabel utilPerc,JProgressBar utilProgressBar) {
         this.con = con;
         this.user = user;
+        this.table = table;
+        this.utilPerc = utilPerc;
+        this.utilProgressBar = utilProgressBar;
         hideID(table); //hide ID in JTable
+        changeHeaders();
+        this.ti = new TimeWrapper();
     }   
         
     public ArrayList<PlantView> getPlantView(){
@@ -144,5 +160,104 @@ public class PlantViewDataHandler {
         table.removeColumn(table.getColumn("UtilizationID"));
         table.removeColumn(table.getColumn("AllocationID"));        
     }
+    
+    private void changeHeaders() {
+        // plant utilization
+        table.getTableHeader().setFont(new Font("Tahoma", Font.BOLD, 14));
+    }    
+
+    public void updateTable(Date date) {
+        utilPercChange();
+        int viewRow = table.getEditingRow();
+        System.out.println(viewRow);
+        if(viewRow>-1){
+            int k = table.convertRowIndexToModel(viewRow);
+            DefaultTableModel model = (DefaultTableModel) table.getModel();
+            int PlantUtilizationID = (int) model.getValueAt(k, 0);
+            int PlantAllocationID = (int) model.getValueAt(k, 1);
+            String PlantNo = (String) model.getValueAt(k, 2);
+            String PlantDesc = (String) model.getValueAt(k, 3);
+            int StartHours = (int) model.getValueAt(k, 4);
+            int EndHours = (int) model.getValueAt(k, 5);
+            double Fuel = (double) model.getValueAt(k, 6);
+            String Notes = (String) model.getValueAt(k, 7);
+            
+            if(EndHours<StartHours){
+                JOptionPane.showMessageDialog(null,"End hours can not be lower than start hours!");
+                displayPlantViewInTable(table, date);
+            } else {
+                if(PlantUtilizationID==0){
+                    Object[][] query = {{"PlantAllocationID","StartHours","EndHours","DateFor","Fuel","Notes"},{PlantAllocationID,StartHours,EndHours,date,Fuel,Notes}};
+                    con.dbInsert("PlantUtilization", query);
+                    displayPlantViewInTable(table, date); // refresh table
+                } else {
+                    // update operation
+                    Object[][] query = {{"StartHours","EndHours","Fuel","Notes"},{StartHours,EndHours,Fuel,Notes}};
+                    Object[][] where = {{"ID"},{"="},{PlantUtilizationID},{}};
+                    con.dbUpdate("PlantUtilization", query, where);   
+                    displayPlantViewInTable(table, date);
+                }     
+            }
+        }
+        //System.out.println(k);
+    }
+    
+    public void addPlant(Date date) {
+        if(date.toString().equals(ti.today().toString())){
+            DefaultTableModel model = (DefaultTableModel) table.getModel();
+            String message = JOptionPane.showInputDialog(null, "Insert plant Number");
+            if(message!=null){
+
+                Object[][] Query = new Object[][]{{"SiteID", "PlantID", "StartDate", "EndDate"},
+                                                  {"=","=","<=",">=","IS"},
+                                                  {con.userData.getSiteID(),message,date,date},
+                                                  {"AND","AND","AND","OR"}};
+                if(isPlantDescription(message)){
+                    if(con.hasDuplicity(con.dbSelect("PlantAllocation", Query))){
+                        JOptionPane.showMessageDialog(null, "Plant is already in the list");
+                    } else {
+                        Object[][] dataset = new Object[][]{{"PlantID","SiteID","StartDate","EndDate"},{message,con.userData.getSiteID(),date,ti.nextDate()}};
+                        con.dbInsert("PlantAllocation",dataset);
+                        displayPlantViewInTable(table,date);
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(null, "Selected Plant No doesn't exists in the database");
+                }
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "To add plant for previous days please contact your administrator!");
+        } 
+    }    
+    
+    public void utilPercChange(){
+        TableModel model = table.getModel();
+        int hoursTotal = 0;
+        int optimum = model.getRowCount()*8;
+        long percentage;
+        for(int i=0;i<model.getRowCount(); i++){
+            if(model.getValueAt(i, 5)!=null && (int) model.getValueAt(i, 5) != 0){
+                hoursTotal += (int) model.getValueAt(i, 5) - (int) model.getValueAt(i, 4);                
+            }   
+        }
+        if(hoursTotal<0 || optimum<=0){
+           // apply percentage
+           
+        } else {
+           // apply percentage
+           percentage = Math.round((double) hoursTotal / (double) optimum*100);
+           if(percentage<25){
+               utilPerc.setForeground(Color.red);
+           } else if(percentage>75 && percentage<120) {
+               utilPerc.setForeground(Color.green);
+           } else if(percentage>120) {
+               utilPerc.setForeground(Color.red);
+               JOptionPane.showMessageDialog(null,"Check your hours!");
+           } else {
+                utilPerc.setForeground(Color.BLACK);
+           }
+           utilPerc.setText(String.format("Utilization"));
+           utilProgressBar.setValue((int) percentage);
+        }        
+    }     
     
 }

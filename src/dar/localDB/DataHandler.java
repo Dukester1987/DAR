@@ -5,6 +5,7 @@
  */
 package dar.localDB;
 
+import dar.Functions.TimeWrapper;
 import dar.dbObjects.User;
 import java.sql.Date;
 import javax.swing.JTable;
@@ -20,6 +21,8 @@ public abstract class DataHandler {
     public User user;
     //public ArrayList<Object> view;
     public JTable table;
+    public TimeWrapper ti;
+    public DefaultTableModel model;
 
     /**
      *
@@ -31,6 +34,8 @@ public abstract class DataHandler {
         this.con = con;
         this.user = user;
         this.table = table;
+        this.ti = new TimeWrapper();
+        this.model = (DefaultTableModel) table.getModel();
     } 
         
     /**

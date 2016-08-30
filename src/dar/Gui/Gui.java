@@ -5,19 +5,23 @@
  */
 package dar.Gui;
 
-import dar.Functions.Functions;
+import dar.Functions.TimeWrapper;
 import dar.localDB.AFViewDataHandler;
+import dar.localDB.LaborViewDataHandler;
 import dar.remoteDB.DBWrapper;
 import dar.localDB.LocalWraper;
 import dar.localDB.PlantViewDataHandler;
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.Toolkit;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.sql.Date;
+import javax.swing.DefaultCellEditor;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableModel;
+import javax.swing.table.TableCellEditor;
+import javax.swing.table.TableColumn;
 
 /**
  *
@@ -30,25 +34,49 @@ public class Gui extends javax.swing.JFrame {
     private Date date;
     private boolean actionListenerGo = false;  
     private final AFViewDataHandler af;
+    private LaborViewDataHandler lw;
+    private TimeWrapper ti;
+    private TableCellEditor editor;
+    //private JTextField field;
 
-    public Gui(LocalWraper db) {      
-        date = today();
+    public Gui(LocalWraper db) {    
+        this.ti = new TimeWrapper();
+        date = ti.today();    
         initComponents();
-        //change headers of tables
-        changeHeaders();
+        
+        JTextField txt = new JTextField();
+        txt.addFocusListener(new FocusListener() {
+            @Override
+            public void focusGained(FocusEvent fe) {
+                txt.selectAll();
+            }
+
+            @Override
+            public void focusLost(FocusEvent fe) {
+                
+            }
+        });
+        DefaultTableModel model = (DefaultTableModel) PlantUtil.getModel();
+        TableColumn col;
+        col = PlantUtil.getColumnModel().getColumn(7);
+        col.setCellEditor(new DefaultCellEditor(txt));
+        
         setIcon();
         
         this.db = db;
         
-        pw = new PlantViewDataHandler(this.db, db.userData,PlantUtil);
+        pw = new PlantViewDataHandler(this.db, db.userData,PlantUtil,utilPerc,utilProgressBar);
         pw.displayPlantViewInTable(PlantUtil, date);
         
         af = new AFViewDataHandler(this.db, db.userData, AditionalFuel);
         af.displayViewInTable(AditionalFuel, date);
         
+        lw = new LaborViewDataHandler(this.db, db.userData, LaborUtil);
+        lw.displayViewInTable(LaborUtil, date);
+        
         actionListenerGo = true;
         setName(title);
-        utilPercChange();
+        pw.utilPercChange();
         
         db1 = new DBWrapper(label);
         Thread t = new Thread(db1);
@@ -75,11 +103,17 @@ public class Gui extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         fRego = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
+        fDesc = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        fAmount = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         AddAFuel = new javax.swing.JButton();
+        utilProgressBar = new javax.swing.JProgressBar();
+        jLayeredPane2 = new javax.swing.JLayeredPane();
+        addp1 = new javax.swing.JButton();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        LaborUtil = new javax.swing.JTable();
+        addp2 = new javax.swing.JButton();
         title = new javax.swing.JLabel();
         label = new javax.swing.JLabel();
         datePicker = new com.toedter.calendar.JDateChooser();
@@ -95,7 +129,6 @@ public class Gui extends javax.swing.JFrame {
         About = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1080, 720));
 
         jTabbedPane1.setTabLayoutPolicy(javax.swing.JTabbedPane.SCROLL_TAB_LAYOUT);
         jTabbedPane1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -111,7 +144,7 @@ public class Gui extends javax.swing.JFrame {
 
         utilPerc.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         utilPerc.setForeground(new java.awt.Color(255, 51, 51));
-        utilPerc.setText("Utilization 32%");
+        utilPerc.setText("Utilization");
 
         PlantUtil.setAutoCreateRowSorter(true);
         PlantUtil.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -155,7 +188,10 @@ public class Gui extends javax.swing.JFrame {
             PlantUtil.getColumnModel().getColumn(1).setPreferredWidth(0);
             PlantUtil.getColumnModel().getColumn(2).setPreferredWidth(50);
             PlantUtil.getColumnModel().getColumn(3).setPreferredWidth(400);
+            PlantUtil.getColumnModel().getColumn(5).setHeaderValue("End hours");
+            PlantUtil.getColumnModel().getColumn(6).setHeaderValue("Fuel");
             PlantUtil.getColumnModel().getColumn(8).setResizable(false);
+            PlantUtil.getColumnModel().getColumn(8).setHeaderValue("Hours");
         }
 
         AditionalFuel.setModel(new javax.swing.table.DefaultTableModel(
@@ -170,7 +206,7 @@ public class Gui extends javax.swing.JFrame {
                 java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, true, true, true, true
+                false, false, false, false, false, true
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -179,6 +215,11 @@ public class Gui extends javax.swing.JFrame {
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
+            }
+        });
+        AditionalFuel.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                AditionalFuelPropertyChange(evt);
             }
         });
         jScrollPane2.setViewportView(AditionalFuel);
@@ -222,8 +263,8 @@ public class Gui extends javax.swing.JFrame {
                     .addComponent(jLabel4))
                 .addGap(18, 18, 18)
                 .addGroup(jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fDesc, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(fUnitNo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(fRego, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -241,13 +282,13 @@ public class Gui extends javax.swing.JFrame {
                     .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fDesc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addContainerGap(39, Short.MAX_VALUE))
         );
 
         AddAFuel.setText("Add new");
@@ -257,6 +298,8 @@ public class Gui extends javax.swing.JFrame {
             }
         });
 
+        utilProgressBar.setStringPainted(true);
+
         jLayeredPane1.setLayer(addp, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(utilPerc, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(jScrollPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -265,6 +308,7 @@ public class Gui extends javax.swing.JFrame {
         jLayeredPane1.setLayer(RemoveAFuel, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(jInternalFrame1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(AddAFuel, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(utilProgressBar, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
         jLayeredPane1.setLayout(jLayeredPane1Layout);
@@ -289,18 +333,22 @@ public class Gui extends javax.swing.JFrame {
                     .addGroup(jLayeredPane1Layout.createSequentialGroup()
                         .addComponent(addp)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(utilPerc, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(utilPerc)
+                        .addGap(18, 18, 18)
+                        .addComponent(utilProgressBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(8, 8, 8)))
                 .addContainerGap())
         );
         jLayeredPane1Layout.setVerticalGroup(
             jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jLayeredPane1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(addp)
-                    .addComponent(utilPerc))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(addp)
+                        .addComponent(utilPerc))
+                    .addComponent(utilProgressBar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
@@ -315,6 +363,98 @@ public class Gui extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Plant Utilization", jLayeredPane1);
 
+        addp1.setMnemonic('A');
+        addp1.setText("Add Labor");
+        addp1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addp1ActionPerformed(evt);
+            }
+        });
+
+        LaborUtil.setAutoCreateRowSorter(true);
+        LaborUtil.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        LaborUtil.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "UtilizationID", "AllocationID", "Labor Name", "Labor Function", "Hours", "Status", "Notes"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class, java.lang.Object.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, true, true, true
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        LaborUtil.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        LaborUtil.setDoubleBuffered(true);
+        LaborUtil.setDragEnabled(true);
+        LaborUtil.setIntercellSpacing(new java.awt.Dimension(2, 2));
+        LaborUtil.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                LaborUtilPropertyChange(evt);
+            }
+        });
+        jScrollPane4.setViewportView(LaborUtil);
+        if (LaborUtil.getColumnModel().getColumnCount() > 0) {
+            LaborUtil.getColumnModel().getColumn(0).setResizable(false);
+            LaborUtil.getColumnModel().getColumn(0).setPreferredWidth(0);
+            LaborUtil.getColumnModel().getColumn(1).setResizable(false);
+            LaborUtil.getColumnModel().getColumn(1).setPreferredWidth(0);
+            LaborUtil.getColumnModel().getColumn(2).setPreferredWidth(50);
+            LaborUtil.getColumnModel().getColumn(6).setPreferredWidth(400);
+        }
+
+        addp2.setMnemonic('A');
+        addp2.setText("Remove");
+        addp2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addp2ActionPerformed(evt);
+            }
+        });
+
+        jLayeredPane2.setLayer(addp1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane2.setLayer(jScrollPane4, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane2.setLayer(addp2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        javax.swing.GroupLayout jLayeredPane2Layout = new javax.swing.GroupLayout(jLayeredPane2);
+        jLayeredPane2.setLayout(jLayeredPane2Layout);
+        jLayeredPane2Layout.setHorizontalGroup(
+            jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jLayeredPane2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jLayeredPane2Layout.createSequentialGroup()
+                        .addComponent(addp1)
+                        .addGap(18, 18, 18)
+                        .addComponent(addp2)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 999, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        jLayeredPane2Layout.setVerticalGroup(
+            jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jLayeredPane2Layout.createSequentialGroup()
+                .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(addp1)
+                    .addComponent(addp2))
+                .addGap(8, 8, 8)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 229, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Labor Utilization", jLayeredPane2);
+
         title.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         title.setText("Menangle");
 
@@ -322,8 +462,8 @@ public class Gui extends javax.swing.JFrame {
         label.setText("Trying to connect...");
 
         datePicker.setDate(date);
-        datePicker.setMaxSelectableDate(today());
-        datePicker.setMinSelectableDate(firstDate());
+        datePicker.setMaxSelectableDate(ti.today());
+        datePicker.setMinSelectableDate(ti.firstDate());
         datePicker.setName("dateFor"); // NOI18N
         datePicker.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
@@ -402,11 +542,14 @@ public class Gui extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void PlantUtilPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_PlantUtilPropertyChange
-        updateTable();
+        if(actionListenerGo){
+            pw.updateTable(date);
+        }
     }//GEN-LAST:event_PlantUtilPropertyChange
 
     private void addpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addpActionPerformed
-        addPlant();
+        if(actionListenerGo)
+            pw.addPlant(date);
     }//GEN-LAST:event_addpActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
@@ -418,21 +561,45 @@ public class Gui extends javax.swing.JFrame {
     }//GEN-LAST:event_datePickerPropertyChange
 
     private void AddAFuelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddAFuelActionPerformed
-        addAditionalFuel();
+        if(actionListenerGo)
+            af.addAditionalFuel(fUnitNo,fRego,fDesc,fAmount,date);
     }//GEN-LAST:event_AddAFuelActionPerformed
 
     private void RemoveAFuelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoveAFuelActionPerformed
-        removeSelected();
+        if(actionListenerGo)
+            af.removeSelected(date);
     }//GEN-LAST:event_RemoveAFuelActionPerformed
+
+    private void AditionalFuelPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_AditionalFuelPropertyChange
+        if(actionListenerGo)
+            af.editAditionalFuel(date);
+    }//GEN-LAST:event_AditionalFuelPropertyChange
+
+    private void addp1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addp1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_addp1ActionPerformed
+
+    private void LaborUtilPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_LaborUtilPropertyChange
+        // TODO add your handling code here:
+    }//GEN-LAST:event_LaborUtilPropertyChange
+
+    private void addp2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addp2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_addp2ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu About;
     private javax.swing.JButton AddAFuel;
     private javax.swing.JTable AditionalFuel;
+    public javax.swing.JTable LaborUtil;
     public javax.swing.JTable PlantUtil;
     private javax.swing.JButton RemoveAFuel;
     private javax.swing.JButton addp;
+    private javax.swing.JButton addp1;
+    private javax.swing.JButton addp2;
     private com.toedter.calendar.JDateChooser datePicker;
+    public javax.swing.JTextField fAmount;
+    private javax.swing.JTextField fDesc;
     private javax.swing.JTextField fRego;
     private javax.swing.JTextField fUnitNo;
     private javax.swing.JInternalFrame jInternalFrame1;
@@ -442,6 +609,7 @@ public class Gui extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLayeredPane jLayeredPane1;
+    private javax.swing.JLayeredPane jLayeredPane2;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
@@ -452,23 +620,17 @@ public class Gui extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
     private javax.swing.JLabel label;
     private javax.swing.JLabel title;
     private javax.swing.JLabel utilPerc;
+    private javax.swing.JProgressBar utilProgressBar;
     // End of variables declaration//GEN-END:variables
 
     private void setIcon() {
-        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("res/hqlogo.png")));
-    }
-
-    private Date today() {
-        Date date;
-        date = new Date(System.currentTimeMillis());
-        return date;
+        GuiIcon icon = new GuiIcon(this);
     }
 
     private void setName(JLabel title) {
@@ -476,64 +638,13 @@ public class Gui extends javax.swing.JFrame {
         title.setText(name);
     }
 
-    private Date nextDate() {
-        long add = 315360000000L;
-        return new Date(System.currentTimeMillis()+add);
-    }
-    
-    private Date yesterday(){
-        return new Date(System.currentTimeMillis()-24*60*60*1000);
-    }
-
-    private java.util.Date firstDate(){
-        java.util.Date d = new java.util.Date();
-        d.setTime(System.currentTimeMillis()-432000000);
-        return d;
-    }
-    
-    private Date setDate(java.util.Date date) {
-        Date sqldate = new Date(date.getTime());
-        return sqldate;       
-    }
-    
-
-    private void utilPercChange(){
-        TableModel model = PlantUtil.getModel();
-        int hoursTotal = 0;
-        int optimum = model.getRowCount()*8;
-        long percentage;
-        for(int i=0;i<model.getRowCount(); i++){
-            if(model.getValueAt(i, 5)!=null && (int) model.getValueAt(i, 5) != 0){
-                hoursTotal += (int) model.getValueAt(i, 5) - (int) model.getValueAt(i, 4);                
-            }   
-        }
-        if(hoursTotal<0 || optimum<=0){
-           // apply percentage
-           
-        } else {
-           // apply percentage
-           percentage = Math.round((double) hoursTotal / (double) optimum*100);
-           if(percentage<25){
-               utilPerc.setForeground(Color.red);
-           } else if(percentage>75 && percentage<120) {
-               utilPerc.setForeground(Color.green);
-           } else if(percentage>120) {
-               utilPerc.setForeground(Color.red);
-               JOptionPane.showMessageDialog(null,"Check your hours!");
-           } else {
-                utilPerc.setForeground(Color.BLACK);
-           }
-           utilPerc.setText(String.format("Utilization %s %%", percentage));
-        }        
-    }    
-
     private void changeDate() {
         if(actionListenerGo){
-            date = setDate(datePicker.getDate());
+            date = ti.setDate(datePicker.getDate());
             pw.displayPlantViewInTable(PlantUtil, date); //refresh table
             af.displayViewInTable(AditionalFuel, date);
-            utilPercChange();
-            if(!today().toString().equals(date.toString())){
+            pw.utilPercChange();
+            if(!ti.today().toString().equals(date.toString())){
                 addp.setEnabled(false);
                 AddAFuel.setEnabled(false);
                 RemoveAFuel.setEnabled(false);
@@ -544,130 +655,7 @@ public class Gui extends javax.swing.JFrame {
             }
         }        
     }
-
-    private void addPlant() {
-        if(date.toString().equals(today().toString())){
-            DefaultTableModel model = (DefaultTableModel) PlantUtil.getModel();
-            String message = JOptionPane.showInputDialog(null, "Insert plant Number");
-            if(message!=null){
-
-                Object[][] Query = new Object[][]{{"SiteID", "PlantID", "StartDate", "EndDate"},
-                                                  {"=","=","<=",">=","IS"},
-                                                  {db.userData.getSiteID(),message,date,date},
-                                                  {"AND","AND","AND","OR"}};
-                if(pw.isPlantDescription(message)){
-                    if(db.hasDuplicity(db.dbSelect("PlantAllocation", Query))){
-                        JOptionPane.showMessageDialog(null, "Plant is already in the list");
-                    } else {
-                        Object[][] dataset = new Object[][]{{"PlantID","SiteID","StartDate","EndDate"},{message,db.userData.getSiteID(),date,nextDate()}};
-                        db.dbInsert("PlantAllocation",dataset);
-                        pw.displayPlantViewInTable(PlantUtil,date);
-                    }
-                } else {
-                    JOptionPane.showMessageDialog(null, "Selected Plant No doesn't exists in the database");
-                }
-            }
-        } else {
-            JOptionPane.showMessageDialog(null, "To add plant for previous days please contact your administrator!");
-        } 
-    }
-
-    private void updateTable() {
-        utilPercChange();
-        int viewRow = PlantUtil.getEditingRow();
-        System.out.println(viewRow);
-        if(viewRow>-1){
-            int k = PlantUtil.convertRowIndexToModel(viewRow);
-            DefaultTableModel model = (DefaultTableModel) PlantUtil.getModel();
-            int PlantUtilizationID = (int) model.getValueAt(k, 0);
-            int PlantAllocationID = (int) model.getValueAt(k, 1);
-            String PlantNo = (String) model.getValueAt(k, 2);
-            String PlantDesc = (String) model.getValueAt(k, 3);
-            int StartHours = (int) model.getValueAt(k, 4);
-            int EndHours = (int) model.getValueAt(k, 5);
-            double Fuel = (double) model.getValueAt(k, 6);
-            String Notes = (String) model.getValueAt(k, 7);
-            
-            if(EndHours<StartHours){
-                JOptionPane.showMessageDialog(null,"End hours can not be lower than start hours!");
-                pw.displayPlantViewInTable(PlantUtil, date);
-            } else {
-                if(PlantUtilizationID==0){
-                    Object[][] query = {{"PlantAllocationID","StartHours","EndHours","DateFor","Fuel","Notes"},{PlantAllocationID,StartHours,EndHours,date,Fuel,Notes}};
-                    db.dbInsert("PlantUtilization", query);
-                    pw.displayPlantViewInTable(PlantUtil, date); // refresh table
-                } else {
-                    // update operation
-                    Object[][] query = {{"StartHours","EndHours","Fuel","Notes"},{StartHours,EndHours,Fuel,Notes}};
-                    Object[][] where = {{"ID"},{"="},{PlantUtilizationID},{}};
-                    db.dbUpdate("PlantUtilization", query, where);   
-                    pw.displayPlantViewInTable(PlantUtil, date);
-                }     
-            }
-        }
-        //System.out.println(k);
-    }
-
-    private void changeHeaders() {
-        // plant utilization
-        PlantUtil.getTableHeader().setFont(new Font("Tahoma", Font.BOLD, 14));
-    }
-
-    private void addAditionalFuel() {
-        String funo = Functions.forHTML(fUnitNo.getText());
-        String frego = Functions.forHTML(fRego.getText());
-        String fdesc = Functions.forHTML(jTextField3.getText());
-        try{
-            double famount = Double.parseDouble(jTextField4.getText());
-            if((funo.isEmpty() && frego.isEmpty()) || (fdesc.isEmpty()) ){
-                JOptionPane.showMessageDialog(null, "You have to fill all fields");
-            } else {
-                Object[][] query = {{"SiteID","PlantNo","Rego","StartDate","EndDate"},{"=","=","=","<=",">="},{db.userData.getSiteID(),funo,frego,date,date},{"AND","AND","AND","AND"}};                    
-                if(db.hasDuplicity(db.dbSelect("AFAllocation", query))){
-                    JOptionPane.showMessageDialog(null, "Already in list");                   
-                } else {
-                    //add
-                    Object[][] dataset = {{"SiteID","PlantNo","Rego","Description","StartDate","EndDate"},{db.userData.getSiteID(),funo,frego,fdesc,date,nextDate()}};
-                    int allocID = db.dbInsert("AFAllocation", dataset);
-                    Object[][] dataset2 = {{"AFAllocationID","Amount","DateFor"},{allocID,famount,date}};
-                    db.dbInsert("AFFuel", dataset2);
-                    af.displayViewInTable(AditionalFuel, date);
-                    jTextField4.setText("");
-                    jTextField3.setText("");
-                    fRego.setText("");
-                    fUnitNo.setText("");
-                }
-            }            
-        } catch(Exception e) {
-            JOptionPane.showMessageDialog(null,"Amount must be numeric value");
-        }
-        
-
-    }
-
-    private void removeSelected() {
-        int[] rows = AditionalFuel.getSelectedRows();
-        DefaultTableModel model = (DefaultTableModel) AditionalFuel.getModel();
-        if(AditionalFuel.getSelectedRowCount()>0){
-            for (int row : rows) {           
-                int alocID =  (int) model.getValueAt(row, 0);
-                int utilID =  (int) model.getValueAt(row, 1);
-
-                Object[][] what = {{"amount"},{"0"}};
-                Object[][] where = {{"ID"},{"="},{utilID},{}};                                       
-                db.dbUpdate("AFFuel", what, where);
-
-                Object[][] w = {{"EndDate"},{yesterday()}};
-                Object[][] wh = {{"ID"},{"="},{alocID},{}};
-                db.dbUpdate("AFAllocation", w, wh);                               
-            }
-            af.displayViewInTable(AditionalFuel, date);            
-        } else {
-            JOptionPane.showMessageDialog(null,"No rows selected!");
-        }
-
-    }
     
-
     
+ 
 }
