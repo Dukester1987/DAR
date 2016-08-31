@@ -144,13 +144,18 @@ public class AFViewDataHandler extends DataHandler{
     public void editAditionalFuel(Date date) {
         if(table.getEditingRow()>=0){
             int utilID = (int) model.getValueAt(table.getEditingRow(), 1);
-            double fuelAmount = (double) model.getValueAt(table.getEditingRow(), 5);
-            
-            Object[][] what = {{"amount"},{fuelAmount}};
-            Object[][] where = {{"ID"},{"="},{utilID},{}};                                       
-            con.dbUpdate("AFFuel", what, where);
-            
-            displayViewInTable(table, dateFor);            
+            int allID = (int) model.getValueAt(table.getEditingRow(), 0);
+            double fuelAmount = (double) model.getValueAt(table.getEditingRow(), 5);            
+
+            if(utilID!=0){ // update
+                Object[][] what = {{"amount"},{fuelAmount}};
+                Object[][] where = {{"ID"},{"="},{utilID},{}};                                       
+                con.dbUpdate("AFFuel", what, where);
+            } else { // insert
+                Object[][] data = {{"AFAllocationID","Amount","DateFor"},{allID,fuelAmount,date}};
+                con.dbInsert("AFFuel", data);
+            }
+            displayViewInTable(table, dateFor);             
         }
     }
 

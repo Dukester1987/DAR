@@ -14,6 +14,7 @@ import java.text.StringCharacterIterator;
  */
 public class Functions {
     
+    
    public static String forHTML(String aText){
      final StringBuilder result = new StringBuilder();
      final StringCharacterIterator iterator = new StringCharacterIterator(aText);

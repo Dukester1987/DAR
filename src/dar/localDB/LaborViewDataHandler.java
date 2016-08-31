@@ -6,6 +6,7 @@
 package dar.localDB;
 
 import dar.Functions.TimeWrapper;
+import dar.dbObjects.LaborList;
 import dar.dbObjects.LaborView;
 import dar.dbObjects.User;
 import java.awt.Font;
@@ -28,13 +29,17 @@ public class LaborViewDataHandler extends DataHandler {
     private TimeWrapper ti;
     private Date dateFor;
     private DefaultTableModel model;
+    private ArrayList<LaborList> laborList;
+    private ArrayList<LaborList> laborOnSite;
 
-    public LaborViewDataHandler(LocalWraper con, User user, JTable table) {
+    public LaborViewDataHandler(LocalWraper con, User user, JTable table, Date date) {
         super(con, user, table);
         this.ti = new TimeWrapper();
         this.model = (DefaultTableModel) table.getModel();
+        this.dateFor = date;
         hideID(table);
         changeHeaders();
+        createLaborList();
     }
 
     @Override
@@ -70,6 +75,36 @@ public class LaborViewDataHandler extends DataHandler {
         table.getTableHeader().setFont(new Font("Tahoma", Font.BOLD, 14));
     }   
     
+    public ArrayList<LaborList> createLaborList(){
+        laborList = new ArrayList<LaborList>();
+        String query = String.format("SELECT\n" +
+                        "LaborList.ID as ID,\n" +
+                        "LaborAllocation.SiteID as SiteID,\n" +
+                        "LaborList.LaborName as LaborName,\n" +
+                        "LaborList.LaborFunction as FunctionID,\n" +
+                        "LaborFunctions.Function as Function,\n" +
+                        "LaborList.LaborRate as Rate\n" +
+                        "FROM LaborList\n" +
+                        "left join LaborFunctions on LaborFunction = LaborFunctions.ID\n" +
+                        "left join LaborAllocation on LaborList.ID = LaborAllocation.LaborID AND LaborAllocation.StartDate<='%s' AND LaborAllocation.EndDate>='%s'",dateFor,dateFor);
+        ResultSet rs = con.runQuery(query);
+        
+        try {
+            while(rs.next()){
+                LaborList list = new LaborList(rs.getInt(1),rs.getInt(2), rs.getString(3), rs.getInt(4), rs.getString(5), rs.getDouble(6));
+                laborList.add(list);                
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return laborList;
+    }
+
+  
+    
+    
+    
+    
     public ArrayList<LaborView> getView(){
         laborView = new ArrayList<LaborView>();
         String query = String.format("SELECT \n" +
@@ -103,6 +138,80 @@ public class LaborViewDataHandler extends DataHandler {
         }
         
         return laborView;
+        
+    }     
+
+    public ArrayList<LaborView> getLaborView() {
+        return laborView;
+    }        
+
+    public ArrayList<LaborList> getLaborList() {
+        return laborList;
+    }    
+    
+    public ArrayList<LaborList> getLaborsOnSiteList() {
+        laborOnSite = new ArrayList<LaborList>();
+        for (LaborList l : laborList) {
+            if(l.getSiteID() == (int) user.getSiteID()){
+                laborOnSite.add(l);
+            }                
+        }      
+        for (int i = laborList.size()-1; i >= 0; i--) {
+            if(laborList.get(i).getSiteID() == (int) user.getSiteID())
+                laborList.remove(i);
+        }
+        return laborOnSite;
+    }
+
+    public ArrayList<Integer> getIdsToDelete() {
+        ArrayList<Integer> list = new ArrayList<>();
+        for (LaborView lw : laborView) {
+            boolean del = true;
+            for (LaborList ls : laborOnSite) {
+                if(ls.getID()==lw.getLabourID())
+                    del = false;
+            }
+            
+            if(del){
+                list.add(lw.getAllocationID());
+            }
+        }
+        return list;
+    }
+
+    public ArrayList<Integer> getIdsToAdd() {
+        ArrayList<Integer> list = new ArrayList<>();
+        for (LaborList ls : laborOnSite) {
+            boolean del = true;
+            for (LaborView lw : laborView) {
+                if(ls.getID()==lw.getLabourID())
+                    del = false;
+            }
+            
+            if(del){
+                list.add(ls.getID());
+            }
+        }
+        return list;        
+    }
+
+    public void realocateLabors(Date date) {
+        //delete removed labors
+        ArrayList<Integer> delIds = getIdsToDelete();
+        
+        for (Integer delId : delIds) {
+            Object[][] w = {{"EndDate"},{ti.yesterday()}};
+            Object[][] wh = {{"ID"},{"="},{delId},{}};   
+            con.dbUpdate("LaborAllocation", w, wh);
+        }
+        
+        //add new labors
+        ArrayList<Integer> addIds = getIdsToAdd();
+        for (Integer addId : addIds) {
+            Object[][] data = {{"LaborID","SiteID","StartDate","EndDate"},{addId,user.getSiteID(),date,ti.nextDate()}};
+            con.dbInsert("LaborAllocation", data);
+        }
+                
         
     }
     
