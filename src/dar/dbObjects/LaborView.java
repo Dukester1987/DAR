@@ -33,7 +33,7 @@ public class LaborView {
         this.Status = Status;
         this.Notes = Notes;
         this.PlantId = PlantId;
-        this.statusID = statusID;
+        this.statusID = StatusID;
     }
 
     public int getStatusID() {
