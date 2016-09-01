@@ -7,6 +7,7 @@ package dar.Gui;
 
 import dar.Functions.JControlers;
 import dar.Functions.TimeWrapper;
+import dar.dbObjects.LaborFunctions;
 import dar.dbObjects.LaborList;
 import dar.dbObjects.LaborView;
 import dar.localDB.AFViewDataHandler;
@@ -16,6 +17,7 @@ import dar.localDB.LocalWraper;
 import dar.localDB.PlantViewDataHandler;
 import java.sql.Date;
 import java.util.ArrayList;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
 import javax.swing.JLabel;
 import javax.swing.table.TableCellEditor;
@@ -37,8 +39,9 @@ public class Gui extends javax.swing.JFrame {
     private JControlers c;
     //private JTextField field;
     private ArrayList<LaborList> fullList;
-    private ArrayList<LaborList> siteLaborList;
+    private ArrayList<LaborList> siteLabourList;
     private ArrayList<LaborView> laborView;
+    private String myFilterDefaultText = "Type Name...";
 
     public Gui(LocalWraper db) {    
         this.ti = new TimeWrapper();
@@ -50,7 +53,7 @@ public class Gui extends javax.swing.JFrame {
         setIcon();
         
         this.db = db;
-        
+        // initialize components
         pw = new PlantViewDataHandler(this.db, db.userData,PlantUtil,utilPerc,utilProgressBar);
         pw.displayPlantViewInTable(PlantUtil, date);
         
@@ -59,7 +62,8 @@ public class Gui extends javax.swing.JFrame {
         
         lw = new LaborViewDataHandler(this.db, db.userData, LaborUtil, date);
         lw.displayViewInTable(LaborUtil, date);
-        
+       
+        // housekeeping
         refreshLists();
         
         actionListenerGo = true;
@@ -111,6 +115,14 @@ public class Gui extends javax.swing.JFrame {
         MyFilter = new javax.swing.JTextField();
         jButton3 = new javax.swing.JButton();
         jLayeredPane4 = new javax.swing.JLayeredPane();
+        lName = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        lFunc = new javax.swing.JComboBox<>();
+        jButton4 = new javax.swing.JButton();
+        infoPanel = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
         title = new javax.swing.JLabel();
         label = new javax.swing.JLabel();
         datePicker = new com.toedter.calendar.JDateChooser();
@@ -367,7 +379,7 @@ public class Gui extends javax.swing.JFrame {
 
             },
             new String [] {
-                "UtilizationID", "AllocationID", "Labor Name", "Labor Function", "Hours", "Status", "Notes"
+                "UtilizationID", "AllocationID", "Labour Name", "Labour Function", "Hours", "Status", "Notes"
             }
         ) {
             Class[] types = new Class [] {
@@ -425,7 +437,15 @@ public class Gui extends javax.swing.JFrame {
             }
         });
 
-        MyFilter.setText("Filter");
+        MyFilter.setText(myFilterDefaultText);
+        MyFilter.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                MyFilterFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                MyFilterFocusLost(evt);
+            }
+        });
         MyFilter.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 MyFilterKeyReleased(evt);
@@ -483,20 +503,98 @@ public class Gui extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jTabbedPane2.addTab("Allocate labor", jLayeredPane3);
+        jTabbedPane2.addTab("Allocate labour", jLayeredPane3);
+
+        jLabel6.setText("Labour name:");
+
+        jLabel7.setText("Function:");
+
+        lFunc.setModel(new DefaultComboBoxModel());
+
+        jButton4.setText("Add Labour");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
+        infoPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/info1600.png"))); // NOI18N
+
+        jLabel9.setText("<html> New labour will be<br> automaticaly allocated<br> to the site");
+
+        javax.swing.GroupLayout infoPanelLayout = new javax.swing.GroupLayout(infoPanel);
+        infoPanel.setLayout(infoPanelLayout);
+        infoPanelLayout.setHorizontalGroup(
+            infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(infoPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel8)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel9)
+                .addContainerGap())
+        );
+        infoPanelLayout.setVerticalGroup(
+            infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(infoPanelLayout.createSequentialGroup()
+                .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(infoPanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel8))
+                    .addGroup(infoPanelLayout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jLayeredPane4.setLayer(lName, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane4.setLayer(jLabel6, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane4.setLayer(jLabel7, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane4.setLayer(lFunc, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane4.setLayer(jButton4, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane4.setLayer(infoPanel, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jLayeredPane4Layout = new javax.swing.GroupLayout(jLayeredPane4);
         jLayeredPane4.setLayout(jLayeredPane4Layout);
         jLayeredPane4Layout.setHorizontalGroup(
             jLayeredPane4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 446, Short.MAX_VALUE)
+            .addGroup(jLayeredPane4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jLayeredPane4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel7))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jLayeredPane4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jLayeredPane4Layout.createSequentialGroup()
+                        .addComponent(jButton4)
+                        .addGap(0, 58, Short.MAX_VALUE))
+                    .addComponent(lName)
+                    .addComponent(lFunc, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(infoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jLayeredPane4Layout.setVerticalGroup(
             jLayeredPane4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 179, Short.MAX_VALUE)
+            .addGroup(jLayeredPane4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jLayeredPane4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(infoPanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jLayeredPane4Layout.createSequentialGroup()
+                        .addGroup(jLayeredPane4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel6))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jLayeredPane4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel7)
+                            .addComponent(lFunc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton4)))
+                .addContainerGap(76, Short.MAX_VALUE))
         );
 
-        jTabbedPane2.addTab("Create new labor", jLayeredPane4);
+        jTabbedPane2.addTab("Create new labour", jLayeredPane4);
 
         jLayeredPane2.setLayer(jScrollPane4, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane2.setLayer(jTabbedPane2, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -511,7 +609,7 @@ public class Gui extends javax.swing.JFrame {
                     .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 999, Short.MAX_VALUE)
                     .addGroup(jLayeredPane2Layout.createSequentialGroup()
                         .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 451, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 545, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jLayeredPane2Layout.setVerticalGroup(
@@ -524,7 +622,7 @@ public class Gui extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jTabbedPane1.addTab("Labor Utilization", jLayeredPane2);
+        jTabbedPane1.addTab("Labour Utilization", jLayeredPane2);
 
         title.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         title.setText("Menangle");
@@ -656,11 +754,11 @@ public class Gui extends javax.swing.JFrame {
     }//GEN-LAST:event_MyFilterKeyReleased
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        c.moveDataFromListToList(laborList,laborOnSiteList,fullList,siteLaborList);
+        c.moveDataFromListToList(laborList,laborOnSiteList,fullList,siteLabourList);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        c.moveDataFromListToList(laborOnSiteList,laborList,siteLaborList,fullList);
+        c.moveDataFromListToList(laborOnSiteList,laborList,siteLabourList,fullList);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -670,6 +768,21 @@ public class Gui extends javax.swing.JFrame {
         refreshLists();
 
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void MyFilterFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_MyFilterFocusGained
+        MyFilter.selectAll();
+    }//GEN-LAST:event_MyFilterFocusGained
+
+    private void MyFilterFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_MyFilterFocusLost
+        if(MyFilter.getText().isEmpty())
+            MyFilter.setText(myFilterDefaultText);
+    }//GEN-LAST:event_MyFilterFocusLost
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        lw.addNewLabor(lName,lFunc);
+        lName.setText("");
+        refreshLists();
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu About;
@@ -685,15 +798,21 @@ public class Gui extends javax.swing.JFrame {
     private javax.swing.JTextField fDesc;
     private javax.swing.JTextField fRego;
     private javax.swing.JTextField fUnitNo;
+    private javax.swing.JPanel infoPanel;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JLayeredPane jLayeredPane2;
     private javax.swing.JLayeredPane jLayeredPane3;
@@ -714,6 +833,8 @@ public class Gui extends javax.swing.JFrame {
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
+    private javax.swing.JComboBox<String> lFunc;
+    private javax.swing.JTextField lName;
     private javax.swing.JLabel label;
     private javax.swing.JList<String> laborList;
     private javax.swing.JList<String> laborOnSiteList;
@@ -736,7 +857,6 @@ public class Gui extends javax.swing.JFrame {
             date = ti.setDate(datePicker.getDate());
             pw.displayPlantViewInTable(PlantUtil, date); //refresh table
             af.displayViewInTable(AditionalFuel, date);
-            lw.displayViewInTable(LaborUtil, date);
             pw.utilPercChange();
             refreshLists();
             if(!ti.today().toString().equals(date.toString())){
@@ -755,11 +875,14 @@ public class Gui extends javax.swing.JFrame {
         //lists housekeeping stuff
         
         lw.createLaborList();
-        siteLaborList = lw.getLaborsOnSiteList();        
+        lw.createFunctionsList();
+        lw.fillComboBoxWithFunctions(lFunc);
+        lw.displayViewInTable(LaborUtil, date);
+        siteLabourList = lw.getLaborsOnSiteList();        
         fullList = lw.getLaborList();
-        laborView = lw.getLaborView();      
+        laborView = lw.getLaborView();     
         c.refreshList(fullList, (DefaultListModel) laborList.getModel());
-        c.refreshList(siteLaborList, (DefaultListModel) laborOnSiteList.getModel());        
+        c.refreshList(siteLabourList, (DefaultListModel) laborOnSiteList.getModel());        
     }
     
     

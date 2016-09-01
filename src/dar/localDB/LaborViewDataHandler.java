@@ -6,15 +6,21 @@
 package dar.localDB;
 
 import dar.Functions.TimeWrapper;
+import dar.dbObjects.LaborFunctions;
 import dar.dbObjects.LaborList;
 import dar.dbObjects.LaborView;
 import dar.dbObjects.User;
 import java.awt.Font;
+import java.lang.reflect.Method;
 import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
@@ -31,6 +37,7 @@ public class LaborViewDataHandler extends DataHandler {
     private DefaultTableModel model;
     private ArrayList<LaborList> laborList;
     private ArrayList<LaborList> laborOnSite;
+    private ArrayList<LaborFunctions> laborFunctions;
 
     public LaborViewDataHandler(LocalWraper con, User user, JTable table, Date date) {
         super(con, user, table);
@@ -39,7 +46,8 @@ public class LaborViewDataHandler extends DataHandler {
         this.dateFor = date;
         hideID(table);
         changeHeaders();
-        createLaborList();
+        //createLaborList();
+        //createFunctionsList();
     }
 
     @Override
@@ -75,6 +83,32 @@ public class LaborViewDataHandler extends DataHandler {
         table.getTableHeader().setFont(new Font("Tahoma", Font.BOLD, 14));
     }   
     
+    public ArrayList<LaborFunctions> createFunctionsList(){
+        laborFunctions = new ArrayList<LaborFunctions>();
+        String query = ("SELECT * FROM `LaborFunctions`");
+        ResultSet rs = con.runQuery(query);
+        
+        try {
+            while(rs.next()){
+                LaborFunctions fn = new LaborFunctions(rs.getInt("ID"), rs.getString("Function"));
+                laborFunctions.add(fn);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return laborFunctions;
+    }
+    
+    public void fillComboBoxWithFunctions(JComboBox box){
+        DefaultComboBoxModel cModel = (DefaultComboBoxModel) box.getModel();
+        cModel.removeAllElements();
+        for (LaborFunctions function : laborFunctions) {
+            cModel.addElement(function);
+        }
+    }
+    
+    
+    
     public ArrayList<LaborList> createLaborList(){
         laborList = new ArrayList<LaborList>();
         String query = String.format("SELECT\n" +
@@ -86,7 +120,8 @@ public class LaborViewDataHandler extends DataHandler {
                         "LaborList.LaborRate as Rate\n" +
                         "FROM LaborList\n" +
                         "left join LaborFunctions on LaborFunction = LaborFunctions.ID\n" +
-                        "left join LaborAllocation on LaborList.ID = LaborAllocation.LaborID AND LaborAllocation.StartDate<='%s' AND LaborAllocation.EndDate>='%s'",dateFor,dateFor);
+                        "left join LaborAllocation on LaborList.ID = LaborAllocation.LaborID AND LaborAllocation.StartDate<='%s' AND LaborAllocation.EndDate>='%s'"+
+                        "WHERE SiteID IS NULL OR SiteID = '%s'",dateFor,dateFor,user.getSiteID());
         ResultSet rs = con.runQuery(query);
         
         try {
@@ -208,11 +243,41 @@ public class LaborViewDataHandler extends DataHandler {
         //add new labors
         ArrayList<Integer> addIds = getIdsToAdd();
         for (Integer addId : addIds) {
-            Object[][] data = {{"LaborID","SiteID","StartDate","EndDate"},{addId,user.getSiteID(),date,ti.nextDate()}};
-            con.dbInsert("LaborAllocation", data);
+            allocateLabours(addId,user.getSiteID(),date);
         }
                 
         
+    }
+
+    public void addNewLabor(JTextField lName, JComboBox<String> lFunc) {
+        //get information from user inputs
+        DefaultComboBoxModel cModel = (DefaultComboBoxModel) lFunc.getModel();
+        LaborFunctions selectedFunc = (LaborFunctions) cModel.getSelectedItem();
+        String dbTable = "LaborList";
+        
+        //check if labour already exists
+        
+        if(con.hasDuplicity(con.dbSelect(dbTable, new Object[][]{{"LaborName"},{"="},{lName.getText()},{}}))){
+            JOptionPane.showMessageDialog(null,"Labour already exists!", "Duplicity error", JOptionPane.ERROR_MESSAGE);
+        } else if(lName.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null,"Name has not been filled", "Error", JOptionPane.ERROR_MESSAGE);
+        } else {
+            // add labour into a database
+            int newID = con.dbInsert(dbTable, new Object[][]{{"LaborName","LaborFunction","LaborRate"},{lName.getText(),selectedFunc.getID(),"25"}});
+            
+            // allocate labour to the site
+            if(newID>0){
+                allocateLabours(newID, user.getSiteID(), dateFor);
+            } else {
+              JOptionPane.showMessageDialog(null,"Can't allocate Labour", "Database error", JOptionPane.ERROR_MESSAGE);  
+            }
+                        
+        }
+    }
+
+    private void allocateLabours(Integer addId, long siteID, Date date) {
+        Object[][] data = {{"LaborID","SiteID","StartDate","EndDate"},{addId,user.getSiteID(),date,ti.nextDate()}};
+        con.dbInsert("LaborAllocation", data);
     }
     
 }
