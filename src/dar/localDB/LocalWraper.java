@@ -13,13 +13,13 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.lang.Object;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import javax.swing.SwingConstants;
 
 /**
  *
@@ -27,13 +27,13 @@ import javax.swing.JTable;
  */
 public class LocalWraper {
     //During dev DATABASE temporary moved to remote one
-    //private static final String DB_DRIVER = "org.h2.Driver";
-//    private static final String DB_LOGIN = "Dukester";
-//    private static final String DB_PASS = "Chapadlo";
-//    private static final String DB_CONN_STRING = "jdbc:h2:~DAR";
-    private static final String DB_LOGIN = "sopsioco_duke";
-    private static final String DB_PASS = "chapadlo";
-    private static final String DB_CONN_STRING = "jdbc:mysql://192.185.128.23:3306/sopsioco_DAR?autoReconnect=true";    
+    private static final String DB_DRIVER = "org.h2.Driver";
+    private static final String DB_LOGIN = "Dukester";
+    private static final String DB_PASS = "Chapadlo";
+    private static final String DB_CONN_STRING = "jdbc:h2:~DAR";
+//    private static final String DB_LOGIN = "sopsioco_duke";
+//    private static final String DB_PASS = "chapadlo";
+//    private static final String DB_CONN_STRING = "jdbc:mysql://192.185.128.23:3306/sopsioco_DAR?autoReconnect=true";    
     
     private String loginname;
     private String password;
@@ -93,10 +93,12 @@ public class LocalWraper {
     
     private void getConnection(){
         try {
-//          Class.forName(DB_DRIVER);
+            Class.forName(DB_DRIVER);
             con = DriverManager.getConnection(DB_CONN_STRING,DB_LOGIN,DB_PASS);
             System.out.println("connected");
         } catch (SQLException ex) {
+            ex.printStackTrace();
+        } catch (ClassNotFoundException ex) {
             ex.printStackTrace();
         }        
         
@@ -256,12 +258,21 @@ public class LocalWraper {
     private static Object isSurrounded(Object object) {
         String returnComa;
         Object result;
-        //System.out.println(object.getClass().getName());
         if(object != null){
+            System.out.println(object.getClass().getName());
+            String objName = object.getClass().getName();            
             if(object.equals("NULL")){
                 returnComa = "";
             } else {
-                returnComa = "'";
+                if(objName.endsWith("Double")){
+                    returnComa = "";
+                } else if(objName.endsWith("Integer")){
+                    returnComa = "";
+                } else if(objName.endsWith("String")){
+                    returnComa = "'";
+                } else {
+                    returnComa = "'";
+                }
             }
             result = returnComa+object+returnComa;
         } else {
@@ -278,7 +289,8 @@ public class LocalWraper {
         int updatedID = 0;
         for (int i = 0; i < what[0].length; i++) {
             String wh = (String) what[0][i];
-            whatToUpdate += what[0][i]+" = '" +what[1][i]+ "' ";
+            Object coma = isSurrounded(what[1][i]);
+            whatToUpdate += what[0][i]+" = " +coma+ " ";
                 if(i<what[0].length-1){
                     whatToUpdate += ", ";
                 }

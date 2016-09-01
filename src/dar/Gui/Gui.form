@@ -566,7 +566,7 @@
                         <Column editable="false" title="Labour Name" type="java.lang.String"/>
                         <Column editable="false" title="Labour Function" type="java.lang.String"/>
                         <Column editable="true" title="Hours" type="java.lang.Double"/>
-                        <Column editable="true" title="Status" type="java.lang.Object"/>
+                        <Column editable="true" title="Status" type="java.lang.String"/>
                         <Column editable="true" title="Notes" type="java.lang.String"/>
                       </Table>
                     </Property>

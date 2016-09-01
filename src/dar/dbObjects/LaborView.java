@@ -18,10 +18,11 @@ public class LaborView {
     private String Function;
     private double Hours;
     private String Status;
+    private int statusID;
     private String Notes;
     private String PlantId;
 
-    public LaborView(int SiteId, int AllocationID, int UtilizationID, int LabourID, String LaborName, String Function, double Hours, String Status, String Notes, String PlantId) {
+    public LaborView(int SiteId, int AllocationID, int UtilizationID, int LabourID, String LaborName, String Function, double Hours, String Status, int StatusID, String Notes, String PlantId) {
         this.SiteId = SiteId;
         this.AllocationID = AllocationID;
         this.UtilizationID = UtilizationID;
@@ -32,6 +33,11 @@ public class LaborView {
         this.Status = Status;
         this.Notes = Notes;
         this.PlantId = PlantId;
+        this.statusID = statusID;
+    }
+
+    public int getStatusID() {
+        return statusID;
     }
 
     public int getSiteId() {

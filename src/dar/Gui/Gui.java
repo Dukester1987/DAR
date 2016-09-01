@@ -7,7 +7,6 @@ package dar.Gui;
 
 import dar.Functions.JControlers;
 import dar.Functions.TimeWrapper;
-import dar.dbObjects.LaborFunctions;
 import dar.dbObjects.LaborList;
 import dar.dbObjects.LaborView;
 import dar.localDB.AFViewDataHandler;
@@ -17,10 +16,13 @@ import dar.localDB.LocalWraper;
 import dar.localDB.PlantViewDataHandler;
 import java.sql.Date;
 import java.util.ArrayList;
+import javax.swing.DefaultCellEditor;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.table.TableCellEditor;
+import javax.swing.table.TableColumn;
 
 /**
  *
@@ -50,7 +52,7 @@ public class Gui extends javax.swing.JFrame {
         
         //init custom components
         c = new JControlers();                    
-        setIcon();
+        setIcon();       
         
         this.db = db;
         // initialize components
@@ -60,15 +62,20 @@ public class Gui extends javax.swing.JFrame {
         af = new AFViewDataHandler(this.db, db.userData, AditionalFuel);
         af.displayViewInTable(AditionalFuel, date);
         
-        lw = new LaborViewDataHandler(this.db, db.userData, LaborUtil, date);
-        lw.displayViewInTable(LaborUtil, date);
+        lw = new LaborViewDataHandler(this.db, db.userData, LaborUtil, date);        
+        lw.displayViewInTable(LaborUtil, date);            
        
         // housekeeping
         refreshLists();
         
+        // add combo box - delete after successful test
+      
+        
         actionListenerGo = true;
         setName(title);
         pw.utilPercChange();
+        
+        
         
         db1 = new DBWrapper(label);
         Thread t = new Thread(db1);
@@ -383,7 +390,7 @@ public class Gui extends javax.swing.JFrame {
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class, java.lang.Object.class, java.lang.String.class
+                java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
                 false, false, false, false, true, true, true
@@ -745,7 +752,10 @@ public class Gui extends javax.swing.JFrame {
     }//GEN-LAST:event_AditionalFuelPropertyChange
 
     private void LaborUtilPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_LaborUtilPropertyChange
-        // TODO add your handling code here:
+        if(actionListenerGo){
+            lw.updateTable(date);
+            refreshLists();
+        }
     }//GEN-LAST:event_LaborUtilPropertyChange
 
     private void MyFilterKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_MyFilterKeyReleased
@@ -766,7 +776,6 @@ public class Gui extends javax.swing.JFrame {
         lw.displayViewInTable(LaborUtil, date);
         
         refreshLists();
-
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void MyFilterFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_MyFilterFocusGained
@@ -878,6 +887,7 @@ public class Gui extends javax.swing.JFrame {
         lw.createFunctionsList();
         lw.fillComboBoxWithFunctions(lFunc);
         lw.displayViewInTable(LaborUtil, date);
+        lw.getStatusList();
         siteLabourList = lw.getLaborsOnSiteList();        
         fullList = lw.getLaborList();
         laborView = lw.getLaborView();     

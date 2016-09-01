@@ -8,14 +8,15 @@ package dar.localDB;
 import dar.Functions.TimeWrapper;
 import dar.dbObjects.LaborFunctions;
 import dar.dbObjects.LaborList;
+import dar.dbObjects.LaborStatus;
 import dar.dbObjects.LaborView;
 import dar.dbObjects.User;
 import java.awt.Font;
-import java.lang.reflect.Method;
 import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import javax.swing.DefaultCellEditor;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
@@ -24,6 +25,7 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumn;
 
 /**
  *
@@ -38,6 +40,7 @@ public class LaborViewDataHandler extends DataHandler {
     private ArrayList<LaborList> laborList;
     private ArrayList<LaborList> laborOnSite;
     private ArrayList<LaborFunctions> laborFunctions;
+    private ArrayList<LaborStatus> statusList;
 
     public LaborViewDataHandler(LocalWraper con, User user, JTable table, Date date) {
         super(con, user, table);
@@ -54,16 +57,17 @@ public class LaborViewDataHandler extends DataHandler {
     public void displayViewInTable(JTable table, Date dateFor) {
         this.dateFor = dateFor;
         ArrayList<LaborView> list = getView();
-        refreshTable(model);
-        
+        refreshTable(model);        
         for (int i = 0; i < list.size(); i++) {
+            LaborStatus status = new LaborStatus(list.get(i).getStatusID(), list.get(i).getStatus());
+            System.out.println(list.get(i).getStatusID()+" "+list.get(i).getStatus()); // HERE!!!
             model.addRow(new Object[]{
                 list.get(i).getUtilizationID(),
                 list.get(i).getAllocationID(),
                 list.get(i).getLaborName(),
                 list.get(i).getFunction(),
                 list.get(i).getHours(),
-                list.get(i).getStatus(),
+                status,
                 list.get(i).getNotes()
             });            
         }        
@@ -72,6 +76,12 @@ public class LaborViewDataHandler extends DataHandler {
     
     private void hideID(JTable table) { 
         DefaultTableCellRenderer rightRenderer = new DefaultTableCellRenderer();
+        JComboBox laborStatus = new JComboBox(new DefaultComboBoxModel());
+        fillComboBoxBySatus(laborStatus);       
+        
+        TableColumn col = table.getColumnModel().getColumn(5);
+        col.setCellEditor(new DefaultCellEditor(laborStatus)); 
+        
         rightRenderer.setHorizontalAlignment(SwingConstants.CENTER);
         table.getColumnModel().getColumn(4).setCellRenderer(rightRenderer);
         table.removeColumn(table.getColumn("UtilizationID"));
@@ -136,9 +146,33 @@ public class LaborViewDataHandler extends DataHandler {
     }
 
   
+    public ArrayList<LaborStatus> getStatusList(){
+        statusList = new ArrayList<LaborStatus>();
+        String query = ("SELECT * FROM LaborStatus");
+        ResultSet rs = con.runQuery(query);
+        
+        try {
+            while(rs.next()){
+                LaborStatus list = new LaborStatus(rs.getInt("ID"), rs.getString("Status"));
+                statusList.add(list);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return statusList;
+    }
     
-    
-    
+    public void fillComboBoxBySatus(JComboBox box){
+        DefaultComboBoxModel cMod = (DefaultComboBoxModel) box.getModel();
+        cMod.removeAllElements();
+        ArrayList<LaborStatus> list = statusList;
+        if(statusList == null){
+            list = getStatusList();
+        }
+        for (LaborStatus sList : list) {
+            box.addItem(sList);
+        }
+    }
     
     public ArrayList<LaborView> getView(){
         laborView = new ArrayList<LaborView>();
@@ -150,22 +184,23 @@ public class LaborViewDataHandler extends DataHandler {
                                     "LaborList.LaborName,\n" +
                                     "LaborFunctions.Function,\n" +
                                     "LaborUtilization.Hours,\n" +
-                                    "WorkStatusList.Status,\n" +
+                                    "LaborStatus.Status,\n" +
+                                    "LaborStatus.ID StatusID,\n" +
                                     "LaborUtilization.Notes,\n" +
                                     "LaborUtilization.PlantID\n" +
                                     "FROM `LaborAllocation`\n" +
                                     "LEFT JOIN LaborList on LaborAllocation.LaborID = LaborList.ID\n" +
                                     "LEFT JOIN LaborUtilization ON LaborUtilization.LaborAllocationID = LaborAllocation.ID AND LaborUtilization.DateFor = '%s'\n" +
                                     "LEFT JOIN LaborFunctions on LaborList.LaborFunction = LaborFunctions.ID\n" +
-                                    "LEFT JOIN WorkStatusList on WorkStatusList.ID = LaborUtilization.Status\n" +
+                                    "LEFT JOIN LaborStatus on LaborStatus.ID = LaborUtilization.Status\n" +
                                     "WHERE LaborAllocation.StartDate <= '%s' AND LaborAllocation.EndDate >= '%s' and SiteID = %s"
                 ,dateFor, dateFor, dateFor,user.getSiteID());
-        
+        System.out.println(query);
         ResultSet rs = con.runQuery(query);
         
         try {
             while(rs.next()){
-                LaborView lw = new LaborView(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getInt(4), rs.getString(5), rs.getString(6), rs.getDouble(7), rs.getString(8), rs.getString(9), rs.getString(10));
+                LaborView lw = new LaborView(rs.getInt("SiteID"), rs.getInt("AllocationID"), rs.getInt("UtilizationID"), rs.getInt("LaborID"), rs.getString("LaborName"), rs.getString("Function"), rs.getDouble("Hours"), rs.getString("Status"),rs.getInt("StatusID"), rs.getString("Notes"), rs.getString("PlantID"));
                 laborView.add(lw);
             }
         } catch (SQLException ex) {
@@ -279,5 +314,35 @@ public class LaborViewDataHandler extends DataHandler {
         Object[][] data = {{"LaborID","SiteID","StartDate","EndDate"},{addId,user.getSiteID(),date,ti.nextDate()}};
         con.dbInsert("LaborAllocation", data);
     }
+
+    public void updateTable(Date date) {
+        int viewRow = table.getEditingRow();
+        if(viewRow>-1){ //do we edited something?
+            int k = table.convertRowIndexToModel(viewRow);
+            String dbTable = "LaborUtilization";          
+            
+            //add data into variables
+            int utilizationID = (int) model.getValueAt(k, 0);
+            int allocationID = (int) model.getValueAt(k, 1);
+            
+            double hours = (double) model.getValueAt(k, 4);
+            LaborStatus status = (LaborStatus) model.getValueAt(k, 5);
+            System.out.println(status);
+            String notes = (String) model.getValueAt(k, 6);
+            
+            int StatusID = (status==null)?1:status.getID();
+            
+            if(utilizationID==0){
+                // add new dataset
+                con.dbInsert(dbTable, new Object[][]{{"LaborAllocationID","PlantID","Hours","Status","Notes","DateFor"},{allocationID,"",hours,StatusID,notes,date}});
+            } else {
+                // edit actual dataset
+                con.dbUpdate(dbTable, new Object[][]{{"Hours","Status","Notes"},{hours,StatusID,notes}}, new Object[][]{{"ID"},{"="},{utilizationID},{}});             
+            }
+
+        }
+    }
+    
+    
     
 }
