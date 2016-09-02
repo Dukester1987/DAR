@@ -149,7 +149,7 @@ public class Login extends javax.swing.JFrame {
     private void displayGui(LocalWraper db) {
         Gui gui = new Gui(db);
         gui.setTitle("DAR v1.1 - Hi Quality Group");
-        gui.setResizable(false);
+        gui.setResizable(true);
         gui.setSize(1080,720);
         gui.setLocationRelativeTo(null);
         gui.setVisible(true);   

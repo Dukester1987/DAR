@@ -86,11 +86,11 @@ public class AFViewDataHandler extends DataHandler{
         try{
             double famount = Double.parseDouble(fAmount.getText());
             if((funo.isEmpty() && frego.isEmpty()) || (fdesc.isEmpty()) ){
-                JOptionPane.showMessageDialog(null, "You have to fill all fields");
+                JOptionPane.showMessageDialog(null, "You have to fill all fields","Error",JOptionPane.ERROR_MESSAGE);
             } else {
                 Object[][] query = {{"SiteID","PlantNo","Rego","StartDate","EndDate"},{"=","=","=","<=",">="},{con.userData.getSiteID(),funo,frego,date,date},{"AND","AND","AND","AND"}};                    
                 if(con.hasDuplicity(con.dbSelect("AFAllocation", query))){
-                    JOptionPane.showMessageDialog(null, "Already in list");                   
+                    JOptionPane.showMessageDialog(null, "Already in list","Error",JOptionPane.ERROR_MESSAGE);                   
                 } else {
                     //add
                     Object[][] dataset = {{"SiteID","PlantNo","Rego","Description","StartDate","EndDate"},{con.userData.getSiteID(),funo,frego,fdesc,date,ti.nextDate()}};
@@ -105,7 +105,7 @@ public class AFViewDataHandler extends DataHandler{
                 }
             }            
         } catch(Exception e) {
-            JOptionPane.showMessageDialog(null,"Amount must be numeric value");
+            JOptionPane.showMessageDialog(null,"Amount must be numeric value","Error",JOptionPane.ERROR_MESSAGE);
         }
         
 
@@ -128,7 +128,7 @@ public class AFViewDataHandler extends DataHandler{
             }
             displayViewInTable(table, date);            
         } else {
-            JOptionPane.showMessageDialog(null,"No rows selected!");
+            JOptionPane.showMessageDialog(null,"No rows selected!","Error",JOptionPane.ERROR_MESSAGE);
         }
 
     }    

@@ -76,7 +76,7 @@ public class PlantViewDataHandler {
 "                            left join `PlantUtilization` on`PlantAllocation`.`ID` = `PlantUtilization`.`PlantAllocationID` AND DateFor = '%s'\n" +
 "                            left join `PlantList` on `PlantAllocation`.`PlantID` = `PlantList`.`ID`\n" +
 "                            left join `SiteList` on `SiteList`.`ID` = `PlantAllocation`.`SiteID`\n" +
-"                            WHERE StartDate <= '%s' AND EndDate >= '%s' AND SiteID = '%s'",dateFor,dateFor,dateFor,user.getSiteID());
+"                            WHERE StartDate <= '%s' AND EndDate >= '%s' AND SiteID = '%s' ORDER BY PlantID",dateFor,dateFor,dateFor,user.getSiteID());
             ResultSet rs = con.runQuery(query);
             try {
                 while(rs.next()){
@@ -169,7 +169,7 @@ public class PlantViewDataHandler {
     public void updateTable(Date date) {
         utilPercChange();
         int viewRow = table.getEditingRow();
-        System.out.println(viewRow);
+        //System.out.println(viewRow);
         if(viewRow>-1){
             int k = table.convertRowIndexToModel(viewRow);
             DefaultTableModel model = (DefaultTableModel) table.getModel();
@@ -183,7 +183,7 @@ public class PlantViewDataHandler {
             String Notes = (String) model.getValueAt(k, 7);
             
             if(EndHours<StartHours){
-                JOptionPane.showMessageDialog(null,"End hours can not be lower than start hours!");
+                JOptionPane.showMessageDialog(null,"End hours can not be lower than start hours!", "Error", JOptionPane.ERROR_MESSAGE);
                 displayPlantViewInTable(table, date);
             } else {
                 if(PlantUtilizationID==0){
@@ -214,14 +214,14 @@ public class PlantViewDataHandler {
                                                   {"AND","AND","AND","OR"}};
                 if(isPlantDescription(message)){
                     if(con.hasDuplicity(con.dbSelect("PlantAllocation", Query))){
-                        JOptionPane.showMessageDialog(null, "Plant is already in the list");
+                        JOptionPane.showMessageDialog(null, "Plant is already in the list","Error",JOptionPane.ERROR_MESSAGE);
                     } else {
                         Object[][] dataset = new Object[][]{{"PlantID","SiteID","StartDate","EndDate"},{message,con.userData.getSiteID(),date,ti.nextDate()}};
                         con.dbInsert("PlantAllocation",dataset);
                         displayPlantViewInTable(table,date);
                     }
                 } else {
-                    JOptionPane.showMessageDialog(null, "Selected Plant No doesn't exists in the database");
+                    JOptionPane.showMessageDialog(null, "Selected Plant No doesn't exists in the database","Error",JOptionPane.ERROR_MESSAGE);
                 }
             }
         } else {
@@ -251,7 +251,7 @@ public class PlantViewDataHandler {
                utilPerc.setForeground(Color.green);
            } else if(percentage>120) {
                utilPerc.setForeground(Color.red);
-               JOptionPane.showMessageDialog(null,"Check your hours!");
+               JOptionPane.showMessageDialog(null,"Check your hours!","Error",JOptionPane.ERROR_MESSAGE);
            } else {
                 utilPerc.setForeground(Color.BLACK);
            }
