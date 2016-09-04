@@ -259,7 +259,7 @@ public class LocalWraper {
         String returnComa;
         Object result;
         if(object != null){
-            System.out.println(object.getClass().getName());
+            //System.out.println(object.getClass().getName());
             String objName = object.getClass().getName();            
             if(object.equals("NULL")){
                 returnComa = "";
@@ -270,6 +270,8 @@ public class LocalWraper {
                     returnComa = "";
                 } else if(objName.endsWith("String")){
                     returnComa = "'";
+                } else if(objName.endsWith("Long")){
+                    returnComa = "";                    
                 } else {
                     returnComa = "'";
                 }

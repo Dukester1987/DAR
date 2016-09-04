@@ -106,3 +106,84 @@ UPDATE LaborUtilization SET Hours = '60.0' , Status = '0' , Notes = ''  WHERE ID
 09-01 16:16:18 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "UPDATE LaborUtilization SET Hours = 10.0 , Status = 0 , Notes = 'Looks like it's working[*]'  WHERE ID = 2 "; SQL statement:
 UPDATE LaborUtilization SET Hours = 10.0 , Status = 0 , Notes = 'Looks like it's working'  WHERE ID = 2  [42000-176]
+09-02 11:31:43 jdbc[6]: null
+org.h2.message.DbException: The connection was not closed by the application and is garbage collected [90018-176]
+	at org.h2.message.DbException.get(DbException.java:178)
+	at org.h2.message.DbException.get(DbException.java:154)
+	at org.h2.message.DbException.get(DbException.java:143)
+	at org.h2.jdbc.JdbcConnection.closeOld(JdbcConnection.java:173)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:118)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:91)
+	at org.h2.Driver.connect(Driver.java:74)
+	at org.h2.server.web.WebServer.getConnection(WebServer.java:684)
+	at org.h2.server.web.WebApp.login(WebApp.java:958)
+	at org.h2.server.web.WebApp.process(WebApp.java:212)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:171)
+	at org.h2.server.web.WebThread.process(WebThread.java:138)
+	at org.h2.server.web.WebThread.run(WebThread.java:94)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: org.h2.jdbc.JdbcSQLException: The connection was not closed by the application and is garbage collected [90018-176]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:344)
+	... 14 more
+09-02 11:32:52 jdbc[6]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "DROP TABLE"; expected "identifier"; SQL statement:
+DROP TABLE [42001-176]
+09-02 11:33:09 jdbc[6]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "DROP TABLE PLANTLIST 
+DROP[*] TABLE PLANTUTILIZATION 
+DROP TABLE PRODUCTALLOCATION 
+DROP TABLE PRODUCTGROUPS 
+DROP TABLE PRODUCTS 
+DROP TABLE PRODUCTUTILIZATION 
+DROP TABLE SITELIST"; SQL statement:
+DROP TABLE PLANTLIST 
+DROP TABLE PLANTUTILIZATION 
+DROP TABLE PRODUCTALLOCATION 
+DROP TABLE PRODUCTGROUPS 
+DROP TABLE PRODUCTS 
+DROP TABLE PRODUCTUTILIZATION 
+DROP TABLE SITELIST [42000-176]
+09-02 11:33:28 jdbc[6]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "  
+                                            
+  
+ALTER TABLE ""LABORFUNCTIONS""
+  MODIFY ""ID"" INT(11) NOT NULL AUTO_INCREMENT,[*]AUTO_INCREMENT=3 "; SQL statement:
+--
+-- AUTO_INCREMENT for table `LaborFunctions`
+--
+ALTER TABLE `LaborFunctions`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3 [42000-176]
+09-02 11:33:28 jdbc[6]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "  
+                                         
+  
+ALTER TABLE ""LABORSTATUS""
+  MODIFY ""ID"" INT(11) NOT NULL AUTO_INCREMENT,[*]AUTO_INCREMENT=8 "; SQL statement:
+--
+-- AUTO_INCREMENT for table `LaborStatus`
+--
+ALTER TABLE `LaborStatus`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8 [42000-176]
+09-02 11:33:28 jdbc[6]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "  
+                                   
+  
+ALTER TABLE ""LOGIN""
+  MODIFY ""ID"" INT(11) NOT NULL AUTO_INCREMENT,[*]AUTO_INCREMENT=3 "; SQL statement:
+--
+-- AUTO_INCREMENT for table `Login`
+--
+ALTER TABLE `Login`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3 [42000-176]
+09-02 11:33:28 jdbc[6]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "  
+                                      
+  
+ALTER TABLE ""SITELIST""
+  MODIFY ""ID"" INT(11) NOT NULL AUTO_INCREMENT,[*]AUTO_INCREMENT=3 "; SQL statement:
+--
+-- AUTO_INCREMENT for table `SiteList`
+--
+ALTER TABLE `SiteList`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3 [42000-176]

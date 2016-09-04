@@ -5,6 +5,7 @@
  */
 package dar.Gui;
 
+import dar.Functions.Functions;
 import dar.Functions.JControlers;
 import dar.Functions.TimeWrapper;
 import dar.dbObjects.LaborList;
@@ -13,16 +14,16 @@ import dar.localDB.AFViewDataHandler;
 import dar.localDB.LaborViewDataHandler;
 import dar.remoteDB.DBWrapper;
 import dar.localDB.LocalWraper;
+import dar.localDB.NoteViewHandler;
 import dar.localDB.PlantViewDataHandler;
+import java.awt.Font;
+import static java.awt.Font.BOLD;
 import java.sql.Date;
 import java.util.ArrayList;
-import javax.swing.DefaultCellEditor;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
-import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.table.TableCellEditor;
-import javax.swing.table.TableColumn;
 
 /**
  *
@@ -44,6 +45,7 @@ public class Gui extends javax.swing.JFrame {
     private ArrayList<LaborList> siteLabourList;
     private ArrayList<LaborView> laborView;
     private String myFilterDefaultText = "Type Name...";
+    private final NoteViewHandler nt;
 
     public Gui(LocalWraper db) {    
         this.ti = new TimeWrapper();
@@ -65,8 +67,12 @@ public class Gui extends javax.swing.JFrame {
         lw = new LaborViewDataHandler(this.db, db.userData, LaborUtil, date);        
         lw.displayViewInTable(LaborUtil, date);            
        
+        nt = new NoteViewHandler(this.db, db.userData, MyComents, date);
+        nt.displayNotesInTextField(MyComents,date);
+        
         // housekeeping
         refreshLists();
+        
         
         // add combo box - delete after successful test
       
@@ -136,7 +142,12 @@ public class Gui extends javax.swing.JFrame {
         LaborUtil1 = new javax.swing.JTable();
         jLayeredPane6 = new javax.swing.JLayeredPane();
         jScrollPane6 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        MyComents = new javax.swing.JTextArea();
+        jButton5 = new javax.swing.JButton();
+        jToolBar1 = new javax.swing.JToolBar();
+        jButton6 = new javax.swing.JButton();
+        jButton7 = new javax.swing.JButton();
+        jButton8 = new javax.swing.JButton();
         title = new javax.swing.JLabel();
         label = new javax.swing.JLabel();
         datePicker = new com.toedter.calendar.JDateChooser();
@@ -411,7 +422,6 @@ public class Gui extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        LaborUtil.setCellSelectionEnabled(true);
         LaborUtil.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         LaborUtil.setDoubleBuffered(true);
         LaborUtil.setDragEnabled(true);
@@ -633,7 +643,7 @@ public class Gui extends javax.swing.JFrame {
                     .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 999, Short.MAX_VALUE)
                     .addGroup(jLayeredPane2Layout.createSequentialGroup()
                         .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 451, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 545, Short.MAX_VALUE)))
+                        .addGap(0, 548, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jLayeredPane2Layout.setVerticalGroup(
@@ -655,14 +665,14 @@ public class Gui extends javax.swing.JFrame {
 
             },
             new String [] {
-                "UtilizationID", "AllocationID", "Product Group", "Product Name", "Units / Tons"
+                "UtilizationID", "AllocationID", "Labour Name", "Labour Function", "Hours", "Status", "Notes"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class
+                java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, true
+                false, false, false, false, true, true, true
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -689,6 +699,9 @@ public class Gui extends javax.swing.JFrame {
             LaborUtil1.getColumnModel().getColumn(1).setResizable(false);
             LaborUtil1.getColumnModel().getColumn(1).setPreferredWidth(0);
             LaborUtil1.getColumnModel().getColumn(2).setPreferredWidth(50);
+            LaborUtil1.getColumnModel().getColumn(5).setHeaderValue("Status");
+            LaborUtil1.getColumnModel().getColumn(6).setPreferredWidth(400);
+            LaborUtil1.getColumnModel().getColumn(6).setHeaderValue("Notes");
         }
 
         jLayeredPane5.setLayer(jScrollPane7, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -712,11 +725,48 @@ public class Gui extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Production", jLayeredPane5);
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane6.setViewportView(jTextArea1);
+        MyComents.setColumns(20);
+        MyComents.setRows(5);
+        jScrollPane6.setViewportView(MyComents);
+
+        jButton5.setText("Add / Change Summary");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+
+        jToolBar1.setFloatable(false);
+        jToolBar1.setRollover(true);
+
+        jButton6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButton6.setText("B");
+        jButton6.setFocusable(false);
+        jButton6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton6.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(jButton6);
+
+        jButton7.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
+        jButton7.setText("I");
+        jButton7.setFocusable(false);
+        jButton7.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton7.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jToolBar1.add(jButton7);
+
+        jButton8.setText("U");
+        jButton8.setFocusable(false);
+        jButton8.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton8.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jToolBar1.add(jButton8);
 
         jLayeredPane6.setLayer(jScrollPane6, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane6.setLayer(jButton5, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane6.setLayer(jToolBar1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jLayeredPane6Layout = new javax.swing.GroupLayout(jLayeredPane6);
         jLayeredPane6.setLayout(jLayeredPane6Layout);
@@ -724,15 +774,24 @@ public class Gui extends javax.swing.JFrame {
             jLayeredPane6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jLayeredPane6Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 999, Short.MAX_VALUE)
+                .addGroup(jLayeredPane6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 999, Short.MAX_VALUE)
+                    .addGroup(jLayeredPane6Layout.createSequentialGroup()
+                        .addGroup(jLayeredPane6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jLayeredPane6Layout.setVerticalGroup(
             jLayeredPane6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jLayeredPane6Layout.createSequentialGroup()
-                .addContainerGap()
+                .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(189, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton5)
+                .addContainerGap(135, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Daily Summary / Comments", jLayeredPane6);
@@ -903,12 +962,24 @@ public class Gui extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_LaborUtil1PropertyChange
 
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        nt.saveDate(MyComents,date);                
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        int start = MyComents.getSelectionStart();
+        int end = MyComents.getSelectionEnd();
+        MyComents.setFont(new Font("Monospace", BOLD, 13));
+        
+    }//GEN-LAST:event_jButton6ActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu About;
     private javax.swing.JButton AddAFuel;
     private javax.swing.JTable AditionalFuel;
     public javax.swing.JTable LaborUtil;
     public javax.swing.JTable LaborUtil1;
+    private javax.swing.JTextArea MyComents;
     private javax.swing.JTextField MyFilter;
     public javax.swing.JTable PlantUtil;
     private javax.swing.JButton RemoveAFuel;
@@ -923,6 +994,10 @@ public class Gui extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
     private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -958,7 +1033,7 @@ public class Gui extends javax.swing.JFrame {
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JToolBar jToolBar1;
     private javax.swing.JComboBox<String> lFunc;
     private javax.swing.JTextField lName;
     private javax.swing.JLabel label;
@@ -983,7 +1058,7 @@ public class Gui extends javax.swing.JFrame {
             date = ti.setDate(datePicker.getDate());
             pw.displayPlantViewInTable(PlantUtil, date); //refresh table
             af.displayViewInTable(AditionalFuel, date);
-            pw.utilPercChange();
+            pw.utilPercChange();            
             refreshLists();
             if(!ti.today().toString().equals(date.toString())){
                 addp.setEnabled(false);
@@ -1005,6 +1080,7 @@ public class Gui extends javax.swing.JFrame {
         lw.fillComboBoxWithFunctions(lFunc);
         lw.displayViewInTable(LaborUtil, date);
         lw.getStatusList();
+        nt.displayNotesInTextField(MyComents, date);
         siteLabourList = lw.getLaborsOnSiteList();        
         fullList = lw.getLaborList();
         laborView = lw.getLaborView();     

@@ -49,7 +49,7 @@ public class Functions {
                  result.append("");
                  break;
              case '\'':
-                 result.append("");
+                 result.append("\'\'");
                  break;
              case '(':
                  result.append("");
