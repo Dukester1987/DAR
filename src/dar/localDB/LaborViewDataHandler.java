@@ -129,7 +129,8 @@ public class LaborViewDataHandler extends DataHandler {
     
     
     
-    public ArrayList<LaborList> createLaborList(){
+    public ArrayList<LaborList> createLaborList(Date dateFor){
+        this.dateFor = dateFor;
         laborList = new ArrayList<LaborList>();
         String query = String.format("SELECT\n" +
                         "LaborList.ID as ID,\n" +
@@ -143,7 +144,7 @@ public class LaborViewDataHandler extends DataHandler {
                         "left join LaborAllocation on LaborList.ID = LaborAllocation.LaborID AND LaborAllocation.StartDate<='%s' AND LaborAllocation.EndDate>='%s'"+
                         "WHERE SiteID IS NULL OR SiteID = '%s'",dateFor,dateFor,user.getSiteID());
         ResultSet rs = con.runQuery(query);
-        
+//        System.out.println(query);
         try {
             while(rs.next()){
                 LaborList list = new LaborList(rs.getInt(1),rs.getInt(2), rs.getString(3), rs.getInt(4), rs.getString(5), rs.getDouble(6));
@@ -207,7 +208,7 @@ public class LaborViewDataHandler extends DataHandler {
                 ,dateFor, dateFor, dateFor,user.getSiteID());
         //System.out.println(query);
         ResultSet rs = con.runQuery(query);
-        
+//        System.out.println(query);
         try {
             while(rs.next()){
                 LaborView lw = new LaborView(rs.getInt("SiteID"), rs.getInt("AllocationID"), rs.getInt("UtilizationID"), rs.getInt("LaborID"), rs.getString("LaborName"), rs.getString("Function"), rs.getDouble("Hours"), rs.getString("Status"),rs.getInt("StatusID"), rs.getString("Notes"), rs.getString("PlantID"));

@@ -38,8 +38,7 @@ public class NoteViewHandler {
     public ArrayList<NotesView> getView(){
         
         notes = new ArrayList<NotesView>();
-        String query = String.format("SELECT * FROM SiteNotes WHERE SiteID = %s AND DateFor = '%s'", user.getSiteID(),dateFor);
-        System.out.println(query);
+        String query = String.format("SELECT * FROM SiteNotes WHERE SiteID = %s AND DateFor = '%s'", user.getSiteID(),dateFor);        
         ResultSet rs = con.runQuery(query);
         
         try {
@@ -72,11 +71,26 @@ public class NoteViewHandler {
         String text = Functions.forHTML(MyComents.getText());
         if(con.hasDuplicity(con.dbSelect("SiteNotes",new Object[][]{{"SiteID","DateFor"},{"=","="},{con.userData.getSiteID(),date},{"AND"}}))){
             // update
-            con.dbUpdate("SiteNotes", new Object[][]{{"Notes"},{text}}, new Object[][]{{"DateFor","SiteID"},{"=","="},{date,con.userData.getSiteID()},{"AND"}});
+            
+            //get Note ID
+            int noteID = getNoteID(date);
+            con.dbUpdate("SiteNotes", new Object[][]{{"Notes"},{text}}, new Object[][]{{"ID"},{"="},{noteID},{"AND"}});
         } else {
             // insert
             con.dbInsert("SiteNotes", new Object[][]{{"SiteID","Notes","DateFor"},{con.userData.getSiteID(),text,date}});
         }           
+    }
+
+    private int getNoteID(Date date) {
+        int NoteID = 0;
+        ResultSet rs = con.dbSelect(new Object[]{"ID"}, "SiteNotes", new Object[][]{{"DateFor","SiteID"},{"=","="},{date,con.userData.getSiteID()},{"AND"}});
+        try {
+            rs.next();
+            NoteID = rs.getInt("ID");
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }        
+        return NoteID;
     }
     
 }

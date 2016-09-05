@@ -176,7 +176,7 @@ public class DBWrapper implements Runnable{
            } else {
                try {
                    label.setText("Connection to the remote database established");
-                   System.out.println("done");
+                   //System.out.println("done");
                    Thread.sleep(15000);
                } catch (InterruptedException ex) {
                    keepAlive = false;

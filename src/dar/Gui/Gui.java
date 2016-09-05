@@ -1075,7 +1075,7 @@ public class Gui extends javax.swing.JFrame {
     private void refreshLists() {
         //lists housekeeping stuff
         
-        lw.createLaborList();
+        lw.createLaborList(date);
         lw.createFunctionsList();
         lw.fillComboBoxWithFunctions(lFunc);
         lw.displayViewInTable(LaborUtil, date);
