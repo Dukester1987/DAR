@@ -17,4 +17,8 @@ public class GuiIcon {
     public GuiIcon(JFrame frame) {
         frame.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/res/hqlogo.png")));
     }    
+    
+    public GuiIcon(JFrame frame, String iconName) {
+        frame.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/res/"+iconName+".png")));
+    }     
 }

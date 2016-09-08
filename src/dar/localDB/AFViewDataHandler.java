@@ -41,8 +41,7 @@ public class AFViewDataHandler extends DataHandler{
                             "AFAllocation.ID as ID,\n" +
                             "AFFuel.ID as UtilID,\n" +
                             "AFAllocation.SiteID,\n" +
-                            "AFAllocation.PlantNo,\n" +
-                            "AFAllocation.Rego,\n" +
+                            "AFAllocation.VehicleID,\n" +
                             "AFAllocation.Description,\n" +
                             "AFFuel.Amount\n" +
                             "FROM `AFAllocation`\n" +
@@ -51,7 +50,7 @@ public class AFViewDataHandler extends DataHandler{
             ResultSet rs = con.runQuery(query);
             try {
                 while(rs.next()){
-                    AFuelView nw = new AFuelView(rs.getInt("ID"),rs.getInt("UtilID"), rs.getInt("SiteID"), rs.getString("PlantNo"), rs.getString("Rego"),rs.getString("Description"), rs.getDouble("Amount"));
+                    AFuelView nw = new AFuelView(rs.getInt("ID"),rs.getInt("UtilID"), rs.getInt("SiteID"), rs.getString("VehicleID"), rs.getString("Description"), rs.getDouble("Amount"));
                     view.add(nw);
                 }
             } catch (SQLException ex) {
@@ -71,36 +70,33 @@ public class AFViewDataHandler extends DataHandler{
                 list.get(i).getAllocationID(),
                 list.get(i).getUtilID(),
                 list.get(i).getPlantNo(),
-                list.get(i).getRego(),
                 list.get(i).getDescription(),
                 list.get(i).getAmount()            
             });                    
         }
     }
     
-    public void addAditionalFuel(JTextField fUnitNo,JTextField fRego,JTextField fDesc, JTextField fAmount, Date date) {
+    public void addAditionalFuel(JTextField fUnitNo,JTextField fDesc, JTextField fAmount, Date date) {
 
         String funo = Functions.forHTML(fUnitNo.getText());
-        String frego = Functions.forHTML(fRego.getText());
         String fdesc = Functions.forHTML(fDesc.getText());
         try{
             double famount = Double.parseDouble(fAmount.getText());
-            if((funo.isEmpty() && frego.isEmpty()) || (fdesc.isEmpty()) ){
+            if((funo.isEmpty()) || (fdesc.isEmpty()) ){
                 JOptionPane.showMessageDialog(null, "You have to fill all fields","Error",JOptionPane.ERROR_MESSAGE);
             } else {
-                Object[][] query = {{"SiteID","PlantNo","Rego","StartDate","EndDate"},{"=","=","=","<=",">="},{con.userData.getSiteID(),funo,frego,date,date},{"AND","AND","AND","AND"}};                    
+                Object[][] query = {{"SiteID","VehicleID","StartDate","EndDate"},{"=","=","=","<=",">="},{con.userData.getSiteID(),funo,date,date},{"AND","AND","AND","AND"}};                    
                 if(con.hasDuplicity(con.dbSelect("AFAllocation", query))){
                     JOptionPane.showMessageDialog(null, "Already in list","Error",JOptionPane.ERROR_MESSAGE);                   
                 } else {
                     //add
-                    Object[][] dataset = {{"SiteID","PlantNo","Rego","Description","StartDate","EndDate"},{con.userData.getSiteID(),funo,frego,fdesc,date,ti.nextDate()}};
+                    Object[][] dataset = {{"SiteID","VehicleID","Description","StartDate","EndDate"},{con.userData.getSiteID(),funo,fdesc,date,ti.nextDate()}};
                     int allocID = con.dbInsert("AFAllocation", dataset);
                     Object[][] dataset2 = {{"AFAllocationID","Amount","DateFor"},{allocID,famount,date}};
                     con.dbInsert("AFFuel", dataset2);
                     displayViewInTable(table, date);
                     fAmount.setText("");
                     fDesc.setText("");
-                    fRego.setText("");
                     fUnitNo.setText("");
                 }
             }            
@@ -136,7 +132,7 @@ public class AFViewDataHandler extends DataHandler{
     private void hideID(JTable table) { 
         DefaultTableCellRenderer rightRenderer = new DefaultTableCellRenderer();
         rightRenderer.setHorizontalAlignment(SwingConstants.CENTER);
-        table.getColumnModel().getColumn(5).setCellRenderer(rightRenderer);
+        table.getColumnModel().getColumn(4).setCellRenderer(rightRenderer);
         table.removeColumn(table.getColumn("allocationID"));
         table.removeColumn(table.getColumn("utilID"));        
     }    

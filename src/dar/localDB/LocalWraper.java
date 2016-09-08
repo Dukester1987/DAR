@@ -96,7 +96,11 @@ public class LocalWraper {
             con = DriverManager.getConnection(DB_CONN_STRING,DB_LOGIN,DB_PASS);
             System.out.println("connected");
         } catch (SQLException ex) {
-            ex.printStackTrace();
+            if(ex.getErrorCode() == 90020){
+                JOptionPane.showMessageDialog(null,"Application is already in use!\nPlease restart application and try it again.", "Already in use",JOptionPane.ERROR_MESSAGE);
+            } else {
+                ex.printStackTrace();
+            }
         } catch (ClassNotFoundException ex) {
             ex.printStackTrace();
         }        
