@@ -24,7 +24,7 @@ public class DAR {
                 Login login = new Login();
                 login.setTitle("eDAR - Hi Quality - Login");
                 login.setResizable(false);
-                login.setSize(433, 220);
+                //login.setSize(433, 220);
                 login.setLocationRelativeTo(null);
                 login.setVisible(true);                
             }
