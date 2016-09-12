@@ -5,7 +5,9 @@
  */
 package dar.Gui.Production;
 
+import dar.localDB.ProductViewHandler;
 import java.awt.Color;
+import javax.swing.DefaultComboBoxModel;
 import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
 
 /**
@@ -15,13 +17,16 @@ import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
 public class SubProducts extends javax.swing.JPanel {
 
     public boolean isNumber = false;
+    private final ProductViewHandler ph;
 
     /**
      * Creates new form SubProducts
      */
-    public SubProducts() {
+    public SubProducts(ProductViewHandler phf) {
         initComponents();
+        this.ph = phf;
         AutoCompleteDecorator.decorate(selectedProduct);
+        ph.fillComboBoxWithProducts(selectedProduct);        
     }
 
     /**
@@ -41,7 +46,7 @@ public class SubProducts extends javax.swing.JPanel {
 
         jLabel4.setText("Select product:");
 
-        selectedProduct.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        selectedProduct.setModel(new DefaultComboBoxModel());
 
         jLabel5.setText("Amount:");
 

@@ -187,3 +187,318 @@ ALTER TABLE ""SITELIST""
 --
 ALTER TABLE `SiteList`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3 [42000-176]
+09-09 09:08:35 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Schema "SOPSIOCO_DAR" not found; SQL statement:
+CREATE TABLE `sopsioco_DAR`.`Recipe` ( `ID` INT NOT NULL AUTO_INCREMENT ,  `ProductAlloctaionID` INT NOT NULL ,  `SiteID` INT NOT NULL ,    PRIMARY KEY  (`ID`) ) [90079-176]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:344)
+	at org.h2.message.DbException.get(DbException.java:178)
+	at org.h2.message.DbException.get(DbException.java:154)
+	at org.h2.command.Parser.getSchema(Parser.java:655)
+	at org.h2.command.Parser.getSchema(Parser.java:662)
+	at org.h2.command.Parser.parseCreateTable(Parser.java:5706)
+	at org.h2.command.Parser.parseCreate(Parser.java:4122)
+	at org.h2.command.Parser.parsePrepared(Parser.java:351)
+	at org.h2.command.Parser.parse(Parser.java:306)
+	at org.h2.command.Parser.parse(Parser.java:278)
+	at org.h2.command.Parser.prepareCommand(Parser.java:243)
+	at org.h2.engine.Session.prepareLocal(Session.java:442)
+	at org.h2.engine.Session.prepareCommand(Session.java:384)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1188)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:172)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:160)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1391)
+	at org.h2.server.web.WebApp.query(WebApp.java:1064)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1026)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1013)
+	at org.h2.server.web.WebThread.process(WebThread.java:168)
+	at org.h2.server.web.WebThread.run(WebThread.java:94)
+	at java.lang.Thread.run(Unknown Source)
+09-12 12:11:43 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Cannot parse "DATE" constant "1995"; SQL statement:
+SELECT
+	ProductAllocation.ID as AllocationID,
+	ProductAllocation.ProductID as ProductID,
+	ProductAllocation.SiteID as SiteID,
+	Products.EPA as EPAID,
+	Products.GroupID as GroupID,
+	Products.ProductName as ProductName,
+	Products.ProductVal as ProductVal,
+	Products.Type as TypeID,
+	Products.UOM as UOM
+FROM Products 
+LEFT JOIN ProductAllocation ON Products.ID = ProductAllocation.ProductID AND ProductAllocation.StartDate<= 2016-09-12
+AND ProductAllocation.EndDate >= 2016-09-12
+WHERE ProductAllocation.SiteID is null or ProductAllocation.SiteID = 1 [22007-176]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:344)
+	at org.h2.message.DbException.get(DbException.java:167)
+	at org.h2.value.ValueDate.parse(ValueDate.java:71)
+	at org.h2.value.Value.convertTo(Value.java:860)
+	at org.h2.expression.Comparison.getValue(Comparison.java:257)
+	at org.h2.expression.ConditionAndOr.getValue(ConditionAndOr.java:87)
+	at org.h2.expression.Expression.getBooleanValue(Expression.java:179)
+	at org.h2.table.TableFilter.isOk(TableFilter.java:440)
+	at org.h2.table.TableFilter.next(TableFilter.java:390)
+	at org.h2.table.TableFilter.next(TableFilter.java:400)
+	at org.h2.command.dml.Select.queryFlat(Select.java:533)
+	at org.h2.command.dml.Select.queryWithoutCache(Select.java:646)
+	at org.h2.command.dml.Query.query(Query.java:323)
+	at org.h2.command.dml.Query.query(Query.java:291)
+	at org.h2.command.dml.Query.query(Query.java:37)
+	at org.h2.command.CommandContainer.query(CommandContainer.java:91)
+	at org.h2.command.Command.executeQuery(Command.java:197)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:81)
+	at dar.localDB.LocalWraper.runQuery(LocalWraper.java:211)
+	at dar.localDB.ProductViewHandler.createProductList(ProductViewHandler.java:58)
+	at dar.Gui.Production.ProdSettings.refreshLists(ProdSettings.java:557)
+	at dar.Gui.Production.ProdSettings.<init>(ProdSettings.java:57)
+	at dar.Gui.Gui.jButton11ActionPerformed(Gui.java:1192)
+	at dar.Gui.Gui.access$2000(Gui.java:34)
+	at dar.Gui.Gui$25.actionPerformed(Gui.java:813)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2022)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2348)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:252)
+	at java.awt.Component.processMouseEvent(Component.java:6533)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3324)
+	at java.awt.Component.processEvent(Component.java:6298)
+	at java.awt.Container.processEvent(Container.java:2236)
+	at java.awt.Component.dispatchEventImpl(Component.java:4889)
+	at java.awt.Container.dispatchEventImpl(Container.java:2294)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4888)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4525)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4466)
+	at java.awt.Container.dispatchEventImpl(Container.java:2280)
+	at java.awt.Window.dispatchEventImpl(Window.java:2746)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:758)
+	at java.awt.EventQueue.access$500(EventQueue.java:97)
+	at java.awt.EventQueue$3.run(EventQueue.java:709)
+	at java.awt.EventQueue$3.run(EventQueue.java:703)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:86)
+	at java.awt.EventQueue$4.run(EventQueue.java:731)
+	at java.awt.EventQueue$4.run(EventQueue.java:729)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:728)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:201)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+Caused by: java.lang.IllegalArgumentException: 1995
+	at org.h2.util.DateTimeUtils.parseDateValue(DateTimeUtils.java:273)
+	at org.h2.value.ValueDate.parse(ValueDate.java:69)
+	... 58 more
+09-12 12:11:49 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Cannot parse "DATE" constant "1995"; SQL statement:
+SELECT
+	ProductAllocation.ID as AllocationID,
+	ProductAllocation.ProductID as ProductID,
+	ProductAllocation.SiteID as SiteID,
+	Products.EPA as EPAID,
+	Products.GroupID as GroupID,
+	Products.ProductName as ProductName,
+	Products.ProductVal as ProductVal,
+	Products.Type as TypeID,
+	Products.UOM as UOM
+FROM Products 
+LEFT JOIN ProductAllocation ON Products.ID = ProductAllocation.ProductID AND ProductAllocation.StartDate<= 2016-09-12
+AND ProductAllocation.EndDate >= 2016-09-12
+WHERE ProductAllocation.SiteID is null or ProductAllocation.SiteID = 1 [22007-176]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:344)
+	at org.h2.message.DbException.get(DbException.java:167)
+	at org.h2.value.ValueDate.parse(ValueDate.java:71)
+	at org.h2.value.Value.convertTo(Value.java:860)
+	at org.h2.expression.Comparison.getValue(Comparison.java:257)
+	at org.h2.expression.ConditionAndOr.getValue(ConditionAndOr.java:87)
+	at org.h2.expression.Expression.getBooleanValue(Expression.java:179)
+	at org.h2.table.TableFilter.isOk(TableFilter.java:440)
+	at org.h2.table.TableFilter.next(TableFilter.java:390)
+	at org.h2.table.TableFilter.next(TableFilter.java:400)
+	at org.h2.command.dml.Select.queryFlat(Select.java:533)
+	at org.h2.command.dml.Select.queryWithoutCache(Select.java:646)
+	at org.h2.command.dml.Query.query(Query.java:323)
+	at org.h2.command.dml.Query.query(Query.java:291)
+	at org.h2.command.dml.Query.query(Query.java:37)
+	at org.h2.command.CommandContainer.query(CommandContainer.java:91)
+	at org.h2.command.Command.executeQuery(Command.java:197)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:81)
+	at dar.localDB.LocalWraper.runQuery(LocalWraper.java:211)
+	at dar.localDB.ProductViewHandler.createProductList(ProductViewHandler.java:58)
+	at dar.Gui.Production.ProdSettings.refreshLists(ProdSettings.java:557)
+	at dar.Gui.Production.ProdSettings.<init>(ProdSettings.java:57)
+	at dar.Gui.Gui.jButton11ActionPerformed(Gui.java:1192)
+	at dar.Gui.Gui.access$2000(Gui.java:34)
+	at dar.Gui.Gui$25.actionPerformed(Gui.java:813)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2022)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2348)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:252)
+	at java.awt.Component.processMouseEvent(Component.java:6533)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3324)
+	at java.awt.Component.processEvent(Component.java:6298)
+	at java.awt.Container.processEvent(Container.java:2236)
+	at java.awt.Component.dispatchEventImpl(Component.java:4889)
+	at java.awt.Container.dispatchEventImpl(Container.java:2294)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4888)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4525)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4466)
+	at java.awt.Container.dispatchEventImpl(Container.java:2280)
+	at java.awt.Window.dispatchEventImpl(Window.java:2746)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:758)
+	at java.awt.EventQueue.access$500(EventQueue.java:97)
+	at java.awt.EventQueue$3.run(EventQueue.java:709)
+	at java.awt.EventQueue$3.run(EventQueue.java:703)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:86)
+	at java.awt.EventQueue$4.run(EventQueue.java:731)
+	at java.awt.EventQueue$4.run(EventQueue.java:729)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:728)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:201)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+Caused by: java.lang.IllegalArgumentException: 1995
+	at org.h2.util.DateTimeUtils.parseDateValue(DateTimeUtils.java:273)
+	at org.h2.value.ValueDate.parse(ValueDate.java:69)
+	... 58 more
+09-12 12:12:46 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Cannot parse "DATE" constant "1995"; SQL statement:
+SELECT
+	ProductAllocation.ID as AllocationID,
+	ProductAllocation.ProductID as ProductID,
+	ProductAllocation.SiteID as SiteID,
+	Products.EPA as EPAID,
+	Products.GroupID as GroupID,
+	Products.ProductName as ProductName,
+	Products.ProductVal as ProductVal,
+	Products.Type as TypeID,
+	Products.UOM as UOM
+FROM Products 
+LEFT JOIN ProductAllocation ON Products.ID = ProductAllocation.ProductID AND ProductAllocation.StartDate<= 2016-09-12
+AND ProductAllocation.EndDate >= 2016-09-12
+WHERE ProductAllocation.SiteID is null or ProductAllocation.SiteID = 1 [22007-176]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:344)
+	at org.h2.message.DbException.get(DbException.java:167)
+	at org.h2.value.ValueDate.parse(ValueDate.java:71)
+	at org.h2.value.Value.convertTo(Value.java:860)
+	at org.h2.expression.Comparison.getValue(Comparison.java:257)
+	at org.h2.expression.ConditionAndOr.getValue(ConditionAndOr.java:87)
+	at org.h2.expression.Expression.getBooleanValue(Expression.java:179)
+	at org.h2.table.TableFilter.isOk(TableFilter.java:440)
+	at org.h2.table.TableFilter.next(TableFilter.java:390)
+	at org.h2.table.TableFilter.next(TableFilter.java:400)
+	at org.h2.command.dml.Select.queryFlat(Select.java:533)
+	at org.h2.command.dml.Select.queryWithoutCache(Select.java:646)
+	at org.h2.command.dml.Query.query(Query.java:323)
+	at org.h2.command.dml.Query.query(Query.java:291)
+	at org.h2.command.dml.Query.query(Query.java:37)
+	at org.h2.command.CommandContainer.query(CommandContainer.java:91)
+	at org.h2.command.Command.executeQuery(Command.java:197)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:81)
+	at dar.localDB.LocalWraper.runQuery(LocalWraper.java:211)
+	at dar.localDB.ProductViewHandler.createProductList(ProductViewHandler.java:58)
+	at dar.Gui.Production.ProdSettings.refreshLists(ProdSettings.java:557)
+	at dar.Gui.Production.ProdSettings.<init>(ProdSettings.java:57)
+	at dar.Gui.Gui.jButton11ActionPerformed(Gui.java:1192)
+	at dar.Gui.Gui.access$2000(Gui.java:34)
+	at dar.Gui.Gui$25.actionPerformed(Gui.java:813)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2022)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2348)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:252)
+	at java.awt.Component.processMouseEvent(Component.java:6533)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3324)
+	at java.awt.Component.processEvent(Component.java:6298)
+	at java.awt.Container.processEvent(Container.java:2236)
+	at java.awt.Component.dispatchEventImpl(Component.java:4889)
+	at java.awt.Container.dispatchEventImpl(Container.java:2294)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4888)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4525)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4466)
+	at java.awt.Container.dispatchEventImpl(Container.java:2280)
+	at java.awt.Window.dispatchEventImpl(Window.java:2746)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:758)
+	at java.awt.EventQueue.access$500(EventQueue.java:97)
+	at java.awt.EventQueue$3.run(EventQueue.java:709)
+	at java.awt.EventQueue$3.run(EventQueue.java:703)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:86)
+	at java.awt.EventQueue$4.run(EventQueue.java:731)
+	at java.awt.EventQueue$4.run(EventQueue.java:729)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:728)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:201)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+Caused by: java.lang.IllegalArgumentException: 1995
+	at org.h2.util.DateTimeUtils.parseDateValue(DateTimeUtils.java:273)
+	at org.h2.value.ValueDate.parse(ValueDate.java:69)
+	... 58 more
+09-12 12:14:13 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Cannot parse "DATE" constant "1995"; SQL statement:
+SELECT
+	ProductAllocation.ID as AllocationID,
+	ProductAllocation.ProductID as ProductID,
+	ProductAllocation.SiteID as SiteID,
+	Products.EPA as EPAID,
+	Products.GroupID as GroupID,
+	Products.ProductName as ProductName,
+	Products.ProductVal as ProductVal,
+	Products.Type as TypeID,
+	Products.UOM as UOM
+FROM Products 
+LEFT JOIN ProductAllocation ON Products.ID = ProductAllocation.ProductID AND ProductAllocation.StartDate<= 2016-09-12
+AND ProductAllocation.EndDate >= 2016-09-12
+WHERE ProductAllocation.SiteID is null or ProductAllocation.SiteID = 1 [22007-176]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:344)
+	at org.h2.message.DbException.get(DbException.java:167)
+	at org.h2.value.ValueDate.parse(ValueDate.java:71)
+	at org.h2.value.Value.convertTo(Value.java:860)
+	at org.h2.expression.Comparison.getValue(Comparison.java:257)
+	at org.h2.expression.ConditionAndOr.getValue(ConditionAndOr.java:87)
+	at org.h2.expression.Expression.getBooleanValue(Expression.java:179)
+	at org.h2.table.TableFilter.isOk(TableFilter.java:440)
+	at org.h2.table.TableFilter.next(TableFilter.java:390)
+	at org.h2.table.TableFilter.next(TableFilter.java:400)
+	at org.h2.command.dml.Select.queryFlat(Select.java:533)
+	at org.h2.command.dml.Select.queryWithoutCache(Select.java:646)
+	at org.h2.command.dml.Query.query(Query.java:323)
+	at org.h2.command.dml.Query.query(Query.java:291)
+	at org.h2.command.dml.Query.query(Query.java:37)
+	at org.h2.command.CommandContainer.query(CommandContainer.java:91)
+	at org.h2.command.Command.executeQuery(Command.java:197)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:181)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:160)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1391)
+	at org.h2.server.web.WebApp.query(WebApp.java:1064)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1026)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1013)
+	at org.h2.server.web.WebThread.process(WebThread.java:168)
+	at org.h2.server.web.WebThread.run(WebThread.java:94)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.IllegalArgumentException: 1995
+	at org.h2.util.DateTimeUtils.parseDateValue(DateTimeUtils.java:273)
+	at org.h2.value.ValueDate.parse(ValueDate.java:69)
+	... 23 more

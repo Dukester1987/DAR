@@ -6,6 +6,7 @@
 package dar.Functions;
 
 import dar.dbObjects.LaborList;
+import dar.dbObjects.Production.ProductListView;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 import java.util.ArrayList;
@@ -15,7 +16,6 @@ import javax.swing.DefaultListModel;
 import javax.swing.JList;
 import javax.swing.JTable;
 import javax.swing.JTextField;
-import javax.swing.ListModel;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 
@@ -27,7 +27,7 @@ public class JControlers {
     
     public void filterModel(DefaultListModel model, ArrayList<LaborList> values, String filter) {
         for (LaborList s : values) {
-            if (!s.getName().contains(filter)) {
+            if (!s.getName().toUpperCase().contains(filter.toUpperCase())) {
                 if (model.contains(s)) {
                     model.removeElement(s);
                 }
@@ -38,6 +38,20 @@ public class JControlers {
             }
         }
     }
+    
+    public void filterProdModel(DefaultListModel model, ArrayList<ProductListView> values, String filter) {
+        for (ProductListView s : values) {
+            if (!s.getProductName().toUpperCase().contains(filter.toUpperCase())) {
+                if (model.contains(s)) {
+                    model.removeElement(s);
+                }
+            } else {
+                if (!model.contains(s)) {
+                    model.addElement(s);
+                }
+            }
+        }
+    }    
     
     public void fillListWithData(ArrayList<LaborList> data, DefaultListModel model){
         for (LaborList name : data) {
@@ -72,6 +86,14 @@ public class JControlers {
             model.addElement(d);
         }
     }
+    
+    public void refreshProdList(ArrayList<ProductListView> data, DefaultListModel model) {
+        model.clear();
+        for (ProductListView d : data) {
+            model.addElement(d);
+        }
+    }    
+    
 
     public void moveDataFromListToList(JList SourceList, JList destinationList, ArrayList<LaborList> sourceListData, ArrayList<LaborList> destinationListData) {
         List<LaborList> list = SourceList.getSelectedValuesList();
@@ -86,6 +108,17 @@ public class JControlers {
         
     }
 
-
+    public void moveProdDataFromListToList(JList SourceList, JList destinationList, ArrayList<ProductListView> sourceListData, ArrayList<ProductListView> destinationListData) {
+        List<ProductListView> list = SourceList.getSelectedValuesList();
+                
+        for (ProductListView s : list) {
+            destinationListData.add(s);
+            sourceListData.remove(s);
+        }       
+        
+        refreshProdList(sourceListData, (DefaultListModel) SourceList.getModel());
+        refreshProdList(destinationListData, (DefaultListModel) destinationList.getModel());
+        
+    }
     
 }
