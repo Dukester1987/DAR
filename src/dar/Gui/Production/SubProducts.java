@@ -28,6 +28,23 @@ public class SubProducts extends javax.swing.JPanel {
         AutoCompleteDecorator.decorate(selectedProduct);
         ph.fillComboBoxWithProducts(selectedProduct);        
     }
+    
+    public SubProducts(ProductViewHandler phf, int recID) {
+        initComponents();
+        this.ph = phf;
+        AutoCompleteDecorator.decorate(selectedProduct);
+        ph.fillComboBoxWithProducts(selectedProduct);        
+    }    
+
+    SubProducts(ProductViewHandler phf, int prodID, double used) {
+        initComponents();
+        this.ph = phf;
+        amount.setText(""+used);
+        AutoCompleteDecorator.decorate(selectedProduct);
+        ph.fillComboBoxWithProducts(selectedProduct, prodID);     
+        
+        
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -46,6 +63,7 @@ public class SubProducts extends javax.swing.JPanel {
 
         jLabel4.setText("Select product:");
 
+        selectedProduct.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         selectedProduct.setModel(new DefaultComboBoxModel());
 
         jLabel5.setText("Amount:");

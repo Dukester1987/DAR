@@ -5,9 +5,16 @@
  */
 package dar.Gui.Production;
 
+import dar.Functions.JControlers;
+import dar.Gui.Gui;
 import dar.Gui.GuiIcon;
+import dar.dbObjects.Production.ProductListView;
 import dar.localDB.LocalWraper;
+import dar.localDB.ProductViewHandler;
 import java.sql.Date;
+import java.util.ArrayList;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.DefaultListModel;
 import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
 
 /**
@@ -21,11 +28,21 @@ public class AddProduct extends javax.swing.JFrame {
      */
     private LocalWraper db;
     private Date date;
+    private Gui g;
+    private final JControlers jc;
+    private final ProductViewHandler ph;
+    private ArrayList<ProductListView> prodList;
+    private ArrayList<ProductListView> prodOnSite;
     
-    public AddProduct(LocalWraper db, Date date) {
+    public AddProduct(LocalWraper db, Date date, Gui g) {
         initComponents();       
         this.db = db;
         this.date = date;
+        this.g = g;
+        
+        jc = new JControlers();
+        ph = new ProductViewHandler(db, db.userData, date);
+        refreshLists();
         AutoCompleteDecorator.decorate(itemBox);
         GuiIcon icon = new GuiIcon(this,"Create");
     }
@@ -74,7 +91,7 @@ public class AddProduct extends javax.swing.JFrame {
 
         jLabel2.setText("Select product:");
 
-        itemBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        itemBox.setModel(new DefaultComboBoxModel());
 
         jLabel3.setText("amount produced");
 
@@ -88,10 +105,12 @@ public class AddProduct extends javax.swing.JFrame {
                     .addComponent(jLabel3)
                     .addComponent(jLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(itemBox, 0, 115, Short.MAX_VALUE)
-                    .addComponent(jTextField1))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(itemBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -166,19 +185,17 @@ public class AddProduct extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addComponent(jLabel1)))
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(10, 10, 10)
+                        .addComponent(jLabel1)
+                        .addGap(0, 555, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -199,9 +216,12 @@ public class AddProduct extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        ProdSettings sets = new ProdSettings(db, date);
-        sets.setLocationRelativeTo(null);
-        sets.setVisible(true);
+        if(g.settingsWindow!=null){
+            g.settingsWindow.dispose();
+        }
+        g.settingsWindow = new ProdSettings(db, date, g);
+        g.settingsWindow.setLocationRelativeTo(this);
+        g.settingsWindow.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
@@ -223,4 +243,11 @@ public class AddProduct extends javax.swing.JFrame {
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
+
+    private void refreshLists() {
+        prodList = ph.createProductList(date);
+        prodOnSite = ph.getProductsOnSiteList();
+        
+        ph.fillComboBoxWithProducts(itemBox);        
+    }
 }

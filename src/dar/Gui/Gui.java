@@ -48,6 +48,9 @@ public class Gui extends javax.swing.JFrame {
     private ArrayList<LaborView> laborView;
     private String myFilterDefaultText = "Type Name...";
     private final NoteViewHandler nt;
+    public boolean SettingsOpened = false;
+    public ProdSettings settingsWindow;
+    public AddProduct productWindow;
 
     public Gui(LocalWraper db) {    
         this.ti = new TimeWrapper();
@@ -1183,15 +1186,21 @@ public class Gui extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        AddProduct prod = new AddProduct(db, date);
-        prod.setLocationRelativeTo(null);
-        prod.setVisible(true);
+        if(productWindow!=null){
+            productWindow.dispose();            
+        }
+        productWindow = new AddProduct(db, date, this);
+        productWindow.setLocationRelativeTo(null);
+        productWindow.setVisible(true);
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
-        ProdSettings set = new ProdSettings(db, date);
-        set.setLocationRelativeTo(null);
-        set.setVisible(true);
+        if(settingsWindow!=null){            
+            settingsWindow.dispose();
+        } 
+        settingsWindow = new ProdSettings(db, date,this);
+        settingsWindow.setLocationRelativeTo(null);
+        settingsWindow.setVisible(true);        
     }//GEN-LAST:event_jButton11ActionPerformed
 
     private void MyFilterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MyFilterActionPerformed

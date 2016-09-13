@@ -120,7 +120,7 @@ public class LocalWraper {
         } else {
             hash h = new hash();
             String passMD5 = h.md5(password);
-            String query = "SELECT * FROM Login WHERE LoginName = '"+loginname+"' AND Password = '"+passMD5+"'";            
+            String query = "SELECT * FROM Login WHERE LoginName = '"+loginname+"' AND Password = '"+passMD5+"'";             
             ResultSet rs = runQuery(query);
             try {
                 if(rs.first()){
