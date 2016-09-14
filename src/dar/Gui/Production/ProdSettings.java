@@ -84,6 +84,7 @@ public class ProdSettings extends javax.swing.JFrame {
         jList2 = new javax.swing.JList<>();
         jPopupMenu1 = new javax.swing.JPopupMenu();
         edit = new javax.swing.JMenuItem();
+        delete = new javax.swing.JMenuItem();
         close = new javax.swing.JMenuItem();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jLayeredPane2 = new javax.swing.JLayeredPane();
@@ -92,6 +93,7 @@ public class ProdSettings extends javax.swing.JFrame {
         infoPanel = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
+        jButton6 = new javax.swing.JButton();
         jLayeredPane1 = new javax.swing.JLayeredPane();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -135,7 +137,21 @@ public class ProdSettings extends javax.swing.JFrame {
 
         edit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/edit16.png"))); // NOI18N
         edit.setText("Edit");
+        edit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editActionPerformed(evt);
+            }
+        });
         jPopupMenu1.add(edit);
+
+        delete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/No-entry16.png"))); // NOI18N
+        delete.setText("delete");
+        delete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteActionPerformed(evt);
+            }
+        });
+        jPopupMenu1.add(delete);
 
         close.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/Exit16.png"))); // NOI18N
         close.setText("Close");
@@ -172,6 +188,7 @@ public class ProdSettings extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        recipeTable.setToolTipText("Right click to open menu");
         recipeTable.setInheritsPopupMenu(true);
         recipeTable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -187,7 +204,7 @@ public class ProdSettings extends javax.swing.JFrame {
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/info1600.png"))); // NOI18N
 
-        jLabel9.setText("<html>\nYou can edit recipes by doubleclicking on reciep you want to adjust");
+        jLabel9.setText("<html>\nYou can edit recipes by doubleclicking on recipe you want to adjust,<br> or through dialog menu (rightclick)");
 
         javax.swing.GroupLayout infoPanelLayout = new javax.swing.GroupLayout(infoPanel);
         infoPanel.setLayout(infoPanelLayout);
@@ -203,18 +220,23 @@ public class ProdSettings extends javax.swing.JFrame {
         infoPanelLayout.setVerticalGroup(
             infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(infoPanelLayout.createSequentialGroup()
-                .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(infoPanelLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel8))
-                    .addGroup(infoPanelLayout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap()
+                .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel9))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/Exit.png"))); // NOI18N
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+
         jLayeredPane2.setLayer(jScrollPane5, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane2.setLayer(infoPanel, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane2.setLayer(jButton6, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jLayeredPane2Layout = new javax.swing.GroupLayout(jLayeredPane2);
         jLayeredPane2.setLayout(jLayeredPane2Layout);
@@ -226,7 +248,8 @@ public class ProdSettings extends javax.swing.JFrame {
                     .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 590, Short.MAX_VALUE)
                     .addGroup(jLayeredPane2Layout.createSequentialGroup()
                         .addComponent(infoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton6)))
                 .addContainerGap())
         );
         jLayeredPane2Layout.setVerticalGroup(
@@ -235,7 +258,9 @@ public class ProdSettings extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 309, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
-                .addComponent(infoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(infoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton6))
                 .addContainerGap())
         );
 
@@ -623,8 +648,9 @@ public class ProdSettings extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        ph.insertRecipe(itemBox,SubProd,RecipeName);
-        closeWindow();
+        if(ph.insertRecipe(itemBox,SubProd,RecipeName)){
+            closeWindow();
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -680,7 +706,7 @@ public class ProdSettings extends javax.swing.JFrame {
             model = (DefaultTableModel) recipeTable.getModel();            
             int row = recipeTable.getSelectedRow();
             int recID = (int) model.getValueAt(recipeTable.getSelectedRow(), 0);
-            recipeEdit editR = new recipeEdit(recID, ph, date);
+            recipeEdit editR = new recipeEdit(recID, ph, date, recipeTable);
             editR.setLocationRelativeTo(this);
             editR.setVisible(true);
         }   
@@ -689,8 +715,7 @@ public class ProdSettings extends javax.swing.JFrame {
 
     private void recipeTableMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_recipeTableMouseReleased
         if(evt.isPopupTrigger()){
-            jPopupMenu1.show(recipeTable, evt.getX(), evt.getY());
-            System.out.println(evt.getX()+" "+evt.getY());
+            jPopupMenu1.show(recipeTable, evt.getX(), evt.getY());            
         }
     }//GEN-LAST:event_recipeTableMouseReleased
 
@@ -698,12 +723,43 @@ public class ProdSettings extends javax.swing.JFrame {
         closeWindow();
     }//GEN-LAST:event_closeActionPerformed
 
+    private void editActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editActionPerformed
+        int row = recipeTable.getSelectedRow();
+        if(row>=0){
+            int recID = (int) model.getValueAt(recipeTable.getSelectedRow(), 0);
+            recipeEdit editR = new recipeEdit(recID, ph, date, recipeTable);
+            editR.setLocationRelativeTo(this);
+            editR.setVisible(true);
+        } else {
+            JOptionPane.showMessageDialog(null, "You have to select row which you would like to edit!", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_editActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        closeWindow();
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteActionPerformed
+        if(recipeTable.getSelectedRowCount()>0){
+            DefaultTableModel m = (DefaultTableModel) recipeTable.getModel();
+            for (int row : recipeTable.getSelectedRows()) {
+                //update recipes
+                db.dbUpdate("Recipe", new Object[][]{{"STATUS"},{false}}, new Object[][]{{"ID"},{"="},{m.getValueAt(row, 0)},{}});
+            }
+            JOptionPane.showMessageDialog(null,"Recipes succesfully deleted","Deleted",JOptionPane.INFORMATION_MESSAGE); 
+            ph.displayRecipesInTable(recipeTable);
+        } else {
+            JOptionPane.showMessageDialog(null,"No rows selected","error",JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_deleteActionPerformed
+
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Components;
     private javax.swing.JTextField RecipeName;
     private javax.swing.JMenuItem close;
+    private javax.swing.JMenuItem delete;
     private javax.swing.JMenuItem edit;
     private javax.swing.JPanel infoPanel;
     private javax.swing.JPanel infoPanel1;
@@ -714,6 +770,7 @@ public class ProdSettings extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JLabel jLabel1;

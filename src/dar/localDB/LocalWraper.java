@@ -206,8 +206,8 @@ public class LocalWraper {
 
     public ResultSet runQuery(String query) {
         ResultSet rs = null;
-        try { 
-            Statement st = con.createStatement();
+        try {         
+            Statement st = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
             rs = st.executeQuery(query);
         } catch (SQLException ex) {
             System.out.println("SQL ERROR runQuery");
@@ -223,11 +223,30 @@ public class LocalWraper {
                 num++;
             }
         } catch (SQLException ex) {
-            Logger.getLogger(LocalWraper.class.getName()).log(Level.SEVERE, null, ex);
+            ex.printStackTrace();
         }
         return num;                              
     }
-
+    
+    public int getRowCount(ResultSet resultSet) {
+        if (resultSet == null) {
+            return 0;
+        }
+        try {
+            resultSet.last();
+            return resultSet.getRow();
+        } catch (SQLException exp) {
+            exp.printStackTrace();
+        } finally {
+            try {
+                resultSet.beforeFirst();
+            } catch (SQLException exp) {
+                exp.printStackTrace();
+            }
+        }
+        return 0;
+    }
+    
     public int dbInsert(String table, Object[][] dataset) {
         Object[] names = dataset[0];
         Object[] values = dataset[1];
@@ -274,7 +293,9 @@ public class LocalWraper {
                 } else if(objName.endsWith("String")){
                     returnComa = "'";
                 } else if(objName.endsWith("Long")){
-                    returnComa = "";                    
+                    returnComa = "";      
+                } else if(objName.endsWith("Boolean")){
+                    returnComa = "";                        
                 } else {
                     returnComa = "'";
                 }
@@ -332,8 +353,32 @@ public class LocalWraper {
             st.executeUpdate(query);            
             
         } catch (SQLException ex) {
-            Logger.getLogger(LocalWraper.class.getName()).log(Level.SEVERE, null, ex);
+            ex.printStackTrace();
         }
+    }
+
+    void dbDelete(String recipeRel, Object[][] where, String LogID) {
+        String conditions = "";
+        int updatedID = 0;
+        Object[] question = where[0];
+        Object[] operand = where[1];
+        Object[] answer = where[2];
+        Object[] delimiter = where[3];
+        for (int i = 0; i < question.length; i++) {
+            Object coma = isSurrounded(answer[i]);
+            conditions += question[i] + " " + operand[i] + " " + coma + " ";  
+            if(i<question.length-1){
+                conditions += delimiter[i] + " ";
+            }    
+            if(question[i].equals(LogID)){
+                updatedID = (int) answer[i];
+            }            
+        }
+        
+        String query = String.format("DELETE FROM %s WHERE %s", recipeRel,conditions);
+        executeQuery(query, "Deleted", false);
+        changeLog(recipeRel, updatedID, "delete", conditions, userData.getId());                
+        
     }
     
 }

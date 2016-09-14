@@ -843,49 +843,190 @@ org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LOGIN
 SELECT[*] * FROM LOGIN WHERE LOGINNAME = 'Menangle' AND PASSWORD = '2fae7330fe63aa996902e0606caa2bc0' "; SQL statement:
 SELECT * FROM LOGIN 
 SELECT * FROM Login WHERE LoginName = 'Menangle' AND Password = '2fae7330fe63aa996902e0606caa2bc0' [42000-176]
-09-13 15:21:06 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLException: Column "PrudID" not found [42122-176]
+09-14 12:16:06 jdbc[6]: exception
+org.h2.jdbc.JdbcSQLException: Column "DATE" not found; SQL statement:
+SELECT * FROM ProductUtilization WHERE ProductAllocationID = 316 AND DATE = '2016-09-14' AND TransactionType = 3 [42122-176]
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:344)
 	at org.h2.message.DbException.get(DbException.java:178)
 	at org.h2.message.DbException.get(DbException.java:154)
-	at org.h2.jdbc.JdbcResultSet.getColumnIndex(JdbcResultSet.java:3122)
-	at org.h2.jdbc.JdbcResultSet.get(JdbcResultSet.java:3210)
-	at org.h2.jdbc.JdbcResultSet.getInt(JdbcResultSet.java:340)
-	at dar.localDB.ProductViewHandler.getRecipeIngredientsByID(ProductViewHandler.java:255)
-	at dar.Gui.Production.recipeEdit.initFunctions(recipeEdit.java:256)
-	at dar.Gui.Production.recipeEdit.<init>(recipeEdit.java:39)
-	at dar.Gui.Production.ProdSettings.recipeTableMouseClicked(ProdSettings.java:662)
-	at dar.Gui.Production.ProdSettings.access$000(ProdSettings.java:30)
-	at dar.Gui.Production.ProdSettings$3.mouseClicked(ProdSettings.java:160)
-	at java.awt.AWTEventMulticaster.mouseClicked(AWTEventMulticaster.java:270)
-	at java.awt.Component.processMouseEvent(Component.java:6536)
-	at javax.swing.JComponent.processMouseEvent(JComponent.java:3324)
-	at java.awt.Component.processEvent(Component.java:6298)
-	at java.awt.Container.processEvent(Container.java:2236)
-	at java.awt.Component.dispatchEventImpl(Component.java:4889)
-	at java.awt.Container.dispatchEventImpl(Container.java:2294)
-	at java.awt.Component.dispatchEvent(Component.java:4711)
-	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4888)
-	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4534)
-	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4466)
-	at java.awt.Container.dispatchEventImpl(Container.java:2280)
-	at java.awt.Window.dispatchEventImpl(Window.java:2746)
-	at java.awt.Component.dispatchEvent(Component.java:4711)
-	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:758)
-	at java.awt.EventQueue.access$500(EventQueue.java:97)
-	at java.awt.EventQueue$3.run(EventQueue.java:709)
-	at java.awt.EventQueue$3.run(EventQueue.java:703)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:76)
-	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:86)
-	at java.awt.EventQueue$4.run(EventQueue.java:731)
-	at java.awt.EventQueue$4.run(EventQueue.java:729)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:76)
-	at java.awt.EventQueue.dispatchEvent(EventQueue.java:728)
-	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:201)
-	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
-	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
-	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
-	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
-	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:148)
+	at org.h2.expression.Comparison.optimize(Comparison.java:179)
+	at org.h2.expression.ConditionAndOr.optimize(ConditionAndOr.java:132)
+	at org.h2.expression.ConditionAndOr.optimize(ConditionAndOr.java:131)
+	at org.h2.command.dml.Select.prepare(Select.java:834)
+	at org.h2.command.Parser.prepareCommand(Parser.java:248)
+	at org.h2.engine.Session.prepareLocal(Session.java:442)
+	at org.h2.engine.Session.prepareCommand(Session.java:384)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1188)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:172)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:160)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1391)
+	at org.h2.server.web.WebApp.query(WebApp.java:1064)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1026)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1013)
+	at org.h2.server.web.WebThread.process(WebThread.java:168)
+	at org.h2.server.web.WebThread.run(WebThread.java:94)
+	at java.lang.Thread.run(Unknown Source)
+09-14 12:39:38 jdbc[6]: exception
+org.h2.jdbc.JdbcSQLException: Column "ID" not found; SQL statement:
+SELECT ID, RecName WHERE STATUS = TRUE AND SiteID = 1 AND ProductAllocationID = 316 [42122-176]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:344)
+	at org.h2.message.DbException.get(DbException.java:178)
+	at org.h2.message.DbException.get(DbException.java:154)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:148)
+	at org.h2.command.dml.Select.prepare(Select.java:831)
+	at org.h2.command.Parser.prepareCommand(Parser.java:248)
+	at org.h2.engine.Session.prepareLocal(Session.java:442)
+	at org.h2.engine.Session.prepareCommand(Session.java:384)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1188)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:172)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:160)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1391)
+	at org.h2.server.web.WebApp.query(WebApp.java:1064)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1026)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1013)
+	at org.h2.server.web.WebThread.process(WebThread.java:168)
+	at org.h2.server.web.WebThread.run(WebThread.java:94)
+	at java.lang.Thread.run(Unknown Source)
+09-14 13:21:31 jdbc[6]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "INSERT INTO  ([*]""PRODUCTALLOCATIONID"", ""QTY"", ""NOTES"", ""TRANSACTIONTYPE"", ""DATEFOR"") VALUES (316, 12.0, '', 3, '2016-09-14') "; expected "identifier"; SQL statement:
+INSERT INTO  (`ProductAllocationID`, `Qty`, `Notes`, `TransactionType`, `DateFor`) VALUES (316, 12.0, '', 3, '2016-09-14') [42001-176]
+09-14 13:24:01 jdbc[6]: exception
+org.h2.jdbc.JdbcSQLException: Data conversion error converting "'2016-09-14' (PRODUCTUTILIZATION: DATEFOR INT NOT NULL)"; SQL statement:
+INSERT INTO ProductUtilization (`ProductAllocationID`, `Qty`, `Notes`, `TransactionType`, `DateFor`) VALUES (316, 2.0, '', 3, '2016-09-14') -- (316, 2.0, '', 3, '2016-09-14') [22018-176]
+09-14 13:24:51 jdbc[6]: exception
+org.h2.jdbc.JdbcSQLException: Data conversion error converting "'2016-09-14' (PRODUCTUTILIZATION: DATEFOR INT NOT NULL)"; SQL statement:
+INSERT INTO ProductUtilization (`ProductAllocationID`, `Qty`, `Notes`, `TransactionType`, `DateFor`) VALUES (316, 2.0, '', 3, '2016-09-14') -- (316, 2.0, '', 3, '2016-09-14') [22018-176]
+09-14 13:30:59 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Data conversion error converting "'2016-09-14' (PRODUCTUTILIZATION: DATEFOR INT NOT NULL)"; SQL statement:
+INSERT INTO ProductUtilization (`ProductAllocationID`, `Qty`, `Notes`, `TransactionType`, `DateFor`) VALUES (11, 0.8, '', 3, '2016-09-14') -- (11, 0.8, '', 3, '2016-09-14') [22018-176]
+09-14 13:32:49 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE IF NOT EXISTS ""PRODUCTUTILIZATION"" (
+  ""ID"" INT(11) NOT NULL,
+  ""PRODUCTALLOCATIONID"" INT(11) NOT NULL,
+  ""QTY"" INT(11) NOT NULL,
+  ""NOTES"" VARCHAR(80) COLLATE[*] UTF8_UNICODE_CI NOT NULL,
+  ""TRANSACTIONTYPE"" INT(11) NOT NULL,
+  ""DATEFOR"" DATE NOT NULL
+) "; expected "FOR, UNSIGNED, NOT, NULL, AS, DEFAULT, GENERATED, NOT, NULL, AUTO_INCREMENT, BIGSERIAL, SERIAL, IDENTITY, NULL_TO_DEFAULT, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, PRIMARY, UNIQUE, NOT, NULL, CHECK, REFERENCES, ,, )"; SQL statement:
+CREATE TABLE IF NOT EXISTS `ProductUtilization` (
+  `ID` int(11) NOT NULL,
+  `ProductAllocationID` int(11) NOT NULL,
+  `Qty` int(11) NOT NULL,
+  `Notes` varchar(80) COLLATE utf8_unicode_ci NOT NULL,
+  `TransactionType` int(11) NOT NULL,
+  `DateFor` date NOT NULL
+) [42001-176]
+09-14 13:38:28 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Attempt to define a second primary key; SQL statement:
+ALTER TABLE `ProductUtilization`
+  ADD PRIMARY KEY (`ID`,`ProductAllocationID`) [90017-176]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:344)
+	at org.h2.message.DbException.get(DbException.java:178)
+	at org.h2.message.DbException.get(DbException.java:154)
+	at org.h2.message.DbException.get(DbException.java:143)
+	at org.h2.command.ddl.AlterTableAddConstraint.tryUpdate(AlterTableAddConstraint.java:114)
+	at org.h2.command.ddl.AlterTableAddConstraint.update(AlterTableAddConstraint.java:73)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:79)
+	at org.h2.command.Command.executeUpdate(Command.java:254)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:186)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:160)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1391)
+	at org.h2.server.web.WebApp.query(WebApp.java:1064)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1026)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1013)
+	at org.h2.server.web.WebThread.process(WebThread.java:168)
+	at org.h2.server.web.WebThread.run(WebThread.java:94)
+	at java.lang.Thread.run(Unknown Source)
+09-14 14:20:14 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT 
+PRODUCTUTILIZATION.ID AS UTILIZATIONID,
+PRODUCTALLOCATION.ID AS ALLOCATIONID,
+PRODUCTS.PRODUCTNAME,
+PRODUCTUTILIZATION.QTY AS QTY,
+PRODUCTUTILIZATION.NOTES AS NOTES,
+PRODUCTUTILIZATION.TRANSACTIONTYPE AS TYPE,
+PRODUCTUTILIZATION.DATEFOR AS  DATEFOR
+FROM PRODUCTUTILIZATION 
+LEFT JOIN PRODUCTALLOCATION ON PRODUCTALLOCATION.ID = PRODUCTUTILIZATION.PRODUCTALLOCATIONID 
+LEFT JOIN PRODUCTS ON PRODUCTALLOCATION.PRODUCTID = PRODUCTS.IDWHERE DATEFOR[*] = '2016-09-14' "; SQL statement:
+SELECT 
+PRODUCTUTILIZATION.ID as UtilizationID,
+PRODUCTALLOCATION.ID as AllocationID,
+PRODUCTS.PRODUCTNAME,
+PRODUCTUTILIZATION.QTY as QTY,
+PRODUCTUTILIZATION.NOTES as Notes,
+PRODUCTUTILIZATION.TRANSACTIONTYPE as Type,
+PRODUCTUTILIZATION.DateFor as  DateFor
+FROM PRODUCTUTILIZATION 
+LEFT JOIN PRODUCTALLOCATION on PRODUCTALLOCATION.ID = PRODUCTUTILIZATION.PRODUCTALLOCATIONID 
+LEFT JOIN PRODUCTS ON PRODUCTALLOCATION.PRODUCTID = PRODUCTS.IDWHERE DateFor = '2016-09-14' [42000-176]
+09-14 14:21:40 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT 
+PRODUCTUTILIZATION.ID AS UTILIZATIONID,
+PRODUCTALLOCATION.ID AS ALLOCATIONID,
+PRODUCTS.PRODUCTNAME,
+PRODUCTUTILIZATION.QTY AS QTY,
+PRODUCTUTILIZATION.NOTES AS NOTES,
+PRODUCTUTILIZATION.TRANSACTIONTYPE AS TYPE,
+PRODUCTUTILIZATION.DATEFOR AS  DATEFOR
+FROM PRODUCTUTILIZATION 
+LEFT JOIN PRODUCTALLOCATION ON PRODUCTALLOCATION.ID = PRODUCTUTILIZATION.PRODUCTALLOCATIONID 
+LEFT JOIN PRODUCTS ON PRODUCTALLOCATION.PRODUCTID = PRODUCTS.IDWHERE DATEFOR[*] = '2016-09-14' "; SQL statement:
+SELECT 
+PRODUCTUTILIZATION.ID as UtilizationID,
+PRODUCTALLOCATION.ID as AllocationID,
+PRODUCTS.PRODUCTNAME,
+PRODUCTUTILIZATION.QTY as QTY,
+PRODUCTUTILIZATION.NOTES as Notes,
+PRODUCTUTILIZATION.TRANSACTIONTYPE as Type,
+PRODUCTUTILIZATION.DateFor as  DateFor
+FROM PRODUCTUTILIZATION 
+LEFT JOIN PRODUCTALLOCATION on PRODUCTALLOCATION.ID = PRODUCTUTILIZATION.PRODUCTALLOCATIONID 
+LEFT JOIN PRODUCTS ON PRODUCTALLOCATION.PRODUCTID = PRODUCTS.IDWHERE DateFor = '2016-09-14' [42000-176]
+09-14 14:22:25 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT 
+PRODUCTUTILIZATION.ID AS UTILIZATIONID,
+PRODUCTALLOCATION.ID AS ALLOCATIONID,
+PRODUCTS.PRODUCTNAME,
+PRODUCTUTILIZATION.QTY AS QTY,
+PRODUCTUTILIZATION.NOTES AS NOTES,
+PRODUCTUTILIZATION.TRANSACTIONTYPE AS TYPE,
+PRODUCTUTILIZATION.DATEFOR AS  DATEFOR
+FROM PRODUCTUTILIZATION 
+LEFT JOIN PRODUCTALLOCATION ON PRODUCTALLOCATION.ID = PRODUCTUTILIZATION.PRODUCTALLOCATIONID 
+LEFT JOIN PRODUCTS ON PRODUCTALLOCATION.PRODUCTID = PRODUCTS.IDWHERE DATEFOR[*] = '2016-09-14' "; SQL statement:
+SELECT 
+PRODUCTUTILIZATION.ID as UtilizationID,
+PRODUCTALLOCATION.ID as AllocationID,
+PRODUCTS.PRODUCTNAME,
+PRODUCTUTILIZATION.QTY as QTY,
+PRODUCTUTILIZATION.NOTES as Notes,
+PRODUCTUTILIZATION.TRANSACTIONTYPE as Type,
+PRODUCTUTILIZATION.DateFor as  DateFor
+FROM PRODUCTUTILIZATION 
+LEFT JOIN PRODUCTALLOCATION on PRODUCTALLOCATION.ID = PRODUCTUTILIZATION.PRODUCTALLOCATIONID 
+LEFT JOIN PRODUCTS ON PRODUCTALLOCATION.PRODUCTID = PRODUCTS.IDWHERE DateFor = '2016-09-14' [42000-176]
+09-14 14:22:44 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT 
+PRODUCTUTILIZATION.ID AS UTILIZATIONID,
+PRODUCTALLOCATION.ID AS ALLOCATIONID,
+PRODUCTS.PRODUCTNAME,
+PRODUCTUTILIZATION.QTY AS QTY,
+PRODUCTUTILIZATION.NOTES AS NOTES,
+PRODUCTUTILIZATION.TRANSACTIONTYPE AS TYPE,
+PRODUCTUTILIZATION.DATEFOR AS  DATEFOR
+FROM PRODUCTUTILIZATION 
+LEFT JOIN PRODUCTALLOCATION ON PRODUCTALLOCATION.ID = PRODUCTUTILIZATION.PRODUCTALLOCATIONID 
+LEFT JOIN PRODUCTS ON PRODUCTALLOCATION.PRODUCTID = PRODUCTS.IDWHERE DATEFOR[*] = '2016-09-14' "; SQL statement:
+SELECT 
+PRODUCTUTILIZATION.ID as UtilizationID,
+PRODUCTALLOCATION.ID as AllocationID,
+PRODUCTS.PRODUCTNAME,
+PRODUCTUTILIZATION.QTY as QTY,
+PRODUCTUTILIZATION.NOTES as Notes,
+PRODUCTUTILIZATION.TRANSACTIONTYPE as Type,
+PRODUCTUTILIZATION.DateFor as  DateFor
+FROM PRODUCTUTILIZATION 
+LEFT JOIN PRODUCTALLOCATION on PRODUCTALLOCATION.ID = PRODUCTUTILIZATION.PRODUCTALLOCATIONID 
+LEFT JOIN PRODUCTS ON PRODUCTALLOCATION.PRODUCTID = PRODUCTS.IDWHERE DateFor = '2016-09-14' [42000-176]

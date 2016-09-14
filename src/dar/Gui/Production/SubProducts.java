@@ -36,9 +36,10 @@ public class SubProducts extends javax.swing.JPanel {
         ph.fillComboBoxWithProducts(selectedProduct);        
     }    
 
-    SubProducts(ProductViewHandler phf, int prodID, double used) {
+    public SubProducts(ProductViewHandler phf, int prodID, double used) {
         initComponents();
         this.ph = phf;
+        isNumber = true;
         amount.setText(""+used);
         AutoCompleteDecorator.decorate(selectedProduct);
         ph.fillComboBoxWithProducts(selectedProduct, prodID);     

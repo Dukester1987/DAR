@@ -15,6 +15,7 @@ import java.awt.GridBagLayout;
 import java.sql.Date;
 import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JTable;
 import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
 
 /**
@@ -31,14 +32,16 @@ public class recipeEdit extends javax.swing.JFrame {
     private final Date date;
     private final ArrayList<ProductListView> productList;
     private final ArrayList<ProductListView> productsOnSite;
+    private final JTable table;
 
     /**
      * Creates new form recipeEdit
      */
-    public recipeEdit(int recID, ProductViewHandler phf, Date dte) {
+    public recipeEdit(int recID, ProductViewHandler phf, Date dte, JTable tableToUpdate) {
         this.ph = phf;
         this.recID = recID;
         this.date = dte;
+        this.table = tableToUpdate;
         this.productList = ph.createProductList(date);
         this.productsOnSite = ph.getProductsOnSiteList();
         
@@ -267,8 +270,10 @@ public class recipeEdit extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        ph.updateRecipe(itemBox,subProd,RecipeName,recID);
-        this.dispose();
+        if(ph.updateRecipe(itemBox,subProd,RecipeName,recID)){
+            ph.displayRecipesInTable(table);
+            this.dispose();
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
    
@@ -301,7 +306,7 @@ public class recipeEdit extends javax.swing.JFrame {
             ArrayList<RecipeIngredients> rc = ph.getRecipeIngredientsByID(recID);
             subProd = new ArrayList<SubProducts>();     
             for (RecipeIngredients recipeIngredients : rc) {
-                System.out.println(productsOnSite.size());
+                //System.out.println(productsOnSite.size());
                 for (ProductListView productListView : productsOnSite) {
                     if(productListView.getProductID()==recipeIngredients.getProdID()){
                         subProd.add(new SubProducts(ph,recipeIngredients.getProdID(),recipeIngredients.getUsed()));
