@@ -3,78 +3,33 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package dar.localDB;
+package dar.Functions;
 
-import dar.Functions.Functions;
-import dar.dbObjects.User;
-import dar.hash.hash;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JButton;
-import javax.swing.JLabel;
+import java.sql.Timestamp;
 import javax.swing.JOptionPane;
-import javax.swing.JTable;
 
 /**
  *
  * @author ldulka
  */
-public class LocalWraper {
-    //During dev DATABASE temporary moved to remote one
-    private static final String DB_DRIVER = "org.h2.Driver";
-    private static final String DB_LOGIN = "Dukester";
-    private static final String DB_PASS = "Chapadlo";
-    private static final String DB_CONN_STRING = "jdbc:h2:~DAR";
-//    private static final String DB_LOGIN = "sopsioco_duke";
-//    private static final String DB_PASS = "chapadlo";
-//    private static final String DB_CONN_STRING = "jdbc:mysql://192.185.128.23:3306/sopsioco_DAR?autoReconnect=true";    
-    
-    private String loginname;
-    private String password;
-    private JLabel output;
-    public Connection con;
-    private JLabel label;
-    private JTable table;
-    private JButton addPlant;
-    private JButton removePlant;
-    private JButton refreshb;
-    private String MySiteID;
-    
-    public User userData;
-    
-    public LocalWraper() {
-      getConnection();
-    }
+public class DBFunctions {
 
-    public LocalWraper(JTable table) {
-        getConnection();
-        this.table = table;
+    private final Connection con;
 
+    public DBFunctions(Connection con) {
+        this.con = con;
     }
-   
     
-    public int executeQuery(String query, String message, boolean displaymsg){
+    public int executeQuery(String query){
         Statement st;
         int lastID = 0;
         try {
             st = con.createStatement();  
-            int result = st.executeUpdate(query, Statement.RETURN_GENERATED_KEYS);
-            if(displaymsg){
-                if(result == 1){
-                    JOptionPane.showMessageDialog(null, "Data "+message+" Succesfully");
-                    
-                } else if(result == 0 && message.equals("deleted")) {
-                    JOptionPane.showMessageDialog(null, "Data "+message+" Succesfully");
-                } else {
-                    JOptionPane.showMessageDialog(null, "Data not "+message);
-                }
-            }
-            
+            int result = st.executeUpdate(query, Statement.RETURN_GENERATED_KEYS);            
             ResultSet rs = st.getGeneratedKeys();
             if(rs.next()){
                 lastID = rs.getInt(1);
@@ -85,75 +40,32 @@ public class LocalWraper {
             ex.printStackTrace();
         }
         return lastID;
-    }
+    }    
     
-    private void getConnection(){
-        try {
-            Class.forName(DB_DRIVER);
-            con = DriverManager.getConnection(DB_CONN_STRING,DB_LOGIN,DB_PASS);
-            System.out.println("connected");
-        } catch (SQLException ex) {
-            if(ex.getErrorCode() == 90020){
-                JOptionPane.showMessageDialog(null,"Application is already in use!\nPlease restart application and try it again.", "Already in use",JOptionPane.ERROR_MESSAGE);
-            } else {
-                ex.printStackTrace();
-            }
-        } catch (ClassNotFoundException ex) {
-            ex.printStackTrace();
-        }        
-        
-    }
-    
-    
-    
-    public boolean login(String login, String pass, JLabel output){
-        this.loginname = login;
-        this.password = pass;
-        this.output = output;
-        boolean result = false;
-        
-        if(loginname.isEmpty() || password.isEmpty()){
-            result = false;
-        } else {
-            hash h = new hash();
-            String passMD5 = h.md5(password);
-            String query = "SELECT * FROM Login WHERE LoginName = '"+loginname+"' AND Password = '"+passMD5+"'";             
-            ResultSet rs = runQuery(query);
-            try {
-                if(rs.first()){
-                    userData = new User(rs.getInt("ID"), rs.getString("LoginName"), rs.getString("Password"), rs.getString("Rights"), rs.getInt("Status"), rs.getTimestamp("LastUpload"), rs.getTimestamp("LastDownload"));
-                    result = true;
-                } else {
-                    result = false;                        
-                }
-            } catch (SQLException ex) {
-                ex.printStackTrace();
-            }
+    public void dbDelete(String recipeRel, Object[][] where, String LogID) {
+        String conditions = "";
+        int updatedID = 0;
+        Object[] question = where[0];
+        Object[] operand = where[1];
+        Object[] answer = where[2];
+        Object[] delimiter = where[3];
+        for (int i = 0; i < question.length; i++) {
+            Object coma = isSurrounded(answer[i]);
+            conditions += question[i] + " " + operand[i] + " " + coma + " ";  
+            if(i<question.length-1){
+                conditions += delimiter[i] + " ";
+            }    
+            if(question[i].equals(LogID)){
+                updatedID = (int) answer[i];
+            }            
         }
-        return result;
-    }
-    
-    public void refreshUserData(int ID){
-        String query = String.format("SELECT * FROM Login WHERE ID = %s",ID);   
-        ResultSet rs = runQuery(query);
-        try {
-            if(rs.first()){
-                userData = new User(rs.getInt("ID"), rs.getString("LoginName"), rs.getString("Password"), rs.getString("Rights"), rs.getInt("Status"), rs.getTimestamp("LastUpload"), rs.getTimestamp("LastDownload"));
-            } else {                      
-            }
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        }        
-    }
 
-    public void closeConnection() {
-        try { 
-            con.close();
-            System.out.println("Connection closed");
-        } catch (SQLException ex) {
-            Logger.getLogger(LocalWraper.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
+        String query = String.format("DELETE FROM %s WHERE %s", recipeRel,conditions);
+        executeQuery(query);
+//        changeLog(recipeRel, updatedID, "delete", conditions, userData.getId());                
+        System.out.println(query);
+    }    
+    
     
     public ResultSet dbSelect(Object[] what, String table, Object[][] where){
         String query = "SELECT ";
@@ -221,6 +133,8 @@ public class LocalWraper {
             rs = st.executeQuery(query);
         } catch (SQLException ex) {
             System.out.println("SQL ERROR runQuery");
+            System.out.println(query);
+            ex.printStackTrace();
         }
         return rs;        
     }
@@ -269,9 +183,8 @@ public class LocalWraper {
 
         String query = String.format("INSERT INTO %s (%s) VALUES (%s)",table,columns,inputs);
         System.out.println(query);
-        int updatedID = executeQuery(query, "inserted", false);
-        query = String.format("INSERT INTO %s (ID, %s) VALUES (%s, %s)", table,columns,updatedID,inputs);
-        changeLog(table,updatedID,"insert",query,userData.getId());
+        int updatedID = executeQuery(query);
+//        changeLog(table,updatedID,"insert",columns+" VALUES = "+inputs,userData.getId());
         return updatedID;
     }
 
@@ -340,18 +253,16 @@ public class LocalWraper {
         }
         String query = String.format("UPDATE %s SET %s WHERE %s", table, whatToUpdate, conditions);
         System.out.println(query);
-        executeQuery(query, "updated", false);
-        if(updatedID != 0){
-            changeLog(table, updatedID, "update", query, userData.getId());
-        }
-            
-    }
-
-    private void changeLog(String tbl, int ID, String insert, String inputs, int loginId) {
+        executeQuery(query);
+//        changeLog(table, updatedID, "update", whatToUpdate, userData.getId());
+    }  
+    
+    public void changeLog(String tbl, String ID, String insert, String inputs, int loginId, Timestamp time) {
         try {
             Functions fn = new Functions();
             String fixInputs = fn.forHTML(inputs);
-            String query = String.format("INSERT INTO ChangeLog (AffectedTable, RowID, Operation, NewValue, LoginID) VALUES ('%s','%s','%s','%s','%s')",tbl,ID,insert,fixInputs,loginId);
+            //Timestamp time = new Timestamp(System.currentTimeMillis());
+            String query = String.format("INSERT INTO ChangeLog (AffectedTable, RowID, Operation, NewValue, LoginID, Time) VALUES ('%s','%s','%s','%s','%s','%s')",tbl,ID,insert,fixInputs,loginId,time);
             Statement st;
 
             System.out.println(query);
@@ -361,30 +272,7 @@ public class LocalWraper {
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
-    }
+    }    
 
-    public void dbDelete(String recipeRel, Object[][] where, String LogID) {
-        String conditions = "";
-        int updatedID = 0;
-        Object[] question = where[0];
-        Object[] operand = where[1];
-        Object[] answer = where[2];
-        Object[] delimiter = where[3];
-        for (int i = 0; i < question.length; i++) {
-            Object coma = isSurrounded(answer[i]);
-            conditions += question[i] + " " + operand[i] + " " + coma + " ";  
-            if(i<question.length-1){
-                conditions += delimiter[i] + " ";
-            }    
-            if(question[i].equals(LogID)){
-                updatedID = (int) answer[i];
-            }            
-        }
-
-        String query = String.format("DELETE FROM %s WHERE %s", recipeRel,conditions);
-        executeQuery(query, "Deleted", false);
-        changeLog(recipeRel, updatedID, "delete", query, userData.getId());                
-        System.out.println(query);
-    }
     
 }

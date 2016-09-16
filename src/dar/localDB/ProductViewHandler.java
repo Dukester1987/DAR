@@ -6,6 +6,7 @@
 package dar.localDB;
 
 import dar.Functions.TimeWrapper;
+import dar.Gui.Gui;
 import dar.Gui.Production.SubProducts;
 import dar.dbObjects.Production.ProductListView;
 import dar.dbObjects.Production.ProductUtilizationView;
@@ -48,6 +49,7 @@ public class ProductViewHandler{
         this.ti = new TimeWrapper();
         this.user = user;
         this.dateFor = date;
+
         
         prodUtilView = getProductUtilizationView(date);
         
@@ -119,9 +121,7 @@ public class ProductViewHandler{
         "	Products.UOM as UOM\n" +
         "FROM Products \n" +
         "LEFT JOIN ProductAllocation ON Products.ID = ProductAllocation.ProductID AND ProductAllocation.StartDate<= '%s'\n" +
-        "AND ProductAllocation.EndDate >= '%s'\n" +
-        "WHERE ProductAllocation.SiteID is null or ProductAllocation.SiteID = %s", dateFor,dateFor,con.userData.getSiteID());
-        System.out.println(query);
+        "AND ProductAllocation.EndDate >= '%s' AND ProductAllocation.SiteID = %s", dateFor,dateFor,con.userData.getSiteID());
         ResultSet rs = con.runQuery(query);
         
         try {
@@ -141,11 +141,14 @@ public class ProductViewHandler{
         for (ProductListView lw : allProducts) {
             boolean del = true;
             for (ProductListView ls : productsOnSite) {
-                if(ls.getProductID()==lw.getProductID() && lw.getSiteID() == user.getSiteID())
+                if(ls.getProductID()==lw.getProductID() && lw.getSiteID() == user.getSiteID()){
+                    JOptionPane.showMessageDialog(null,String.format("Allprod ID: %s allocatedID: %s",lw.getProductID(),ls.getProductID()));
                     del = false;
+                }
             }
             
             if(del){
+                //JOptionPane.showMessageDialog(null,lw.getAllocationID());                
                 list.add(lw.getAllocationID());
             }
         }
@@ -166,7 +169,7 @@ public class ProductViewHandler{
         //add new labors
         ArrayList<Integer> addIds = getIdsToAdd();
         for (Integer addId : addIds) {
-            System.out.println(addId);
+            //System.out.println(addId);
             allocateProducts(addId,user.getSiteID(),date);
         }
                 
@@ -197,7 +200,7 @@ public class ProductViewHandler{
             }
             
             if(del){
-                System.out.println(ls.getProductID());
+                //System.out.println(ls.getProductID());
                 list.add(ls.getProductID());
             }
         }
@@ -227,7 +230,7 @@ public class ProductViewHandler{
                                 DefaultComboBoxModel model = (DefaultComboBoxModel) sp.selectedProduct.getModel();
                                 ProductListView obj = (ProductListView) model.getSelectedItem();
                                 con.dbInsert("RecipeRel", new Object[][]{{"RecID","ProductAllocationID","Used"},{lastID,obj.getAllocationID(),Double.parseDouble(sp.amount.getText())}});
-                                System.out.println("done!");                         
+                                //System.out.println("done!");                         
                             }                  
                         }
                         JOptionPane.showMessageDialog(null,"Recipe sucesfully added");   
@@ -255,7 +258,7 @@ public class ProductViewHandler{
         "LEFT JOIN ProductAllocation on recipeREL.ProductAllocationID = ProductAllocation.ID\n" +
         "WHERE recID = %s ", recMainProdID);
         
-        System.out.println(query);
+        //System.out.println(query);
         ResultSet rs = con.runQuery(query);
         
         try {
@@ -348,8 +351,9 @@ public class ProductViewHandler{
         return write;
     }
 
-    public void utilizeProducts(ProductListView item, JTextField produced, JTextArea Notes,Date date,int TrType) {
+    public boolean utilizeProducts(ProductListView item, JTextField produced, JTextArea Notes,Date date,int TrType) {
         boolean write = true;
+        boolean success = false;
         String msg = "";
         String msgType = "Error";
         int iconType = JOptionPane.ERROR_MESSAGE;
@@ -366,17 +370,17 @@ public class ProductViewHandler{
         }
         
         //check if product is already utilized for today
-        if(!prodUtilCheck(date, item.getAllocationID(),TrType)){
-            write = false;
-            msg = "Product is already utilised";
-        }
+//        if(!prodUtilCheck(date, item.getAllocationID(),TrType)){
+//            write = false;
+//            msg = "Product is already utilised";
+//        }
         
         if(write){
             // check if there are any recipes for selected products
             ResultSet rs = getRecipesForAllocationID(item.getAllocationID());
             int count = con.getRowCount(rs);
             
-            if(count>0 && count<=1){
+            if(count>0 && count<=1 && TrType==3){
                 try {
                     //add also used in production based on recipe
                     rs.next();
@@ -386,11 +390,13 @@ public class ProductViewHandler{
                     msg = String.format("Recipe %s found\nAdding to used in production:\n", rs.getString("RecName"));
                     while(rr.next()){
                         msg += String.format("%s: %s\n", rr.getString("ProductName"),rr.getDouble("Used")*amount);
+                        //decide wheter product is already utilised or not if yes update if not add                        
                         insertProduction(rr.getInt("PRODUCTALLOCATIONID"), rr.getDouble("Used")*amount, Notes.getText(), date, 4);
                     }
                     insertProduction(item.getAllocationID(),amount,Notes.getText(),date,TrType);
                     msgType = "Info";
-                    iconType = JOptionPane.INFORMATION_MESSAGE;                    
+                    iconType = JOptionPane.INFORMATION_MESSAGE;  
+                    success = true;                    
                 } catch (SQLException ex) {
                     ex.printStackTrace();
                 }
@@ -403,10 +409,12 @@ public class ProductViewHandler{
                 iconType = JOptionPane.INFORMATION_MESSAGE;
                 //add just production
                 insertProduction(item.getAllocationID(),amount,Notes.getText(),date,TrType);
+                success = true;
             }
             
         }
         JOptionPane.showMessageDialog(null,msg,msgType,iconType);
+        return success;
     }
 
     private boolean prodUtilCheck(Date date, int allocationID, int TransType) {
@@ -421,12 +429,27 @@ public class ProductViewHandler{
 
     private ResultSet getRecipesForAllocationID(int allocationID) {
         String query = String.format("SELECT ID, RecName FROM RECIPE WHERE STATUS = TRUE AND SiteID = %s AND ProductAllocationID = %s", con.userData.getSiteID(),allocationID);
-        System.out.println(query);
+        //System.out.println(query);
         return con.runQuery(query);                     
     }
 
     private int insertProduction(int allocationID, Double amount, String text, Date date, int TrType) {
-        return con.dbInsert("ProductUtilization", new Object[][] {{"ProductAllocationID","Qty","Notes","TransactionType","DateFor"},{allocationID,amount,text,TrType,date}});
+        String query = String.format("SELECT ID FROM ProductUtilization WHERE ProductAllocationID = %s AND DateFor = '%s' AND TransactionType = %s", allocationID,date, TrType);
+        //System.out.println(query);
+        ResultSet rs = con.runQuery(query);
+        if(con.getRowCount(rs)>0){
+            try {
+                rs.next();
+                int id = rs.getInt("ID");
+                con.dbUpdate("ProductUtilization", new Object[][] {{"Qty"},{"--Qty+"+amount}}, new Object[][]{{"ID"},{"="},{id},{}});
+                return id;
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+                return -1;
+            }
+        } else {
+            return con.dbInsert("ProductUtilization", new Object[][] {{"ProductAllocationID","Qty","Notes","TransactionType","DateFor"},{allocationID,amount,text,TrType,date}});
+        }        
     }
 
     private ResultSet getIngredientsByRecipeID(int aInt) {
@@ -464,16 +487,16 @@ public class ProductViewHandler{
                 ex.printStackTrace();
             }
         } else {
-            System.out.println(query);
+            //System.out.println(query);
         }
         return prodUtilView;
     }
     
-    public void displayUtilizationInTable(JTable table, int Type, Date date){
+    public void displayUtilizationInTable(JTable table, int Type, Date date){          
         prodUtilView = getProductUtilizationView(date);
         DefaultTableModel model = (DefaultTableModel) table.getModel();
         refreshTable((DefaultTableModel) table.getModel());
-        for (ProductUtilizationView pView : prodUtilView) {
+        for (ProductUtilizationView pView : prodUtilView) {            
             if(pView.getType()==Type){
                 model.addRow(new Object[]{
                     pView.getUtilizationID(),
@@ -485,6 +508,13 @@ public class ProductViewHandler{
             }
         }
 
+    }
+
+    public void updateProduct(DefaultTableModel model, int row) {
+        int ID = (int) model.getValueAt(row,0);
+        double amount = (double) model.getValueAt(row, 3);
+        String notes = (String) model.getValueAt(row, 4);                    
+        con.dbUpdate("ProductUtilization", new Object[][]{{"Qty","Notes"},{amount,notes}}, new Object[][]{{"ID"},{"="},{ID},{}});                            
     }
     
 }

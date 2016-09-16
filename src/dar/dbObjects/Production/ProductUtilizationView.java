@@ -12,13 +12,13 @@ import java.sql.Date;
  * @author ldulka
  */
 public class ProductUtilizationView {
-    private int utilizationID;
-    private int allocationID;
-    private String ProductName;
-    private double qty;
-    private String notes;
-    private int Type;
-    private Date dateFor;
+    private final int utilizationID;
+    private final int allocationID;
+    private final String ProductName;
+    private final double qty;
+    private final String notes;
+    private final int Type;
+    private final Date dateFor;
 
     public ProductUtilizationView(int utilizationID, int allocationID, String ProductName, double qty, String notes, int Type, Date dateFor) {
         this.utilizationID = utilizationID;

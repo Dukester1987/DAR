@@ -32,12 +32,14 @@ public class AddProduct extends javax.swing.JFrame {
     private final ProductViewHandler ph;
     private ArrayList<ProductListView> prodList;
     private ArrayList<ProductListView> prodOnSite;
+    private final int prodType;
     
-    public AddProduct(LocalWraper db, Date date, Gui g) {
+    public AddProduct(LocalWraper db, Date date, Gui g, int prodType) {
         initComponents();       
         this.db = db;
         this.date = date;
         this.g = g;
+        this.prodType = prodType;
         
         jc = new JControlers();
         ph = new ProductViewHandler(db, db.userData, date);
@@ -136,7 +138,7 @@ public class AddProduct extends javax.swing.JFrame {
         });
 
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/Application.png"))); // NOI18N
-        jButton2.setText("Edit Recipe");
+        jButton2.setText("Settings");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -231,10 +233,10 @@ public class AddProduct extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         //do the magic and add an item
         //get all ID of selected item
-        ph.utilizeProducts((ProductListView) itemBox.getSelectedItem(),produced,Notes,date,3);
-        ph.displayUtilizationInTable(g.ProdUtilization, 3, date);
-        ph.displayUtilizationInTable(g.UsedInProduction, 4, date);
-        this.dispose();
+        if(ph.utilizeProducts((ProductListView) itemBox.getSelectedItem(),produced,Notes,date,prodType)){
+            g.refreshLists();
+            this.dispose();
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

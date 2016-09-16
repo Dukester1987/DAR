@@ -1,8 +1,6 @@
 package dar.dbObjects;
 
 import java.sql.Timestamp;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -59,11 +57,20 @@ public class User {
     }
 
     public Timestamp getLastUpload() {
-        return lastUpload;
+        if(lastUpload == null){
+           return new Timestamp(1L);
+        } else {
+           return lastUpload;            
+        }
+
     }
 
     public Timestamp getLastDownload() {
-        return lastDownload;
+        if(lastDownload == null){
+           return new Timestamp(1L);
+        } else {
+           return lastDownload;            
+        }
     }
     
     

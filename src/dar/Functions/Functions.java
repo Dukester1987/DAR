@@ -22,76 +22,76 @@ public class Functions {
      while (character != CharacterIterator.DONE ){
          switch (character) {
              case '<':
-                 result.append("");
+                 result.append("<");
                  break;
              case '>':
-                 result.append("");
+                 result.append(">");
                  break;
              case '&':
-                 result.append("");
+                 result.append("&");
                  break;
              case '\"':
-                 result.append("");
+                 result.append("\'\"");
                  break;
              case '\t':
                  result.append("");
                  break;
              case '!':
-                 result.append("");
+                 result.append("!");
                  break;
              case '#':
-                 result.append("");
+                 result.append("#");
                  break;
              case '$':
-                 result.append("");
+                 result.append("$");
                  break;
              case '%':
-                 result.append("");
+                 result.append("%");
                  break;
              case '\'':
                  result.append("\'\'");
                  break;
              case '(':
-                 result.append("");
+                 result.append("(");
                  break;
              case ')':
-                 result.append("");
+                 result.append(")");
                  break;
              case '*':
-                 result.append("");
+                 result.append("*");
                  break;
              case '?':
-                 result.append("");
+                 result.append("?");
                  break;
              case '@':
-                 result.append("");
+                 result.append("@");
                  break;
              case '[':
-                 result.append("");
+                 result.append("[");
                  break;
              case '\\':
-                 result.append("");
+                 result.append("\\");
                  break;
              case ']':
-                 result.append("");
+                 result.append("]");
                  break;
              case '^':
-                 result.append("");
+                 result.append("^");
                  break;
              case '`':
-                 result.append("");
+                 result.append("`");
                  break;
              case '{':
-                 result.append("");
+                 result.append("{");
                  break;
              case '|':
-                 result.append("");
+                 result.append("|");
                  break;
              case '}':
-                 result.append("");
+                 result.append("}");
                  break;
              case '~':
-                 result.append("");
+                 result.append("~");
                  break;
              default:
                  //the char is not a special one

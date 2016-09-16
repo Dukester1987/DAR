@@ -141,7 +141,7 @@ public class AFViewDataHandler extends DataHandler{
         if(table.getEditingRow()>=0){
             int utilID = (int) model.getValueAt(table.getEditingRow(), 1);
             int allID = (int) model.getValueAt(table.getEditingRow(), 0);
-            double fuelAmount = (double) model.getValueAt(table.getEditingRow(), 5);            
+            double fuelAmount = (double) model.getValueAt(table.getEditingRow(), 4);            
 
             if(utilID!=0){ // update
                 Object[][] what = {{"amount"},{fuelAmount}};

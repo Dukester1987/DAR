@@ -26,7 +26,11 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.SwingUtilities;
+import javax.swing.event.TableModelEvent;
+import javax.swing.event.TableModelListener;
+import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellEditor;
 
 /**
@@ -38,7 +42,7 @@ public class Gui extends javax.swing.JFrame {
     private DBWrapper db1;
     private PlantViewDataHandler pw;
     private Date date;
-    private boolean actionListenerGo = false;  
+    public boolean actionListenerGo = false;  
     private final AFViewDataHandler af;
     private LaborViewDataHandler lw;
     private TimeWrapper ti;
@@ -59,6 +63,7 @@ public class Gui extends javax.swing.JFrame {
         this.ti = new TimeWrapper();
         date = ti.today();    
         initComponents();
+        editComponents();
         
         //init custom components
         c = new JControlers();                    
@@ -68,22 +73,15 @@ public class Gui extends javax.swing.JFrame {
         this.db = db;
         // initialize components
         pw = new PlantViewDataHandler(this.db, db.userData,PlantUtil,utilPerc,utilProgressBar);
-        pw.displayPlantViewInTable(PlantUtil, date);
-        
         af = new AFViewDataHandler(this.db, db.userData, AditionalFuel);
-        af.displayViewInTable(AditionalFuel, date);
-        
         lw = new LaborViewDataHandler(this.db, db.userData, LaborUtil, date);        
-        lw.displayViewInTable(LaborUtil, date);            
-       
         nt = new NoteViewHandler(this.db, db.userData, MyComents, date);
-        nt.displayNotesInTextField(MyComents,date);
-        
         ph = new ProductViewHandler(this.db, db.userData, date);
+        
         ph.hideID(ProdUtilization);
         ph.hideID(UsedInProduction);
-        ph.displayUtilizationInTable(ProdUtilization, 3,date);
-        ph.displayUtilizationInTable(UsedInProduction, 4,date);
+        //ph.displayUtilizationInTable(ProdUtilization, 3,date);
+        //ph.displayUtilizationInTable(UsedInProduction, 4,date);
         
         // housekeeping
         refreshLists();
@@ -98,9 +96,9 @@ public class Gui extends javax.swing.JFrame {
         
         
         
-//        db1 = new DBWrapper(label);
-//        Thread t = new Thread(db1);
-//        t.start();
+        db1 = new DBWrapper(label,db,this);
+        Thread t = new Thread(db1);
+        t.start();
         
     }
 
@@ -108,10 +106,14 @@ public class Gui extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        PopupMenu = new javax.swing.JPopupMenu();
+        ProdPopup = new javax.swing.JPopupMenu();
         AddNew = new javax.swing.JMenuItem();
         RemoveSelected = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
+        RemoveSelection = new javax.swing.JMenuItem();
+        UsedInProdPopUP = new javax.swing.JPopupMenu();
+        AddNew1 = new javax.swing.JMenuItem();
+        RemoveSelected1 = new javax.swing.JMenuItem();
+        RemoveSelection1 = new javax.swing.JMenuItem();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jLayeredPane1 = new javax.swing.JLayeredPane();
         addp = new javax.swing.JButton();
@@ -192,15 +194,57 @@ public class Gui extends javax.swing.JFrame {
 
         AddNew.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/Create16.png"))); // NOI18N
         AddNew.setText("Add New");
-        PopupMenu.add(AddNew);
+        AddNew.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AddNewActionPerformed(evt);
+            }
+        });
+        ProdPopup.add(AddNew);
 
         RemoveSelected.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/No-entry16.png"))); // NOI18N
         RemoveSelected.setText("Remove selected");
-        PopupMenu.add(RemoveSelected);
+        RemoveSelected.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RemoveSelectedActionPerformed(evt);
+            }
+        });
+        ProdPopup.add(RemoveSelected);
 
-        jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/edit16.png"))); // NOI18N
-        jMenuItem3.setText("Remove selection");
-        PopupMenu.add(jMenuItem3);
+        RemoveSelection.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/edit16.png"))); // NOI18N
+        RemoveSelection.setText("Remove selection");
+        RemoveSelection.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RemoveSelectionActionPerformed(evt);
+            }
+        });
+        ProdPopup.add(RemoveSelection);
+
+        AddNew1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/Create16.png"))); // NOI18N
+        AddNew1.setText("Add New");
+        AddNew1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AddNew1ActionPerformed(evt);
+            }
+        });
+        UsedInProdPopUP.add(AddNew1);
+
+        RemoveSelected1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/No-entry16.png"))); // NOI18N
+        RemoveSelected1.setText("Remove selected");
+        RemoveSelected1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RemoveSelected1ActionPerformed(evt);
+            }
+        });
+        UsedInProdPopUP.add(RemoveSelected1);
+
+        RemoveSelection1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/edit16.png"))); // NOI18N
+        RemoveSelection1.setText("Remove selection");
+        RemoveSelection1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RemoveSelection1ActionPerformed(evt);
+            }
+        });
+        UsedInProdPopUP.add(RemoveSelection1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -766,11 +810,6 @@ public class Gui extends javax.swing.JFrame {
                 UsedInProductionMouseReleased(evt);
             }
         });
-        UsedInProduction.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                UsedInProductionPropertyChange(evt);
-            }
-        });
         jScrollPane7.setViewportView(UsedInProduction);
         if (UsedInProduction.getColumnModel().getColumnCount() > 0) {
             UsedInProduction.getColumnModel().getColumn(0).setResizable(false);
@@ -815,11 +854,6 @@ public class Gui extends javax.swing.JFrame {
                 ProdUtilizationMouseReleased(evt);
             }
         });
-        ProdUtilization.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                ProdUtilizationPropertyChange(evt);
-            }
-        });
         jScrollPane8.setViewportView(ProdUtilization);
         if (ProdUtilization.getColumnModel().getColumnCount() > 0) {
             ProdUtilization.getColumnModel().getColumn(0).setResizable(false);
@@ -844,6 +878,11 @@ public class Gui extends javax.swing.JFrame {
 
         jButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/No-entry.png"))); // NOI18N
         jButton10.setText("Remove");
+        jButton10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton10ActionPerformed(evt);
+            }
+        });
 
         jButton11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/Application.png"))); // NOI18N
         jButton11.setText("Settings");
@@ -863,6 +902,11 @@ public class Gui extends javax.swing.JFrame {
 
         jButton13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/No-entry.png"))); // NOI18N
         jButton13.setText("Remove");
+        jButton13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton13ActionPerformed(evt);
+            }
+        });
 
         jLayeredPane5.setLayer(jScrollPane7, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane5.setLayer(jScrollPane8, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -1000,8 +1044,10 @@ public class Gui extends javax.swing.JFrame {
         title.setText("Menangle");
 
         label.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
+        label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/Sync.png"))); // NOI18N
         label.setText("Trying to connect...");
 
+        datePicker.setComponentPopupMenu(ProdPopup);
         datePicker.setDate(date);
         datePicker.setMaxSelectableDate(ti.today());
         datePicker.setMinSelectableDate(ti.firstDate());
@@ -1177,10 +1223,6 @@ public class Gui extends javax.swing.JFrame {
         refreshLists();
     }//GEN-LAST:event_jButton4ActionPerformed
 
-    private void UsedInProductionPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_UsedInProductionPropertyChange
-        // TODO add your handling code here:
-    }//GEN-LAST:event_UsedInProductionPropertyChange
-
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         nt.saveDate(MyComents,date);                
     }//GEN-LAST:event_jButton5ActionPerformed
@@ -1207,10 +1249,6 @@ public class Gui extends javax.swing.JFrame {
     private void PlantUtilFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_PlantUtilFocusLost
 
     }//GEN-LAST:event_PlantUtilFocusLost
-
-    private void ProdUtilizationPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_ProdUtilizationPropertyChange
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ProdUtilizationPropertyChange
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         this.dispose();
@@ -1242,12 +1280,7 @@ public class Gui extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        if(productWindow!=null){
-            productWindow.dispose();            
-        }
-        productWindow = new AddProduct(db, date, this);
-        productWindow.setLocationRelativeTo(null);
-        productWindow.setVisible(true);
+        addNewProduction(3);
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
@@ -1264,35 +1297,74 @@ public class Gui extends javax.swing.JFrame {
     }//GEN-LAST:event_MyFilterActionPerformed
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
-        // TODO add your handling code here:
+        addNewProduction(4);
     }//GEN-LAST:event_jButton12ActionPerformed
 
     private void ProdUtilizationMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ProdUtilizationMouseReleased
         if(evt.isPopupTrigger()){
-            PopupMenu.show(ProdUtilization, evt.getX(), evt.getY());
+            ProdPopup.show(ProdUtilization, evt.getX(), evt.getY());
         }
     }//GEN-LAST:event_ProdUtilizationMouseReleased
 
     private void UsedInProductionMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UsedInProductionMouseReleased
         if(evt.isPopupTrigger()){
-            PopupMenu.show(UsedInProduction, evt.getX(), evt.getY());
+            ProdPopup.show(UsedInProduction, evt.getX(), evt.getY());
         }
     }//GEN-LAST:event_UsedInProductionMouseReleased
+
+    private void RemoveSelectionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoveSelectionActionPerformed
+        ProdUtilization.clearSelection();
+        UsedInProduction.clearSelection();
+    }//GEN-LAST:event_RemoveSelectionActionPerformed
+
+    private void AddNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddNewActionPerformed
+        addNewProduction(3);
+    }//GEN-LAST:event_AddNewActionPerformed
+
+    private void AddNew1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddNew1ActionPerformed
+        addNewProduction(4);
+    }//GEN-LAST:event_AddNew1ActionPerformed
+
+    private void RemoveSelection1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoveSelection1ActionPerformed
+        ProdUtilization.clearSelection();
+        UsedInProduction.clearSelection();
+    }//GEN-LAST:event_RemoveSelection1ActionPerformed
+
+    private void RemoveSelectedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoveSelectedActionPerformed
+        prodRemoveSelected(3);
+    }//GEN-LAST:event_RemoveSelectedActionPerformed
+
+    private void RemoveSelected1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoveSelected1ActionPerformed
+        prodRemoveSelected(3);
+    }//GEN-LAST:event_RemoveSelected1ActionPerformed
+
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+        prodRemoveSelected(1);
+    }//GEN-LAST:event_jButton10ActionPerformed
+
+    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
+        prodRemoveSelected(2);
+    }//GEN-LAST:event_jButton13ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu About;
     private javax.swing.JButton AddAFuel;
     private javax.swing.JMenuItem AddNew;
+    private javax.swing.JMenuItem AddNew1;
     private javax.swing.JTable AditionalFuel;
     public javax.swing.JTable LaborUtil;
     private javax.swing.JTextArea MyComents;
     private javax.swing.JTextField MyFilter;
     public javax.swing.JTable PlantUtil;
-    private javax.swing.JPopupMenu PopupMenu;
+    private javax.swing.JPopupMenu ProdPopup;
     public javax.swing.JTable ProdUtilization;
     private javax.swing.JButton RemoveAFuel;
     private javax.swing.JMenuItem RemoveSelected;
+    private javax.swing.JMenuItem RemoveSelected1;
+    private javax.swing.JMenuItem RemoveSelection;
+    private javax.swing.JMenuItem RemoveSelection1;
     private javax.swing.JButton ReportBreakdown;
+    private javax.swing.JPopupMenu UsedInProdPopUP;
     public javax.swing.JTable UsedInProduction;
     private javax.swing.JButton addp;
     private com.toedter.calendar.JDateChooser datePicker;
@@ -1335,7 +1407,6 @@ public class Gui extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
@@ -1393,12 +1464,14 @@ public class Gui extends javax.swing.JFrame {
 
     public void refreshLists() {
         //lists housekeeping stuff
-        
+        actionListenerGo = false;
         lw.createLaborList(date);
         lw.createFunctionsList();
         lw.fillComboBoxWithFunctions(lFunc);
         lw.displayViewInTable(LaborUtil, date);
         lw.getStatusList();
+        pw.displayPlantViewInTable(PlantUtil, date);      
+        af.displayViewInTable(AditionalFuel, date);        
         ph.displayUtilizationInTable(ProdUtilization, 3,date);
         ph.displayUtilizationInTable(UsedInProduction, 4,date);
         nt.displayNotesInTextField(MyComents, date);
@@ -1406,8 +1479,84 @@ public class Gui extends javax.swing.JFrame {
         fullList = lw.getLaborList();
         laborView = lw.getLaborView();     
         c.refreshList(fullList, (DefaultListModel) laborList.getModel());
-        c.refreshList(siteLabourList, (DefaultListModel) laborOnSiteList.getModel());        
+        c.refreshList(siteLabourList, (DefaultListModel) laborOnSiteList.getModel());   
+        actionListenerGo = true;
     }
+
+    private void addNewProduction(int prodType) {
+        if(productWindow!=null){
+            productWindow.dispose();            
+        }
+        productWindow = new AddProduct(db, date, this, prodType);
+        productWindow.setLocationRelativeTo(null);
+        productWindow.setVisible(true);        
+    }
+
+    private void prodRemoveSelected(int where) {
+        String msg = "";
+        boolean correct = false;
+        switch(where){
+            case 1:
+                correct = delUtilFromTable(ProdUtilization);                
+                break;
+            case 2:
+                correct = delUtilFromTable(UsedInProduction);
+                break;   
+            default: 
+                boolean pu = delUtilFromTable(ProdUtilization);
+                boolean uip = delUtilFromTable(UsedInProduction);
+                correct = (pu || uip)?true:false;
+                break;
+        }
+        if(!correct){
+            JOptionPane.showMessageDialog(null,"No rows selected!", "Error",JOptionPane.ERROR_MESSAGE);
+        } else {            
+         refreshLists();
+        }
+              
+    }
+
+    private boolean delUtilFromTable(JTable table) {       
+        if(table.getSelectedRowCount()!=0){
+            DefaultTableModel m = (DefaultTableModel) table.getModel();
+            for (int prdU : table.getSelectedRows()) {
+                int utilID = (int) m.getValueAt(table.convertRowIndexToView(prdU), 0);
+                //preform delete
+                db.dbDelete("ProductUtilization", new Object[][]{{"ID"},{"="},{utilID},{}}, "ID");     
+            }   
+            return true;            
+        } else {
+            return false;
+        }
+            
+    }
+
+    private void editComponents() {
+        //productUtilization
+        ProdUtilization.getModel().addTableModelListener( new TableModelListener() {
+            @Override
+            public void tableChanged(TableModelEvent tme) {
+                if(actionListenerGo){
+                    ph.updateProduct((DefaultTableModel) ProdUtilization.getModel(),tme.getFirstRow());
+                    refreshLists();
+                }
+            }
+        });
+        
+        //Used in Production
+        UsedInProduction.getModel().addTableModelListener( new TableModelListener() {
+            @Override
+            public void tableChanged(TableModelEvent tme) {
+                if(actionListenerGo){
+                    ph.updateProduct((DefaultTableModel) UsedInProduction.getModel(),tme.getFirstRow());
+                    refreshLists();
+                }
+            }
+        });        
+        
+    }
+        
+    
     
     
  
