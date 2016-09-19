@@ -66,13 +66,20 @@ public class AFViewDataHandler extends DataHandler{
         ArrayList<AFuelView> list = getView(); 
         refreshTable(model);
         for (int i = 0; i < list.size(); i++) {
-            model.addRow(new Object[]{
-                list.get(i).getAllocationID(),
-                list.get(i).getUtilID(),
-                list.get(i).getPlantNo(),
-                list.get(i).getDescription(),
-                list.get(i).getAmount()            
-            });                    
+            boolean write = true;
+            for(int k = model.getRowCount()-1;k>=0;k--){
+                if((int) model.getValueAt(k, 0)==list.get(i).getAllocationID())
+                write = false;
+            }            
+            if(write){
+                model.addRow(new Object[]{
+                    list.get(i).getAllocationID(),
+                    list.get(i).getUtilID(),
+                    list.get(i).getPlantNo(),
+                    list.get(i).getDescription(),
+                    list.get(i).getAmount()            
+                });  
+            }
         }
     }
     
@@ -144,9 +151,16 @@ public class AFViewDataHandler extends DataHandler{
             double fuelAmount = (double) model.getValueAt(table.getEditingRow(), 4);            
 
             if(utilID!=0){ // update
-                Object[][] what = {{"amount"},{fuelAmount}};
-                Object[][] where = {{"ID"},{"="},{utilID},{}};                                       
-                con.dbUpdate("AFFuel", what, where);
+                if(con.getRowCount(con.dbSelect("AFFuel", new Object[][]{
+                    {"amount","ID"},
+                    {"=","="},
+                    {fuelAmount,utilID},
+                    {"AND","AND"}
+                }))==0){
+                    Object[][] what = {{"amount"},{fuelAmount}};
+                    Object[][] where = {{"ID"},{"="},{utilID},{}};                                       
+                    con.dbUpdate("AFFuel", what, where);
+                }
             } else { // insert
                 Object[][] data = {{"AFAllocationID","Amount","DateFor"},{allID,fuelAmount,date}};
                 con.dbInsert("AFFuel", data);

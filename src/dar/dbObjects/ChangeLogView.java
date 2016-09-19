@@ -19,9 +19,10 @@ public class ChangeLogView {
     private final String SQLString;
     private final int loginID;
     private final Timestamp timeChanged;
+    private final String uid;
     private final int type;
 
-    public ChangeLogView(int ID, String AffectedTable, String rowID, String Operation, String SQLString, int loginID, Timestamp timeChanged, int type) {
+    public ChangeLogView(int ID, String AffectedTable, String rowID, String Operation, String SQLString, int loginID, Timestamp timeChanged, String uid, int type) {
         this.ID = ID;
         this.AffectedTable = AffectedTable;
         this.rowID = rowID;
@@ -29,7 +30,12 @@ public class ChangeLogView {
         this.SQLString = SQLString;
         this.loginID = loginID;
         this.timeChanged = timeChanged;
+        this.uid = uid;
         this.type = type;
+    }
+
+    public String getUid() {
+        return uid;
     }
 
     public int getID() {

@@ -13,6 +13,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.UUID;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JButton;
@@ -194,7 +195,7 @@ public class LocalWraper {
                 query += delimiter[i] + " ";
             }            
         }        
-        System.out.println(query);
+        //System.out.println(query);
         return runQuery(query);          
     }
     
@@ -351,7 +352,8 @@ public class LocalWraper {
         try {
             Functions fn = new Functions();
             String fixInputs = fn.forHTML(inputs);
-            String query = String.format("INSERT INTO ChangeLog (AffectedTable, RowID, Operation, NewValue, LoginID) VALUES ('%s','%s','%s','%s','%s')",tbl,ID,insert,fixInputs,loginId);
+            UUID uuid = UUID.randomUUID();
+            String query = String.format("INSERT INTO ChangeLog (AffectedTable, RowID, Operation, NewValue, LoginID, UID) VALUES ('%s','%s','%s','%s','%s','%s')",tbl,ID,insert,fixInputs,loginId,uuid);
             Statement st;
 
             System.out.println(query);

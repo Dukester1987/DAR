@@ -6,6 +6,7 @@
 package dar.localDB;
 
 import dar.Functions.TimeWrapper;
+import dar.Gui.Gui;
 import dar.dbObjects.PlantView;
 import dar.dbObjects.User;
 import java.awt.Color;
@@ -106,20 +107,29 @@ public class PlantViewDataHandler {
         this.dateFor = dateFor;
         ArrayList<PlantView> list = getPlantView();
         DefaultTableModel model = (DefaultTableModel) table.getModel();
-        refreshTable(model);
+        //refreshTable(model);
         for(int i = 0;i<list.size();i++){
-            int hours = list.get(i).getEndHours()-list.get(i).getStartHours();
-            int display = hours<0?0:hours;
-            model.addRow(new Object[]{list.get(i).getUtilizationID(),
-                list.get(i).getAllocationID(),
-                list.get(i).getPlantID(),
-                list.get(i).getPlantDesc(),
-                list.get(i).getStartHours(),
-                list.get(i).getEndHours(),
-                list.get(i).getFuel(),
-                list.get(i).getNotes(),
-                display                    
-            });
+            boolean write = true;
+            for(int k = model.getRowCount()-1;k>=0;k--){
+                if((int) model.getValueAt(k, 1)==list.get(i).getAllocationID()){
+                    write = false;
+                    //System.out.printf("Leaving plant no: %s desc: %s\n",list.get(i).getPlantID(),list.get(i).getPlantDesc());
+                }
+            } 
+            if(write){
+                int hours = list.get(i).getEndHours()-list.get(i).getStartHours();
+                int display = hours<0?0:hours;
+                model.addRow(new Object[]{list.get(i).getUtilizationID(),
+                    list.get(i).getAllocationID(),
+                    list.get(i).getPlantID(),
+                    list.get(i).getPlantDesc(),
+                    list.get(i).getStartHours(),
+                    list.get(i).getEndHours(),
+                    list.get(i).getFuel(),
+                    list.get(i).getNotes(),
+                    display                    
+                });
+            }
         }
     }
 
@@ -166,7 +176,8 @@ public class PlantViewDataHandler {
         table.getTableHeader().setFont(new Font("Tahoma", Font.BOLD, 14));
     }    
 
-    public void updateTable(Date date) {
+    public void updateTable(Date date, Gui g) {
+        g.actionListenerGo=false;
         utilPercChange();
         int viewRow = table.getEditingRow();
         //System.out.println(viewRow);
@@ -182,7 +193,7 @@ public class PlantViewDataHandler {
             double Fuel = (double) model.getValueAt(k, 6);
             String Notes = (String) model.getValueAt(k, 7);
             
-            if(EndHours<StartHours){
+            if(EndHours<StartHours && EndHours!=0){
                 JOptionPane.showMessageDialog(null,"End hours can not be lower than start hours!", "Error", JOptionPane.ERROR_MESSAGE);
                 displayPlantViewInTable(table, date);
             } else {
@@ -194,10 +205,18 @@ public class PlantViewDataHandler {
                     // update operation
                     Object[][] query = {{"StartHours","EndHours","Fuel","Notes"},{StartHours,EndHours,Fuel,Notes}};
                     Object[][] where = {{"ID"},{"="},{PlantUtilizationID},{}};
-                    con.dbUpdate("PlantUtilization", query, where);   
-                    displayPlantViewInTable(table, date);
+                    if(con.getRowCount(con.dbSelect("PlantUtilization", new Object[][] {
+                        {"StartHours","EndHours","Fuel","Notes","ID"},
+                        {"=","=","=","=","="},
+                        {StartHours,EndHours,Fuel,Notes,PlantUtilizationID},
+                        {"AND","AND","AND","AND","AND"}                            
+                    }))==0){
+                        con.dbUpdate("PlantUtilization", query, where);   
+                        displayPlantViewInTable(table, date);
+                    }
                 }     
             }
+            g.actionListenerGo=true;            
         }
         //System.out.println(k);
     }

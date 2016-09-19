@@ -496,15 +496,22 @@ public class ProductViewHandler{
         prodUtilView = getProductUtilizationView(date);
         DefaultTableModel model = (DefaultTableModel) table.getModel();
         refreshTable((DefaultTableModel) table.getModel());
-        for (ProductUtilizationView pView : prodUtilView) {            
-            if(pView.getType()==Type){
-                model.addRow(new Object[]{
-                    pView.getUtilizationID(),
-                    pView.getAllocationID(),
-                    pView.getProductName(),
-                    pView.getQty(),
-                    pView.getNotes()
-                });
+        for (ProductUtilizationView pView : prodUtilView) {  
+            boolean write = true;
+            for(int i = model.getRowCount()-1;i>=0;i--){
+                if((int) model.getValueAt(i, 1)==pView.getAllocationID())
+                    write = false;
+            }
+            if(write){
+                if(pView.getType()==Type){
+                    model.addRow(new Object[]{
+                        pView.getUtilizationID(),
+                        pView.getAllocationID(),
+                        pView.getProductName(),
+                        pView.getQty(),
+                        pView.getNotes()
+                    });
+                }
             }
         }
 

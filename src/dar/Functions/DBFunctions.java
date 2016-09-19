@@ -63,7 +63,7 @@ public class DBFunctions {
         String query = String.format("DELETE FROM %s WHERE %s", recipeRel,conditions);
         executeQuery(query);
 //        changeLog(recipeRel, updatedID, "delete", conditions, userData.getId());                
-        System.out.println(query);
+        //System.out.println(query);
     }    
     
     
@@ -257,12 +257,12 @@ public class DBFunctions {
 //        changeLog(table, updatedID, "update", whatToUpdate, userData.getId());
     }  
     
-    public void changeLog(String tbl, String ID, String insert, String inputs, int loginId, Timestamp time) {
+    public void changeLog(String tbl, String ID, String insert, String inputs, int loginId, Timestamp time, String UID) {
         try {
             Functions fn = new Functions();
             String fixInputs = fn.forHTML(inputs);
             //Timestamp time = new Timestamp(System.currentTimeMillis());
-            String query = String.format("INSERT INTO ChangeLog (AffectedTable, RowID, Operation, NewValue, LoginID, Time) VALUES ('%s','%s','%s','%s','%s','%s')",tbl,ID,insert,fixInputs,loginId,time);
+            String query = String.format("INSERT INTO ChangeLog (AffectedTable, RowID, Operation, NewValue, LoginID, Time, UID) VALUES ('%s','%s','%s','%s','%s','%s','%s')",tbl,ID,insert,fixInputs,loginId,time,UID);
             Statement st;
 
             System.out.println(query);

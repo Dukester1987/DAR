@@ -173,10 +173,6 @@ public class Gui extends javax.swing.JFrame {
         jScrollPane6 = new javax.swing.JScrollPane();
         MyComents = new javax.swing.JTextArea();
         jButton5 = new javax.swing.JButton();
-        jToolBar1 = new javax.swing.JToolBar();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
         title = new javax.swing.JLabel();
         label = new javax.swing.JLabel();
         datePicker = new com.toedter.calendar.JDateChooser();
@@ -980,37 +976,8 @@ public class Gui extends javax.swing.JFrame {
             }
         });
 
-        jToolBar1.setFloatable(false);
-        jToolBar1.setRollover(true);
-
-        jButton6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jButton6.setText("B");
-        jButton6.setFocusable(false);
-        jButton6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton6.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
-            }
-        });
-        jToolBar1.add(jButton6);
-
-        jButton7.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
-        jButton7.setText("I");
-        jButton7.setFocusable(false);
-        jButton7.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton7.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jToolBar1.add(jButton7);
-
-        jButton8.setText("U");
-        jButton8.setFocusable(false);
-        jButton8.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton8.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jToolBar1.add(jButton8);
-
         jLayeredPane6.setLayer(jScrollPane6, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane6.setLayer(jButton5, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane6.setLayer(jToolBar1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jLayeredPane6Layout = new javax.swing.GroupLayout(jLayeredPane6);
         jLayeredPane6.setLayout(jLayeredPane6Layout);
@@ -1021,17 +988,14 @@ public class Gui extends javax.swing.JFrame {
                 .addGroup(jLayeredPane6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 1218, Short.MAX_VALUE)
                     .addGroup(jLayeredPane6Layout.createSequentialGroup()
-                        .addGroup(jLayeredPane6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 1052, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jLayeredPane6Layout.setVerticalGroup(
             jLayeredPane6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jLayeredPane6Layout.createSequentialGroup()
-                .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(31, 31, 31)
                 .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton5)
@@ -1147,12 +1111,6 @@ public class Gui extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void PlantUtilPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_PlantUtilPropertyChange
-        if(actionListenerGo){
-            pw.updateTable(date);
-        }
-    }//GEN-LAST:event_PlantUtilPropertyChange
-
     private void addpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addpActionPerformed
         if(actionListenerGo)
             pw.addPlant(date);
@@ -1226,13 +1184,6 @@ public class Gui extends javax.swing.JFrame {
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         nt.saveDate(MyComents,date);                
     }//GEN-LAST:event_jButton5ActionPerformed
-
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        int start = MyComents.getSelectionStart();
-        int end = MyComents.getSelectionEnd();
-        MyComents.setFont(new Font("Monospace", BOLD, 13));
-        
-    }//GEN-LAST:event_jButton6ActionPerformed
 
     private void ReportBreakdownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReportBreakdownActionPerformed
         JOptionPane.showMessageDialog(null, "Hahaaa stihnul sem to");
@@ -1346,6 +1297,12 @@ public class Gui extends javax.swing.JFrame {
         prodRemoveSelected(2);
     }//GEN-LAST:event_jButton13ActionPerformed
 
+    private void PlantUtilPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_PlantUtilPropertyChange
+//        if(actionListenerGo){
+//            pw.updateTable(date);
+//        }  
+    }//GEN-LAST:event_PlantUtilPropertyChange
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu About;
     private javax.swing.JButton AddAFuel;
@@ -1381,9 +1338,6 @@ public class Gui extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -1423,7 +1377,6 @@ public class Gui extends javax.swing.JFrame {
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
-    private javax.swing.JToolBar jToolBar1;
     private javax.swing.JComboBox<String> lFunc;
     private javax.swing.JTextField lName;
     private javax.swing.JLabel label;
@@ -1532,6 +1485,7 @@ public class Gui extends javax.swing.JFrame {
     }
 
     private void editComponents() {
+        Gui g = this;
         //productUtilization
         ProdUtilization.getModel().addTableModelListener( new TableModelListener() {
             @Override
@@ -1540,6 +1494,16 @@ public class Gui extends javax.swing.JFrame {
                     ph.updateProduct((DefaultTableModel) ProdUtilization.getModel(),tme.getFirstRow());
                     refreshLists();
                 }
+            }
+        });
+
+        PlantUtil.getModel().addTableModelListener(new TableModelListener() {
+            @Override
+            public void tableChanged(TableModelEvent tme) {
+                if(actionListenerGo){                    
+                    pw.updateTable(date,g);
+                    //System.out.println("changed now");
+                }                
             }
         });
         

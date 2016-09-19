@@ -60,19 +60,27 @@ public class LaborViewDataHandler extends DataHandler {
     public void displayViewInTable(JTable table, Date dateFor) {
         this.dateFor = dateFor;
         ArrayList<LaborView> list = getView();
-        refreshTable(model);        
+        //refreshTable(model);        
         for (int i = 0; i < list.size(); i++) {
-            LaborStatus status = new LaborStatus(list.get(i).getStatusID(), list.get(i).getStatus());
-            //System.out.println(list.get(i).getStatusID()+" "+list.get(i).getStatus()); // HERE!!!
-            model.addRow(new Object[]{
-                list.get(i).getUtilizationID(),
-                list.get(i).getAllocationID(),
-                list.get(i).getLaborName(),
-                list.get(i).getFunction(),
-                list.get(i).getHours(),
-                status,
-                list.get(i).getNotes()
-            });            
+            boolean write = true;
+            for(int k = model.getRowCount()-1;k>=0;k--){
+                if((int) model.getValueAt(k, 1)==list.get(i).getAllocationID()){
+                    write = false;
+                }
+            }
+            if(write){
+                LaborStatus status = new LaborStatus(list.get(i).getStatusID(), list.get(i).getStatus());
+                //System.out.println(list.get(i).getStatusID()+" "+list.get(i).getStatus()); // HERE!!!
+                model.addRow(new Object[]{
+                    list.get(i).getUtilizationID(),
+                    list.get(i).getAllocationID(),
+                    list.get(i).getLaborName(),
+                    list.get(i).getFunction(),
+                    list.get(i).getHours(),
+                    status,
+                    list.get(i).getNotes()
+                }); 
+            }
         }        
         
     }
@@ -348,9 +356,15 @@ public class LaborViewDataHandler extends DataHandler {
                 con.dbInsert(dbTable, new Object[][]{{"LaborAllocationID","PlantID","Hours","Status","Notes","DateFor"},{allocationID,"",hours,StatusID,notes,date}});
             } else {
                 // edit actual dataset
-                con.dbUpdate(dbTable, new Object[][]{{"Hours","Status","Notes"},{hours,StatusID,notes}}, new Object[][]{{"ID"},{"="},{utilizationID},{}});             
+                if(con.getRowCount(con.dbSelect(dbTable, new Object[][] {
+                    {"ID","Hours","Status","Notes"},
+                    {"=","=","=","="},
+                    {utilizationID,hours,StatusID,notes},
+                    {"AND","AND","AND","AND"}
+                }))==0){
+                    con.dbUpdate(dbTable, new Object[][]{{"Hours","Status","Notes"},{hours,StatusID,notes}}, new Object[][]{{"ID"},{"="},{utilizationID},{}});             
+                }
             }
-
         }
     }
     

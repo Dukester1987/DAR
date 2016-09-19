@@ -13,7 +13,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.ArrayList;
-import java.util.regex.Pattern;
+import javax.management.Query;
 import javax.swing.JLabel;
 
 /**
@@ -36,16 +36,16 @@ public class ChangeManager {
         getListOfChanges();
     }
     
-    public ArrayList<ChangeLogView> getListOfChanges(){
+    private ArrayList<ChangeLogView> getListOfChanges(){
         //initialize the variables
         changeList = new ArrayList<>();
         
         //get things to download        
-        String query = String.format("SELECT ID, AffectedTable, RowID, Operation, NewValue, LoginID, Time FROM ChangeLog WHERE Time>'%s'",db.userData.getLastDownload());                
+        String query = String.format("SELECT ID, AffectedTable, RowID, Operation, NewValue, LoginID, Time, UID FROM ChangeLog WHERE Time>'%s'",db.userData.getLastDownload());                
         addResultIntoList(ServerCon,changeList,query,0);
         
         //get things to upload
-        query = String.format("SELECT ID, AffectedTable, RowID, Operation, NewValue, LoginID, Time FROM ChangeLog WHERE Time>'%s'",db.userData.getLastUpload());        
+        query = String.format("SELECT ID, AffectedTable, RowID, Operation, NewValue, LoginID, Time, UID FROM ChangeLog WHERE Time>'%s'",db.userData.getLastUpload());        
         addResultIntoList(LocalCon,changeList, query, 1);
                 
         return changeList;
@@ -53,8 +53,8 @@ public class ChangeManager {
     
     public int getAmountOfChanges(int type){
         int counter = 0;
-        for (ChangeLogView changeLogView : changeList) {
-            counter += (changeLogView.getType()==type)?1:0;
+        for (int i = changeList.size()-1;i>-1;i--) {            
+            counter += (changeList.get(i).getType()==type)?1:0;
         }
         return counter;
     }
@@ -83,6 +83,7 @@ public class ChangeManager {
                         rs.getString("NewValue"), 
                         rs.getInt("LoginID"), 
                         rs.getTimestamp("Time"),
+                        rs.getString("UID"),
                         i);
                 changeList.add(lw);
             }
@@ -112,6 +113,7 @@ public class ChangeManager {
                 operation = "Downloading";
                 break;
         }
+        removeDuplicities(type,destination);
         int s = getAmountOfChanges(type);
         if(s>0){ //check if there is anything to download / upload
             int counter = 0;
@@ -132,9 +134,9 @@ public class ChangeManager {
                 } 
                 label.setText(String.format("%s changes: %s / %s", operation,counter,s));
             }
-        }
-        updateUserInfo(userColumn);
-        label.setText("All changes up to date");            
+            updateUserInfo(userColumn);          
+        }          
+        label.setText("All changes up to date");           
     }
 
     private void insertOperation(DBFunctions destination, ChangeLogView clw) {
@@ -168,11 +170,11 @@ public class ChangeManager {
 
     private boolean isExistInDestination(DBFunctions destination, ChangeLogView clw) {
         String query = String.format("SELECT * FROM %s WHERE ID = %s", clw.getAffectedTable(),clw.getRowID());
-        return destination.getRowCount(destination.runQuery(query))>0?true:false;
+        return destination.getRowCount(destination.runQuery(query))>0;
     }
 
     private void logOnDestination(DBFunctions destination, ChangeLogView clw) {
-        destination.changeLog(clw.getAffectedTable(), clw.getRowID(), clw.getOperation(), clw.getSQLString(), clw.getLoginID(),clw.getTimeChanged());
+        destination.changeLog(clw.getAffectedTable(), clw.getRowID(), clw.getOperation(), clw.getSQLString(), clw.getLoginID(),clw.getTimeChanged(),clw.getUid());
     }
 
     private void updateUserInfo(String userColumn) {
@@ -210,5 +212,17 @@ public class ChangeManager {
         }        
         return String.format("INSERT INTO %s (%s) VALUES (%s)", table,columns,values);
     }    
+
+    private void removeDuplicities(int type, DBFunctions destination) {
+        for (int i = changeList.size()-1; i > -1; i--) {
+            if(changeList.get(i).getType()==type){
+                if(destination.getRowCount(destination.runQuery(String.format("SELECT * FROM ChangeLog WHERE UID = '%s'",changeList.get(i).getUid())))>0){
+//                    System.out.println("removing "+ changeList.get(i).getUid());
+//                    System.out.println(i);
+                    changeList.remove(i);
+                }
+            }
+        }
+    }
     
 }
