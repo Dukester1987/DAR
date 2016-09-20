@@ -60,7 +60,7 @@ public class LaborViewDataHandler extends DataHandler {
     public void displayViewInTable(JTable table, Date dateFor) {
         this.dateFor = dateFor;
         ArrayList<LaborView> list = getView();
-        //refreshTable(model);        
+        refreshTable(model);        
         for (int i = 0; i < list.size(); i++) {
             boolean write = true;
             for(int k = model.getRowCount()-1;k>=0;k--){

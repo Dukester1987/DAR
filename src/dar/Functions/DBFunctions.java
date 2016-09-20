@@ -33,7 +33,7 @@ public class DBFunctions {
             ResultSet rs = st.getGeneratedKeys();
             if(rs.next()){
                 lastID = rs.getInt(1);
-                System.out.println("ID changed: "+lastID);
+                //System.out.println("ID changed: "+lastID);
             }
                 
         } catch (SQLException ex) {
@@ -106,7 +106,7 @@ public class DBFunctions {
                 query += delimiter[i] + " ";
             }            
         }        
-        System.out.println(query);
+        //System.out.println(query);
         return runQuery(query);          
     }
     
@@ -133,7 +133,7 @@ public class DBFunctions {
             rs = st.executeQuery(query);
         } catch (SQLException ex) {
             System.out.println("SQL ERROR runQuery");
-            System.out.println(query);
+            //System.out.println(query);
             ex.printStackTrace();
         }
         return rs;        
@@ -182,7 +182,7 @@ public class DBFunctions {
         }
 
         String query = String.format("INSERT INTO %s (%s) VALUES (%s)",table,columns,inputs);
-        System.out.println(query);
+        //System.out.println(query);
         int updatedID = executeQuery(query);
 //        changeLog(table,updatedID,"insert",columns+" VALUES = "+inputs,userData.getId());
         return updatedID;
@@ -252,7 +252,7 @@ public class DBFunctions {
             }            
         }
         String query = String.format("UPDATE %s SET %s WHERE %s", table, whatToUpdate, conditions);
-        System.out.println(query);
+        //System.out.println(query);
         executeQuery(query);
 //        changeLog(table, updatedID, "update", whatToUpdate, userData.getId());
     }  
@@ -265,7 +265,7 @@ public class DBFunctions {
             String query = String.format("INSERT INTO ChangeLog (AffectedTable, RowID, Operation, NewValue, LoginID, Time, UID) VALUES ('%s','%s','%s','%s','%s','%s','%s')",tbl,ID,insert,fixInputs,loginId,time,UID);
             Statement st;
 
-            System.out.println(query);
+            //System.out.println(query);
             st = con.createStatement();            
             st.executeUpdate(query);            
             

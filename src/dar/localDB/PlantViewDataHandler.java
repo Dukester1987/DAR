@@ -107,7 +107,7 @@ public class PlantViewDataHandler {
         this.dateFor = dateFor;
         ArrayList<PlantView> list = getPlantView();
         DefaultTableModel model = (DefaultTableModel) table.getModel();
-        //refreshTable(model);
+        refreshTable(model);
         for(int i = 0;i<list.size();i++){
             boolean write = true;
             for(int k = model.getRowCount()-1;k>=0;k--){
@@ -198,11 +198,13 @@ public class PlantViewDataHandler {
                 displayPlantViewInTable(table, date);
             } else {
                 if(PlantUtilizationID==0){
+                    System.out.println("INSERTING INTO PLANTALLOCATION");
                     Object[][] query = {{"PlantAllocationID","StartHours","EndHours","DateFor","Fuel","Notes"},{PlantAllocationID,StartHours,EndHours,date,Fuel,Notes}};
                     con.dbInsert("PlantUtilization", query);
                     displayPlantViewInTable(table, date); // refresh table
                 } else {
                     // update operation
+                    System.out.println("UPDATING INTO PLANTALLOCATION");
                     Object[][] query = {{"StartHours","EndHours","Fuel","Notes"},{StartHours,EndHours,Fuel,Notes}};
                     Object[][] where = {{"ID"},{"="},{PlantUtilizationID},{}};
                     if(con.getRowCount(con.dbSelect("PlantUtilization", new Object[][] {
@@ -215,10 +217,10 @@ public class PlantViewDataHandler {
                         displayPlantViewInTable(table, date);
                     }
                 }     
-            }
-            g.actionListenerGo=true;            
+            }           
         }
         //System.out.println(k);
+        g.actionListenerGo=true; 
     }
     
     public void addPlant(Date date) {

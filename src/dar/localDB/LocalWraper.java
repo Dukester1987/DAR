@@ -79,7 +79,7 @@ public class LocalWraper {
             ResultSet rs = st.getGeneratedKeys();
             if(rs.next()){
                 lastID = rs.getInt(1);
-                System.out.println("ID changed: "+lastID);
+                //System.out.println("ID changed: "+lastID);
             }
                 
         } catch (SQLException ex) {
@@ -92,7 +92,7 @@ public class LocalWraper {
         try {
             Class.forName(DB_DRIVER);
             con = DriverManager.getConnection(DB_CONN_STRING,DB_LOGIN,DB_PASS);
-            System.out.println("connected");
+            //System.out.println("connected");
         } catch (SQLException ex) {
             if(ex.getErrorCode() == 90020){
                 JOptionPane.showMessageDialog(null,"Application is already in use!\nPlease restart application and try it again.", "Already in use",JOptionPane.ERROR_MESSAGE);
@@ -150,7 +150,7 @@ public class LocalWraper {
     public void closeConnection() {
         try { 
             con.close();
-            System.out.println("Connection closed");
+            //System.out.println("Connection closed");
         } catch (SQLException ex) {
             Logger.getLogger(LocalWraper.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -340,7 +340,7 @@ public class LocalWraper {
             }            
         }
         String query = String.format("UPDATE %s SET %s WHERE %s", table, whatToUpdate, conditions);
-        System.out.println(query);
+        //System.out.println(query);
         executeQuery(query, "updated", false);
         if(updatedID != 0){
             changeLog(table, updatedID, "update", query, userData.getId());
@@ -356,7 +356,7 @@ public class LocalWraper {
             String query = String.format("INSERT INTO ChangeLog (AffectedTable, RowID, Operation, NewValue, LoginID, UID) VALUES ('%s','%s','%s','%s','%s','%s')",tbl,ID,insert,fixInputs,loginId,uuid);
             Statement st;
 
-            System.out.println(query);
+            //System.out.println(query);
             st = con.createStatement();            
             st.executeUpdate(query);            
             
@@ -386,7 +386,7 @@ public class LocalWraper {
         String query = String.format("DELETE FROM %s WHERE %s", recipeRel,conditions);
         executeQuery(query, "Deleted", false);
         changeLog(recipeRel, updatedID, "delete", query, userData.getId());                
-        System.out.println(query);
+        //System.out.println(query);
     }
     
 }
