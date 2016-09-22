@@ -5,6 +5,7 @@
  */
 package dar.localDB;
 
+import dar.Functions.FileLogger;
 import dar.Functions.JControlers;
 import dar.Functions.TimeWrapper;
 import dar.dbObjects.LaborFunctions;
@@ -123,6 +124,7 @@ public class LaborViewDataHandler extends DataHandler {
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
+            new FileLogger(ex.toString());
         }
         return laborFunctions;
     }
@@ -149,8 +151,7 @@ public class LaborViewDataHandler extends DataHandler {
                         "LaborList.LaborRate as Rate\n" +
                         "FROM LaborList\n" +
                         "left join LaborFunctions on LaborFunction = LaborFunctions.ID\n" +
-                        "left join LaborAllocation on LaborList.ID = LaborAllocation.LaborID AND LaborAllocation.StartDate<='%s' AND LaborAllocation.EndDate>='%s'"+
-                        "WHERE SiteID IS NULL OR SiteID = '%s'",dateFor,dateFor,user.getSiteID());
+                        "left join LaborAllocation on LaborList.ID = LaborAllocation.LaborID AND LaborAllocation.StartDate<='%s' AND LaborAllocation.EndDate>='%s' AND SiteID = '%s'",dateFor,dateFor,user.getSiteID());
         ResultSet rs = con.runQuery(query);
 //        System.out.println(query);
         try {
@@ -160,6 +161,7 @@ public class LaborViewDataHandler extends DataHandler {
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
+            new FileLogger(ex.toString());
         }
         return laborList;
     }
@@ -177,6 +179,7 @@ public class LaborViewDataHandler extends DataHandler {
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
+            new FileLogger(ex.toString());
         }
         return statusList;
     }
@@ -224,6 +227,7 @@ public class LaborViewDataHandler extends DataHandler {
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
+            new FileLogger(ex.toString());
         }
         
         return laborView;
@@ -337,7 +341,7 @@ public class LaborViewDataHandler extends DataHandler {
     public void updateTable(Date date) {
         int viewRow = table.getEditingRow();
         if(viewRow>-1){ //do we edited something?
-            int k = table.convertRowIndexToModel(viewRow);
+            int k = table.convertRowIndexToView(viewRow);
             String dbTable = "LaborUtilization";          
             
             //add data into variables

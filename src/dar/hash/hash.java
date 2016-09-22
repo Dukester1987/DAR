@@ -5,6 +5,7 @@
  */
 package dar.hash;
 
+import dar.Functions.FileLogger;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -24,7 +25,8 @@ public class hash {
         try {
             m = MessageDigest.getInstance("MD5");
         } catch (NoSuchAlgorithmException ex) {
-            Logger.getLogger(hash.class.getName()).log(Level.SEVERE, null, ex);
+            ex.printStackTrace();
+            new FileLogger(ex.toString());
         }
         //m.reset();
         m.update(string.getBytes());

@@ -5,6 +5,7 @@
  */
 package dar.localDB;
 
+import dar.Functions.FileLogger;
 import dar.Functions.Functions;
 import dar.dbObjects.NotesView;
 import dar.dbObjects.User;
@@ -48,6 +49,7 @@ public class NoteViewHandler {
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
+            new FileLogger(ex.toString());
         }
         
         return notes;
@@ -89,6 +91,7 @@ public class NoteViewHandler {
             NoteID = rs.getInt("ID");
         } catch (SQLException ex) {
             ex.printStackTrace();
+            new FileLogger(ex.toString());
         }        
         return NoteID;
     }

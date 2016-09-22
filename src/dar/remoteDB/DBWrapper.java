@@ -5,18 +5,25 @@
  */
 package dar.remoteDB;
 
+import dar.Functions.FileLogger;
 import dar.Gui.Gui;
 import dar.localDB.LocalWraper;
 import java.awt.Color;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.sql.*;
+import java.util.Properties;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTable;
 
 public class DBWrapper implements Runnable{
-    private static final String USER = "sopsioco_duke";
-    private static final String PASSWORD = "chapadlo";
-    private static final String CONN_STRING = "jdbc:mysql://192.185.128.23:3306/sopsioco_DAR?autoReconnect=true";
+    private static String USER;
+    private static String PASSWORD;
+    private static String CONN_STRING;
     public Connection con;
     Thread thread;
     private boolean keepAlive = true;
@@ -37,12 +44,14 @@ public class DBWrapper implements Runnable{
         this.label = label;
         this.db = db;
         this.g = g;
+        initProperties();
     }
     
     public boolean isConnected(){
         try {
             validator = con.isValid(100);
-        } catch (Exception ex) {            
+        } catch (Exception ex) {  
+            new FileLogger(ex.toString());
             validator = false;
         }
         return validator;
@@ -55,6 +64,7 @@ public class DBWrapper implements Runnable{
                 con = connect(CONN_STRING,USER,PASSWORD);
                 checkConnection(label);      
             } catch (SQLException ex) {
+                new FileLogger(ex.toString());
                 tryReconnect(label);
             }   
            } else {
@@ -72,6 +82,7 @@ public class DBWrapper implements Runnable{
             Thread.sleep(i);
             return true;
         } catch (InterruptedException ex) {
+            new FileLogger(ex.toString());
             return false;
         }
     }
@@ -100,11 +111,31 @@ public class DBWrapper implements Runnable{
 
     private void startSync() {
         mgr = new ChangeManager(db, this);
-        System.out.printf("rows to download: %s\nrows to upload: %s\n", mgr.getAmountOfChanges(0),mgr.getAmountOfChanges(1));
         mgr.runSync(0,label); //see what do we need to download
         mgr.runSync(1,label);
-        g.refreshLists();
+        g.refreshLists();            
+//        if(mgr.getTotalChanges()>0){
+//            label.setText(String.format("There are changes to exchange!"));            
+//            g.saveButton.setEnabled(true);
+//        }
+
+    }    
+
+    private void initProperties() {
+        try {
+            FileInputStream input = new FileInputStream("./inc/dbcon.properties");
+            Properties props = new Properties();
+            props.load(input);
+            CONN_STRING = props.getProperty("jdbc.url");
+            USER = props.getProperty("jdbc.username");
+            PASSWORD = props.getProperty("jdbc.password");
+        } catch (FileNotFoundException ex) {
+            new FileLogger(ex.toString());
+            ex.printStackTrace();
+        } catch (IOException ex) {
+            new FileLogger(ex.toString());
+            ex.printStackTrace();
+        }
     }
-    
     
 }

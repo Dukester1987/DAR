@@ -7,7 +7,6 @@ package dar.Gui;
 
 import dar.localDB.LocalWraper;
 import java.awt.Color;
-import java.awt.Toolkit;
 import javax.swing.JLabel;
 
 /**

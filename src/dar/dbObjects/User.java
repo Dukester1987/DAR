@@ -1,5 +1,6 @@
 package dar.dbObjects;
 
+import dar.Functions.FileLogger;
 import java.sql.Timestamp;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -31,7 +32,8 @@ public class User {
             JSONObject jString = (JSONObject) new JSONParser().parse(rights);
             siteID = (long) jString.get("SiteID");
         } catch (ParseException ex) {
-            System.out.println("cant parse JSON");
+            ex.printStackTrace();
+            new FileLogger(ex.toString());
         }
         return siteID;
     }

@@ -5,6 +5,7 @@
  */
 package dar.localDB;
 
+import dar.Functions.FileLogger;
 import dar.Functions.TimeWrapper;
 import dar.Gui.Gui;
 import dar.dbObjects.PlantView;
@@ -98,6 +99,7 @@ public class PlantViewDataHandler {
                 }
             } catch (SQLException ex) {
                 ex.printStackTrace();
+                new FileLogger(ex.toString());
             }
         }
         return plantView;
@@ -147,6 +149,7 @@ public class PlantViewDataHandler {
             return rs.last();
         } catch (SQLException ex) {
             ex.printStackTrace();
+            new FileLogger(ex.toString());
             return false;
         }
     }
@@ -159,6 +162,7 @@ public class PlantViewDataHandler {
             return rs.getString("PlantDesc");
         } catch (SQLException ex) {
             ex.printStackTrace();
+            new FileLogger(ex.toString());
         }
         return null;        
     }
@@ -182,7 +186,7 @@ public class PlantViewDataHandler {
         int viewRow = table.getEditingRow();
         //System.out.println(viewRow);
         if(viewRow>-1){
-            int k = table.convertRowIndexToModel(viewRow);
+            int k = table.convertRowIndexToView(viewRow);
             DefaultTableModel model = (DefaultTableModel) table.getModel();
             int PlantUtilizationID = (int) model.getValueAt(k, 0);
             int PlantAllocationID = (int) model.getValueAt(k, 1);

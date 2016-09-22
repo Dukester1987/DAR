@@ -6,6 +6,7 @@
 package dar.remoteDB;
 
 import dar.Functions.DBFunctions;
+import dar.Functions.FileLogger;
 import dar.Functions.TimeWrapper;
 import dar.dbObjects.ChangeLogView;
 import dar.localDB.LocalWraper;
@@ -13,7 +14,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.ArrayList;
-import javax.management.Query;
+import java.util.HashMap;
 import javax.swing.JLabel;
 
 /**
@@ -27,25 +28,30 @@ public class ChangeManager {
     private DBFunctions ServerCon;
     private final DBFunctions LocalCon;
     private ArrayList<ChangeLogView> changeList;
+    private int[] updateID = {0,0};
+    private HashMap<Integer, Timestamp> lastUpdate;
 
     public ChangeManager(LocalWraper db, DBWrapper server) {
         this.db = db;
         this.date = new TimeWrapper();
         this.ServerCon = new DBFunctions(server.con);
         this.LocalCon = new DBFunctions(db.con);
+        this.lastUpdate = new HashMap<>();
         getListOfChanges();
     }
     
     private ArrayList<ChangeLogView> getListOfChanges(){
         //initialize the variables
         changeList = new ArrayList<>();
+        getLastUpdate();
+        String SQLString = "SELECT ID, AffectedTable, RowID, Operation, NewValue, LoginID, Time, UID FROM ChangeLog WHERE Time>'%s' ORDER BY Time";
         
         //get things to download        
-        String query = String.format("SELECT ID, AffectedTable, RowID, Operation, NewValue, LoginID, Time, UID FROM ChangeLog WHERE Time>'%s'",db.userData.getLastDownload());                
+        String query = String.format(SQLString,lastUpdate.get(updateID[0]));                
         addResultIntoList(ServerCon,changeList,query,0);
         
         //get things to upload
-        query = String.format("SELECT ID, AffectedTable, RowID, Operation, NewValue, LoginID, Time, UID FROM ChangeLog WHERE Time>'%s'",db.userData.getLastUpload());        
+        query = String.format(SQLString,lastUpdate.get(updateID[1]));        
         addResultIntoList(LocalCon,changeList, query, 1);
                 
         return changeList;
@@ -53,6 +59,7 @@ public class ChangeManager {
     
     public int getAmountOfChanges(int type){
         int counter = 0;
+        removeDuplicities(type);        
         for (int i = changeList.size()-1;i>-1;i--) {            
             counter += (changeList.get(i).getType()==type)?1:0;
         }
@@ -89,33 +96,18 @@ public class ChangeManager {
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
+            new FileLogger(ex.toString());
         }        
     }
 
-    public void runSync(int type, JLabel label) {     
-        DBFunctions destination = null;
-        String userColumn = "";
-        String operation = "";
-        switch(type){
-            case 0:
-                destination = LocalCon;
-                userColumn = "LastDownload";
-                operation = "Downloading";
-                break;
-            case 1:
-                destination = ServerCon;
-                userColumn = "LastUpload";
-                operation = "Uploading";
-                break;
-            default:
-                destination = LocalCon;
-                userColumn = "LastDownload";
-                operation = "Downloading";
-                break;
-        }
-        removeDuplicities(type,destination);
+    public void runSync(int type, JLabel label) {          
+        DBFunctions destination = getConType(type);
+        String userColumn = getUserColumn(type);
+        String operation = type==0?"Downloading":"Uploading";                       
         int s = getAmountOfChanges(type);
         if(s>0){ //check if there is anything to download / upload
+            updateUserInfo(userColumn);    
+            int updateLog = createNewUpdate(type);
             int counter = 0;
             for (ChangeLogView clw : changeList) {
                 if(clw.getType()==type){
@@ -134,7 +126,7 @@ public class ChangeManager {
                 } 
                 label.setText(String.format("%s changes: %s / %s", operation,counter,s));
             }
-            updateUserInfo(userColumn);          
+            updateFinished(updateLog);
         }          
         label.setText("All changes up to date");           
     }
@@ -213,7 +205,8 @@ public class ChangeManager {
         return String.format("INSERT INTO %s (%s) VALUES (%s)", table,columns,values);
     }    
 
-    private void removeDuplicities(int type, DBFunctions destination) {
+    private void removeDuplicities(int type) {
+        DBFunctions destination = getConType(type);
         for (int i = changeList.size()-1; i > -1; i--) {
             if(changeList.get(i).getType()==type){
                 if(destination.getRowCount(destination.runQuery(String.format("SELECT * FROM ChangeLog WHERE UID = '%s'",changeList.get(i).getUid())))>0){
@@ -223,6 +216,61 @@ public class ChangeManager {
                 }
             }
         }
+    }
+
+    private DBFunctions getConType(int type) {
+        switch(type){
+            case 0:
+                return LocalCon;
+            case 1:
+                return ServerCon;
+            default: 
+                return LocalCon;
+        }
+    }
+
+    private String getUserColumn(int type) {
+        switch(type){
+            case 0:
+                return "LastDownload";
+            case 1:
+                return "LastUpload";
+            default: 
+                return "LastDownload";
+        }        
+    }
+
+    private void getLastUpdate() {
+        for (int type = 0; type<updateID.length;type++) {
+            if(updateID[type]==0){
+                String query = String.format("SELECT ID, Start FROM UpdateLog where type =%s and (Start is not NULL or End is not null) order by ID desc LIMIT 0,1", type);
+                ResultSet rs = LocalCon.runQuery(query);
+                if(LocalCon.getRowCount(rs)>0){
+                    try {
+                        rs.next();
+                        lastUpdate.put(rs.getInt("ID"), rs.getTimestamp("Start"));
+                        //System.out.printf("Last update for type %s having ID: %s and Timestamp: %s\n",type,rs.getInt("ID"), rs.getTimestamp("Start"));
+                        updateID[type] = rs.getInt("ID");
+                    } catch (SQLException ex) {
+                        ex.printStackTrace();
+                        new FileLogger(ex.toString());
+                    }
+                } else {
+                        lastUpdate.put(0, new Timestamp(1L));                        
+                }                    
+            }            
+        }
+    }
+
+    private int createNewUpdate(int type) {
+        return LocalCon.dbInsert("UpdateLog", new Object[][]{
+            {"Start","Type"},
+            {new Timestamp(System.currentTimeMillis()),type}
+        });
+    }
+
+    private void updateFinished(int updateLog) {
+       LocalCon.dbUpdate("UpdateLog", new Object[][]{{"End"},{new Timestamp(System.currentTimeMillis())}}, new Object[][]{{"ID"},{"="},{updateLog},{}});
     }
     
 }

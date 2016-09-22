@@ -37,7 +37,7 @@ public class DBFunctions {
             }
                 
         } catch (SQLException ex) {
-            ex.printStackTrace();
+            new FileLogger(ex.toString());
         }
         return lastID;
     }    
@@ -134,7 +134,7 @@ public class DBFunctions {
         } catch (SQLException ex) {
             System.out.println("SQL ERROR runQuery");
             //System.out.println(query);
-            ex.printStackTrace();
+            new FileLogger(ex.toString());
         }
         return rs;        
     }
@@ -146,13 +146,13 @@ public class DBFunctions {
         try {
             resultSet.last();
             return resultSet.getRow();
-        } catch (SQLException exp) {
-            exp.printStackTrace();
+        } catch (SQLException ex) {
+            new FileLogger(ex.toString());
         } finally {
             try {
                 resultSet.beforeFirst();
-            } catch (SQLException exp) {
-                exp.printStackTrace();
+            } catch (SQLException ex) {
+                new FileLogger(ex.toString());
             }
         }
         return 0;
@@ -270,7 +270,7 @@ public class DBFunctions {
             st.executeUpdate(query);            
             
         } catch (SQLException ex) {
-            ex.printStackTrace();
+            new FileLogger(ex.toString());
         }
     }    
 

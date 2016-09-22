@@ -5,6 +5,7 @@
  */
 package dar.localDB;
 
+import dar.Functions.FileLogger;
 import dar.Functions.Functions;
 import dar.dbObjects.User;
 import dar.hash.hash;
@@ -48,7 +49,7 @@ public class LocalWraper {
     
     public User userData;
     
-    public LocalWraper() {
+    public LocalWraper() {        
       getConnection();
     }
 
@@ -84,6 +85,7 @@ public class LocalWraper {
                 
         } catch (SQLException ex) {
             ex.printStackTrace();
+            new FileLogger(ex.toString());
         }
         return lastID;
     }
@@ -98,9 +100,11 @@ public class LocalWraper {
                 JOptionPane.showMessageDialog(null,"Application is already in use!\nPlease restart application and try it again.", "Already in use",JOptionPane.ERROR_MESSAGE);
             } else {
                 ex.printStackTrace();
+                new FileLogger(ex.toString());
             }
         } catch (ClassNotFoundException ex) {
             ex.printStackTrace();
+            new FileLogger(ex.toString());
         }        
         
     }
@@ -129,6 +133,7 @@ public class LocalWraper {
                 }
             } catch (SQLException ex) {
                 ex.printStackTrace();
+                new FileLogger(ex.toString());
             }
         }
         return result;
@@ -144,6 +149,7 @@ public class LocalWraper {
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
+            new FileLogger(ex.toString());
         }        
     }
 
@@ -152,7 +158,8 @@ public class LocalWraper {
             con.close();
             //System.out.println("Connection closed");
         } catch (SQLException ex) {
-            Logger.getLogger(LocalWraper.class.getName()).log(Level.SEVERE, null, ex);
+            ex.printStackTrace();
+            new FileLogger(ex.toString());
         }
     }
     
@@ -222,6 +229,7 @@ public class LocalWraper {
             rs = st.executeQuery(query);
         } catch (SQLException ex) {
             System.out.println("SQL ERROR runQuery");
+            new FileLogger(ex.toString());
         }
         return rs;        
     }
@@ -233,13 +241,15 @@ public class LocalWraper {
         try {
             resultSet.last();
             return resultSet.getRow();
-        } catch (SQLException exp) {
-            exp.printStackTrace();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            new FileLogger(ex.toString());
         } finally {
             try {
                 resultSet.beforeFirst();
-            } catch (SQLException exp) {
-                exp.printStackTrace();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+                new FileLogger(ex.toString());
             }
         }
         return 0;
@@ -362,6 +372,7 @@ public class LocalWraper {
             
         } catch (SQLException ex) {
             ex.printStackTrace();
+            new FileLogger(ex.toString());
         }
     }
 

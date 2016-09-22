@@ -5,6 +5,7 @@
  */
 package dar.localDB;
 
+import dar.Functions.FileLogger;
 import dar.Functions.Functions;
 import dar.dbObjects.AFuelView;
 import dar.dbObjects.User;
@@ -17,7 +18,6 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
-import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -55,6 +55,7 @@ public class AFViewDataHandler extends DataHandler{
                 }
             } catch (SQLException ex) {
                 ex.printStackTrace();
+                new FileLogger(ex.toString());
             }            
         }
         return view;

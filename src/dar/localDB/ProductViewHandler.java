@@ -5,8 +5,8 @@
  */
 package dar.localDB;
 
+import dar.Functions.FileLogger;
 import dar.Functions.TimeWrapper;
-import dar.Gui.Gui;
 import dar.Gui.Production.SubProducts;
 import dar.dbObjects.Production.ProductListView;
 import dar.dbObjects.Production.ProductUtilizationView;
@@ -79,6 +79,7 @@ public class ProductViewHandler{
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
+            new FileLogger(ex.toString());
         }
         return recipeList;
     }
@@ -132,6 +133,7 @@ public class ProductViewHandler{
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
+            new FileLogger(ex.toString());
         }
         return products;
     }
@@ -142,7 +144,7 @@ public class ProductViewHandler{
             boolean del = true;
             for (ProductListView ls : productsOnSite) {
                 if(ls.getProductID()==lw.getProductID() && lw.getSiteID() == user.getSiteID()){
-                    JOptionPane.showMessageDialog(null,String.format("Allprod ID: %s allocatedID: %s",lw.getProductID(),ls.getProductID()));
+                    //JOptionPane.showMessageDialog(null,String.format("Allprod ID: %s allocatedID: %s",lw.getProductID(),ls.getProductID()));
                     del = false;
                 }
             }
@@ -157,7 +159,7 @@ public class ProductViewHandler{
     
 
     public void relocateProducts(Date date) {
-        //delete removed labors
+        //delete removed products
         ArrayList<Integer> delIds = getIdsToDelete();
         
         for (Integer delId : delIds) {
@@ -166,7 +168,7 @@ public class ProductViewHandler{
             con.dbUpdate("ProductAllocation", w, wh);
         }
         
-        //add new labors
+        //add new products
         ArrayList<Integer> addIds = getIdsToAdd();
         for (Integer addId : addIds) {
             //System.out.println(addId);
@@ -268,6 +270,7 @@ public class ProductViewHandler{
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
+            new FileLogger(ex.toString());
         }
         
         return recipeIng;
@@ -399,6 +402,7 @@ public class ProductViewHandler{
                     success = true;                    
                 } catch (SQLException ex) {
                     ex.printStackTrace();
+                    new FileLogger(ex.toString());
                 }
             } else if (count>1){
                 msg = "There are more recipes for selected product\nDelete all other recipes and try it again!";
@@ -445,6 +449,7 @@ public class ProductViewHandler{
                 return id;
             } catch (SQLException ex) {
                 ex.printStackTrace();
+                new FileLogger(ex.toString());
                 return -1;
             }
         } else {
@@ -485,6 +490,7 @@ public class ProductViewHandler{
                 }
             } catch (SQLException ex) {
                 ex.printStackTrace();
+                new FileLogger(ex.toString());
             }
         } else {
             //System.out.println(query);
