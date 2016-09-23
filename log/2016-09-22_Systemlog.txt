@@ -1,2 +1,0 @@
-Thu Sep 22 15:32:10 AEST 2016
-java.lang.NullPointerException

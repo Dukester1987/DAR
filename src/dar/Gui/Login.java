@@ -15,11 +15,14 @@ import javax.swing.JLabel;
  */
 public class Login extends javax.swing.JFrame {
 
+    private final LocalWraper db;
+
     /**
      * Creates new form Login
      */
     public Login() {
         initComponents();
+        db = new LocalWraper();
         GuiIcon icon = new GuiIcon(this);
     }
 
@@ -125,7 +128,6 @@ public class Login extends javax.swing.JFrame {
         String login = jTextField1.getText();
         String pass = String.valueOf(jPasswordField1.getPassword());
         JLabel err = errHandler;
-        LocalWraper db = new LocalWraper();
         boolean loginp = db.login(login, pass, err);
         
         if(loginp) {

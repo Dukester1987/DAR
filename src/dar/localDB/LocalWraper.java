@@ -9,14 +9,17 @@ import dar.Functions.FileLogger;
 import dar.Functions.Functions;
 import dar.dbObjects.User;
 import dar.hash.hash;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.UUID;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -92,9 +95,11 @@ public class LocalWraper {
     
     private void getConnection(){
         try {
+            File f = new File("./~DAR.h2.db");
+            boolean install = f.exists()?false:true;
             Class.forName(DB_DRIVER);
             con = DriverManager.getConnection(DB_CONN_STRING,DB_LOGIN,DB_PASS);
-            //System.out.println("connected");
+            installDB(install);
         } catch (SQLException ex) {
             if(ex.getErrorCode() == 90020){
                 JOptionPane.showMessageDialog(null,"Application is already in use!\nPlease restart application and try it again.", "Already in use",JOptionPane.ERROR_MESSAGE);
@@ -229,6 +234,7 @@ public class LocalWraper {
             rs = st.executeQuery(query);
         } catch (SQLException ex) {
             System.out.println("SQL ERROR runQuery");
+            ex.printStackTrace();
             new FileLogger(ex.toString());
         }
         return rs;        
@@ -398,6 +404,52 @@ public class LocalWraper {
         executeQuery(query, "Deleted", false);
         changeLog(recipeRel, updatedID, "delete", query, userData.getId());                
         //System.out.println(query);
+    }
+
+    private void installDB(Boolean j) {
+        //check if dbexport exists
+        File f = new File("./inc/DBCreate.sql");   
+        if(j && f.exists()){ 
+            try {          
+                String query = "";
+                BufferedReader bf = new BufferedReader(new FileReader(f));
+                String s;
+                Statement st = con.createStatement();
+                int i=0;
+                boolean newBatch = false;                
+                while ((s = bf.readLine())!=null){
+                    i++;
+                    if(s.startsWith("INSERT") || s.startsWith("CREATE") || s.startsWith("ALTER")){
+                        newBatch = true;
+                    }
+                    if(newBatch){
+                        if(s.trim().endsWith(";")){
+                            query += s+"\n";
+                            newBatch = false;
+                            st.addBatch(query);
+                            query = "";
+                        } else {
+                            query += s+"\n";
+                        }                         
+                    }
+                   
+                }                
+                st.executeBatch();
+                bf.close();
+                //delete file
+                //f.renameTo(new File("./inc/DBCreate-DONE.sql"));
+                new FileLogger("Database Sucessfully initialised");
+            } catch (FileNotFoundException ex) {                
+                ex.printStackTrace();
+                new FileLogger(ex.toString());
+            } catch (IOException ex) {
+                ex.printStackTrace();
+                new FileLogger(ex.toString());
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+                new FileLogger(ex.toString());
+            }            
+        }
     }
     
 }

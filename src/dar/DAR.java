@@ -20,7 +20,7 @@ public class DAR {
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
-            public void run() {
+            public void run() {                
                 Login login = new Login();
                 login.setTitle("eDAR - Hi Quality - Login");
                 login.setResizable(false);

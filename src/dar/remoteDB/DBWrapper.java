@@ -51,7 +51,7 @@ public class DBWrapper implements Runnable{
         try {
             validator = con.isValid(100);
         } catch (Exception ex) {  
-            new FileLogger(ex.toString());
+            //new FileLogger(ex.toString());
             validator = false;
         }
         return validator;
@@ -64,6 +64,7 @@ public class DBWrapper implements Runnable{
                 con = connect(CONN_STRING,USER,PASSWORD);
                 checkConnection(label);      
             } catch (SQLException ex) {
+                ex.printStackTrace();
                 new FileLogger(ex.toString());
                 tryReconnect(label);
             }   
@@ -82,6 +83,7 @@ public class DBWrapper implements Runnable{
             Thread.sleep(i);
             return true;
         } catch (InterruptedException ex) {
+            ex.printStackTrace();
             new FileLogger(ex.toString());
             return false;
         }

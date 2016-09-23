@@ -1,0 +1,5 @@
+Fri Sep 23 12:53:26 AEST 2016
+org.h2.jdbc.JdbcSQLException: Table "LOGIN" not found; SQL statement:
+SELECT * FROM Login WHERE LoginName = 'Menangle' AND Password = '2fae7330fe63aa996902e0606caa2bc0' [42102-176]
+Fri Sep 23 12:55:20 AEST 2016
+Database Sucessfully initialised
