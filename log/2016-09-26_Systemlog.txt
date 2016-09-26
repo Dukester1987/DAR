@@ -1,0 +1,27 @@
+Mon Sep 26 10:14:49 AEST 2016
+com.mysql.jdbc.exceptions.jdbc4.MySQLNonTransientConnectionException: Could not create connection to database server. Attempted reconnect 3 times. Giving up.
+Mon Sep 26 10:14:55 AEST 2016
+com.mysql.jdbc.exceptions.jdbc4.MySQLNonTransientConnectionException: Could not create connection to database server. Attempted reconnect 3 times. Giving up.
+Mon Sep 26 10:15:01 AEST 2016
+com.mysql.jdbc.exceptions.jdbc4.MySQLNonTransientConnectionException: Could not create connection to database server. Attempted reconnect 3 times. Giving up.
+Mon Sep 26 10:15:07 AEST 2016
+com.mysql.jdbc.exceptions.jdbc4.MySQLNonTransientConnectionException: Could not create connection to database server. Attempted reconnect 3 times. Giving up.
+Mon Sep 26 10:15:13 AEST 2016
+com.mysql.jdbc.exceptions.jdbc4.MySQLNonTransientConnectionException: Could not create connection to database server. Attempted reconnect 3 times. Giving up.
+Mon Sep 26 10:15:19 AEST 2016
+com.mysql.jdbc.exceptions.jdbc4.MySQLNonTransientConnectionException: Could not create connection to database server. Attempted reconnect 3 times. Giving up.
+Mon Sep 26 11:29:24 AEST 2016
+org.h2.jdbc.JdbcSQLException: NULL not allowed for column "LABORALLOCATIONID"; SQL statement:
+INSERT INTO LaborUtilization (Hours, Status, Notes) VALUES (0.0, 3, '') [23502-176]
+Mon Sep 26 11:29:24 AEST 2016
+org.h2.jdbc.JdbcSQLException: NULL not allowed for column "LABORALLOCATIONID"; SQL statement:
+INSERT INTO LaborUtilization (Hours, Status, Notes) VALUES (0.0, 1, '') [23502-176]
+Mon Sep 26 11:29:24 AEST 2016
+org.h2.jdbc.JdbcSQLException: NULL not allowed for column "LABORALLOCATIONID"; SQL statement:
+INSERT INTO LaborUtilization (Hours, Status, Notes) VALUES (0.0, 4, '') [23502-176]
+Mon Sep 26 11:49:08 AEST 2016
+org.h2.jdbc.JdbcSQLException: The object is already closed [90007-176]
+Mon Sep 26 11:49:23 AEST 2016
+org.h2.jdbc.JdbcSQLException: The object is already closed [90007-176]
+Mon Sep 26 11:49:44 AEST 2016
+Database Sucessfully initialised

@@ -39,6 +39,9 @@ public class DBWrapper implements Runnable{
     private final LocalWraper db;
     private ChangeManager mgr;
     private Gui g;
+    private long FAIL_RECONNECT;
+    private long FAIL_TOTALRECONNECT;
+    private long CHECKCONNECTION;
 
     public DBWrapper(JLabel label, LocalWraper db, Gui g) {
         this.label = label;
@@ -93,11 +96,11 @@ public class DBWrapper implements Runnable{
         if(Counter%6<5){
             label.setText("Connection Failed");
             label.setForeground(Color.RED);
-            keepAlive = putSleep(2000);
+            keepAlive = putSleep(FAIL_RECONNECT);
             label.setText("Trying to Recconect");
         } else {
                 label.setText("Connection failed for "+Counter+" times.\n next atempt in 60 seconds");
-                keepAlive = putSleep(failThreadSleep);
+                keepAlive = putSleep(FAIL_TOTALRECONNECT);
                 label.setText("Trying to Recconect");                   
         }
         Counter++;        
@@ -107,7 +110,7 @@ public class DBWrapper implements Runnable{
         label.setForeground(Color.BLACK);
         label.setText("Connection to the remote database established");
         startSync();
-        keepAlive = putSleep(15000);
+        keepAlive = putSleep(CHECKCONNECTION);
         label.setText("Checking connection");        
     }
 
@@ -131,6 +134,9 @@ public class DBWrapper implements Runnable{
             CONN_STRING = props.getProperty("jdbc.url");
             USER = props.getProperty("jdbc.username");
             PASSWORD = props.getProperty("jdbc.password");
+            FAIL_RECONNECT = new Long(props.getProperty("con.failreconnect")).longValue();
+            FAIL_TOTALRECONNECT = new Long(props.getProperty("con.totalfailreconnect")).longValue();
+            CHECKCONNECTION = new Long(props.getProperty("con.checkconnection")).longValue();
         } catch (FileNotFoundException ex) {
             new FileLogger(ex.toString());
             ex.printStackTrace();

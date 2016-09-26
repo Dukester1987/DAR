@@ -634,9 +634,9 @@ INSERT INTO `TransactionTypes` (`ID`, `Description`) VALUES
 (4, 'Used in Production');
 
 INSERT INTO `LaborFunctions` (`ID`, `Function`) VALUES
-(1, 'Site Manager'),
+(1, 'Operator'),
 (2, 'Weighbridge operator'),
-(3, 'Operator'),
+(3, 'Site Manager'),
 (4, 'Labour Hire');
 
 INSERT INTO `LaborStatus` (`ID`, `Status`) VALUES
@@ -649,8 +649,9 @@ INSERT INTO `LaborStatus` (`ID`, `Status`) VALUES
 (7, 'Bereavement Leave');
 
 INSERT INTO `Login` (`ID`,`LoginName`,`Password`,`Rights`,`Status`,`LastUpload`,`LastDownload`) VALUES
-(1,'Menangle','2fae7330fe63aa996902e0606caa2bc0','{"SiteID":1,"Rights":1}',1,null,null),
-(2,'Wallacia','2fae7330fe63aa996902e0606caa2bc0','{"SiteID":2,"Rights":1}',1,null,null); 
+(1,'Menangle','4ecd9f4c37e9d72cae76daa239892693','{"SiteID":1,"Rights":1}',1,null,null),
+(2,'Wallacia','2fae7330fe63aa996902e0606caa2bc0','{"SiteID":2,"Rights":1}',1,null,null),
+(3,'Dukester','2fae7330fe63aa996902e0606caa2bc0','{"SiteID":1,"Rights":1}',1,null,null); 
 
 INSERT INTO `PlantList` (`ID`, `PlantDesc`, `Rate`, `UnitOfMeasurement`) VALUES
 ('P01', 'Caterpillar 936 Loader Sand & Soil Yard', '297.50', 'h'),
