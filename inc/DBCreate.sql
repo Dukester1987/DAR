@@ -145,7 +145,7 @@ CREATE TABLE IF NOT EXISTS `LaborUtilization` (
   `PlantID` varchar(5)  NOT NULL,
   `Hours` decimal(10,2) NOT NULL,
   `Status` int(5) NOT NULL,
-  `Notes` varchar(80)  NOT NULL,
+  `Notes` varchar(300)  NOT NULL,
   `DateFor` date NOT NULL
 );
 
@@ -215,7 +215,7 @@ CREATE TABLE IF NOT EXISTS `PlantUtilization` (
   `EndHours` int(11) NOT NULL,
   `DateFor` date NOT NULL,
   `Fuel` decimal(10,2) NOT NULL,
-  `Notes` varchar(80)  NOT NULL
+  `Notes` varchar(300)  NOT NULL
 );
 
 
@@ -258,7 +258,7 @@ CREATE TABLE IF NOT EXISTS `ProductUtilization` (
   `ID` int(11) NOT NULL,
   `ProductAllocationID` int(11) NOT NULL,
   `Qty` decimal(10,2) NOT NULL,
-  `Notes` varchar(80)  NOT NULL,
+  `Notes` varchar(300)  NOT NULL,
   `TransactionType` int(11) NOT NULL,
   `DateFor` date NOT NULL
 );
@@ -651,7 +651,8 @@ INSERT INTO `LaborStatus` (`ID`, `Status`) VALUES
 INSERT INTO `Login` (`ID`,`LoginName`,`Password`,`Rights`,`Status`,`LastUpload`,`LastDownload`) VALUES
 (1,'Menangle','4ecd9f4c37e9d72cae76daa239892693','{"SiteID":1,"Rights":1}',1,null,null),
 (2,'Wallacia','2fae7330fe63aa996902e0606caa2bc0','{"SiteID":2,"Rights":1}',1,null,null),
-(3,'Dukester','2fae7330fe63aa996902e0606caa2bc0','{"SiteID":1,"Rights":1}',1,null,null); 
+(3,'Dukester','2fae7330fe63aa996902e0606caa2bc0','{"SiteID":1,"Rights":1}',1,null,null),
+(4,'MenDarryl','64dc40488113b28fd73fd229c98481b6','{"SiteID":1,"Rights":1}',1,null,null);
 
 INSERT INTO `PlantList` (`ID`, `PlantDesc`, `Rate`, `UnitOfMeasurement`) VALUES
 ('P01', 'Caterpillar 936 Loader Sand & Soil Yard', '297.50', 'h'),

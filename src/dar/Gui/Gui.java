@@ -8,6 +8,7 @@ package dar.Gui;
 import dar.Gui.Production.AddProduct;
 import dar.Functions.JControlers;
 import dar.Functions.TimeWrapper;
+import dar.Gui.Labour.LabourEdit;
 import dar.Gui.Production.ProdSettings;
 import dar.dbObjects.LaborList;
 import dar.dbObjects.LaborView;
@@ -18,15 +19,11 @@ import dar.localDB.LocalWraper;
 import dar.localDB.NoteViewHandler;
 import dar.localDB.PlantViewDataHandler;
 import dar.localDB.ProductViewHandler;
-import java.awt.Font;
-import static java.awt.Font.BOLD;
-import static java.lang.Class.forName;
 import java.sql.Date;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
@@ -118,6 +115,8 @@ public class Gui extends javax.swing.JFrame {
         AddNew1 = new javax.swing.JMenuItem();
         RemoveSelected1 = new javax.swing.JMenuItem();
         RemoveSelection1 = new javax.swing.JMenuItem();
+        LaborChangeMenu = new javax.swing.JPopupMenu();
+        editLabour = new javax.swing.JMenuItem();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jLayeredPane1 = new javax.swing.JLayeredPane();
         addp = new javax.swing.JButton();
@@ -183,6 +182,7 @@ public class Gui extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
@@ -245,6 +245,15 @@ public class Gui extends javax.swing.JFrame {
             }
         });
         UsedInProdPopUP.add(RemoveSelection1);
+
+        editLabour.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/edit16.png"))); // NOI18N
+        editLabour.setText("Edit Labour");
+        editLabour.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editLabourActionPerformed(evt);
+            }
+        });
+        LaborChangeMenu.add(editLabour);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -319,10 +328,6 @@ public class Gui extends javax.swing.JFrame {
             PlantUtil.getColumnModel().getColumn(1).setPreferredWidth(0);
             PlantUtil.getColumnModel().getColumn(2).setPreferredWidth(50);
             PlantUtil.getColumnModel().getColumn(3).setPreferredWidth(400);
-            PlantUtil.getColumnModel().getColumn(5).setHeaderValue("End hours");
-            PlantUtil.getColumnModel().getColumn(6).setHeaderValue("Fuel");
-            PlantUtil.getColumnModel().getColumn(8).setResizable(false);
-            PlantUtil.getColumnModel().getColumn(8).setHeaderValue("Hours");
         }
 
         AditionalFuel.setModel(new javax.swing.table.DefaultTableModel(
@@ -476,9 +481,7 @@ public class Gui extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(utilProgressBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(8, 8, 8))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane1Layout.createSequentialGroup()
-                        .addComponent(jScrollPane1)
-                        .addContainerGap())))
+                    .addComponent(jScrollPane1)))
         );
         jLayeredPane1Layout.setVerticalGroup(
             jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -489,9 +492,9 @@ public class Gui extends javax.swing.JFrame {
                         .addComponent(utilPerc)
                         .addComponent(ReportBreakdown))
                     .addComponent(utilProgressBar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(4, 4, 4)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(RemoveAFuel)
@@ -534,6 +537,11 @@ public class Gui extends javax.swing.JFrame {
         LaborUtil.setDoubleBuffered(true);
         LaborUtil.setDragEnabled(true);
         LaborUtil.setIntercellSpacing(new java.awt.Dimension(2, 2));
+        LaborUtil.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                LaborUtilMouseReleased(evt);
+            }
+        });
         LaborUtil.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
                 LaborUtilPropertyChange(evt);
@@ -1037,6 +1045,16 @@ public class Gui extends javax.swing.JFrame {
             }
         });
         jMenu1.add(jMenuItem2);
+
+        jMenuItem3.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/Wrench.png"))); // NOI18N
+        jMenuItem3.setText("Settings");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem3);
         jMenu1.add(jSeparator1);
 
         jMenuItem4.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.CTRL_MASK));
@@ -1147,7 +1165,7 @@ public class Gui extends javax.swing.JFrame {
     private void LaborUtilPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_LaborUtilPropertyChange
         if(actionListenerGo){
             lw.updateTable(date);
-            refreshLists();
+            //refreshLists();
         }
     }//GEN-LAST:event_LaborUtilPropertyChange
 
@@ -1308,12 +1326,42 @@ public class Gui extends javax.swing.JFrame {
 //        }  
     }//GEN-LAST:event_PlantUtilPropertyChange
 
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        if(settingsWindow!=null){            
+            settingsWindow.dispose();
+        } 
+        settingsWindow = new ProdSettings(db, date,this);
+        settingsWindow.setLocationRelativeTo(null);
+        settingsWindow.setVisible(true);   
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void LaborUtilMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LaborUtilMouseReleased
+        if(evt.isPopupTrigger()){
+            LaborChangeMenu.show(LaborUtil, evt.getX(), evt.getY());
+        }
+    }//GEN-LAST:event_LaborUtilMouseReleased
+
+    private void editLabourActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editLabourActionPerformed
+       if(LaborUtil.getSelectedRow()>-1){
+           int selRow = LaborUtil.convertRowIndexToModel(LaborUtil.getSelectedRow());           
+           DefaultTableModel model = (DefaultTableModel) LaborUtil.getModel();
+           
+           int laborAllocationId = (int) model.getValueAt(selRow, 1);
+           //System.out.println(model.getValueAt(selRow, 2));
+           JFrame ledit = new LabourEdit(lw,(String) model.getValueAt(selRow, 2),LaborUtil,date);
+           ledit.setLocationRelativeTo(LaborChangeMenu);
+           ledit.setResizable(false);
+           ledit.setVisible(true);
+       }
+    }//GEN-LAST:event_editLabourActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu About;
     private javax.swing.JButton AddAFuel;
     private javax.swing.JMenuItem AddNew;
     private javax.swing.JMenuItem AddNew1;
     private javax.swing.JTable AditionalFuel;
+    private javax.swing.JPopupMenu LaborChangeMenu;
     public javax.swing.JTable LaborUtil;
     private javax.swing.JTextArea MyComents;
     private javax.swing.JTextField MyFilter;
@@ -1330,6 +1378,7 @@ public class Gui extends javax.swing.JFrame {
     public javax.swing.JTable UsedInProduction;
     private javax.swing.JButton addp;
     private com.toedter.calendar.JDateChooser datePicker;
+    private javax.swing.JMenuItem editLabour;
     public javax.swing.JTextField fAmount;
     private javax.swing.JTextField fDesc;
     private javax.swing.JTextField fUnitNo;
@@ -1366,6 +1415,7 @@ public class Gui extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
@@ -1397,7 +1447,7 @@ public class Gui extends javax.swing.JFrame {
     }
 
     private void setName(JLabel title) {
-        String name = db.userData.getLoginName();
+        String name = db.userData.getSiteName(db);
         title.setText(name);
     }
 
@@ -1406,10 +1456,10 @@ public class Gui extends javax.swing.JFrame {
             date = ti.setDate(datePicker.getDate());
             pw.displayPlantViewInTable(PlantUtil, date); //refresh table
             af.displayViewInTable(AditionalFuel, date);
-            pw.utilPercChange();            
+            //pw.utilPercChange();            
             refreshLists();
             if(!ti.today().toString().equals(date.toString())){
-                addp.setEnabled(false);
+                //addp.setEnabled(false);
                 AddAFuel.setEnabled(false);
                 RemoveAFuel.setEnabled(false);
             } else {
@@ -1497,7 +1547,7 @@ public class Gui extends javax.swing.JFrame {
             public void tableChanged(TableModelEvent tme) {
                 if(actionListenerGo){
                     ph.updateProduct((DefaultTableModel) ProdUtilization.getModel(),tme.getFirstRow());
-                    refreshLists();
+                    //refreshLists();
                 }
             }
         });
@@ -1506,7 +1556,7 @@ public class Gui extends javax.swing.JFrame {
             @Override
             public void tableChanged(TableModelEvent tme) {
                 if(actionListenerGo){                    
-                    pw.updateTable(date,g);
+                    pw.updateTable(date,g);                    
                     //System.out.println("changed now");
                 }                
             }
@@ -1518,7 +1568,7 @@ public class Gui extends javax.swing.JFrame {
             public void tableChanged(TableModelEvent tme) {
                 if(actionListenerGo){
                     ph.updateProduct((DefaultTableModel) UsedInProduction.getModel(),tme.getFirstRow());
-                    refreshLists();
+                    //refreshLists();
                 }
             }
         });        

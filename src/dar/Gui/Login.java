@@ -138,7 +138,7 @@ public class Login extends javax.swing.JFrame {
             this.dispose();
         }else{
             System.out.println("wtf");
-            db.closeConnection();
+            //db.closeConnection();
             errHandler.setText("Wrong Loginname or Password");
             errHandler.setForeground(Color.red);
         }        

@@ -11,6 +11,7 @@ import dar.Gui.Gui;
 import dar.dbObjects.PlantView;
 import dar.dbObjects.User;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Font;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -39,6 +40,7 @@ public class PlantViewDataHandler {
     private JLabel utilPerc;
     private TimeWrapper ti;
     private JProgressBar utilProgressBar;
+    private static ArrayList<Integer> rows;
 
     public PlantViewDataHandler(LocalWraper con, User user,JTable table,JLabel utilPerc,JProgressBar utilProgressBar) {
         this.con = con;
@@ -168,9 +170,9 @@ public class PlantViewDataHandler {
     }
 
     private void hideID(JTable table) { 
-        DefaultTableCellRenderer rightRenderer = new DefaultTableCellRenderer();
-        rightRenderer.setHorizontalAlignment(SwingConstants.CENTER);
-        table.getColumnModel().getColumn(8).setCellRenderer(rightRenderer);
+        //DefaultTableCellRenderer rightRenderer = new DefaultTableCellRenderer();
+        //rightRenderer.setHorizontalAlignment(SwingConstants.CENTER);
+        //table.getColumnModel().getColumn(8).setCellRenderer(rightRenderer);
         table.removeColumn(table.getColumn("UtilizationID"));
         table.removeColumn(table.getColumn("AllocationID"));        
     }
@@ -197,6 +199,8 @@ public class PlantViewDataHandler {
             double Fuel = (double) model.getValueAt(k, 6);
             String Notes = (String) model.getValueAt(k, 7);
             
+            model.setValueAt(EndHours-StartHours, k, 8);
+            
             if(EndHours<StartHours && EndHours!=0){
                 JOptionPane.showMessageDialog(null,"End hours can not be lower than start hours!", "Error", JOptionPane.ERROR_MESSAGE);
                 displayPlantViewInTable(table, date);
@@ -205,7 +209,7 @@ public class PlantViewDataHandler {
                     System.out.println("INSERTING INTO PLANTALLOCATION");
                     Object[][] query = {{"PlantAllocationID","StartHours","EndHours","DateFor","Fuel","Notes"},{PlantAllocationID,StartHours,EndHours,date,Fuel,Notes}};
                     con.dbInsert("PlantUtilization", query);
-                    displayPlantViewInTable(table, date); // refresh table
+                    //displayPlantViewInTable(table, date); // refresh table
                 } else {
                     // update operation
                     System.out.println("UPDATING INTO PLANTALLOCATION");
@@ -218,7 +222,7 @@ public class PlantViewDataHandler {
                         {"AND","AND","AND","AND","AND"}                            
                     }))==0){
                         con.dbUpdate("PlantUtilization", query, where);   
-                        displayPlantViewInTable(table, date);
+                        //displayPlantViewInTable(table, date);
                     }
                 }     
             }           
@@ -254,16 +258,60 @@ public class PlantViewDataHandler {
         } 
     }    
     
+    public static class rowColorer extends DefaultTableCellRenderer {
+        public rowColorer(){
+            setOpaque(true);
+        }
+
+        @Override
+        public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
+            super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column); //To change body of generated methods, choose Tools | Templates.            
+            for (int wo : rows) {
+                if(row==wo){
+                    //JOptionPane.showMessageDialog(null, row);
+                    setBackground(new java.awt.Color(255,117,131));
+                    if(isSelected){
+                        setBackground(new java.awt.Color(226,31,38));
+                    }   
+                    if(hasFocus){
+                        setBackground(new java.awt.Color(226,31,38));
+                    }
+                } else {
+                    setBackground(Color.WHITE);
+                    if(isSelected){
+                        setBackground(new java.awt.Color(184,207,229));
+                    }                    
+                }
+            }
+
+            //setBackground(new java.awt.Color(255,117,131));
+            return this;
+        }
+        
+                
+    }
+            
+    
     public void utilPercChange(){
         TableModel model = table.getModel();
+        rows = new ArrayList<Integer>();
+        rows.clear();
         int hoursTotal = 0;
         int optimum = model.getRowCount()*8;
         long percentage;
         for(int i=0;i<model.getRowCount(); i++){
             if(model.getValueAt(i, 5)!=null && (int) model.getValueAt(i, 5) != 0){
-                hoursTotal += (int) model.getValueAt(i, 5) - (int) model.getValueAt(i, 4);                
+                int hours = (int) model.getValueAt(i, 5) - (int) model.getValueAt(i, 4);  
+                hoursTotal += hours;   
+                if(hours>16){
+                    rows.add(i);
+                }
             }   
         }
+        table.setDefaultRenderer(Object.class, new rowColorer());
+        table.setDefaultRenderer(Double.class, new rowColorer());        
+        table.setDefaultRenderer(Integer.class, new rowColorer());
+        
         if(hoursTotal<0 || optimum<=0){
            // apply percentage
            

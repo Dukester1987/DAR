@@ -1,0 +1,37 @@
+09-28 12:17:42 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-176]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:344)
+	at org.h2.message.DbException.get(DbException.java:178)
+	at org.h2.message.DbException.get(DbException.java:154)
+	at org.h2.message.DbException.get(DbException.java:143)
+	at org.h2.jdbc.JdbcConnection.checkClosed(JdbcConnection.java:1468)
+	at org.h2.jdbc.JdbcConnection.checkClosed(JdbcConnection.java:1443)
+	at org.h2.jdbc.JdbcConnection.createStatement(JdbcConnection.java:220)
+	at dar.Functions.DBFunctions.runQuery(DBFunctions.java:133)
+	at dar.remoteDB.ChangeManager.addResultIntoList(ChangeManager.java:82)
+	at dar.remoteDB.ChangeManager.getListOfChanges(ChangeManager.java:55)
+	at dar.remoteDB.ChangeManager.<init>(ChangeManager.java:40)
+	at dar.remoteDB.DBWrapper.startSync(DBWrapper.java:118)
+	at dar.remoteDB.DBWrapper.checkConnection(DBWrapper.java:112)
+	at dar.remoteDB.DBWrapper.run(DBWrapper.java:68)
+	at java.lang.Thread.run(Thread.java:745)
+09-28 13:33:18 database: close
+org.h2.message.DbException: IO Exception: "java.io.EOFException"; "C:/Users/ldulka/Documents/NetBeansProjects/DAR/~DAR.h2.db" [90031-176]
+	at org.h2.message.DbException.get(DbException.java:167)
+	at org.h2.message.DbException.convertIOException(DbException.java:329)
+	at org.h2.store.FileStore.readFully(FileStore.java:276)
+	at org.h2.store.PageStore.readPage(PageStore.java:1326)
+	at org.h2.store.PageStore.getPage(PageStore.java:750)
+	at org.h2.store.PageStreamTrunk$Iterator.next(PageStreamTrunk.java:252)
+	at org.h2.store.PageLog.free(PageLog.java:214)
+	at org.h2.store.PageStore.compact(PageStore.java:499)
+	at org.h2.engine.Database.closeOpenFilesAndUnlock(Database.java:1301)
+	at org.h2.engine.Database.close(Database.java:1251)
+	at org.h2.engine.DatabaseCloser.run(DatabaseCloser.java:64)
+Caused by: org.h2.jdbc.JdbcSQLException: IO Exception: "java.io.EOFException"; "C:/Users/ldulka/Documents/NetBeansProjects/DAR/~DAR.h2.db" [90031-176]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:344)
+	... 11 more
+Caused by: java.io.EOFException
+	at org.h2.store.fs.FileUtils.readFully(FileUtils.java:347)
+	at org.h2.store.FileStore.readFully(FileStore.java:274)
+	... 8 more

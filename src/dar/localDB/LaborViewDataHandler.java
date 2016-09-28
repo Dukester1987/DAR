@@ -341,7 +341,7 @@ public class LaborViewDataHandler extends DataHandler {
     public void updateTable(Date date) {
         int viewRow = table.getEditingRow();
         if(viewRow>-1){ //do we edited something?
-            int k = table.convertRowIndexToView(viewRow);
+            int k = table.convertRowIndexToModel(viewRow);
             String dbTable = "LaborUtilization";          
             
             //add data into variables
@@ -370,6 +370,13 @@ public class LaborViewDataHandler extends DataHandler {
                 }
             }
         }
+    }
+
+
+    public void updateLabour(String originalName, String newName, int id, JTable table, Date date) {
+        //run update
+        con.dbUpdate("LaborList", new Object[][]{{"LaborName","LaborFunction"},{newName,id}}, new Object[][]{{"LaborName"},{"="},{originalName},{}});
+        displayViewInTable(table, date);
     }
     
     

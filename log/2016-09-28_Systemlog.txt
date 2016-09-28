@@ -1,0 +1,13 @@
+Wed Sep 28 11:05:08 AEST 2016
+org.h2.jdbc.JdbcSQLException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-176]
+Wed Sep 28 11:33:13 AEST 2016
+Database Sucessfully initialised
+Wed Sep 28 11:33:21 AEST 2016
+org.h2.jdbc.JdbcSQLException: Value too long for column "NOTES VARCHAR(80) NOT NULL": "'Not used as insufficient feed due to P304 broken down for extended period of time.' (82)"; SQL statement:
+INSERT INTO PlantUtilization (ID, `PlantAllocationID`, `StartHours`, `EndHours`, `DateFor`, `Fuel`, `Notes`) VALUES (0, 32, 0, 0, '2016-09-26', 0.0, 'Not used as insufficient feed due to P304 broken down for extended period of time.') [22001-176]
+Wed Sep 28 11:36:43 AEST 2016
+Database Sucessfully initialised
+Wed Sep 28 11:39:48 AEST 2016
+Database Sucessfully initialised
+Wed Sep 28 12:17:42 AEST 2016
+org.h2.jdbc.JdbcSQLException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-176]

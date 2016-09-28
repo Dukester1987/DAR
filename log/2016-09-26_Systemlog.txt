@@ -25,3 +25,6 @@ Mon Sep 26 11:49:23 AEST 2016
 org.h2.jdbc.JdbcSQLException: The object is already closed [90007-176]
 Mon Sep 26 11:49:44 AEST 2016
 Database Sucessfully initialised
+Mon Sep 26 12:03:13 AEST 2016
+org.h2.jdbc.JdbcSQLException: Table "SISTLIST" not found; SQL statement:
+SELECT SiteName FROM SistList WHERE ID = 1 [42102-176]
