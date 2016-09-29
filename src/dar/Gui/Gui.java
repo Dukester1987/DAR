@@ -1454,7 +1454,7 @@ public class Gui extends javax.swing.JFrame {
     private void changeDate() {
         if(actionListenerGo){
             date = ti.setDate(datePicker.getDate());
-            pw.displayPlantViewInTable(PlantUtil, date); //refresh table
+            //pw.displayPlantViewInTable(PlantUtil, date); //refresh table
             af.displayViewInTable(AditionalFuel, date);
             //pw.utilPercChange();            
             refreshLists();
@@ -1478,7 +1478,8 @@ public class Gui extends javax.swing.JFrame {
         lw.fillComboBoxWithFunctions(lFunc);
         lw.displayViewInTable(LaborUtil, date);
         lw.getStatusList();
-        pw.displayPlantViewInTable(PlantUtil, date);      
+        pw.displayPlantViewInTable(PlantUtil, date); 
+        pw.utilPercChange();
         af.displayViewInTable(AditionalFuel, date);        
         ph.displayUtilizationInTable(ProdUtilization, 3,date);
         ph.displayUtilizationInTable(UsedInProduction, 4,date);

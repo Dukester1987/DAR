@@ -8,6 +8,7 @@ package dar.localDB;
 import dar.Functions.FileLogger;
 import dar.Functions.TimeWrapper;
 import dar.Gui.Production.SubProducts;
+import dar.Gui.Production.moreRecipes;
 import dar.dbObjects.Production.ProductListView;
 import dar.dbObjects.Production.ProductUtilizationView;
 import dar.dbObjects.Production.RecipeIngredients;
@@ -407,6 +408,10 @@ public class ProductViewHandler{
             } else if (count>1){
                 msg = "There are more recipes for selected product\nDelete all other recipes and try it again!";
                 //give possibility to select what recipe will be used
+                moreRecipes rcp = new moreRecipes(rs);
+                rcp.setLocationRelativeTo(null);
+                rcp.setResizable(false);
+                rcp.setVisible(true);                
             } else {
                 msg = "Production updated!";
                 msgType = "Info";

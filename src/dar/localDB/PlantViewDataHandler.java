@@ -206,6 +206,7 @@ public class PlantViewDataHandler {
                 displayPlantViewInTable(table, date);
             } else {
                 if(PlantUtilizationID==0){
+                    EndHours = EndHours==0?StartHours:EndHours;
                     System.out.println("INSERTING INTO PLANTALLOCATION");
                     Object[][] query = {{"PlantAllocationID","StartHours","EndHours","DateFor","Fuel","Notes"},{PlantAllocationID,StartHours,EndHours,date,Fuel,Notes}};
                     con.dbInsert("PlantUtilization", query);

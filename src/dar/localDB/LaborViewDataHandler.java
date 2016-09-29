@@ -293,7 +293,7 @@ public class LaborViewDataHandler extends DataHandler {
         ArrayList<Integer> delIds = getIdsToDelete();
         
         for (Integer delId : delIds) {
-            Object[][] w = {{"EndDate"},{ti.yesterday()}};
+            Object[][] w = {{"EndDate"},{ti.previousDay(date)}};
             Object[][] wh = {{"ID"},{"="},{delId},{}};   
             con.dbUpdate("LaborAllocation", w, wh);
         }

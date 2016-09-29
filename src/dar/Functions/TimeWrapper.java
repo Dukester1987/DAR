@@ -21,6 +21,10 @@ public class TimeWrapper {
     public Date yesterday(){
         return new Date(System.currentTimeMillis()-24*60*60*1000);
     }
+    
+    public Date previousDay(Date date){
+        return new Date(date.getTime()-24*60*60*1000);
+    }
 
     public java.util.Date firstDate(){
         java.util.Date d = new java.util.Date();

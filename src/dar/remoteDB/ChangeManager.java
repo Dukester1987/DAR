@@ -106,8 +106,9 @@ public class ChangeManager {
         String operation = type==0?"Downloading":"Uploading";                       
         int s = getAmountOfChanges(type);
         if(s>0){ //check if there is anything to download / upload
-            updateUserInfo(userColumn);    
-            int updateLog = createNewUpdate(type);
+            updateUserInfo(userColumn); 
+            int updateLog = createNewUpdate(type,changeList.get(changeList.size()-1).getTimeChanged());
+            System.out.println("creating new update record for type: "+operation);
             int counter = 0;
             for (ChangeLogView clw : changeList) {
                 if(clw.getType()==type){
@@ -262,10 +263,10 @@ public class ChangeManager {
         }
     }
 
-    private int createNewUpdate(int type) {
+    private int createNewUpdate(int type,Timestamp time) {
         return LocalCon.dbInsert("UpdateLog", new Object[][]{
             {"Start","Type"},
-            {new Timestamp(System.currentTimeMillis()),type}
+            {time,type}
         });
     }
 
