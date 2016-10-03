@@ -7,8 +7,11 @@ package dar.localDB;
 
 import dar.Functions.FileLogger;
 import dar.Functions.TimeWrapper;
+import dar.Gui.Gui;
+import dar.Gui.Production.AddProduct;
 import dar.Gui.Production.SubProducts;
 import dar.Gui.Production.moreRecipes;
+import dar.Gui.Production.recipeDetail;
 import dar.dbObjects.Production.ProductListView;
 import dar.dbObjects.Production.ProductUtilizationView;
 import dar.dbObjects.Production.RecipeIngredients;
@@ -44,6 +47,7 @@ public class ProductViewHandler{
     private ArrayList<RecipeList> recipeList;
     private ArrayList<RecipeIngredients> recipeIng;
     private ArrayList<ProductUtilizationView> prodUtilView;
+    private ArrayList<recipeDetail> rcpList;
     
     public ProductViewHandler(LocalWraper con, User user,Date date) {
         this.con = con;
@@ -355,7 +359,7 @@ public class ProductViewHandler{
         return write;
     }
 
-    public boolean utilizeProducts(ProductListView item, JTextField produced, JTextArea Notes,Date date,int TrType) {
+    public boolean utilizeProducts(ProductListView item, JTextField produced, JTextArea Notes,Date date,int TrType,Gui g,AddProduct p) {
         boolean write = true;
         boolean success = false;
         String msg = "";
@@ -378,8 +382,9 @@ public class ProductViewHandler{
 //            write = false;
 //            msg = "Product is already utilised";
 //        }
-        
+        boolean displayMessage = true;
         if(write){
+            
             // check if there are any recipes for selected products
             ResultSet rs = getRecipesForAllocationID(item.getAllocationID());
             int count = con.getRowCount(rs);
@@ -389,6 +394,7 @@ public class ProductViewHandler{
                     //add also used in production based on recipe
                     rs.next();
                     //get ingredients from recipe
+                    
                     
                     ResultSet rr = getIngredientsByRecipeID(rs.getInt("ID"));
                     msg = String.format("Recipe %s found\nAdding to used in production:\n", rs.getString("RecName"));
@@ -406,12 +412,22 @@ public class ProductViewHandler{
                     new FileLogger(ex.toString());
                 }
             } else if (count>1){
-                msg = "There are more recipes for selected product\nDelete all other recipes and try it again!";
-                //give possibility to select what recipe will be used
-                moreRecipes rcp = new moreRecipes(rs);
-                rcp.setLocationRelativeTo(null);
-                rcp.setResizable(false);
-                rcp.setVisible(true);                
+                rcpList = new ArrayList<recipeDetail>();
+                try {
+                    //msg = "There are more recipes for selected product\nDelete all other recipes and try it again!";
+                    //give possibility to select what recipe will be used
+                    displayMessage = false;
+                    while(rs.next()){
+                        recipeDetail rcl = new recipeDetail(rs.getInt("ID"), rs.getString("RecName"));
+                        rcpList.add(rcl);
+                    }
+                    moreRecipes rcp = new moreRecipes(rcpList, this, amount, Notes.getText(),item.getAllocationID(),date,TrType,p,g);
+                    rcp.setLocationRelativeTo(null);
+                    rcp.setVisible(true);
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                    new FileLogger(ex.toString());
+                }
             } else {
                 msg = "Production updated!";
                 msgType = "Info";
@@ -422,7 +438,8 @@ public class ProductViewHandler{
             }
             
         }
-        JOptionPane.showMessageDialog(null,msg,msgType,iconType);
+        if(displayMessage)
+            JOptionPane.showMessageDialog(null,msg,msgType,iconType);
         return success;
     }
 
@@ -442,7 +459,7 @@ public class ProductViewHandler{
         return con.runQuery(query);                     
     }
 
-    private int insertProduction(int allocationID, Double amount, String text, Date date, int TrType) {
+    public int insertProduction(int allocationID, Double amount, String text, Date date, int TrType) {
         String query = String.format("SELECT ID FROM ProductUtilization WHERE ProductAllocationID = %s AND DateFor = '%s' AND TransactionType = %s", allocationID,date, TrType);
         //System.out.println(query);
         ResultSet rs = con.runQuery(query);
@@ -462,7 +479,7 @@ public class ProductViewHandler{
         }        
     }
 
-    private ResultSet getIngredientsByRecipeID(int aInt) {
+    public ResultSet getIngredientsByRecipeID(int aInt) {
         return con.runQuery(String.format("SELECT PRODUCTALLOCATIONID,ProductName, USED FROM RECIPEREL\n" +
         "LEFT JOIN PRODUCTALLOCATION ON PRODUCTALLOCATION.ID = RECIPEREL.PRODUCTALLOCATIONID \n" +
         "LEFT JOIN PRODUCTS ON PRODUCTS.ID = PRODUCTALLOCATION.PRODUCTID\n" +
@@ -484,7 +501,7 @@ public class ProductViewHandler{
         "FROM PRODUCTUTILIZATION \n" +
         "LEFT JOIN PRODUCTALLOCATION on PRODUCTALLOCATION.ID = PRODUCTUTILIZATION.PRODUCTALLOCATIONID \n" +
         "LEFT JOIN PRODUCTS ON PRODUCTALLOCATION.PRODUCTID = PRODUCTS.ID\n"
-                + "WHERE DateFor = '%s'", dateFor);
+        + "WHERE DateFor = '%s' AND PRODUCTALLOCATION.SITEID = %s", dateFor,user.getSiteID());
         ResultSet rs = con.runQuery(query);
         
         if(con.getRowCount(rs)>0){

@@ -233,7 +233,7 @@ public class AddProduct extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         //do the magic and add an item
         //get all ID of selected item
-        if(ph.utilizeProducts((ProductListView) itemBox.getSelectedItem(),produced,Notes,date,prodType)){
+        if(ph.utilizeProducts((ProductListView) itemBox.getSelectedItem(),produced,Notes,date,prodType,g,this)){
             g.refreshLists();
             this.dispose();
         }

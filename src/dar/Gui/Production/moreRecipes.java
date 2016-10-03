@@ -5,8 +5,18 @@
  */
 package dar.Gui.Production;
 
+import dar.Functions.FileLogger;
+import dar.Gui.Gui;
 import dar.Gui.GuiIcon;
+import dar.localDB.ProductViewHandler;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.sql.Date;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import javax.swing.ButtonGroup;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -14,18 +24,31 @@ import java.sql.ResultSet;
  */
 public class moreRecipes extends javax.swing.JFrame {
 
-    private ResultSet rs;
+    private ArrayList<recipeDetail> rcplist;
+    private GridBagConstraints c = new GridBagConstraints();;
+    private final ProductViewHandler pw;
+    private final double amount;
+    private final String notes;
+    private final int AllocationId;
+    private final int TrType;
+    private final Date date;
+    private final AddProduct p;
+    private final Gui g;
 
-    /**
-     * Creates new form moreRecipes
-     */
-    public moreRecipes() {
+
+    public moreRecipes(ArrayList<recipeDetail> rs, ProductViewHandler pw, double amount, String notes, int AllocationID, Date date, int TrType,AddProduct p, Gui g) {
+        this.pw = pw;
+        this.rcplist = rs;
+        this.amount = amount;
+        this.notes = notes;
+        this.AllocationId = AllocationID;
+        this.date = date;
+        this.TrType = TrType;
+        this.g = g;
+        this.p = p;
         initComponents();
+        editComponents();
         GuiIcon icon = new GuiIcon(this,"Application");
-    }
-
-    public moreRecipes(ResultSet rs) {
-        this.rs = rs;
     }
 
     /**
@@ -37,94 +60,111 @@ public class moreRecipes extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        scrollPane = new javax.swing.JScrollPane();
-        jPanel1 = new javax.swing.JPanel();
-        recipeDetail1 = new dar.Gui.Production.recipeDetail();
-        recipeDetail2 = new dar.Gui.Production.recipeDetail();
-        recipeDetail3 = new dar.Gui.Production.recipeDetail();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        components = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Select recipe");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(recipeDetail1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(recipeDetail2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(recipeDetail3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        javax.swing.GroupLayout componentsLayout = new javax.swing.GroupLayout(components);
+        components.setLayout(componentsLayout);
+        componentsLayout.setHorizontalGroup(
+            componentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 197, Short.MAX_VALUE)
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(recipeDetail1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(recipeDetail3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(recipeDetail2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        componentsLayout.setVerticalGroup(
+            componentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 111, Short.MAX_VALUE)
         );
 
-        scrollPane.setViewportView(jPanel1);
+        jScrollPane1.setViewportView(components);
+
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/Create16.png"))); // NOI18N
+        jButton1.setText("Add");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(scrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jScrollPane1)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(62, 62, 62)
+                .addComponent(jButton1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(scrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 162, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        boolean write = false;
+        int recipeID=0;
+        String recipeName = "";
+        for (recipeDetail detail : rcplist) {
+            if(detail.myRadio.isSelected()){
+                write = true;
+                recipeID = detail.recipeID;
+                recipeName = detail.recipeName;
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(moreRecipes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(moreRecipes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(moreRecipes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(moreRecipes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new moreRecipes().setVisible(true);
+        if(write){
+            ResultSet rr = pw.getIngredientsByRecipeID(recipeID);
+            String msg = String.format("Recipe %s found\nAdding to used in production:\n", recipeName);
+            try {
+                while(rr.next()){
+                    msg += String.format("%s: %s\n", rr.getString("ProductName"),rr.getDouble("Used")*amount);
+                    //decide wheter product is already utilised or not if yes update if not add
+                    pw.insertProduction(rr.getInt("PRODUCTALLOCATIONID"), rr.getDouble("Used")*amount, notes, date, 4);
+                }
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+                new FileLogger(ex.toString());
             }
-        });
-    }
+            pw.insertProduction(AllocationId,amount,notes,date,TrType);
+            p.dispose();
+            this.dispose();
+            g.refreshLists();
+            JOptionPane.showMessageDialog(null,msg,"Success",JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(null,"No recipe selected","error",JOptionPane.ERROR_MESSAGE);
+        }
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel jPanel1;
-    private dar.Gui.Production.recipeDetail recipeDetail1;
-    private dar.Gui.Production.recipeDetail recipeDetail2;
-    private dar.Gui.Production.recipeDetail recipeDetail3;
-    private javax.swing.JScrollPane scrollPane;
+    private javax.swing.JPanel components;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
+
+    private void editComponents() {
+        components.setLayout(new GridBagLayout());
+        c.weightx = 1;
+        c.gridx = 0;
+        c.gridy = 0;
+        c.anchor = GridBagConstraints.NORTHWEST;
+        System.out.println(rcplist.size());
+        ButtonGroup bG = new ButtonGroup();
+        for (recipeDetail recipes : rcplist) {
+            bG.add(recipes.myRadio);
+            components.add(recipes,c);  
+            c.gridy++;                 
+        }
+        components.revalidate();
+        components.repaint();         
+    }
 }

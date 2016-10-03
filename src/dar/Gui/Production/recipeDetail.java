@@ -11,11 +11,18 @@ package dar.Gui.Production;
  */
 public class recipeDetail extends javax.swing.JPanel {
 
+    public final int recipeID;
+    public final String recipeName;
+
     /**
      * Creates new form recipeDetail
      */
-    public recipeDetail() {
+    public recipeDetail(int recipeID,String recipeName) {
+        this.recipeName = recipeName;
+        this.recipeID = recipeID;    
         initComponents();
+        
+                
     }
 
     /**
@@ -27,30 +34,36 @@ public class recipeDetail extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jRadioButton1 = new javax.swing.JRadioButton();
+        myRadio = new javax.swing.JRadioButton();
 
-        jRadioButton1.setText("RecipeName");
+        myRadio.setText(recipeName);
+        myRadio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                myRadioActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jRadioButton1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(myRadio)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jRadioButton1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(myRadio)
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void myRadioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_myRadioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_myRadioActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JRadioButton jRadioButton1;
+    public javax.swing.JRadioButton myRadio;
     // End of variables declaration//GEN-END:variables
 }
