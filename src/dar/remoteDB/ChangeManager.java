@@ -36,7 +36,7 @@ public class ChangeManager {
         this.date = new TimeWrapper();
         this.ServerCon = new DBFunctions(server.con);
         this.LocalCon = new DBFunctions(db.con);
-        this.lastUpdate = new HashMap<>();
+        this.lastUpdate = new HashMap<>();        
         getListOfChanges();
     }
     
@@ -58,7 +58,7 @@ public class ChangeManager {
     }
     
     public int getAmountOfChanges(int type){
-        int counter = 0;
+        int counter = 0;         
         removeDuplicities(type);        
         for (int i = changeList.size()-1;i>-1;i--) {            
             counter += (changeList.get(i).getType()==type)?1:0;
@@ -100,11 +100,12 @@ public class ChangeManager {
         }        
     }
 
-    public void runSync(int type, JLabel label) {          
-        DBFunctions destination = getConType(type);
+    public void runSync(int type, JLabel label) {   
+        DBFunctions destination = getConType(type);     
         String userColumn = getUserColumn(type);
-        String operation = type==0?"Downloading":"Uploading";                       
-        int s = getAmountOfChanges(type);
+        String operation = type==0?"Downloading":"Uploading";       
+        int s = getAmountOfChanges(type);         
+        System.out.println("start "+ operation + " with "+s+" changes");
         if(s>0){ //check if there is anything to download / upload
             updateUserInfo(userColumn); 
             int updateLog = createNewUpdate(type,changeList.get(changeList.size()-1).getTimeChanged());
@@ -129,7 +130,8 @@ public class ChangeManager {
             }
             updateFinished(updateLog);
         }          
-        label.setText("All changes up to date");           
+        label.setText("All changes up to date"); 
+        System.out.println(operation+" finished");
     }
 
     private void insertOperation(DBFunctions destination, ChangeLogView clw) {
@@ -207,16 +209,35 @@ public class ChangeManager {
     }    
 
     private void removeDuplicities(int type) {
-        DBFunctions destination = getConType(type);
+        DBFunctions destination = getConType(type);   
+        String q = String.format("SELECT UID FROM ChangeLog WHERE Time>='%s'", lastUpdate.get(updateID[type]));
+        ArrayList<String> UIDs = new ArrayList<String>();
+        ResultSet rs = destination.runQuery(q);
+        try {
+            while(rs.next()){
+                UIDs.add(rs.getString("UID"));
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            new FileLogger(ex.toString());
+        }
         for (int i = changeList.size()-1; i > -1; i--) {
             if(changeList.get(i).getType()==type){
-                if(destination.getRowCount(destination.runQuery(String.format("SELECT * FROM ChangeLog WHERE UID = '%s'",changeList.get(i).getUid())))>0){
-//                    System.out.println("removing "+ changeList.get(i).getUid());
-//                    System.out.println(i);
-                    changeList.remove(i);
+                if(UIDs.size()>0){
+                    for (String UID : UIDs) {                        
+                        String checkedID = changeList.get(i).getUid();
+                        if(UID.equals(checkedID)){                            
+                            changeList.remove(i);   
+                            break;
+                        }
+                    }
                 }
-            }
-        }
+//                if(destination.getRowCount(destination.runQuery(String.format("SELECT UID FROM ChangeLog WHERE UID = '%s'",changeList.get(i).getUid())))>0){
+//                    System.out.println("removing "+ changeList.get(i).getUid());
+//                    changeList.remove(i);
+//                }
+            } 
+        }      
     }
 
     private DBFunctions getConType(int type) {

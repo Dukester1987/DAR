@@ -21,7 +21,6 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JProgressBar;
 import javax.swing.JTable;
-import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
@@ -209,12 +208,14 @@ public class PlantViewDataHandler {
                     EndHours = EndHours==0?StartHours:EndHours;
                     System.out.println("INSERTING INTO PLANTALLOCATION");
                     Object[][] query = {{"PlantAllocationID","StartHours","EndHours","DateFor","Fuel","Notes"},{PlantAllocationID,StartHours,EndHours,date,Fuel,Notes}};
-                    con.dbInsert("PlantUtilization", query);
+                    int plantUtil = con.dbInsert("PlantUtilization", query);
+                    model.setValueAt(plantUtil, k, 0);
+                    model.setValueAt(EndHours, k, 5);
                     //displayPlantViewInTable(table, date); // refresh table
                 } else {
                     // update operation
                     System.out.println("UPDATING INTO PLANTALLOCATION");
-                    Object[][] query = {{"StartHours","EndHours","Fuel","Notes"},{StartHours,EndHours,Fuel,Notes}};
+                    Object[][] query = {{"StartHours","EndHours","Fuel","Notes"},{StartHours,EndHours,Fuel,Notes==null?"":Notes}};
                     Object[][] where = {{"ID"},{"="},{PlantUtilizationID},{}};
                     if(con.getRowCount(con.dbSelect("PlantUtilization", new Object[][] {
                         {"StartHours","EndHours","Fuel","Notes","ID"},
@@ -233,18 +234,29 @@ public class PlantViewDataHandler {
     }
     
     public void addPlant(Date date) {
-        if(date.toString().equals(ti.today().toString())){
+//        if(date.toString().equals(ti.today().toString())){
             DefaultTableModel model = (DefaultTableModel) table.getModel();
             String message = JOptionPane.showInputDialog(null, "Insert plant Number");
             if(message!=null){
-
-                Object[][] Query = new Object[][]{{"SiteID", "PlantID", "StartDate", "EndDate"},
-                                                  {"=","=","<=",">=","IS"},
-                                                  {con.userData.getSiteID(),message,date,date},
-                                                  {"AND","AND","AND","OR"}};
+                String Query = String.format("SELECT ID FROM `PlantAllocation` WHERE `PlantID` = '%s' AND `SiteID` = %s AND ((`StartDate` BETWEEN '%s' AND '%s' OR `EndDate` BETWEEN '%s' AND '%s') OR (`StartDate`<= '%s' AND `EndDate`>= '%s')) AND `StartDate`<=`EndDate`",message,con.userData.getSiteID(),date,ti.nextDate(),date,ti.nextDate(),date,ti.nextDate());
                 if(isPlantDescription(message)){
-                    if(con.hasDuplicity(con.dbSelect("PlantAllocation", Query))){
-                        JOptionPane.showMessageDialog(null, "Plant is already in the list","Error",JOptionPane.ERROR_MESSAGE);
+                    ResultSet rs = con.runQuery(Query);
+                    if(con.getRowCount(rs)>0){
+                        if(date.before(ti.today()) && !date.toString().equals(ti.today().toString())){
+                            int answer = JOptionPane.showConfirmDialog(null, "Plant is already in the list,\ndo you wanna extend it's starting date to selected one?");
+                            if(answer==0){
+                                try {
+                                    rs.next();
+                                    con.dbUpdate("PlantAllocation", new Object[][]{{"StartDate"},{date}}, new Object[][]{{"ID"},{"="},{rs.getInt("ID")},{}});
+                                    displayPlantViewInTable(table,date);
+                                } catch (SQLException ex) {
+                                    ex.printStackTrace();
+                                    new FileLogger(ex.toString());
+                                }                                
+                            }
+                        } else {
+                            JOptionPane.showMessageDialog(null, "Plant is already in the list","Error",JOptionPane.ERROR_MESSAGE);
+                        }
                     } else {
                         Object[][] dataset = new Object[][]{{"PlantID","SiteID","StartDate","EndDate"},{message,con.userData.getSiteID(),date,ti.nextDate()}};
                         con.dbInsert("PlantAllocation",dataset);
@@ -254,10 +266,24 @@ public class PlantViewDataHandler {
                     JOptionPane.showMessageDialog(null, "Selected Plant No doesn't exists in the database","Error",JOptionPane.ERROR_MESSAGE);
                 }
             }
-        } else {
-            JOptionPane.showMessageDialog(null, "To add plant for previous days please contact your administrator!");
-        } 
+//        } else {
+//            JOptionPane.showMessageDialog(null, "To add plant for previous days please contact your administrator!");
+//        } 
     }    
+
+    public void deleteSelectedRows(Date date, JTable PlantUtil) {    
+        if(PlantUtil.getSelectedRowCount()>0){
+            for (int rows : PlantUtil.getSelectedRows()) {
+                int rowNo = PlantUtil.convertRowIndexToModel(rows);
+                DefaultTableModel model = (DefaultTableModel) PlantUtil.getModel();
+                int allocationID = (int) model.getValueAt(rowNo, 1);
+                con.dbUpdate("PlantAllocation", new Object[][]{{"EndDate"},{ti.previousDay(date)}}, new Object[][]{{"ID"},{"="},{allocationID},{}});
+                displayPlantViewInTable(table, date);
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "No rows selected", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
     
     public static class rowColorer extends DefaultTableCellRenderer {
         public rowColorer(){

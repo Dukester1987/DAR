@@ -5,6 +5,7 @@
  */
 package dar.Gui;
 
+import dar.Functions.FileLogger;
 import dar.Gui.Production.AddProduct;
 import dar.Functions.JControlers;
 import dar.Functions.TimeWrapper;
@@ -58,7 +59,7 @@ public class Gui extends javax.swing.JFrame {
     public ProdSettings settingsWindow;
     public AddProduct productWindow;
     private final ProductViewHandler ph;
-    private final Thread t;
+    private Thread t;
 
     public Gui(LocalWraper db) {    
         this.ti = new TimeWrapper();
@@ -117,6 +118,8 @@ public class Gui extends javax.swing.JFrame {
         RemoveSelection1 = new javax.swing.JMenuItem();
         LaborChangeMenu = new javax.swing.JPopupMenu();
         editLabour = new javax.swing.JMenuItem();
+        PlantPopUp = new javax.swing.JPopupMenu();
+        pRemoveSelected = new javax.swing.JMenuItem();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jLayeredPane1 = new javax.swing.JLayeredPane();
         addp = new javax.swing.JButton();
@@ -255,8 +258,22 @@ public class Gui extends javax.swing.JFrame {
         });
         LaborChangeMenu.add(editLabour);
 
+        pRemoveSelected.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/No-entry16.png"))); // NOI18N
+        pRemoveSelected.setText("Remove Selected");
+        pRemoveSelected.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pRemoveSelectedActionPerformed(evt);
+            }
+        });
+        PlantPopUp.add(pRemoveSelected);
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         jTabbedPane1.setTabLayoutPolicy(javax.swing.JTabbedPane.SCROLL_TAB_LAYOUT);
         jTabbedPane1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -313,6 +330,9 @@ public class Gui extends javax.swing.JFrame {
         PlantUtil.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 PlantUtilMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                PlantUtilMouseReleased(evt);
             }
         });
         PlantUtil.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
@@ -1140,7 +1160,7 @@ public class Gui extends javax.swing.JFrame {
     }//GEN-LAST:event_addpActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-        System.exit(0);
+        quitApp();
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void datePickerPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_datePickerPropertyChange
@@ -1355,6 +1375,21 @@ public class Gui extends javax.swing.JFrame {
        }
     }//GEN-LAST:event_editLabourActionPerformed
 
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        quitApp();
+    }//GEN-LAST:event_formWindowClosing
+
+    private void PlantUtilMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PlantUtilMouseReleased
+        if(evt.isPopupTrigger()){
+            PlantPopUp.show(PlantUtil, evt.getX(), evt.getY());
+        }
+    }//GEN-LAST:event_PlantUtilMouseReleased
+
+    private void pRemoveSelectedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pRemoveSelectedActionPerformed
+        int option = JOptionPane.showConfirmDialog(null, "Selected plants will be removed for selected date.\nAll data inputed for next days will be lost\nProceed?","Info",JOptionPane.INFORMATION_MESSAGE);
+        if(option==0)pw.deleteSelectedRows(date,PlantUtil);
+    }//GEN-LAST:event_pRemoveSelectedActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu About;
     private javax.swing.JButton AddAFuel;
@@ -1365,6 +1400,7 @@ public class Gui extends javax.swing.JFrame {
     public javax.swing.JTable LaborUtil;
     private javax.swing.JTextArea MyComents;
     private javax.swing.JTextField MyFilter;
+    private javax.swing.JPopupMenu PlantPopUp;
     public javax.swing.JTable PlantUtil;
     private javax.swing.JPopupMenu ProdPopup;
     public javax.swing.JTable ProdUtilization;
@@ -1437,6 +1473,7 @@ public class Gui extends javax.swing.JFrame {
     private javax.swing.JLabel label;
     private javax.swing.JList<String> laborList;
     private javax.swing.JList<String> laborOnSiteList;
+    private javax.swing.JMenuItem pRemoveSelected;
     private javax.swing.JLabel title;
     private javax.swing.JLabel utilPerc;
     private javax.swing.JProgressBar utilProgressBar;
@@ -1572,8 +1609,34 @@ public class Gui extends javax.swing.JFrame {
                     //refreshLists();
                 }
             }
-        });        
+        });  
         
+        Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
+            public void run() {
+                System.out.println("closing app");
+                try {
+                    this.finalize();
+                } catch (Throwable ex) {
+                    ex.printStackTrace();
+                    new FileLogger(ex.toString());
+                }
+            }
+        }));        
+        
+    }
+
+    private void quitApp() {
+        t.interrupt();
+        if(!t.isInterrupted()){           
+            JOptionPane.showMessageDialog(null,"Program will close automaticaly once synchronization process is done!","Sync in progress",JOptionPane.INFORMATION_MESSAGE);
+        }
+        long startTime = System.currentTimeMillis();
+        while(t.isAlive()){ 
+//            if(startTime+(1000*20)>=System.currentTimeMillis()){
+//                System.exit(0);
+//            }
+        }
+        System.exit(0);        
     }
         
     

@@ -354,14 +354,14 @@ public class LocalWraper {
             if(question[i].equals("ID")){
                 updatedID = (int) answer[i];
             }            
-        }
+        }        
         String query = String.format("UPDATE %s SET %s WHERE %s", table, whatToUpdate, conditions);
         //System.out.println(query);
         executeQuery(query, "updated", false);
         if(updatedID != 0){
             changeLog(table, updatedID, "update", query, userData.getId());
         }
-            
+        new dataCleaner(this);
     }
 
     private void changeLog(String tbl, int ID, String insert, String inputs, int loginId) {

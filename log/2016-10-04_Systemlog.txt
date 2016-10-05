@@ -1,0 +1,60 @@
+Tue Oct 04 13:26:29 AEDT 2016
+org.h2.jdbc.JdbcSQLException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-176]
+Tue Oct 04 13:26:29 AEDT 2016
+org.h2.jdbc.JdbcSQLException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-176]
+Tue Oct 04 13:26:34 AEDT 2016
+org.h2.jdbc.JdbcSQLException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-176]
+Tue Oct 04 13:32:51 AEDT 2016
+org.h2.jdbc.JdbcSQLException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-176]
+Tue Oct 04 13:32:51 AEDT 2016
+org.h2.jdbc.JdbcSQLException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-176]
+Tue Oct 04 13:32:53 AEDT 2016
+org.h2.jdbc.JdbcSQLException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-176]
+Tue Oct 04 13:46:23 AEDT 2016
+org.h2.jdbc.JdbcSQLException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-176]
+Tue Oct 04 13:46:23 AEDT 2016
+org.h2.jdbc.JdbcSQLException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-176]
+Tue Oct 04 13:46:25 AEDT 2016
+org.h2.jdbc.JdbcSQLException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-176]
+Tue Oct 04 13:47:02 AEDT 2016
+org.h2.jdbc.JdbcSQLException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-176]
+Tue Oct 04 13:47:02 AEDT 2016
+org.h2.jdbc.JdbcSQLException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-176]
+Tue Oct 04 13:47:03 AEDT 2016
+org.h2.jdbc.JdbcSQLException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-176]
+Tue Oct 04 13:48:48 AEDT 2016
+org.h2.jdbc.JdbcSQLException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-176]
+Tue Oct 04 13:48:48 AEDT 2016
+org.h2.jdbc.JdbcSQLException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-176]
+Tue Oct 04 13:48:58 AEDT 2016
+org.h2.jdbc.JdbcSQLException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-176]
+Tue Oct 04 14:46:01 AEDT 2016
+java.lang.InterruptedException: sleep interrupted
+Tue Oct 04 14:47:06 AEDT 2016
+java.lang.InterruptedException: sleep interrupted
+Tue Oct 04 14:47:16 AEDT 2016
+java.lang.InterruptedException: sleep interrupted
+Tue Oct 04 14:48:00 AEDT 2016
+java.lang.InterruptedException: sleep interrupted
+Tue Oct 04 14:52:24 AEDT 2016
+java.lang.InterruptedException: sleep interrupted
+Tue Oct 04 14:53:31 AEDT 2016
+java.lang.InterruptedException: sleep interrupted
+Tue Oct 04 15:28:21 AEDT 2016
+java.lang.InterruptedException: sleep interrupted
+Tue Oct 04 15:28:59 AEDT 2016
+java.lang.InterruptedException: sleep interrupted
+Tue Oct 04 15:29:15 AEDT 2016
+java.lang.InterruptedException: sleep interrupted
+Tue Oct 04 15:29:46 AEDT 2016
+java.lang.InterruptedException: sleep interrupted
+Tue Oct 04 15:30:13 AEDT 2016
+java.lang.InterruptedException: sleep interrupted
+Tue Oct 04 15:30:38 AEDT 2016
+java.lang.InterruptedException: sleep interrupted
+Tue Oct 04 15:30:55 AEDT 2016
+java.lang.InterruptedException: sleep interrupted
+Tue Oct 04 15:52:35 AEDT 2016
+java.lang.InterruptedException: sleep interrupted
+Tue Oct 04 15:53:08 AEDT 2016
+java.lang.InterruptedException: sleep interrupted

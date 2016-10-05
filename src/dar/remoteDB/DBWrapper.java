@@ -14,8 +14,6 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.sql.*;
 import java.util.Properties;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTable;
@@ -84,10 +82,12 @@ public class DBWrapper implements Runnable{
     private boolean putSleep(long i) {
         try {
             Thread.sleep(i);
+            System.out.println("sleeping for "+i);
             return true;
         } catch (InterruptedException ex) {
-            ex.printStackTrace();
-            new FileLogger(ex.toString());
+            //ex.printStackTrace();
+            //new FileLogger(ex.toString()); 
+            System.out.println("im unterupted now");
             return false;
         }
     }
@@ -101,7 +101,8 @@ public class DBWrapper implements Runnable{
         } else {
                 label.setText("Connection failed for "+Counter+" times.\n next atempt in 60 seconds");
                 keepAlive = putSleep(FAIL_TOTALRECONNECT);
-                label.setText("Trying to Recconect");                   
+                //keepAlive = false;
+                label.setText("Trying to Recconect");                  
         }
         Counter++;        
     }
@@ -109,16 +110,20 @@ public class DBWrapper implements Runnable{
     private void checkConnection(JLabel label) {
         label.setForeground(Color.BLACK);
         label.setText("Connection to the remote database established");
-        startSync();
+        System.out.println("start sync");
+        startSync();        
+        //keepAlive = false;
         keepAlive = putSleep(CHECKCONNECTION);
         label.setText("Checking connection");        
     }
 
     private void startSync() {
-        mgr = new ChangeManager(db, this);
+        label.setText("getting list of changes");
+        mgr = new ChangeManager(db, this);       
         mgr.runSync(0,label); //see what do we need to download
         mgr.runSync(1,label);
         g.refreshLists();            
+        System.out.println("refreshing lists");
 //        if(mgr.getTotalChanges()>0){
 //            label.setText(String.format("There are changes to exchange!"));            
 //            g.saveButton.setEnabled(true);
