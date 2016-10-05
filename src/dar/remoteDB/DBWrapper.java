@@ -81,13 +81,13 @@ public class DBWrapper implements Runnable{
 
     private boolean putSleep(long i) {
         try {
-            Thread.sleep(i);
-            System.out.println("sleeping for "+i);
+            System.out.println("Being inactive for "+i+"s");
+            Thread.sleep(1000*i);            
             return true;
         } catch (InterruptedException ex) {
             //ex.printStackTrace();
             //new FileLogger(ex.toString()); 
-            System.out.println("im unterupted now");
+            System.out.println("interupted from sleep");
             return false;
         }
     }

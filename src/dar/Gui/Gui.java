@@ -189,9 +189,7 @@ public class Gui extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
-        jMenuItem5 = new javax.swing.JMenuItem();
-        jMenuItem7 = new javax.swing.JMenuItem();
-        jMenuItem6 = new javax.swing.JMenuItem();
+        jMenuItem8 = new javax.swing.JMenuItem();
         About = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
 
@@ -1089,16 +1087,15 @@ public class Gui extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu1);
 
-        jMenu2.setText("Edit");
+        jMenu2.setText("System");
 
-        jMenuItem5.setText("Copy");
-        jMenu2.add(jMenuItem5);
-
-        jMenuItem7.setText("Cut");
-        jMenu2.add(jMenuItem7);
-
-        jMenuItem6.setText("Paste");
-        jMenu2.add(jMenuItem6);
+        jMenuItem8.setText("Application log");
+        jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem8ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem8);
 
         jMenuBar1.add(jMenu2);
 
@@ -1390,6 +1387,10 @@ public class Gui extends javax.swing.JFrame {
         if(option==0)pw.deleteSelectedRows(date,PlantUtil);
     }//GEN-LAST:event_pRemoveSelectedActionPerformed
 
+    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem8ActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu About;
     private javax.swing.JButton AddAFuel;
@@ -1453,9 +1454,7 @@ public class Gui extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
-    private javax.swing.JMenuItem jMenuItem7;
+    private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
@@ -1632,9 +1631,9 @@ public class Gui extends javax.swing.JFrame {
         }
         long startTime = System.currentTimeMillis();
         while(t.isAlive()){ 
-//            if(startTime+(1000*20)>=System.currentTimeMillis()){
-//                System.exit(0);
-//            }
+            if(startTime+(1000*30)<=System.currentTimeMillis()){
+                System.exit(0);
+            }
         }
         System.exit(0);        
     }

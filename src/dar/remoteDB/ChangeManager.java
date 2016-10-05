@@ -111,6 +111,9 @@ public class ChangeManager {
             int updateLog = createNewUpdate(type,changeList.get(changeList.size()-1).getTimeChanged());
             System.out.println("creating new update record for type: "+operation);
             int counter = 0;
+            if(type == 1){
+                destination.executeQuery("START TRANSACTION;");
+            }
             for (ChangeLogView clw : changeList) {
                 if(clw.getType()==type){
                     counter++;
@@ -128,6 +131,9 @@ public class ChangeManager {
                 } 
                 label.setText(String.format("%s changes: %s / %s", operation,counter,s));
             }
+            if(type == 1){
+                destination.executeQuery("COMMIT;");
+            }            
             updateFinished(updateLog);
         }          
         label.setText("All changes up to date"); 
