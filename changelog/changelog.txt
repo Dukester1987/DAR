@@ -1,0 +1,7 @@
+New in version 1.1.36
+
+-possibility to add plant's for a previous days
+-possibility to dealocate plants from a site
+-minor bug fixes
+  -utilising labors doesn't make duplicities anymore
+  -check your hours message bug fixed

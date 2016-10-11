@@ -1,0 +1,6 @@
+Tue Oct 11 13:47:05 AEDT 2016
+java.io.IOException: Cannot run program "DAR_Updater.jar": CreateProcess error=2, The system cannot find the file specified
+Tue Oct 11 13:47:29 AEDT 2016
+java.io.IOException: Cannot run program "-java": CreateProcess error=2, The system cannot find the file specified
+Tue Oct 11 13:48:37 AEDT 2016
+java.io.IOException: Cannot run program "DAR_Updater.jar": CreateProcess error=193, %1 is not a valid Win32 application
