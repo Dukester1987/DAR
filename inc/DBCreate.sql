@@ -30,6 +30,22 @@ CREATE TABLE IF NOT EXISTS `AFAllocation` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `Sales`
+--
+
+CREATE TABLE IF NOT EXISTS `Sales` (
+  `ID` int(11) NOT NULL,
+  `SiteID` int(11) NOT NULL,
+  `ProductID` int(11) NOT NULL,
+  `Direction` varchar(10) NOT NULL,
+  `Amount` decimal(10,2) NOT NULL,
+  `PriceIncGST` decimal(10,3) NOT NULL,
+  `PriceExGST` decimal(10,3) NOT NULL,
+  `DateFor` date NOT NULL
+);
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `AFFuel`
 --
 
@@ -323,9 +339,12 @@ CREATE TABLE IF NOT EXISTS `RecipeRel` (
 
 CREATE TABLE IF NOT EXISTS `SiteList` (
   `ID` int(11) NOT NULL,
-  `SiteName` varchar(40)  NOT NULL,
-  `SiteDesc` varchar(80)  NOT NULL
-)   ;
+  `SiteName` varchar(40) NOT NULL,
+  `SiteDesc` varchar(80) NOT NULL,
+  `AWS_ConnectionString` varchar(200)  DEFAULT NULL,
+  `AWS_Login` varchar(80)  DEFAULT NULL,
+  `AWS_Password` varchar(80)  DEFAULT NULL
+);
 
 --
 -- Dumping data for table `SiteList`
@@ -384,6 +403,12 @@ CREATE TABLE IF NOT EXISTS `UpdateLog` (
 --
 ALTER TABLE `AFAllocation`
   ADD PRIMARY KEY (`ID`,`SiteID`);
+  
+--
+-- Indexes for table `Sales`
+--
+ALTER TABLE `Sales`
+  ADD PRIMARY KEY (`ID`);  
 
 --
 -- Indexes for table `AFFuel`
@@ -520,6 +545,13 @@ ALTER TABLE `UpdateLog`
 --
 ALTER TABLE `AFAllocation`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  
+--
+-- AUTO_INCREMENT for table `Sales`
+--
+ALTER TABLE `Sales`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+    
 --
 -- AUTO_INCREMENT for table `AFFuel`
 --
@@ -993,6 +1025,6 @@ INSERT INTO `Products` (`ID`, `ProductName`, `ProductVal`, `Type`, `EPA`, `Group
 (298, 'White Clay', '0', 3, 0, 6, 't'),
 (299, 'Blue Clay', '0', 3, 0, 6, 't');
 
-INSERT INTO `SiteList` (`ID`, `SiteName`, `SiteDesc`) VALUES
-(1, 'Menangle', 'Quarry'),
-(2, 'Wallacia', 'Quarry');
+INSERT INTO `SiteList` (`ID`, `SiteName`, `SiteDesc`, `AWS_ConnectionString`, `AWS_Login`, `AWS_Password`) VALUES
+(1, 'Menangle', 'Quarry', 'jdbc:interbase://192.168.16.50/c:/Program Files/Aussie weighbridge systems/Waste Management/WASTEACCOUNT.GDB', 'SYSDBA', 'smea9160TON'),
+(2, 'Wallacia', 'Quarry', 'jdbc:interbase://192.168.13.50/c:/Program Files/Aussie weighbridge systems/Waste Management/WASTEACCOUNT.GDB', 'SYSDBA', 'smea9160TON');

@@ -69,7 +69,7 @@ public class LabourEdit extends javax.swing.JFrame {
 
         lFunc.setModel(new DefaultComboBoxModel());
 
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/Modify.png"))); // NOI18N
+        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/edit16.png"))); // NOI18N
         jButton4.setText("Edit Labour");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -89,9 +89,8 @@ public class LabourEdit extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, 157, Short.MAX_VALUE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(lFunc, javax.swing.GroupLayout.Alignment.LEADING, 0, 157, Short.MAX_VALUE)
-                        .addComponent(lName, javax.swing.GroupLayout.Alignment.LEADING)))
+                    .addComponent(lFunc, 0, 157, Short.MAX_VALUE)
+                    .addComponent(lName))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(

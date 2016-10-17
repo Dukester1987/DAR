@@ -103,6 +103,7 @@ public class LocalWraper {
         } catch (SQLException ex) {
             if(ex.getErrorCode() == 90020){
                 JOptionPane.showMessageDialog(null,"Application is already in use!\nPlease restart application and try it again.", "Already in use",JOptionPane.ERROR_MESSAGE);
+                System.exit(0);
             } else {
                 ex.printStackTrace();
                 new FileLogger(ex.toString());
@@ -403,7 +404,7 @@ public class LocalWraper {
         String query = String.format("DELETE FROM %s WHERE %s", recipeRel,conditions);
         executeQuery(query, "Deleted", false);
         changeLog(recipeRel, updatedID, "delete", query, userData.getId());                
-        //System.out.println(query);
+        System.out.println(query);
     }
 
     private void installDB(Boolean j) {
