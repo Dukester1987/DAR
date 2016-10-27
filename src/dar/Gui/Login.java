@@ -5,9 +5,11 @@
  */
 package dar.Gui;
 
+import dar.Functions.FileLogger;
 import dar.localDB.LocalWraper;
 import java.awt.Color;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -155,11 +157,15 @@ public class Login extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private void displayGui(LocalWraper db) {
-        Gui gui = new Gui(db);
-        gui.setTitle("DAR v1.1 - Hi Quality Group");
-        gui.setResizable(true);
-//        gui.setSize(1080,720);
-        gui.setLocationRelativeTo(null);
-        gui.setVisible(true);   
+        try {
+            Gui gui = new Gui(db);
+            gui.setResizable(true);
+    //        gui.setSize(1080,720);
+            gui.setLocationRelativeTo(null);
+            gui.setVisible(true);              
+        } catch (Exception e) {     
+            new FileLogger(e.getStackTrace());
+        }
+ 
     }
 }

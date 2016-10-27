@@ -1,0 +1,4 @@
+New in version 1.2.2
+
+- Updated functionality of tables from Append to Override mode
+  (when you will start writing now in selected cell it will start to override original value like in excel)

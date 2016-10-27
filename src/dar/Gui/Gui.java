@@ -5,13 +5,15 @@
  */
 package dar.Gui;
 
-import dar.Functions.FileLogger;
 import dar.Gui.Production.AddProduct;
 import dar.Functions.JControlers;
+import dar.Functions.RXTable;
 import dar.Functions.TimeWrapper;
+import dar.Functions.tableRenderers.NumberTableCellRenderer;
 import dar.Gui.About.About_popup;
 import dar.Gui.Labour.LabourEdit;
 import dar.Gui.Production.ProdSettings;
+import dar.Gui.Stock.StockGui;
 import dar.dbObjects.LaborList;
 import dar.dbObjects.LaborView;
 import dar.localDB.AFViewDataHandler;
@@ -61,6 +63,8 @@ public class Gui extends javax.swing.JFrame {
     public AddProduct productWindow;
     private final ProductViewHandler ph;
     private Thread t;
+    private JControlers controller;
+    private StockGui stockGui;
 
     public Gui(LocalWraper db) {    
         this.ti = new TimeWrapper();
@@ -128,9 +132,9 @@ public class Gui extends javax.swing.JFrame {
         addp = new javax.swing.JButton();
         utilPerc = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        PlantUtil = new javax.swing.JTable();
+        PlantUtil = new RXTable();
         jScrollPane2 = new javax.swing.JScrollPane();
-        AditionalFuel = new javax.swing.JTable();
+        AditionalFuel = new RXTable();
         jLabel1 = new javax.swing.JLabel();
         RemoveAFuel = new javax.swing.JButton();
         AddAFuel = new javax.swing.JButton();
@@ -145,7 +149,7 @@ public class Gui extends javax.swing.JFrame {
         fAmount = new javax.swing.JTextField();
         jLayeredPane2 = new javax.swing.JLayeredPane();
         jScrollPane4 = new javax.swing.JScrollPane();
-        LaborUtil = new javax.swing.JTable();
+        LaborUtil = new RXTable();
         jTabbedPane2 = new javax.swing.JTabbedPane();
         jLayeredPane3 = new javax.swing.JLayeredPane();
         jScrollPane3 = new javax.swing.JScrollPane();
@@ -168,9 +172,9 @@ public class Gui extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jLayeredPane5 = new javax.swing.JLayeredPane();
         jScrollPane7 = new javax.swing.JScrollPane();
-        UsedInProduction = new javax.swing.JTable();
+        UsedInProduction = new RXTable();
         jScrollPane8 = new javax.swing.JScrollPane();
-        ProdUtilization = new javax.swing.JTable();
+        ProdUtilization = new RXTable();
         jLabel3 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jButton9 = new javax.swing.JButton();
@@ -188,6 +192,7 @@ public class Gui extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuItem5 = new javax.swing.JMenuItem();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
@@ -268,6 +273,7 @@ public class Gui extends javax.swing.JFrame {
         PlantPopUp.add(pRemoveSelected);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("DAR v1.2.2 - Hi Quality Group");
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
@@ -412,7 +418,6 @@ public class Gui extends javax.swing.JFrame {
 
         ReportBreakdown.setForeground(new java.awt.Color(255, 51, 51));
         ReportBreakdown.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/breakdown16.png"))); // NOI18N
-        ReportBreakdown.setMnemonic('A');
         ReportBreakdown.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ReportBreakdownActionPerformed(evt);
@@ -526,7 +531,7 @@ public class Gui extends javax.swing.JFrame {
                 .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(38, Short.MAX_VALUE))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
 
         Sales.addTab("Plant Utilisation", jLayeredPane1);
@@ -1067,6 +1072,16 @@ public class Gui extends javax.swing.JFrame {
             }
         });
         jMenu1.add(jMenuItem3);
+
+        jMenuItem5.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/Shopping cart.png"))); // NOI18N
+        jMenuItem5.setText("Stock");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem5);
         jMenu1.add(jSeparator1);
 
         jMenuItem4.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.CTRL_MASK));
@@ -1121,7 +1136,7 @@ public class Gui extends javax.swing.JFrame {
                         .addComponent(datePicker, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(label, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(141, 141, 141))
+                        .addGap(164, 164, 164))
                     .addComponent(Sales))
                 .addContainerGap())
         );
@@ -1377,6 +1392,16 @@ public class Gui extends javax.swing.JFrame {
         pw.addPlant(date);
     }//GEN-LAST:event_addpActionPerformed
 
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+        if(!stockGui.isOpen){
+            stockGui = new StockGui(db);
+            stockGui.setLocationRelativeTo(null);
+            stockGui.setVisible(true);
+        } else {
+            stockGui.toFront();
+        }
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu About;
     private javax.swing.JButton AddAFuel;
@@ -1441,6 +1466,7 @@ public class Gui extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
@@ -1564,8 +1590,10 @@ public class Gui extends javax.swing.JFrame {
             
     }
 
-    private void editComponents() {
+    private void editComponents() {        
         Gui g = this;
+        
+        setRenderers();
         //productUtilization
         ProdUtilization.getModel().addTableModelListener( new TableModelListener() {
             @Override
@@ -1598,32 +1626,38 @@ public class Gui extends javax.swing.JFrame {
             }
         });  
         
-        Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
-            public void run() {
-                System.out.println("closing app");
-                try {
-                    this.finalize();
-                } catch (Throwable ex) {
-                    ex.printStackTrace();
-                    new FileLogger(ex.toString());
-                }
-            }
-        }));        
+//        Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
+//            public void run() {
+//                System.out.println("closing app");
+//                try {
+//                    this.finalize();
+//                } catch (Throwable ex) {
+//                    ex.printStackTrace();
+//                    new FileLogger(ex.toString());
+//                }
+//            }
+//        }));        
         
     }
 
     private void quitApp() {
         t.interrupt();
-        if(!t.isInterrupted()){           
-            JOptionPane.showMessageDialog(null,"Program will close automaticaly once synchronization process is done!","Sync in progress",JOptionPane.INFORMATION_MESSAGE);
+        if(db1.isConnected()){
+            db1.syncBeforeClose();
         }
-        long startTime = System.currentTimeMillis();
+        long startTime = System.currentTimeMillis()+(1000*30);
         while(t.isAlive()){ 
-            if(startTime+(1000*30)<=System.currentTimeMillis()){
-                System.exit(0);
-            }
+            if(startTime<=System.currentTimeMillis()){
+                System.out.println("closing");                
+                System.exit(0);               
+            }         
         }
-        System.exit(0);        
+        //System.exit(0);        
+    }
+
+    private void setRenderers() {
+        controller = new JControlers();
+        controller.setTableCellRenderer(ProdUtilization, 3, new NumberTableCellRenderer());
     }
         
     

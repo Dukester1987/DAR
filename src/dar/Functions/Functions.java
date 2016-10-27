@@ -5,6 +5,9 @@
  */
 package dar.Functions;
 
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.text.CharacterIterator;
 import java.text.StringCharacterIterator;
 
@@ -13,7 +16,28 @@ import java.text.StringCharacterIterator;
  * @author ldulka
  */
 public class Functions {
+    private String string;
     
+    public String md5(String param){
+        string = param;
+        MessageDigest m = null;
+        try {
+            m = MessageDigest.getInstance("MD5");
+        } catch (NoSuchAlgorithmException ex) {
+            ex.printStackTrace();
+            new FileLogger(ex.toString());
+        }
+        //m.reset();
+        m.update(string.getBytes());
+        byte[] digest = m.digest();
+        BigInteger bigInt = new BigInteger(1,digest);
+        String hashtext = bigInt.toString(16);
+        // Now we need to zero pad it if you actually want the full 32 chars.
+        while(hashtext.length() < 32 ){
+          hashtext = "0"+hashtext;
+        }
+        return hashtext;
+    }    
     
    public static String forHTML(String aText){
      final StringBuilder result = new StringBuilder();
@@ -31,7 +55,7 @@ public class Functions {
                  result.append("&");
                  break;
              case '\"':
-                 result.append("\'\"");
+                 result.append("\"");
                  break;
              case '\t':
                  result.append("");

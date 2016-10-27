@@ -128,7 +128,7 @@ public class newSale extends javax.swing.JFrame {
 
         direction.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "IN", "OUT" }));
 
-        jLabel3.setText("Amount:");
+        jLabel3.setText("Tonnage");
 
         jLabel4.setText("t");
 

@@ -6,7 +6,9 @@
 package dar.localDB;
 
 import dar.Functions.FileLogger;
+import dar.Functions.JControlers;
 import dar.Functions.TimeWrapper;
+import dar.Functions.tableRenderers.NumberTableCellRenderer;
 import dar.Gui.Gui;
 import dar.Gui.Production.AddProduct;
 import dar.Gui.Production.SubProducts;
@@ -48,6 +50,7 @@ public class ProductViewHandler{
     private ArrayList<RecipeIngredients> recipeIng;
     private ArrayList<ProductUtilizationView> prodUtilView;
     private ArrayList<recipeDetail> rcpList;
+    private JControlers controller;
     
     public ProductViewHandler(LocalWraper con, User user,Date date) {
         this.con = con;
@@ -61,11 +64,10 @@ public class ProductViewHandler{
     }
     
     public void hideID(JTable table) { 
-        DefaultTableCellRenderer rightRenderer = new DefaultTableCellRenderer();
-        rightRenderer.setHorizontalAlignment(SwingConstants.CENTER);
-        table.getColumnModel().getColumn(3).setCellRenderer(rightRenderer);
-        table.removeColumn(table.getColumn("UtilizationID"));
-        table.removeColumn(table.getColumn("AllocationID"));        
+        controller = new JControlers();
+        controller.setTableCellRenderer(table, 3, new NumberTableCellRenderer());        
+        controller.hideColumn(table, "UtilizationID");
+        controller.hideColumn(table, "AllocationID");     
     }
     
     public ArrayList<RecipeList> createRecipeList(){

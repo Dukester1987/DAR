@@ -21,6 +21,14 @@ public class FileLogger {
     public FileLogger(String error) {
         logInFile(error);
     }
+    
+    public FileLogger(StackTraceElement[] traces){
+        String error = "";
+        for (StackTraceElement trace : traces) {
+            error += trace.toString()+"\n";
+        }
+        logInFile(error);
+    }
 
     private String createFileName() {
         SimpleDateFormat dt = new SimpleDateFormat("yyyy-MM-dd");

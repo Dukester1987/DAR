@@ -17,6 +17,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.sql.Date;
+import java.text.NumberFormat;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JProgressBar;
@@ -293,6 +294,11 @@ public class PlantViewDataHandler {
         @Override
         public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
             super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column); //To change body of generated methods, choose Tools | Templates.            
+            if (value instanceof Number) {
+                setHorizontalAlignment(JLabel.RIGHT);
+                NumberFormat FORMAT = NumberFormat.getInstance();
+                setText(FORMAT.format(value));
+            }           
             for (int wo : rows) {
                 if(row==wo){
                     //JOptionPane.showMessageDialog(null, row);

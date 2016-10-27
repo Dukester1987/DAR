@@ -98,6 +98,8 @@ public class DBWrapper implements Runnable{
             //ex.printStackTrace();
             //new FileLogger(ex.toString()); 
             System.out.println("interupted from sleep");
+            //JOptionPane.showMessageDialog(null, "Program will close automaticaly once synchronization process is done!","Sync in progress",JOptionPane.INFORMATION_MESSAGE);  
+            //syncBeforeClose();
             return false;
         }
     }
@@ -171,6 +173,20 @@ public class DBWrapper implements Runnable{
             }
         }
     }    
+    
+    public void syncBeforeClose() {
+        if(isConnected()){
+            mgr = new ChangeManager(db, this);
+            if(mgr.getAmountOfChanges(1)>0){
+                int message = JOptionPane.showConfirmDialog(null,"Do you want to upload changes to the server?","Unsaved changes",JOptionPane.YES_NO_OPTION);
+                //mgr.runSync(0,label); //see what do we need to download
+                if(message == JOptionPane.YES_OPTION){
+                    mgr.runSync(1,label);  
+                }
+                
+            }
+        }
+    }
     
     private void startSync() {
         label.setText("getting list of changes");

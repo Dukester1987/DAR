@@ -29,6 +29,7 @@ public class DBFunctions {
         int lastID = 0;
         try {
             st = con.createStatement();  
+            //System.out.println(query);
             int result = st.executeUpdate(query, Statement.RETURN_GENERATED_KEYS);            
             ResultSet rs = st.getGeneratedKeys();
             if(rs.next()){
@@ -63,7 +64,7 @@ public class DBFunctions {
 
         String query = String.format("DELETE FROM %s WHERE %s", recipeRel,conditions);
         executeQuery(query);
-//        changeLog(recipeRel, updatedID, "delete", conditions, userData.getId());                
+//        changeLog(recipeRel, updatedID, "delete", query, userData.getId());                
         //System.out.println(query);
     }    
     

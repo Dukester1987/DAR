@@ -6,6 +6,7 @@
 package dar.Gui;
 
 import java.awt.Toolkit;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
 /**

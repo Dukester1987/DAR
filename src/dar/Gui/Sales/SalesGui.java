@@ -5,7 +5,10 @@
  */
 package dar.Gui.Sales;
 
+import dar.Functions.tableRenderers.CurrencyTableCellRenderer;
 import dar.Functions.FileLogger;
+import dar.Functions.JControlers;
+import dar.Functions.RXTable;
 import dar.Gui.Gui;
 import dar.dbObjects.SalesDetailView;
 import dar.localDB.LocalWraper;
@@ -13,10 +16,13 @@ import dar.localDB.SalesDataHandler;
 import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -29,22 +35,35 @@ public class SalesGui extends javax.swing.JPanel {
     private LocalWraper db;
     private newSale sale;
     private SalesDataHandler sdh;
+    private final JControlers controller;
 
     /**
      * Creates new form SalesGui
      */
-    public SalesGui(){   
-       this.db = new LocalWraper();
+//    public SalesGui(){   
+//       this.db = new LocalWraper();
+//    }
+    
+    public SalesGui(){
+        controller = new JControlers();
     }
     
     public SalesGui(LocalWraper db, Gui gui) {
         initComponents();
+        editComponents();
         this.db = db;
         this.gui = gui;       
         summaryTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         
+        controller = new JControlers();
+        controller.setTableCellRenderer(summaryTable, 3, new CurrencyTableCellRenderer());                               
+        controller.setTableCellRenderer(summaryTable, 4, new CurrencyTableCellRenderer());   
+        controller.setTableCellRenderer(salesDetail, 4, new CurrencyTableCellRenderer());                               
+        controller.setTableCellRenderer(salesDetail, 5, new CurrencyTableCellRenderer());  
+        
         hideColumn(summaryTable, "ProductID");
         hideColumn(salesDetail, "SalesID");
+                
         
         sdh = new SalesDataHandler(db, gui.date);
         refreshData(gui.date);
@@ -70,12 +89,12 @@ public class SalesGui extends javax.swing.JPanel {
         removeSelected1 = new javax.swing.JMenuItem();
         jLayeredPane7 = new javax.swing.JLayeredPane();
         jScrollPane9 = new javax.swing.JScrollPane();
-        salesDetail = new javax.swing.JTable();
+        salesDetail = new RXTable();
         jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
         jScrollPane11 = new javax.swing.JScrollPane();
-        summaryTable = new javax.swing.JTable();
+        summaryTable = new RXTable();
         jLabel12 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
@@ -170,9 +189,17 @@ public class SalesGui extends javax.swing.JPanel {
 
             },
             new String [] {
-                "SalesID", "Product Name", "Direction", "Tonage", "Price inc GST", "Price ex GST"
+                "SalesID", "Product Name", "Direction", "Tonnage", "Price inc GST", "Price ex GST"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         salesDetail.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 salesDetailMouseReleased(evt);
@@ -194,7 +221,6 @@ public class SalesGui extends javax.swing.JPanel {
             }
         });
 
-        jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/download16.png"))); // NOI18N
         jButton8.setText("from AWS");
         jButton8.setEnabled(false);
 
@@ -204,7 +230,7 @@ public class SalesGui extends javax.swing.JPanel {
 
             },
             new String [] {
-                "ProductID", "Product Name", "Tonage", "Price inc GST", "Price ex GST"
+                "ProductID", "Product Name", "Tonnage", "Price inc GST", "Price ex GST"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -346,7 +372,7 @@ public class SalesGui extends javax.swing.JPanel {
                     .addGap(6, 6, 6)))
         );
 
-        jLabel19.setText("$ ex GST");
+        jLabel19.setText("$ inc GST");
 
         tonesIN3.setText("$0");
 
@@ -477,13 +503,6 @@ public class SalesGui extends javax.swing.JPanel {
         if(evt.isPopupTrigger()){
             tablePopUp.show(summaryTable,evt.getX(), evt.getY());
         }
-        if(summaryTable.getSelectedRowCount()>0){
-            int rowNo = summaryTable.convertRowIndexToModel(summaryTable.getSelectedRow());
-            DefaultTableModel model = (DefaultTableModel) summaryTable.getModel();
-            int productID = (int) model.getValueAt(rowNo, 0);
-            //System.out.println(productID);
-            sdh.displayDetailInTable(salesDetail, gui.date, productID);
-        }
     }//GEN-LAST:event_summaryTableMouseReleased
 
     private void salesDetailMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_salesDetailMouseReleased
@@ -605,15 +624,18 @@ public class SalesGui extends javax.swing.JPanel {
                 inGSTOut += view.getPriceIncGST();
             }
         }
-        tonesIN.setText(String.format("%.2f", tonageIn));
-        tonesOut.setText(String.format("%.2f", tonageOut));
-        tonesTotal.setText(String.format("%.2f", tonageOut+tonageIn));
-        tonesIN2.setText(String.format("$%.2f", exGSTIn));
-        tonesOut2.setText(String.format("$%.2f", exGSTOut));
-        tonesTotal2.setText(String.format("$%.2f", exGSTOut+exGSTIn));
-        tonesIN3.setText(String.format("$%.2f", inGSTIn));
-        tonesOut3.setText(String.format("$%.2f", inGSTOut));
-        tonesTotal3.setText(String.format("$%.2f", inGSTOut+inGSTIn));        
+        NumberFormat currencyFormat = NumberFormat.getCurrencyInstance();
+        NumberFormat numberFormat = NumberFormat.getInstance();
+        
+        tonesIN.setText(numberFormat.format(tonageIn));
+        tonesOut.setText(numberFormat.format(tonageOut));
+        tonesTotal.setText(numberFormat.format(tonageOut+tonageIn));
+        tonesIN2.setText(currencyFormat.format(exGSTIn));
+        tonesOut2.setText(currencyFormat.format(exGSTOut));
+        tonesTotal2.setText(currencyFormat.format(exGSTOut+exGSTIn));
+        tonesIN3.setText(currencyFormat.format(inGSTIn));
+        tonesOut3.setText(currencyFormat.format(inGSTOut));
+        tonesTotal3.setText(currencyFormat.format(inGSTOut+inGSTIn));        
     }
 
     private void insertSale() {
@@ -680,5 +702,22 @@ public class SalesGui extends javax.swing.JPanel {
             new FileLogger(ex.toString());
         }
         return list;
+    }
+
+    private void editComponents() {
+        summaryTable.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+            @Override
+            public void valueChanged(ListSelectionEvent lse) {
+                if(!lse.getValueIsAdjusting()){
+                    if(summaryTable.getSelectedRowCount()>0){
+                        int rowNo = summaryTable.convertRowIndexToModel(summaryTable.getSelectedRow());
+                        DefaultTableModel model = (DefaultTableModel) summaryTable.getModel();
+                        int productID = (int) model.getValueAt(rowNo, 0);
+                        //System.out.println(productID);
+                        sdh.displayDetailInTable(salesDetail, gui.date, productID);
+                    }                    
+                }
+            }
+        });
     }
 }

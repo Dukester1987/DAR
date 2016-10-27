@@ -1,4 +1,0 @@
-Fri Sep 30 11:11:00 AEST 2016
-java.sql.SQLException: Field 'PlantAllocationID' doesn't have a default value
-Fri Sep 30 15:21:04 AEST 2016
-Database Sucessfully initialised
