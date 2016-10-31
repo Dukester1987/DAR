@@ -173,6 +173,7 @@ public class ProductViewHandler{
             Object[][] w = {{"EndDate"},{ti.yesterday()}};
             Object[][] wh = {{"ID"},{"="},{delId},{}};   
             con.dbUpdate("ProductAllocation", w, wh);
+            deleteUtilForProducts(delId,ti.yesterday());
         }
         
         //add new products
@@ -552,6 +553,15 @@ public class ProductViewHandler{
         double amount = (double) model.getValueAt(row, 3);
         String notes = (String) model.getValueAt(row, 4);                    
         con.dbUpdate("ProductUtilization", new Object[][]{{"Qty","Notes"},{amount,notes}}, new Object[][]{{"ID"},{"="},{ID},{}});                            
+    }
+
+    private void deleteUtilForProducts(Integer delId, Date previousDay) {
+        con.dbDelete("ProductUtilization", new Object[][]{
+            {"ProductAllocationID","DateFor"},
+            {"=",">"},
+            {delId,previousDay},
+            {"AND"}
+        }, "ProductAllocationID");
     }
     
 }

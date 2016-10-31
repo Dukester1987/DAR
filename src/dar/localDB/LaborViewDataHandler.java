@@ -296,6 +296,7 @@ public class LaborViewDataHandler extends DataHandler {
             Object[][] w = {{"EndDate"},{ti.previousDay(date)}};
             Object[][] wh = {{"ID"},{"="},{delId},{}};   
             con.dbUpdate("LaborAllocation", w, wh);
+            deleteUtilForLabor(delId,ti.previousDay(date));
         }
         
         //add new labors
@@ -380,6 +381,15 @@ public class LaborViewDataHandler extends DataHandler {
         //run update
         con.dbUpdate("LaborList", new Object[][]{{"LaborName","LaborFunction"},{newName,id}}, new Object[][]{{"LaborName"},{"="},{originalName},{}});
         displayViewInTable(table, date);
+    }
+
+    private void deleteUtilForLabor(Integer delId, Date previousDay) {        
+        con.dbDelete("LaborUtilization", new Object[][]{
+            {"LaborAllocationID","DateFor"},
+            {"=",">"},
+            {delId,previousDay},
+            {"AND"}
+        }, "LaborAllocationID");
     }
     
     

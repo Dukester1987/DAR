@@ -279,11 +279,21 @@ public class PlantViewDataHandler {
                 DefaultTableModel model = (DefaultTableModel) PlantUtil.getModel();
                 int allocationID = (int) model.getValueAt(rowNo, 1);
                 con.dbUpdate("PlantAllocation", new Object[][]{{"EndDate"},{ti.previousDay(date)}}, new Object[][]{{"ID"},{"="},{allocationID},{}});
+                removeUtilization(allocationID,ti.previousDay(date));
                 displayPlantViewInTable(table, date);
             }
         } else {
             JOptionPane.showMessageDialog(null, "No rows selected", "Error", JOptionPane.ERROR_MESSAGE);
         }
+    }
+
+    private void removeUtilization(int allocationID, Date previousDay) {
+        con.dbDelete("PlantUtilization", new Object[][]{
+            {"PlantAllocationID","DateFor"},
+            {"=",">"},
+            {allocationID,previousDay},
+            {"AND"}
+        }, "PlantAllocationID");
     }
     
     public static class rowColorer extends DefaultTableCellRenderer {

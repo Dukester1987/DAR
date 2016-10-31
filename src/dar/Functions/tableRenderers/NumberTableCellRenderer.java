@@ -17,7 +17,7 @@ import javax.swing.table.DefaultTableCellRenderer;
  */
 public class NumberTableCellRenderer extends DefaultTableCellRenderer{
 
-    private static final NumberFormat FORMAT = NumberFormat.getInstance()   ;
+    private static final NumberFormat FORMAT = NumberFormat.getNumberInstance();
 
     @Override
     public final Component getTableCellRendererComponent(JTable table, Object value,
