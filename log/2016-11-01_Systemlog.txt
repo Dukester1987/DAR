@@ -1,0 +1,13 @@
+Tue Nov 01 11:18:14 AEDT 2016
+org.h2.jdbc.JdbcSQLException: Column "P339" not found; SQL statement:
+SELECT * FROM PlantList WHERE ID = P339 [42122-176]
+Tue Nov 01 11:18:14 AEDT 2016
+org.h2.jdbc.JdbcSQLException: Schema "SOPSIOCO_DAR" not found; SQL statement:
+INSERT INTO `sopsioco_DAR`.`PlantList` (`ID`, `PlantDesc`, `Rate`, `UnitOfMeasurement`) VALUES ('P339', 'Komatsu WA 500-6 Loader', '620.9', 'h'); [90079-176]
+Tue Nov 01 11:20:42 AEDT 2016
+Database Sucessfully initialised
+Tue Nov 01 11:21:01 AEDT 2016
+org.h2.jdbc.JdbcSQLException: Schema "SOPSIOCO_DAR" not found; SQL statement:
+INSERT INTO `sopsioco_DAR`.`PlantList` (`ID`, `PlantDesc`, `Rate`, `UnitOfMeasurement`) VALUES ('P339', 'Komatsu WA 500-6 Loader', '620.9', 'h'); [90079-176]
+Tue Nov 01 11:22:21 AEDT 2016
+Database Sucessfully initialised

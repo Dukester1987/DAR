@@ -40,7 +40,7 @@ public class About_popup extends javax.swing.JFrame {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/info1600.png"))); // NOI18N
 
-        jLabel2.setText("eDAR v1.2.2 - ABOUT");
+        jLabel2.setText("eDAR v1.2.3 - ABOUT");
 
         jLabel3.setText("<html> <li>Running on JAVA JRE 8.1</li> <li>Developed by: Lukas Dulka</li> <li>email: ldulka@hiquality.com.au</li> <li>www: www.hiquality.com.au</li> <li>All rights reserved 2016</li> </html>");
 

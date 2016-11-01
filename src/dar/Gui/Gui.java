@@ -273,7 +273,7 @@ public class Gui extends javax.swing.JFrame {
         PlantPopUp.add(pRemoveSelected);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("DAR v1.2.2 - Hi Quality Group");
+        setTitle("DAR v1.2.3 - Hi Quality Group");
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {

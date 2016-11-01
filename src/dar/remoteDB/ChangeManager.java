@@ -170,7 +170,7 @@ public class ChangeManager {
     }
 
     private boolean isExistInDestination(DBFunctions destination, ChangeLogView clw) {
-        String query = String.format("SELECT * FROM %s WHERE ID = %s", clw.getAffectedTable(),clw.getRowID());
+        String query = String.format("SELECT * FROM %s WHERE ID = '%s'", clw.getAffectedTable(),clw.getRowID());
         return destination.getRowCount(destination.runQuery(query))>0;
     }
 
