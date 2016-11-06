@@ -16,6 +16,7 @@ import dar.Gui.Production.ProdSettings;
 import dar.Gui.Stock.StockGui;
 import dar.dbObjects.LaborList;
 import dar.dbObjects.LaborView;
+import dar.dbObjects.SiteList;
 import dar.localDB.AFViewDataHandler;
 import dar.localDB.LaborViewDataHandler;
 import dar.remoteDB.DBWrapper;
@@ -23,6 +24,7 @@ import dar.localDB.LocalWraper;
 import dar.localDB.NoteViewHandler;
 import dar.localDB.PlantViewDataHandler;
 import dar.localDB.ProductViewHandler;
+import dar.localDB.SiteListHandler;
 import java.sql.Date;
 import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
@@ -65,6 +67,7 @@ public class Gui extends javax.swing.JFrame {
     private Thread t;
     private JControlers controller;
     private StockGui stockGui;
+    private SiteListHandler slh;
 
     public Gui(LocalWraper db) {    
         this.ti = new TimeWrapper();
@@ -188,6 +191,7 @@ public class Gui extends javax.swing.JFrame {
         MyComents = new javax.swing.JTextArea();
         jButton5 = new javax.swing.JButton();
         datePicker = new com.toedter.calendar.JDateChooser();
+        powerTitle = new javax.swing.JComboBox<>();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
@@ -273,7 +277,7 @@ public class Gui extends javax.swing.JFrame {
         PlantPopUp.add(pRemoveSelected);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("DAR v1.2.3 - Hi Quality Group");
+        setTitle("DAR v1.2.4 - Hi Quality Group");
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
@@ -1042,12 +1046,21 @@ public class Gui extends javax.swing.JFrame {
 
         datePicker.setComponentPopupMenu(ProdPopup);
         datePicker.setDate(date);
+        datePicker.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         datePicker.setMaxSelectableDate(ti.today());
         datePicker.setMinSelectableDate(ti.firstDate());
         datePicker.setName("dateFor"); // NOI18N
         datePicker.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
                 datePickerPropertyChange(evt);
+            }
+        });
+
+        powerTitle.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        powerTitle.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Site 1", "Site 2" }));
+        powerTitle.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                powerTitleActionPerformed(evt);
             }
         });
 
@@ -1132,8 +1145,10 @@ public class Gui extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(title, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(datePicker, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(powerTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(28, 28, 28)
+                        .addComponent(datePicker, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(label, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(164, 164, 164))
@@ -1143,15 +1158,14 @@ public class Gui extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(6, 6, 6)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(datePicker, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(powerTitle)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(title, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(label, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(datePicker, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(label, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(title, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Sales, javax.swing.GroupLayout.PREFERRED_SIZE, 595, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -1402,6 +1416,15 @@ public class Gui extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
+    private void powerTitleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_powerTitleActionPerformed
+        if(actionListenerGo){
+            DefaultComboBoxModel model = (DefaultComboBoxModel) powerTitle.getModel();
+            SiteList site = (SiteList) model.getSelectedItem();
+            db.userData.setSiteID(site.getSiteID());
+            refreshLists();
+        }
+    }//GEN-LAST:event_powerTitleActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu About;
     private javax.swing.JButton AddAFuel;
@@ -1485,6 +1508,7 @@ public class Gui extends javax.swing.JFrame {
     private javax.swing.JList<String> laborList;
     private javax.swing.JList<String> laborOnSiteList;
     private javax.swing.JMenuItem pRemoveSelected;
+    private javax.swing.JComboBox<String> powerTitle;
     private dar.Gui.Sales.SalesGui salesGui;
     private javax.swing.JLabel title;
     private javax.swing.JLabel utilPerc;
@@ -1593,6 +1617,8 @@ public class Gui extends javax.swing.JFrame {
     private void editComponents() {        
         Gui g = this;
         
+        setTitle();
+        
         setRenderers();
         //productUtilization
         ProdUtilization.getModel().addTableModelListener( new TableModelListener() {
@@ -1656,8 +1682,18 @@ public class Gui extends javax.swing.JFrame {
     }
 
     private void setRenderers() {
-        controller = new JControlers();
+        controller = new JControlers();        
         controller.setTableCellRenderer(ProdUtilization, 3, new NumberTableCellRenderer());
+    }
+
+    private void setTitle() {
+        if(db.userData.getAmountOfSites()>1){
+            title.setVisible(false);
+            slh = new SiteListHandler(db);            
+            slh.fillComboBoxWithSites(powerTitle);
+        } else {
+            powerTitle.setVisible(false);
+        }
     }
         
     

@@ -1,4 +1,4 @@
- i -- phpMyAdmin SQL Dump
+-- phpMyAdmin SQL Dump
 -- version 4.3.8
 -- http://www.phpmyadmin.net
 --
@@ -707,7 +707,7 @@ INSERT INTO `LaborStatus` (`ID`, `Status`) VALUES
 INSERT INTO `Login` (`ID`,`LoginName`,`Password`,`Rights`,`Status`,`LastUpload`,`LastDownload`) VALUES
 (1,'Menangle','4ecd9f4c37e9d72cae76daa239892693','{"SiteID":1,"Rights":1}',1,null,null),
 (2,'Wallacia','2fae7330fe63aa996902e0606caa2bc0','{"SiteID":2,"Rights":1}',1,null,null),
-(3,'Dukester','2fae7330fe63aa996902e0606caa2bc0','{"Sites":[1,2],"Rights":1}',1,null,null),
+(3,'Dukester','2fae7330fe63aa996902e0606caa2bc0','{"SiteID":1,"Rights":1}',1,null,null),
 (4,'MenDarryl','64dc40488113b28fd73fd229c98481b6','{"SiteID":1,"Rights":1}',1,null,null);
 
 INSERT INTO `PlantList` (`ID`, `PlantDesc`, `Rate`, `UnitOfMeasurement`) VALUES

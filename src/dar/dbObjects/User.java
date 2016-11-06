@@ -5,6 +5,9 @@ import dar.localDB.LocalWraper;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.Iterator;
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -19,7 +22,7 @@ public class User {
     private Timestamp lastUpload;
     private Timestamp lastDownload;
     private long siteID = 0;
-    private String siteName;
+    private String siteName;    
 
     public User(int id, String loginName, String password, String rights, int status, Timestamp lastUpload, Timestamp lastDownload) {
         this.id = id;
@@ -34,13 +37,51 @@ public class User {
     public long getSiteID(){
         try {
             JSONObject jString = (JSONObject) new JSONParser().parse(rights);
-            siteID = (long) jString.get("SiteID");
+            if(siteID==0){
+                if(jString.get("SiteID")!=null){
+                    siteID = (long) jString.get("SiteID");
+                } else {
+                    siteID = getSiteID(rights);
+                }
+            }
         } catch (ParseException ex) {
             ex.printStackTrace();
-            new FileLogger(ex.toString());
+            new FileLogger(ex.getStackTrace());
         }
         return siteID;
+    } 
+    
+    public void setSiteID(int ID){
+        siteID = ID;
     }
+    
+    public long getSiteID(String JSONString){       
+        return getSiteIDs(JSONString).get(0);
+    }  
+    
+    public int getAmountOfSites(){
+        return (int) getSiteIDs(rights).stream().count();
+    }    
+    
+    public ArrayList<Long> getSiteIDs(String JSONString){
+        ArrayList list = new ArrayList<String>();
+        Long siteID = 0L;
+        try {
+            JSONObject jString = (JSONObject) new JSONParser().parse(JSONString);
+            if(jString.get("Sites")!=null){
+                JSONArray msg = (JSONArray) jString.get("Sites");
+                Iterator<String> iterator = msg.iterator();
+                while (iterator.hasNext()) {
+                        list.add(iterator.next());
+                }
+            } else {
+                list.add(siteID);
+            }
+        } catch (ParseException ex) {
+            ex.printStackTrace();
+        }        
+        return list;
+    }    
     
     public String getSiteName(LocalWraper db){
         String query = String.format("SELECT SiteName FROM SiteList WHERE ID = %s",getSiteID());
