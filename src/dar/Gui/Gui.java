@@ -5,6 +5,7 @@
  */
 package dar.Gui;
 
+import dar.Gui.CloserData.Closer;
 import dar.Gui.Production.AddProduct;
 import dar.Functions.JControlers;
 import dar.Functions.RXTable;
@@ -70,6 +71,7 @@ public class Gui extends javax.swing.JFrame {
     private SiteListHandler slh;
 
     public Gui(LocalWraper db) {    
+        Version v = new Version();
         this.ti = new TimeWrapper();
         this.date = ti.today();    
         this.db = db;        
@@ -80,6 +82,7 @@ public class Gui extends javax.swing.JFrame {
         c = new JControlers();                    
         setIcon();       
         ReportBreakdown.setEnabled(false);
+                
         
         // initialize components
         pw = new PlantViewDataHandler(this.db, db.userData,PlantUtil,utilPerc,utilProgressBar);
@@ -276,8 +279,8 @@ public class Gui extends javax.swing.JFrame {
         });
         PlantPopUp.add(pRemoveSelected);
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("DAR v1.2.4 - Hi Quality Group");
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setTitle(String.format("DAR v%s - Hi Quality Group",Version.version));
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
@@ -1160,13 +1163,11 @@ public class Gui extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(6, 6, 6)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(datePicker, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(powerTitle)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(label, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(title, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(datePicker, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(powerTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(label, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(title, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(Sales, javax.swing.GroupLayout.PREFERRED_SIZE, 595, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -1417,11 +1418,14 @@ public class Gui extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     private void powerTitleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_powerTitleActionPerformed
-        if(actionListenerGo){
+        System.out.println("changing site");
+        if(actionListenerGo){            
             DefaultComboBoxModel model = (DefaultComboBoxModel) powerTitle.getModel();
             SiteList site = (SiteList) model.getSelectedItem();
             db.userData.setSiteID(site.getSiteID());
+            System.out.println("choosed site is:" + site.getSiteName());
             refreshLists();
+            System.out.println("success / refreshing lists");
         }
     }//GEN-LAST:event_powerTitleActionPerformed
 
@@ -1528,7 +1532,7 @@ public class Gui extends javax.swing.JFrame {
         if(actionListenerGo){
             date = ti.setDate(datePicker.getDate());
             //pw.displayPlantViewInTable(PlantUtil, date); //refresh table
-            af.displayViewInTable(AditionalFuel, date);
+            //af.displayViewInTable(AditionalFuel, date);
             //pw.utilPercChange();            
             refreshLists();
             if(!ti.today().toString().equals(date.toString())){
@@ -1667,18 +1671,10 @@ public class Gui extends javax.swing.JFrame {
     }
 
     private void quitApp() {
-        t.interrupt();
-        if(db1.isConnected()){
-            db1.syncBeforeClose();
-        }
-        long startTime = System.currentTimeMillis()+(1000*30);
-        while(t.isAlive()){ 
-            if(startTime<=System.currentTimeMillis()){
-                System.out.println("closing");                
-                System.exit(0);               
-            }         
-        }
-        //System.exit(0);        
+        System.out.println("closing app!");
+        label.setText("Saving data before close please wait...");
+        Closer c = new Closer(db1,t);
+        this.dispose();              
     }
 
     private void setRenderers() {

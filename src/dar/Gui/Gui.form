@@ -226,8 +226,10 @@
     </Menu>
   </NonVisualComponents>
   <Properties>
-    <Property name="defaultCloseOperation" type="int" value="3"/>
-    <Property name="title" type="java.lang.String" value="DAR v1.2.4 - Hi Quality Group"/>
+    <Property name="defaultCloseOperation" type="int" value="0"/>
+    <Property name="title" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+      <Connection code="String.format(&quot;DAR v%s - Hi Quality Group&quot;,Version.version)" type="code"/>
+    </Property>
     <Property name="resizable" type="boolean" value="false"/>
   </Properties>
   <SyntheticProperties>
@@ -277,15 +279,12 @@
           <Group type="102" attributes="0">
               <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="datePicker" alignment="0" max="32767" attributes="0"/>
-                  <Component id="powerTitle" alignment="0" max="32767" attributes="0"/>
-                  <Group type="102" attributes="0">
-                      <Component id="label" min="-2" pref="49" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  </Group>
-                  <Component id="title" max="32767" attributes="0"/>
+                  <Component id="datePicker" alignment="0" min="-2" pref="49" max="-2" attributes="0"/>
+                  <Component id="powerTitle" alignment="0" min="-2" pref="49" max="-2" attributes="0"/>
+                  <Component id="label" min="-2" pref="49" max="-2" attributes="0"/>
+                  <Component id="title" min="-2" pref="49" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
               <Component id="Sales" min="-2" pref="595" max="-2" attributes="0"/>
               <EmptySpace min="-2" max="-2" attributes="0"/>
           </Group>

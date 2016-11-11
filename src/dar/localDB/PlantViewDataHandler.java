@@ -346,7 +346,7 @@ public class PlantViewDataHandler {
             if(model.getValueAt(i, 5)!=null && (int) model.getValueAt(i, 5) != 0){
                 int hours = (int) model.getValueAt(i, 5) - (int) model.getValueAt(i, 4);  
                 hoursTotal += hours;   
-                if(hours>16){
+                if(hours>24){
                     rows.add(i);
                 }
             }   

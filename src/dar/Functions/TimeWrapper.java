@@ -28,7 +28,7 @@ public class TimeWrapper {
 
     public java.util.Date firstDate(){
         java.util.Date d = new java.util.Date();
-        d.setTime(System.currentTimeMillis()-432000000);
+        d.setTime(System.currentTimeMillis()-getMonths(1L));
         return d;
     }
     
@@ -43,4 +43,23 @@ public class TimeWrapper {
         return date;
     }    
     
+    private Long getSeconds(Long s) {
+        return s*1000;
+    }
+    
+    private Long getMinutes(Long m) {
+        return getSeconds(60*m);
+    }
+    
+    private Long getHours(Long h) {
+        return getMinutes(60*h);
+    }
+    
+    private Long getDays(Long d) {
+        return getHours(24*d);
+    }
+    
+    private Long getMonths(Long m) {
+        return getDays(30*m);
+    }
 }

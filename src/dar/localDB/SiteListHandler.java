@@ -51,9 +51,13 @@ public class SiteListHandler {
         DefaultComboBoxModel model = (DefaultComboBoxModel) box.getModel();
         model.removeAllElements(); // cleaning
         for (SiteList site : siteList) {
-            model.addElement(site);
-            if(site.getSiteID()==db.userData.getSiteID()){
-                model.setSelectedItem(site);
+            for(Long userSites : db.userData.getSiteIDs(db.userData.getRights())) {
+                if((long) site.getSiteID()== userSites){
+                    model.addElement(site);
+                    if(site.getSiteID()==db.userData.getSiteID()){
+                        model.setSelectedItem(site);
+                    }      
+                }
             }
         }
     }

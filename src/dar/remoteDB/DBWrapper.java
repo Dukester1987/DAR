@@ -174,16 +174,14 @@ public class DBWrapper implements Runnable{
         }
     }    
     
-    public void syncBeforeClose() {
+    public void syncBeforeClose(JLabel label) {
         if(isConnected()){
             mgr = new ChangeManager(db, this);
             if(mgr.getAmountOfChanges(1)>0){
-                int message = JOptionPane.showConfirmDialog(null,"Do you want to upload changes to the server?","Unsaved changes",JOptionPane.YES_NO_OPTION);
-                //mgr.runSync(0,label); //see what do we need to download
-                if(message == JOptionPane.YES_OPTION){
-                    mgr.runSync(1,label);  
-                }
-                
+                label.setText("Uploading changes to the server");
+                mgr.runSync(1,label);                  
+            } else {
+                label.setText("All changes are up to date");
             }
         }
     }

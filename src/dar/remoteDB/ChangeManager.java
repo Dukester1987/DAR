@@ -141,7 +141,7 @@ public class ChangeManager {
     }
 
     private void insertOperation(DBFunctions destination, ChangeLogView clw) {
-        if(!isExistInDestination(destination,clw)){
+        if(!isExistInDestination(destination,clw)){                               
             destination.executeQuery(clw.getSQLString());
             logOnDestination(destination,clw);
         } else {
@@ -151,11 +151,11 @@ public class ChangeManager {
     }
 
     private void updateOperation(DBFunctions destination, ChangeLogView clw) {
-        if(!isExistInDestination(destination, clw)){
-            destination.executeQuery(transUpdateToInsert(clw.getSQLString(), clw.getAffectedTable()));
+        if(!isExistInDestination(destination, clw)){                        
+            destination.executeQuery(transUpdateToInsert(clw.getSQLString(), clw.getAffectedTable()));                    
             logOnDestination(destination, clw);
-        } else {
-            destination.executeQuery(clw.getSQLString());
+        } else {                          
+            destination.executeQuery(clw.getSQLString());          
             logOnDestination(destination, clw);
         }
     }
@@ -169,7 +169,7 @@ public class ChangeManager {
         }
     }
 
-    private boolean isExistInDestination(DBFunctions destination, ChangeLogView clw) {
+    private boolean isExistInDestination(DBFunctions destination, ChangeLogView clw) {                
         String query = String.format("SELECT * FROM %s WHERE ID = '%s'", clw.getAffectedTable(),clw.getRowID());
         return destination.getRowCount(destination.runQuery(query))>0;
     }
@@ -207,6 +207,7 @@ public class ChangeManager {
         String values = "";
         String firstParse = " SET ";
         String[] splices = query.substring(query.indexOf(firstParse)+firstParse.length(),query.lastIndexOf(" WHERE ")).split(",");
+        System.out.println(query);
         for (int i = 0; i < splices.length; i++) {
             columns += String.format("%s%s", splices[i].substring(0,splices[i].indexOf(" = ")).trim(),i <splices.length-1?", ":"");
             values += String.format("%s%s",splices[i].substring(splices[i].indexOf(" = ")+" = ".length()).trim(),i <splices.length-1?", ":"");            
@@ -300,5 +301,6 @@ public class ChangeManager {
     private void updateFinished(int updateLog) {
        LocalCon.dbUpdate("UpdateLog", new Object[][]{{"End"},{new Timestamp(System.currentTimeMillis())}}, new Object[][]{{"ID"},{"="},{updateLog},{}});
     }
+
     
 }

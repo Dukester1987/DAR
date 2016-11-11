@@ -1,4 +1,3 @@
-New in version 1.2.1
+New in version 1.2.4
 
--Added Sync checker during application close event
--Implemented number formating for dolars and standard numbers
+-Possibility to add more sites to one username
