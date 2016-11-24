@@ -7,6 +7,7 @@ package dar.localDB;
 
 import dar.Functions.FileLogger;
 import dar.Functions.Functions;
+import dar.Gui.Gui;
 import dar.dbObjects.User;
 import dar.hash.hash;
 import java.io.BufferedReader;
@@ -208,7 +209,7 @@ public class LocalWraper {
                 query += delimiter[i] + " ";
             }            
         }        
-        //System.out.println(query);
+        System.out.println(query);
         return runQuery(query);          
     }
     
@@ -289,7 +290,7 @@ public class LocalWraper {
         System.out.println(query);
         int updatedID = executeQuery(query, "inserted", false);
         query = String.format("INSERT INTO %s (ID, %s) VALUES (%s, %s)", table,columns,updatedID,inputs);
-        changeLog(table,updatedID,"insert",query,userData.getId());
+        changeLog(table,updatedID,"insert",query,userData.getId());               
         return updatedID;
     }
 
@@ -357,7 +358,7 @@ public class LocalWraper {
             }            
         }        
         String query = String.format("UPDATE %s SET %s WHERE %s", table, whatToUpdate, conditions);
-        //System.out.println(query);
+        System.out.println(query);
         executeQuery(query, "updated", false);
         if(updatedID != 0){
             changeLog(table, updatedID, "update", query, userData.getId());
@@ -365,17 +366,20 @@ public class LocalWraper {
         new dataCleaner(this);
     }
 
-    private void changeLog(String tbl, int ID, String insert, String inputs, int loginId) {
+    public void changeLog(String tbl, int ID, String insert, String inputs, int loginId) {
         try {
             Functions fn = new Functions();
             String fixInputs = fn.forHTML(inputs);
             UUID uuid = UUID.randomUUID();
-            String query = String.format("INSERT INTO ChangeLog (AffectedTable, RowID, Operation, NewValue, LoginID, UID) VALUES ('%s','%s','%s','%s','%s','%s')",tbl,ID,insert,fixInputs,loginId,uuid);
+            System.out.println("date: "+userData.getDate()+"siteID: "+userData.getSiteID());
+            String query = String.format("INSERT INTO ChangeLog (AffectedTable, RowID, Operation, NewValue, LoginID, UID,DateFor,SiteID) VALUES ('%s','%s','%s','%s','%s','%s','%s','%s')",tbl,ID,insert,fixInputs,loginId,uuid,userData.getDate(),userData.getSiteID());
+            System.out.println(query);
             Statement st;
 
             //System.out.println(query);
             st = con.createStatement();            
-            st.executeUpdate(query);            
+            st.executeUpdate(query);  
+            Gui.isAnyChangesApplicable = true;             
             
         } catch (SQLException ex) {
             ex.printStackTrace();

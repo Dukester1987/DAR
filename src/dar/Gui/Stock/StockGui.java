@@ -5,6 +5,7 @@
  */
 package dar.Gui.Stock;
 
+import dar.Functions.Functions;
 import dar.Functions.JControlers;
 import dar.Functions.RXTable;
 import dar.Functions.tableRenderers.NumberTableCellRenderer;
@@ -31,6 +32,7 @@ public class StockGui extends javax.swing.JFrame {
      */
     public StockGui(LocalWraper db) {
         initComponents();
+        Functions.setFrameMinimumSize(this);
         this.db = db;
         GuiIcon icon = new GuiIcon(this);
               
@@ -72,6 +74,7 @@ public class StockGui extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Stock");
+        setMinimumSize(getSize());
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 formWindowClosing(evt);

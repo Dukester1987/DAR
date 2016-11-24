@@ -5,6 +5,7 @@
  */
 package dar.Gui.Production;
 
+import dar.Functions.Functions;
 import dar.Functions.JControlers;
 import dar.Gui.Gui;
 import dar.Gui.GuiIcon;
@@ -51,7 +52,8 @@ public class ProdSettings extends javax.swing.JFrame {
      */
     public ProdSettings(LocalWraper db, Date date, Gui g) {
         this.date = date;
-        initComponents();               
+        initComponents();  
+        Functions.setFrameMinimumSize(this);
         
         this.db = db;            
         this.g = g;
@@ -63,9 +65,7 @@ public class ProdSettings extends javax.swing.JFrame {
         //change init
         AutoCompleteDecorator.decorate(itemBox);       
         initFunctions();
-        editComponents();            
-        
-        
+        editComponents();                            
        
         GuiIcon icon = new GuiIcon(this, "Application");
     }
@@ -164,6 +164,7 @@ public class ProdSettings extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Settings");
+        setMinimumSize(getSize());
 
         recipeTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

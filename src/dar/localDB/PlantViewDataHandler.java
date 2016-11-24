@@ -18,6 +18,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.sql.Date;
 import java.text.NumberFormat;
+import java.util.logging.Logger;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JProgressBar;
@@ -82,6 +83,7 @@ public class PlantViewDataHandler {
 "                            left join `SiteList` on `SiteList`.`ID` = `PlantAllocation`.`SiteID`\n" +
 "                            WHERE StartDate <= '%s' AND EndDate >= '%s' AND SiteID = '%s' ORDER BY PlantID",dateFor,dateFor,dateFor,user.getSiteID());
             ResultSet rs = con.runQuery(query);
+            //System.out.println(user.getSiteID());
             try {
                 while(rs.next()){
                     PlantView plantUtil = new PlantView(rs.getInt("AllocationID"),
@@ -109,7 +111,7 @@ public class PlantViewDataHandler {
     
     public void displayPlantViewInTable(JTable table, Date dateFor){
         this.dateFor = dateFor;
-        ArrayList<PlantView> list = getPlantView();
+        ArrayList<PlantView> list = getPlantView();        
         DefaultTableModel model = (DefaultTableModel) table.getModel();
         refreshTable(model);
         for(int i = 0;i<list.size();i++){
@@ -184,10 +186,10 @@ public class PlantViewDataHandler {
 
     public void updateTable(Date date, Gui g) {
         g.actionListenerGo=false;
-        utilPercChange();
+        try{
         int viewRow = table.getEditingRow();
-        //System.out.println(viewRow);
-        if(viewRow>-1){
+        //System.out.println(viewRow);       
+        if(viewRow>-1){            
             int k = table.convertRowIndexToView(viewRow);
             DefaultTableModel model = (DefaultTableModel) table.getModel();
             int PlantUtilizationID = (int) model.getValueAt(k, 0);
@@ -195,42 +197,51 @@ public class PlantViewDataHandler {
             String PlantNo = (String) model.getValueAt(k, 2);
             String PlantDesc = (String) model.getValueAt(k, 3);
             int StartHours = (int) model.getValueAt(k, 4);
-            int EndHours = (int) model.getValueAt(k, 5);
+            int EndHours = (int) model.getValueAt(k, 5);           
             double Fuel = (double) model.getValueAt(k, 6);
             String Notes = (String) model.getValueAt(k, 7);
             
-            model.setValueAt(EndHours-StartHours, k, 8);
+            model.setValueAt(EndHours-StartHours, k, 8);            
             
             if(EndHours<StartHours && EndHours!=0){
                 JOptionPane.showMessageDialog(null,"End hours can not be lower than start hours!", "Error", JOptionPane.ERROR_MESSAGE);
                 displayPlantViewInTable(table, date);
             } else {
-                if(PlantUtilizationID==0){
-                    EndHours = EndHours==0?StartHours:EndHours;
-                    System.out.println("INSERTING INTO PLANTALLOCATION");
-                    Object[][] query = {{"PlantAllocationID","StartHours","EndHours","DateFor","Fuel","Notes"},{PlantAllocationID,StartHours,EndHours,date,Fuel,Notes}};
-                    int plantUtil = con.dbInsert("PlantUtilization", query);
-                    model.setValueAt(plantUtil, k, 0);
-                    model.setValueAt(EndHours, k, 5);
-                    //displayPlantViewInTable(table, date); // refresh table
+                if(EndHours-StartHours>25){
+                    JOptionPane.showMessageDialog(null,"Exceed maximum hours per day!", "Error", JOptionPane.ERROR_MESSAGE);
+                    displayPlantViewInTable(table, date);                
                 } else {
-                    // update operation
-                    System.out.println("UPDATING INTO PLANTALLOCATION");
-                    Object[][] query = {{"StartHours","EndHours","Fuel","Notes"},{StartHours,EndHours,Fuel,Notes==null?"":Notes}};
-                    Object[][] where = {{"ID"},{"="},{PlantUtilizationID},{}};
-                    if(con.getRowCount(con.dbSelect("PlantUtilization", new Object[][] {
-                        {"StartHours","EndHours","Fuel","Notes","ID"},
-                        {"=","=","=","=","="},
-                        {StartHours,EndHours,Fuel,Notes,PlantUtilizationID},
-                        {"AND","AND","AND","AND","AND"}                            
-                    }))==0){
-                        con.dbUpdate("PlantUtilization", query, where);   
-                        //displayPlantViewInTable(table, date);
-                    }
-                }     
+                    if(PlantUtilizationID==0){
+                        EndHours = EndHours==0?StartHours:EndHours;
+                        //System.out.println("INSERTING INTO PLANTALLOCATION");
+                        Object[][] query = {{"PlantAllocationID","StartHours","EndHours","DateFor","Fuel","Notes"},{PlantAllocationID,StartHours,EndHours,date,Fuel,Notes}};
+                        int plantUtil = con.dbInsert("PlantUtilization", query);
+                        model.setValueAt(plantUtil, k, 0);
+                        model.setValueAt(EndHours, k, 5);
+                        //displayPlantViewInTable(table, date); // refresh table
+                    } else {                        
+                        // update operation
+                        //System.out.println("UPDATING INTO PLANTALLOCATION");
+                        Object[][] query = {{"StartHours","EndHours","Fuel","Notes","ApprovalID"},{StartHours,EndHours,Fuel,Notes==null?"":Notes,"NULL"}};
+                        Object[][] where = {{"ID"},{"="},{PlantUtilizationID},{}};
+                        if(con.getRowCount(con.dbSelect("PlantUtilization", new Object[][] {
+                            {"StartHours","EndHours","Fuel","Notes","ID"},
+                            {"=","=","=","=","="},
+                            {StartHours,EndHours,Fuel,Notes,PlantUtilizationID},
+                            {"AND","AND","AND","AND","AND"}                            
+                        }))==0){
+                            con.dbUpdate("PlantUtilization", query, where);   
+                            //displayPlantViewInTable(table, date);
+                        }
+                    } 
+                }
             }           
         }
+        utilPercChange();        
         //System.out.println(k);
+        } catch(Exception e){
+           displayPlantViewInTable(table, date);
+        }
         g.actionListenerGo=true; 
     }
     
@@ -313,19 +324,21 @@ public class PlantViewDataHandler {
                 if(row==wo){
                     //JOptionPane.showMessageDialog(null, row);
                     setBackground(new java.awt.Color(255,117,131));
+                    setForeground(Color.BLACK);
                     if(isSelected){
                         setBackground(new java.awt.Color(226,31,38));
-                    }   
-                    if(hasFocus){
-                        setBackground(new java.awt.Color(226,31,38));
-                    }
+                        setForeground(Color.WHITE);
+                    }  
                 } else {
                     setBackground(Color.WHITE);
+                    setForeground(Color.BLACK);
                     if(isSelected){
                         setBackground(new java.awt.Color(184,207,229));
+                        setForeground(Color.BLACK);
                     }                    
                 }
             }
+            repaint();
 
             //setBackground(new java.awt.Color(255,117,131));
             return this;
@@ -341,13 +354,13 @@ public class PlantViewDataHandler {
         rows.clear();
         int hoursTotal = 0;
         int optimum = model.getRowCount()*8;
-        long percentage;
-        for(int i=0;i<model.getRowCount(); i++){
+        long percentage;        
+        for(int i=0;i<model.getRowCount(); i++){            
             if(model.getValueAt(i, 5)!=null && (int) model.getValueAt(i, 5) != 0){
                 int hours = (int) model.getValueAt(i, 5) - (int) model.getValueAt(i, 4);  
-                hoursTotal += hours;   
+                hoursTotal += hours;                   
                 if(hours>24){
-                    rows.add(i);
+                    rows.add(table.convertRowIndexToView(i));
                 }
             }   
         }

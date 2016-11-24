@@ -552,7 +552,7 @@ public class ProductViewHandler{
         int ID = (int) model.getValueAt(row,0);
         double amount = (double) model.getValueAt(row, 3);
         String notes = (String) model.getValueAt(row, 4);                    
-        con.dbUpdate("ProductUtilization", new Object[][]{{"Qty","Notes"},{amount,notes}}, new Object[][]{{"ID"},{"="},{ID},{}});                            
+        con.dbUpdate("ProductUtilization", new Object[][]{{"Qty","Notes","ApprovalID"},{amount,notes,"NULL"}}, new Object[][]{{"ID"},{"="},{ID},{}});                            
     }
 
     private void deleteUtilForProducts(Integer delId, Date previousDay) {

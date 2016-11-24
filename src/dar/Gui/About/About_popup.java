@@ -5,6 +5,7 @@
  */
 package dar.Gui.About;
 
+import dar.Functions.Functions;
 import dar.Gui.GuiIcon;
 import dar.Gui.Version;
 
@@ -19,6 +20,7 @@ public class About_popup extends javax.swing.JFrame {
      */
     public About_popup() {
         initComponents();
+        Functions.setFrameMinimumSize(this);
         GuiIcon icon = new GuiIcon(this,"About");
     }
 
@@ -37,6 +39,7 @@ public class About_popup extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("eDAR  - About");
+        setMinimumSize(getSize());
         setResizable(false);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/info1600.png"))); // NOI18N

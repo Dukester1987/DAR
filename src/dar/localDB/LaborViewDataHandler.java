@@ -358,7 +358,7 @@ public class LaborViewDataHandler extends DataHandler {
             
             if(utilizationID==0){
                 // add new dataset
-                int utilID = con.dbInsert(dbTable, new Object[][]{{"LaborAllocationID","PlantID","Hours","Status","Notes","DateFor"},{allocationID,"",hours,StatusID,notes,date}});
+                int utilID = con.dbInsert(dbTable, new Object[][]{{"LaborAllocationID","PlantID","Hours","Status","Notes","DateFor","ApprovalID"},{allocationID,"",hours,StatusID,notes,date,"NULL"}});
                 System.out.println("Utilization ID is "+utilID);
                 model.setValueAt(utilID, k, 0);
             } else {

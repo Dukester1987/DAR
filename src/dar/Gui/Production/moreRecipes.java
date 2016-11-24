@@ -6,6 +6,7 @@
 package dar.Gui.Production;
 
 import dar.Functions.FileLogger;
+import dar.Functions.Functions;
 import dar.Gui.Gui;
 import dar.Gui.GuiIcon;
 import dar.localDB.ProductViewHandler;
@@ -36,7 +37,7 @@ public class moreRecipes extends javax.swing.JFrame {
     private final Gui g;
 
 
-    public moreRecipes(ArrayList<recipeDetail> rs, ProductViewHandler pw, double amount, String notes, int AllocationID, Date date, int TrType,AddProduct p, Gui g) {
+    public moreRecipes(ArrayList<recipeDetail> rs, ProductViewHandler pw, double amount, String notes, int AllocationID, Date date, int TrType,AddProduct p, Gui g) {        
         this.pw = pw;
         this.rcplist = rs;
         this.amount = amount;
@@ -47,6 +48,7 @@ public class moreRecipes extends javax.swing.JFrame {
         this.g = g;
         this.p = p;
         initComponents();
+        Functions.setFrameMinimumSize(this);
         editComponents();
         GuiIcon icon = new GuiIcon(this,"Application");
     }
@@ -66,6 +68,7 @@ public class moreRecipes extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Select recipe");
+        setMinimumSize(getSize());
 
         javax.swing.GroupLayout componentsLayout = new javax.swing.GroupLayout(components);
         components.setLayout(componentsLayout);

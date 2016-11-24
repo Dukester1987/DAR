@@ -2,6 +2,7 @@ package dar.dbObjects;
 
 import dar.Functions.FileLogger;
 import dar.localDB.LocalWraper;
+import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
@@ -21,8 +22,9 @@ public class User {
     private int status;
     private Timestamp lastUpload;
     private Timestamp lastDownload;
-    private long siteID = 0;
+    private static long siteID = 0;
     private String siteName;    
+    private static Date date;
 
     public User(int id, String loginName, String password, String rights, int status, Timestamp lastUpload, Timestamp lastDownload) {
         this.id = id;
@@ -32,6 +34,21 @@ public class User {
         this.status = status;
         this.lastUpload = lastUpload;
         this.lastDownload = lastDownload;
+    }
+    
+    public long getUserPermissions(){
+        long permission = 1;
+        try {
+            JSONObject jString = (JSONObject) new JSONParser().parse(rights);
+                if(jString.get("Rights")!=null){
+                    permission = (long) jString.get("Rights");
+                }
+                
+        } catch (ParseException ex) {
+            ex.printStackTrace();
+            new FileLogger(ex.getStackTrace());
+        }
+        return permission;        
     }
     
     public long getSiteID(){
@@ -53,6 +70,14 @@ public class User {
     
     public void setSiteID(int ID){
         siteID = ID;
+    }
+    
+    public void setDate(Date date){
+        this.date = date;
+    }
+    
+    public Date getDate(){
+        return date;
     }
     
     public long getSiteID(String JSONString){       

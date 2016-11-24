@@ -6,11 +6,11 @@
 package dar.Functions;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -262,12 +262,12 @@ public class DBFunctions {
 //        changeLog(table, updatedID, "update", whatToUpdate, userData.getId());
     }  
     
-    public void changeLog(String tbl, String ID, String insert, String inputs, int loginId, Timestamp time, String UID) {
+    public void changeLog(String tbl, String ID, String insert, String inputs, int loginId, Timestamp time, String UID, Date dateFor, int SiteID) {
         try {
             Functions fn = new Functions();
             String fixInputs = fn.forHTML(inputs);
             //Timestamp time = new Timestamp(System.currentTimeMillis());
-            String query = String.format("INSERT INTO ChangeLog (AffectedTable, RowID, Operation, NewValue, LoginID, Time, UID) VALUES ('%s','%s','%s','%s','%s','%s','%s')",tbl,ID,insert,fixInputs,loginId,time,UID);
+            String query = String.format("INSERT INTO ChangeLog (AffectedTable, RowID, Operation, NewValue, LoginID, Time, UID, DateFor, SiteID) VALUES ('%s','%s','%s','%s','%s','%s','%s','%s','%s')",tbl,ID,insert,fixInputs,loginId,time,UID,dateFor,SiteID);
             Statement st;
 
             //System.out.println(query);

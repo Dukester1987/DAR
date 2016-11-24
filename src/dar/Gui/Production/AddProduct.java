@@ -5,6 +5,7 @@
  */
 package dar.Gui.Production;
 
+import dar.Functions.Functions;
 import dar.Functions.JControlers;
 import dar.Gui.Gui;
 import dar.Gui.GuiIcon;
@@ -35,7 +36,8 @@ public class AddProduct extends javax.swing.JFrame {
     private final int prodType;
     
     public AddProduct(LocalWraper db, Date date, Gui g, int prodType) {
-        initComponents();       
+        initComponents();
+        Functions.setFrameMinimumSize(this);
         this.db = db;
         this.date = date;
         this.g = g;
@@ -84,6 +86,7 @@ public class AddProduct extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Production");
+        setMinimumSize(new java.awt.Dimension(653, 294));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel1.setText("Add product");

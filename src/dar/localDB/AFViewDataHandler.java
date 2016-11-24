@@ -149,7 +149,12 @@ public class AFViewDataHandler extends DataHandler{
         if(table.getEditingRow()>=0){
             int utilID = (int) model.getValueAt(table.getEditingRow(), 1);
             int allID = (int) model.getValueAt(table.getEditingRow(), 0);
-            double fuelAmount = (double) model.getValueAt(table.getEditingRow(), 4);            
+            double fuelAmount = 0;  
+            try{
+                fuelAmount = (double) model.getValueAt(table.getEditingRow(), 4);        
+            } catch(Exception e){
+                System.out.println("trying to add empty value to fuel");
+            }
 
             if(utilID!=0){ // update
                 if(con.getRowCount(con.dbSelect("AFFuel", new Object[][]{

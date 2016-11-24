@@ -44,7 +44,7 @@ public class ChangeManager {
         //initialize the variables
         changeList = new ArrayList<>();
         getLastUpdate();
-        String SQLString = "SELECT ID, AffectedTable, RowID, Operation, NewValue, LoginID, Time, UID FROM ChangeLog WHERE Time>'%s' ORDER BY Time";
+        String SQLString = "SELECT ID, AffectedTable, RowID, Operation, NewValue, LoginID, Time, UID, DateFor, SiteID FROM ChangeLog WHERE Time>'%s' ORDER BY Time";
         
         //get things to download        
         String query = String.format(SQLString,lastUpdate.get(updateID[0]));                
@@ -91,6 +91,8 @@ public class ChangeManager {
                         rs.getInt("LoginID"), 
                         rs.getTimestamp("Time"),
                         rs.getString("UID"),
+                        rs.getDate("DateFor"),
+                        rs.getInt("SiteID"),                        
                         i);
                 changeList.add(lw);
             }
@@ -175,7 +177,7 @@ public class ChangeManager {
     }
 
     private void logOnDestination(DBFunctions destination, ChangeLogView clw) {
-        destination.changeLog(clw.getAffectedTable(), clw.getRowID(), clw.getOperation(), clw.getSQLString(), clw.getLoginID(),clw.getTimeChanged(),clw.getUid());
+        destination.changeLog(clw.getAffectedTable(), clw.getRowID(), clw.getOperation(), clw.getSQLString(), clw.getLoginID(),clw.getTimeChanged(),clw.getUid(),clw.getDateFor(),clw.getSiteID());
     }
 
     private void updateUserInfo(String userColumn) {

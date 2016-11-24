@@ -1,0 +1,6 @@
+New in version 1.2.6
+
+- Fixed issues with data loss
+- added report approval feature
+- fixed bug with wrong highlighting in tables when sorting
+- fixed bug with app freeze

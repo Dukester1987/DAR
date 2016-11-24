@@ -5,6 +5,7 @@
  */
 package dar.dbObjects;
 
+import java.sql.Date;
 import java.sql.Timestamp;
 
 /**
@@ -20,9 +21,12 @@ public class ChangeLogView {
     private final int loginID;
     private final Timestamp timeChanged;
     private final String uid;
+    private final Date dateFor;
+    private final int siteID;    
     private final int type;
 
-    public ChangeLogView(int ID, String AffectedTable, String rowID, String Operation, String SQLString, int loginID, Timestamp timeChanged, String uid, int type) {
+
+    public ChangeLogView(int ID, String AffectedTable, String rowID, String Operation, String SQLString, int loginID, Timestamp timeChanged, String uid, Date dateFor, int siteID, int type) {
         this.ID = ID;
         this.AffectedTable = AffectedTable;
         this.rowID = rowID;
@@ -31,6 +35,8 @@ public class ChangeLogView {
         this.loginID = loginID;
         this.timeChanged = timeChanged;
         this.uid = uid;
+        this.dateFor = dateFor;
+        this.siteID = siteID;        
         this.type = type;
     }
 
@@ -69,6 +75,17 @@ public class ChangeLogView {
     public int getType() {
         return type;
     }
+
+
+    public Date getDateFor() {
+        return dateFor;
+    }
+
+    public int getSiteID() {
+        return siteID;
+    }
+    
+    
 
     @Override
     public String toString() {

@@ -5,6 +5,7 @@
  */
 package dar.Gui.Production;
 
+import dar.Functions.Functions;
 import dar.Gui.GuiIcon;
 import dar.dbObjects.Production.ProductListView;
 import dar.dbObjects.Production.RecipeIngredients;
@@ -48,6 +49,7 @@ public class recipeEdit extends javax.swing.JFrame {
         
         GuiIcon ico = new GuiIcon(this, "Application");
         initComponents();
+        Functions.setFrameMinimumSize(this);
         initFunctions();
         editComponents();        
         
@@ -94,6 +96,7 @@ public class recipeEdit extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Edit recipe");
+        setMinimumSize(getSize());
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 

@@ -10,6 +10,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.text.CharacterIterator;
 import java.text.StringCharacterIterator;
+import javax.swing.JFrame;
 
 /**
  *
@@ -17,6 +18,10 @@ import java.text.StringCharacterIterator;
  */
 public class Functions {
     private String string;
+    
+    public static void setFrameMinimumSize(JFrame frame){
+        frame.setMinimumSize(frame.getSize());
+    }
     
     public String md5(String param){
         string = param;

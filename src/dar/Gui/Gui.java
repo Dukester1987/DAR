@@ -5,6 +5,8 @@
  */
 package dar.Gui;
 
+import dar.Functions.FileLogger;
+import dar.Functions.Functions;
 import dar.Gui.CloserData.Closer;
 import dar.Gui.Production.AddProduct;
 import dar.Functions.JControlers;
@@ -26,15 +28,21 @@ import dar.localDB.NoteViewHandler;
 import dar.localDB.PlantViewDataHandler;
 import dar.localDB.ProductViewHandler;
 import dar.localDB.SiteListHandler;
+import java.awt.Color;
 import java.sql.Date;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.SwingUtilities;
+import javax.swing.event.RowSorterEvent;
+import javax.swing.event.RowSorterListener;
 import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
 import javax.swing.table.DefaultTableModel;
@@ -69,12 +77,15 @@ public class Gui extends javax.swing.JFrame {
     private JControlers controller;
     private StockGui stockGui;
     private SiteListHandler slh;
+    public static boolean isAnyChangesApplicable = false;
 
     public Gui(LocalWraper db) {    
         Version v = new Version();
         this.ti = new TimeWrapper();
         this.date = ti.today();    
-        this.db = db;        
+        this.db = db; 
+        db.userData.setDate(date);
+        isAnyChangesApplicable = checkChanges();
         initComponents();
         editComponents();
         
@@ -105,13 +116,15 @@ public class Gui extends javax.swing.JFrame {
         
         actionListenerGo = true;
         setName(title);
-        pw.utilPercChange();
-        
-        
+        pw.utilPercChange();        
         
         db1 = new DBWrapper(label,db,this);
         t = new Thread(db1);
         t.start();
+        
+        ButtonController bc = new ButtonController(this);
+        Thread t1 = new Thread(bc);
+        t1.start();
         
     }
 
@@ -195,6 +208,8 @@ public class Gui extends javax.swing.JFrame {
         jButton5 = new javax.swing.JButton();
         datePicker = new com.toedter.calendar.JDateChooser();
         powerTitle = new javax.swing.JComboBox<>();
+        reportConfirm = new javax.swing.JButton();
+        ConfirmationStatus = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
@@ -281,6 +296,7 @@ public class Gui extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle(String.format("DAR v%s - Hi Quality Group",Version.version));
+        setMinimumSize(new java.awt.Dimension(1128, 682));
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
@@ -1067,6 +1083,17 @@ public class Gui extends javax.swing.JFrame {
             }
         });
 
+        reportConfirm.setText("CONFIRM");
+        reportConfirm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                reportConfirmActionPerformed(evt);
+            }
+        });
+
+        ConfirmationStatus.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        ConfirmationStatus.setForeground(new java.awt.Color(255, 0, 0));
+        ConfirmationStatus.setText("jLabel12");
+
         jMenu1.setText("File");
 
         jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.CTRL_MASK));
@@ -1154,7 +1181,10 @@ public class Gui extends javax.swing.JFrame {
                         .addComponent(datePicker, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(label, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(164, 164, 164))
+                        .addGap(104, 104, 104)
+                        .addComponent(reportConfirm)
+                        .addGap(18, 18, 18)
+                        .addComponent(ConfirmationStatus))
                     .addComponent(Sales))
                 .addContainerGap())
         );
@@ -1165,7 +1195,10 @@ public class Gui extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(datePicker, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(powerTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(label, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(label, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(reportConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(ConfirmationStatus))
                     .addComponent(title, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(Sales, javax.swing.GroupLayout.PREFERRED_SIZE, 595, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1418,16 +1451,20 @@ public class Gui extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     private void powerTitleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_powerTitleActionPerformed
-        System.out.println("changing site");
+        //System.out.println("changing site");
         if(actionListenerGo){            
             DefaultComboBoxModel model = (DefaultComboBoxModel) powerTitle.getModel();
             SiteList site = (SiteList) model.getSelectedItem();
             db.userData.setSiteID(site.getSiteID());
-            System.out.println("choosed site is:" + site.getSiteName());
+            //System.out.println("choosed site is:" + site.getSiteName());
             refreshLists();
-            System.out.println("success / refreshing lists");
+            //System.out.println("success / refreshing lists");
         }
     }//GEN-LAST:event_powerTitleActionPerformed
+
+    private void reportConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reportConfirmActionPerformed
+        ConfirmDay(db.userData.getDate(), db.userData.getSiteID());
+    }//GEN-LAST:event_reportConfirmActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu About;
@@ -1435,6 +1472,7 @@ public class Gui extends javax.swing.JFrame {
     private javax.swing.JMenuItem AddNew;
     private javax.swing.JMenuItem AddNew1;
     private javax.swing.JTable AditionalFuel;
+    private javax.swing.JLabel ConfirmationStatus;
     private javax.swing.JPopupMenu LaborChangeMenu;
     public javax.swing.JTable LaborUtil;
     private javax.swing.JTextArea MyComents;
@@ -1513,6 +1551,7 @@ public class Gui extends javax.swing.JFrame {
     private javax.swing.JList<String> laborOnSiteList;
     private javax.swing.JMenuItem pRemoveSelected;
     private javax.swing.JComboBox<String> powerTitle;
+    private javax.swing.JButton reportConfirm;
     private dar.Gui.Sales.SalesGui salesGui;
     private javax.swing.JLabel title;
     private javax.swing.JLabel utilPerc;
@@ -1531,6 +1570,7 @@ public class Gui extends javax.swing.JFrame {
     private void changeDate() {
         if(actionListenerGo){
             date = ti.setDate(datePicker.getDate());
+            db.userData.setDate(date);
             //pw.displayPlantViewInTable(PlantUtil, date); //refresh table
             //af.displayViewInTable(AditionalFuel, date);
             //pw.utilPercChange();            
@@ -1549,6 +1589,8 @@ public class Gui extends javax.swing.JFrame {
 
     public void refreshLists() {
         //lists housekeeping stuff
+        confirmationControl();
+        System.out.println(db.userData.getSiteName(db)+" "+db.userData.getSiteID());
         actionListenerGo = false;
         lw.createLaborList(date);
         lw.createFunctionsList();
@@ -1620,7 +1662,8 @@ public class Gui extends javax.swing.JFrame {
 
     private void editComponents() {        
         Gui g = this;
-        
+        confirmationControl();
+        Functions.setFrameMinimumSize(this);
         setTitle();
         
         setRenderers();
@@ -1634,7 +1677,17 @@ public class Gui extends javax.swing.JFrame {
                 }
             }
         });
-
+        
+        PlantUtil.getRowSorter().addRowSorterListener(new RowSorterListener() {
+            @Override
+            public void sorterChanged(RowSorterEvent rse) {
+                pw.utilPercChange();     
+//                for (LaborList laborList1 : fullList) {
+//                    laborList1.getFunctionID();
+//                }
+            }
+        });
+        
         PlantUtil.getModel().addTableModelListener(new TableModelListener() {
             @Override
             public void tableChanged(TableModelEvent tme) {
@@ -1690,10 +1743,189 @@ public class Gui extends javax.swing.JFrame {
         } else {
             powerTitle.setVisible(false);
         }
+    }           
+
+    public void confirmationControl(){
+        isAnyChangesApplicable = checkChanges();
+        System.out.println("user permissions are:"+ db.userData.getUserPermissions());
+        if(db.userData.getUserPermissions()==2){
+            reportConfirm.setVisible(true);   
+            ConfirmationStatus.setVisible(false);
+            setButtonText(reportConfirm);
+        } else {
+            reportConfirm.setVisible(false);                        
+            ConfirmationStatus.setVisible(true);
+            setLabelText(ConfirmationStatus);
+            
+        }
     }
+
+    private void setButtonText(JButton reportConfirm) {
+        System.out.println("setting button");
+        if(isAnyChangesApplicable){
+            reportConfirm.setEnabled(true);
+            reportConfirm.setText("CONFIRM");
+        } else {
+            reportConfirm.setEnabled(false);
+            reportConfirm.setText("CONFIRMED");
+        }
+    }
+
+    private void setLabelText(JLabel statusLabel) {
+        System.out.println("setting text");
+        if(isAnyChangesApplicable){
+            statusLabel.setText("REPORT IS NOT CONFIRMED");
+            statusLabel.setForeground(Color.red);
+        } else {
+            statusLabel.setText("REPORT IS CONFIRMED");
+            statusLabel.setForeground(Color.black);
+        }        
+    }
+
+    private boolean checkChanges() {
         
-    
-    
-    
- 
+        String[] query1 = {"SELECT \n" +
+        "lu.*\n" +
+        "FROM `LaborUtilization` lu\n" +
+        "INNER JOIN LaborAllocation la on lu.LaborAllocationID = la.ID\n" +
+        "WHERE lu.DateFor = '%s' AND la.SiteID = %s",
+        "SELECT \n" +
+        "lu.*\n" +
+        "FROM `PlantUtilization` lu\n" +
+        "INNER JOIN PlantAllocation la on lu.PlantAllocationID = la.ID\n" +
+        "WHERE lu.DateFor = '%s' AND la.SiteID = %s",
+        "SELECT \n" +
+        "lu.*\n" +
+        "FROM `ProductUtilization` lu\n" +
+        "INNER JOIN ProductAllocation la on lu.ProductAllocationID = la.ID\n" +
+        "WHERE lu.DateFor = '%s' AND la.SiteID = %s",
+        "SELECT * FROM `Sales` WHERE DateFor = '%s' AND SiteID = %s"
+        };        
+        
+        String[] query = {"SELECT \n" +
+        "lu.*\n" +
+        "FROM `LaborUtilization` lu\n" +
+        "INNER JOIN LaborAllocation la on lu.LaborAllocationID = la.ID\n" +
+        "WHERE `ApprovalID` IS NULL\n" +
+        "AND lu.DateFor = '%s' AND la.SiteID = %s",
+        "SELECT \n" +
+        "lu.*\n" +
+        "FROM `PlantUtilization` lu\n" +
+        "INNER JOIN PlantAllocation la on lu.PlantAllocationID = la.ID\n" +
+        "WHERE `ApprovalID` IS NULL\n" +
+        "AND lu.DateFor = '%s' AND la.SiteID = %s",
+        "SELECT \n" +
+        "lu.*\n" +
+        "FROM `ProductUtilization` lu\n" +
+        "INNER JOIN ProductAllocation la on lu.ProductAllocationID = la.ID\n" +
+        "WHERE `ApprovalID` IS NULL\n" +
+        "AND lu.DateFor = '%s' AND la.SiteID = %s",
+        "SELECT * FROM `Sales` WHERE `ApprovalID` IS NULL AND DateFor = '%s' AND SiteID = %s"
+        };
+        
+        boolean done = true;
+        boolean rough = false;
+        
+        for (String string : query1) {
+            ResultSet rs = db.runQuery(String.format(string, db.userData.getDate(),db.userData.getSiteID()));
+            if(db.getRowCount(rs)>0){
+               rough = true; 
+            }
+        }
+        
+        if(rough){
+            for (String string : query) {
+                ResultSet rs =  db.runQuery(String.format(string,db.userData.getDate(),db.userData.getSiteID()));
+                System.out.println("Rows for query is: "+db.getRowCount(rs) );
+                if(db.getRowCount(rs)>0){
+                    System.out.println(String.format(string, db.userData.getDate(),db.userData.getSiteID()));
+                    done = true;
+                    break;
+                } else {
+                    done = false;                
+                }                 
+            };
+        } else {
+            done = false;
+        }
+        return done;
+    }
+
+    private void ConfirmDay(Date dt, long siteID) {
+        if(db.userData.getUserPermissions()==2){
+            if(isCommentsFilled()){            
+                int insertID = db.dbInsert("inputValidation", new Object[][]{
+                    {"LoginID","Comment"},
+                    {db.userData.getId(),"Confirmed"}
+                });
+
+                //labor utilization
+                approveUtilization(getUtilization(dt,siteID,"LaborAllocation","LaborUtilization","LaborAllocationID"),"LaborUtilization",insertID,dt);
+                //Plant utilization
+                approveUtilization(getUtilization(dt,siteID,"PlantAllocation","PlantUtilization","PlantAllocationID"),"PlantUtilization",insertID,dt);
+                //Product utilization
+                approveUtilization(getUtilization(dt,siteID,"ProductAllocation","ProductUtilization","ProductAllocationID"),"ProductUtilization",insertID,dt);
+                //Sales
+                approveSales(dt,siteID,insertID);          
+
+
+
+                isAnyChangesApplicable = false;
+                confirmationControl();                
+            } else {
+                JOptionPane.showMessageDialog(null,"To confirm the report you have to fill Daily summary / Comments","Input error",JOptionPane.ERROR_MESSAGE);
+            }
+        }
+    }
+
+    private String getTableName(String string) {
+        String[] cleared = string.split(" ");        
+        return cleared[1];
+    }
+
+    private ArrayList<Integer> getUtilization(Date dt, long siteID,String tableName,String joinTableName, String joinTableColumn) {
+        String q = String.format("SELECT "+joinTableName+".ID FROM"
+                + "`"+tableName+"` "
+                + "INNER JOIN "+joinTableName+" "
+                + "ON "+joinTableName+"."+joinTableColumn+" = %s.ID AND "+joinTableName+".DateFor='%s' WHERE "+tableName+".`StartDate` <= '%s' AND "+tableName+".`EndDate` >= '%s' AND "+tableName+".`SiteID`=%s",tableName,dt,dt,dt,siteID);
+        ArrayList<Integer> IDs = new ArrayList<Integer>();
+        ResultSet rs = db.runQuery(q);
+        try {
+            while(rs.next()){
+                IDs.add(rs.getInt("ID"));                                
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            new FileLogger(ex.getStackTrace());
+        }
+        return IDs;
+    }
+
+    private void approveUtilization(ArrayList<Integer> IDs, String tableName,int AprovalID, Date dt) {
+        for (Integer ID : IDs) {
+            //System.out.printf("aproving %s, with ID %s\n",tableName,ID);
+            try{
+                db.dbUpdate(tableName, new Object[][]{{"ApprovalID"},{AprovalID}}, new Object[][]{{"ID"},{"="},{ID},{"AND"}});
+            }catch(Exception e){
+                e.printStackTrace();
+            }
+        }        
+    }
+
+    private void approveSales(Date dt, long siteID, int insertID) {        
+        ResultSet rs = db.dbSelect("Sales", new Object[][]{{"DateFor","SiteID"},{"=","="},{dt,siteID},{"AND"}});
+        try {
+            while(rs.next()){
+                db.dbUpdate("Sales", new Object[][]{{"ApprovalID"},{insertID}}, new Object[][]{{"ID"},{"="},{rs.getInt("ID")},{"AND"}});                
+            }            
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            new FileLogger(ex.getStackTrace());
+        }
+        
+    }
+
+    private boolean isCommentsFilled() {
+        return !MyComents.getText().isEmpty();
+    }
 }
