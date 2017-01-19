@@ -44,7 +44,7 @@ public class ChangeManager {
         //initialize the variables
         changeList = new ArrayList<>();
         getLastUpdate();
-        String SQLString = "SELECT ID, AffectedTable, RowID, Operation, NewValue, LoginID, Time, UID, DateFor, SiteID FROM ChangeLog WHERE Time>'%s' ORDER BY Time";
+        String SQLString = "SELECT ID, AffectedTable, RowID, Operation, NewValue, LoginID, Time, UID, DateFor, SiteID FROM ChangeLog WHERE Time>'%s' ORDER BY Time,ID";
         
         //get things to download        
         String query = String.format(SQLString,lastUpdate.get(updateID[0]));                
@@ -153,7 +153,8 @@ public class ChangeManager {
     }
 
     private void updateOperation(DBFunctions destination, ChangeLogView clw) {
-        if(!isExistInDestination(destination, clw)){                        
+        if(!isExistInDestination(destination, clw)){     
+            //JOptionPane.showMessageDialog(null,clw.getSQLString());
             destination.executeQuery(transUpdateToInsert(clw.getSQLString(), clw.getAffectedTable()));                    
             logOnDestination(destination, clw);
         } else {                          
@@ -204,12 +205,12 @@ public class ChangeManager {
         return String.format("UPDATE %s SET %s WHERE ID = %s", table,result,ID);
     }
     
-    private static String transUpdateToInsert(String query,String table){
+    private static String transUpdateToInsert(String query,String table){        
+        System.out.println(query);        
         String columns = "";
         String values = "";
         String firstParse = " SET ";
-        String[] splices = query.substring(query.indexOf(firstParse)+firstParse.length(),query.lastIndexOf(" WHERE ")).split(",");
-        System.out.println(query);
+        String[] splices = query.substring(query.indexOf(firstParse)+firstParse.length(),query.lastIndexOf(" WHERE ")).split(",");       
         for (int i = 0; i < splices.length; i++) {
             columns += String.format("%s%s", splices[i].substring(0,splices[i].indexOf(" = ")).trim(),i <splices.length-1?", ":"");
             values += String.format("%s%s",splices[i].substring(splices[i].indexOf(" = ")+" = ".length()).trim(),i <splices.length-1?", ":"");            

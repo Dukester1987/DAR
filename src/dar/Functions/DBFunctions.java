@@ -267,7 +267,8 @@ public class DBFunctions {
             Functions fn = new Functions();
             String fixInputs = fn.forHTML(inputs);
             //Timestamp time = new Timestamp(System.currentTimeMillis());
-            String query = String.format("INSERT INTO ChangeLog (AffectedTable, RowID, Operation, NewValue, LoginID, Time, UID, DateFor, SiteID) VALUES ('%s','%s','%s','%s','%s','%s','%s','%s','%s')",tbl,ID,insert,fixInputs,loginId,time,UID,dateFor,SiteID);
+            String newDate = dateFor==null?"null":"'"+dateFor+"'";                        
+            String query = String.format("INSERT INTO ChangeLog (AffectedTable, RowID, Operation, NewValue, LoginID, Time, UID, DateFor, SiteID) VALUES ('%s','%s','%s','%s','%s','%s','%s',%s,'%s')",tbl,ID,insert,fixInputs,loginId,time,UID,newDate,SiteID);
             Statement st;
 
             //System.out.println(query);

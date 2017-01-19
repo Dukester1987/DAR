@@ -1,0 +1,90 @@
+[27-Oct-2016 19:21:12 America/Chicago] PHP Parse error:  syntax error, unexpected ';' in /home2/sopsioco/public_html/duke/bin/functions.php on line 11
+[27-Oct-2016 19:21:26 America/Chicago] PHP Parse error:  syntax error, unexpected ';' in /home2/sopsioco/public_html/duke/bin/functions.php on line 11
+[27-Oct-2016 19:21:28 America/Chicago] PHP Parse error:  syntax error, unexpected ';' in /home2/sopsioco/public_html/duke/bin/functions.php on line 11
+[27-Oct-2016 19:21:29 America/Chicago] PHP Parse error:  syntax error, unexpected ';' in /home2/sopsioco/public_html/duke/bin/functions.php on line 11
+[27-Oct-2016 19:21:30 America/Chicago] PHP Parse error:  syntax error, unexpected ';' in /home2/sopsioco/public_html/duke/bin/functions.php on line 11
+[27-Oct-2016 19:21:31 America/Chicago] PHP Parse error:  syntax error, unexpected ';' in /home2/sopsioco/public_html/duke/bin/functions.php on line 11
+[27-Oct-2016 19:21:46 America/Chicago] PHP Parse error:  syntax error, unexpected ';' in /home2/sopsioco/public_html/duke/bin/functions.php on line 16
+[27-Oct-2016 19:28:55 America/Chicago] PHP Parse error:  syntax error, unexpected '=' in /home2/sopsioco/public_html/duke/bin/tester.php on line 4
+[27-Oct-2016 19:29:04 America/Chicago] PHP Parse error:  syntax error, unexpected '=' in /home2/sopsioco/public_html/duke/bin/tester.php on line 4
+[27-Oct-2016 19:29:05 America/Chicago] PHP Parse error:  syntax error, unexpected '=' in /home2/sopsioco/public_html/duke/bin/tester.php on line 4
+[27-Oct-2016 19:49:06 America/Chicago] PHP Parse error:  syntax error, unexpected ')', expecting ';' in /home2/sopsioco/public_html/duke/bin/tester.php on line 10
+[27-Oct-2016 19:49:29 America/Chicago] PHP Fatal error:  Call to undefined function getBeginingOfTheMonth() in /home2/sopsioco/public_html/duke/bin/tester.php on line 9
+[27-Oct-2016 19:49:55 America/Chicago] PHP Fatal error:  Call to undefined function getEndOfMonths() in /home2/sopsioco/public_html/duke/bin/tester.php on line 12
+[27-Oct-2016 19:50:22 America/Chicago] PHP Fatal error:  Call to undefined function getEndOfTheMonth() in /home2/sopsioco/public_html/duke/bin/tester.php on line 12
+[27-Oct-2016 19:50:34 America/Chicago] PHP Warning:  Missing argument 3 for DateWrapper::getWorkingDays(), called in /home2/sopsioco/public_html/duke/bin/tester.php on line 12 and defined in /home2/sopsioco/public_html/duke/bin/functions.php on line 37
+[27-Oct-2016 19:50:34 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/sopsioco/public_html/duke/bin/functions.php on line 90
+[27-Oct-2016 19:50:57 America/Chicago] PHP Fatal error:  Class 'DateWrapper' not found in /home2/sopsioco/public_html/duke/bin/tester.php on line 4
+[27-Oct-2016 19:51:12 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/sopsioco/public_html/duke/bin/functions.php on line 90
+[27-Oct-2016 19:51:23 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/sopsioco/public_html/duke/bin/functions.php on line 90
+[27-Oct-2016 19:51:24 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/sopsioco/public_html/duke/bin/functions.php on line 90
+[27-Oct-2016 19:51:25 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/sopsioco/public_html/duke/bin/functions.php on line 90
+[27-Oct-2016 19:51:26 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/sopsioco/public_html/duke/bin/functions.php on line 90
+[27-Oct-2016 19:52:15 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/sopsioco/public_html/duke/bin/functions.php on line 90
+[27-Oct-2016 19:52:16 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/sopsioco/public_html/duke/bin/functions.php on line 90
+[27-Oct-2016 19:52:17 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/sopsioco/public_html/duke/bin/functions.php on line 90
+[27-Oct-2016 19:52:18 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/sopsioco/public_html/duke/bin/functions.php on line 90
+[27-Oct-2016 19:52:19 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/sopsioco/public_html/duke/bin/functions.php on line 90
+[27-Oct-2016 19:52:20 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/sopsioco/public_html/duke/bin/functions.php on line 90
+[27-Oct-2016 19:52:21 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/sopsioco/public_html/duke/bin/functions.php on line 90
+[27-Oct-2016 19:52:21 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/sopsioco/public_html/duke/bin/functions.php on line 90
+[27-Oct-2016 19:52:22 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/sopsioco/public_html/duke/bin/functions.php on line 90
+[27-Oct-2016 19:53:09 America/Chicago] PHP Parse error:  syntax error, unexpected '{', expecting '(' in /home2/sopsioco/public_html/duke/bin/functions.php on line 37
+[27-Oct-2016 19:53:11 America/Chicago] PHP Parse error:  syntax error, unexpected '{', expecting '(' in /home2/sopsioco/public_html/duke/bin/functions.php on line 37
+[27-Oct-2016 19:53:12 America/Chicago] PHP Parse error:  syntax error, unexpected '{', expecting '(' in /home2/sopsioco/public_html/duke/bin/functions.php on line 37
+[27-Oct-2016 19:53:13 America/Chicago] PHP Parse error:  syntax error, unexpected '{', expecting '(' in /home2/sopsioco/public_html/duke/bin/functions.php on line 37
+[27-Oct-2016 19:53:13 America/Chicago] PHP Parse error:  syntax error, unexpected '{', expecting '(' in /home2/sopsioco/public_html/duke/bin/functions.php on line 37
+[27-Oct-2016 19:54:43 America/Chicago] PHP Parse error:  syntax error, unexpected '{', expecting '(' in /home2/sopsioco/public_html/duke/bin/functions.php on line 37
+[27-Oct-2016 19:55:29 America/Chicago] PHP Fatal error:  Call to undefined function getAmountOfMonths() in /home2/sopsioco/public_html/duke/bin/tester.php on line 15
+[27-Oct-2016 19:55:31 America/Chicago] PHP Fatal error:  Call to undefined function getAmountOfMonths() in /home2/sopsioco/public_html/duke/bin/tester.php on line 15
+[27-Oct-2016 19:55:32 America/Chicago] PHP Fatal error:  Call to undefined function getAmountOfMonths() in /home2/sopsioco/public_html/duke/bin/tester.php on line 15
+[27-Oct-2016 19:55:53 America/Chicago] PHP Fatal error:  Call to undefined function getBeginingOfTheMonth() in /home2/sopsioco/public_html/duke/bin/tester.php on line 16
+[27-Oct-2016 19:55:54 America/Chicago] PHP Fatal error:  Call to undefined function getBeginingOfTheMonth() in /home2/sopsioco/public_html/duke/bin/tester.php on line 16
+[27-Oct-2016 19:56:21 America/Chicago] PHP Fatal error:  Call to undefined function getBeginingOfTheMonth() in /home2/sopsioco/public_html/duke/bin/tester.php on line 16
+[27-Oct-2016 19:56:22 America/Chicago] PHP Fatal error:  Call to undefined function getBeginingOfTheMonth() in /home2/sopsioco/public_html/duke/bin/tester.php on line 16
+[27-Oct-2016 20:07:51 America/Chicago] PHP Parse error:  syntax error, unexpected '=', expecting variable (T_VARIABLE) or '$' in /home2/sopsioco/public_html/duke/bin/functions.php on line 28
+[27-Oct-2016 20:08:08 America/Chicago] PHP Fatal error:  Class 'DateWrapper' not found in /home2/sopsioco/public_html/duke/bin/tester.php on line 4
+[27-Oct-2016 20:12:17 America/Chicago] PHP Parse error:  syntax error, unexpected '$this' (T_VARIABLE) in /home2/sopsioco/public_html/duke/bin/functions.php on line 45
+[27-Oct-2016 20:12:51 America/Chicago] PHP Parse error:  syntax error, unexpected '$this' (T_VARIABLE) in /home2/sopsioco/public_html/duke/bin/functions.php on line 45
+[27-Oct-2016 20:12:53 America/Chicago] PHP Parse error:  syntax error, unexpected '$this' (T_VARIABLE) in /home2/sopsioco/public_html/duke/bin/functions.php on line 45
+[27-Oct-2016 20:12:54 America/Chicago] PHP Parse error:  syntax error, unexpected '$this' (T_VARIABLE) in /home2/sopsioco/public_html/duke/bin/functions.php on line 45
+[27-Oct-2016 20:13:29 America/Chicago] PHP Parse error:  syntax error, unexpected '$endDate' (T_VARIABLE) in /home2/sopsioco/public_html/duke/bin/functions.php on line 48
+[27-Oct-2016 20:13:35 America/Chicago] PHP Fatal error:  Class 'DateWrapper' not found in /home2/sopsioco/public_html/duke/bin/tester.php on line 4
+[27-Oct-2016 20:16:19 America/Chicago] PHP Strict Standards:  Non-static method DateWrapper::getWorkingDays() should not be called statically in /home2/sopsioco/public_html/duke/bin/tester.php on line 26
+[27-Oct-2016 20:16:19 America/Chicago] PHP Fatal error:  Using $this when not in object context in /home2/sopsioco/public_html/duke/bin/functions.php on line 47
+[27-Oct-2016 20:16:20 America/Chicago] PHP Strict Standards:  Non-static method DateWrapper::getWorkingDays() should not be called statically in /home2/sopsioco/public_html/duke/bin/tester.php on line 26
+[27-Oct-2016 20:16:20 America/Chicago] PHP Fatal error:  Using $this when not in object context in /home2/sopsioco/public_html/duke/bin/functions.php on line 47
+[27-Oct-2016 20:16:24 America/Chicago] PHP Strict Standards:  Non-static method DateWrapper::getWorkingDays() should not be called statically in /home2/sopsioco/public_html/duke/bin/tester.php on line 26
+[27-Oct-2016 20:16:24 America/Chicago] PHP Fatal error:  Using $this when not in object context in /home2/sopsioco/public_html/duke/bin/functions.php on line 47
+[27-Oct-2016 21:35:11 America/Chicago] PHP Fatal error:  Call to undefined method DateWrapper::endOfTheMonth() in /home2/sopsioco/public_html/duke/bin/functions.php on line 28
+[27-Oct-2016 21:35:23 America/Chicago] PHP Fatal error:  Call to undefined method DateWrapper::endOfTheMonth() in /home2/sopsioco/public_html/duke/bin/functions.php on line 28
+[27-Oct-2016 21:35:46 America/Chicago] PHP Fatal error:  Call to undefined method DateWrapper::endOfTheMonth() in /home2/sopsioco/public_html/duke/bin/functions.php on line 28
+[27-Oct-2016 21:36:03 America/Chicago] PHP Fatal error:  Call to undefined function trtotime() in /home2/sopsioco/public_html/duke/bin/DateWrapper.php on line 19
+[27-Oct-2016 21:36:34 America/Chicago] PHP Fatal error:  Call to undefined method DateWrapper::endOfTheMonth() in /home2/sopsioco/public_html/duke/bin/DateWrapper.php on line 32
+[27-Oct-2016 21:58:09 America/Chicago] PHP Fatal error:  Class 'Budget' not found in /home2/sopsioco/public_html/duke/bin/tester.php on line 3
+[27-Oct-2016 21:58:29 America/Chicago] PHP Fatal error:  Class 'DateWrapper' not found in /home2/sopsioco/public_html/duke/bin/Budget.php on line 6
+[27-Oct-2016 22:18:06 America/Chicago] PHP Fatal error:  Call to a member function getBeginingOfTheMonth() on null in /home2/sopsioco/public_html/duke/bin/Budget.php on line 14
+[27-Oct-2016 22:18:51 America/Chicago] PHP Fatal error:  Call to a member function getBeginingOfTheMonth() on null in /home2/sopsioco/public_html/duke/bin/Budget.php on line 14
+[27-Oct-2016 22:19:30 America/Chicago] PHP Warning:  sprintf(): Too few arguments in /home2/sopsioco/public_html/duke/bin/Budget.php on line 20
+[27-Oct-2016 22:19:30 America/Chicago] PHP Fatal error:  Call to a member function query() on null in /home2/sopsioco/public_html/duke/bin/Budget.php on line 21
+[27-Oct-2016 22:20:14 America/Chicago] PHP Warning:  sprintf(): Too few arguments in /home2/sopsioco/public_html/duke/bin/Budget.php on line 20
+[27-Oct-2016 22:20:14 America/Chicago] PHP Fatal error:  Call to a member function query() on null in /home2/sopsioco/public_html/duke/bin/Budget.php on line 21
+[27-Oct-2016 22:20:16 America/Chicago] PHP Warning:  sprintf(): Too few arguments in /home2/sopsioco/public_html/duke/bin/Budget.php on line 20
+[27-Oct-2016 22:20:16 America/Chicago] PHP Fatal error:  Call to a member function query() on null in /home2/sopsioco/public_html/duke/bin/Budget.php on line 21
+[27-Oct-2016 22:20:31 America/Chicago] PHP Warning:  sprintf(): Too few arguments in /home2/sopsioco/public_html/duke/bin/Budget.php on line 20
+[27-Oct-2016 22:20:31 America/Chicago] PHP Fatal error:  Call to a member function query() on null in /home2/sopsioco/public_html/duke/bin/Budget.php on line 21
+[27-Oct-2016 22:20:39 America/Chicago] PHP Warning:  sprintf(): Too few arguments in /home2/sopsioco/public_html/duke/bin/Budget.php on line 20
+[27-Oct-2016 22:20:39 America/Chicago] PHP Fatal error:  Call to a member function query() on null in /home2/sopsioco/public_html/duke/bin/Budget.php on line 21
+[27-Oct-2016 22:20:40 America/Chicago] PHP Warning:  sprintf(): Too few arguments in /home2/sopsioco/public_html/duke/bin/Budget.php on line 20
+[27-Oct-2016 22:20:40 America/Chicago] PHP Fatal error:  Call to a member function query() on null in /home2/sopsioco/public_html/duke/bin/Budget.php on line 21
+[27-Oct-2016 22:20:41 America/Chicago] PHP Warning:  sprintf(): Too few arguments in /home2/sopsioco/public_html/duke/bin/Budget.php on line 20
+[27-Oct-2016 22:20:41 America/Chicago] PHP Fatal error:  Call to a member function query() on null in /home2/sopsioco/public_html/duke/bin/Budget.php on line 21
+[27-Oct-2016 22:21:55 America/Chicago] PHP Fatal error:  Call to a member function query() on null in /home2/sopsioco/public_html/duke/bin/Budget.php on line 21
+[27-Oct-2016 22:21:57 America/Chicago] PHP Fatal error:  Call to a member function query() on null in /home2/sopsioco/public_html/duke/bin/Budget.php on line 21
+[27-Oct-2016 22:22:29 America/Chicago] PHP Fatal error:  Call to a member function query() on null in /home2/sopsioco/public_html/duke/bin/Budget.php on line 21
+[27-Oct-2016 22:22:32 America/Chicago] PHP Fatal error:  Call to a member function query() on null in /home2/sopsioco/public_html/duke/bin/Budget.php on line 21
+[27-Oct-2016 22:48:45 America/Chicago] PHP Parse error:  syntax error, unexpected 'while' (T_WHILE) in /home2/sopsioco/public_html/duke/bin/Budget.php on line 33
+[27-Oct-2016 22:49:16 America/Chicago] PHP Fatal error:  Call to a member function query() on null in /home2/sopsioco/public_html/duke/bin/Budget.php on line 31
+[27-Oct-2016 23:06:46 America/Chicago] PHP Fatal error:  Class 'Budget' not found in /home2/sopsioco/public_html/duke/bin/tester.php on line 6
+[27-Oct-2016 23:09:57 America/Chicago] PHP Parse error:  syntax error, unexpected end of file in /home2/sopsioco/public_html/duke/bin/Budget.php on line 44
+[27-Oct-2016 23:10:55 America/Chicago] PHP Fatal error:  Class 'DateWrapper' not found in /home2/sopsioco/public_html/duke/bin/Budget.php on line 9

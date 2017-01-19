@@ -1,0 +1,3 @@
+01-19 08:58:07 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "LOGIN" not found; SQL statement:
+SELECT * FROM Login WHERE LoginName = 'Dukester' AND Password = '2fae7330fe63aa996902e0606caa2bc0' [42102-176]

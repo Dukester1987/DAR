@@ -1827,6 +1827,7 @@ public class Gui extends javax.swing.JFrame {
         boolean rough = false;
         
         for (String string : query1) {
+            //System.out.println(String.format(string, db.userData.getDate(),db.userData.getSiteID()));
             ResultSet rs = db.runQuery(String.format(string, db.userData.getDate(),db.userData.getSiteID()));
             if(db.getRowCount(rs)>0){
                rough = true; 

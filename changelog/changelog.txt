@@ -1,6 +1,6 @@
-New in version 1.2.5
+New in version 1.2.6
 
-- Fixed graphic issue with window size wrapping
-- Fixed problem with displayed sites for users with more then one allocated site
-- Added status bar when closing application displaying all active events to the user.
-- Fixed problem with sync freeze
+- Fixed issues with data loss
+- added report approval feature
+- fixed bug with wrong highlighting in tables when sorting
+- fixed bug with app freeze
