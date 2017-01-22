@@ -172,8 +172,31 @@ public class ChangeManager {
         }
     }
 
-    private boolean isExistInDestination(DBFunctions destination, ChangeLogView clw) {                
-        String query = String.format("SELECT * FROM %s WHERE ID = '%s'", clw.getAffectedTable(),clw.getRowID());
+    private boolean isExistInDestination(DBFunctions destination, ChangeLogView clw) { 
+        String query = null;
+        if(clw.getAffectedTable().equalsIgnoreCase("PlantUtilization") && clw.getOperation().equalsIgnoreCase("Insert")){ //keys ID, PlantAllocationID
+            String PlantAllocationID = getValuesFromInsert(clw.getSQLString(),2);
+            query = String.format("SELECT * FROM %s WHERE ID = '%s' AND PlantAllocationID = '%s'", clw.getAffectedTable(),clw.getRowID(),PlantAllocationID);
+            
+        } else if(clw.getAffectedTable().equalsIgnoreCase("Sales") && clw.getOperation().equalsIgnoreCase("Insert")){ //keys ID, SiteID
+            String SiteID = getValuesFromInsert(clw.getSQLString(),2);
+            query = String.format("SELECT * FROM %s WHERE ID = '%s' AND SiteID = '%s'", clw.getAffectedTable(),clw.getRowID(),SiteID);
+            
+        } else if(clw.getAffectedTable().equalsIgnoreCase("ProductUtilization") && clw.getOperation().equalsIgnoreCase("Insert")){ //keys ID, ProductAllocationID
+            String ProductAllocationID = getValuesFromInsert(clw.getSQLString(),2);
+            query = String.format("SELECT * FROM %s WHERE ID = '%s' AND ProductAllocationID = '%s'", clw.getAffectedTable(),clw.getRowID(),ProductAllocationID);
+
+        } else if(clw.getAffectedTable().equalsIgnoreCase("LaborUtilization") && clw.getOperation().equalsIgnoreCase("Insert")){ //keys ID, ProductAllocationID
+            String LaborAllocationID = getValuesFromInsert(clw.getSQLString(),2);
+            query = String.format("SELECT * FROM %s WHERE ID = '%s' AND LaborAllocationID = '%s'", clw.getAffectedTable(),clw.getRowID(),LaborAllocationID);
+            
+        } else if(clw.getAffectedTable().equalsIgnoreCase("SiteNotes") && clw.getOperation().equalsIgnoreCase("Insert")){ //keys ID, SiteID
+            String SiteID = getValuesFromInsert(clw.getSQLString(),2);
+            query = String.format("SELECT * FROM %s WHERE ID = '%s' AND SiteID = '%s'", clw.getAffectedTable(),clw.getRowID(),SiteID);
+                                          
+        } else {
+            query = String.format("SELECT * FROM %s WHERE ID = '%s'", clw.getAffectedTable(),clw.getRowID());
+        }
         return destination.getRowCount(destination.runQuery(query))>0;
     }
 
@@ -303,6 +326,13 @@ public class ChangeManager {
 
     private void updateFinished(int updateLog) {
        LocalCon.dbUpdate("UpdateLog", new Object[][]{{"End"},{new Timestamp(System.currentTimeMillis())}}, new Object[][]{{"ID"},{"="},{updateLog},{}});
+    }
+
+    private static String getValuesFromInsert(String query,int returnValue) {
+        String values = query.substring(query.lastIndexOf("(")+1,query.lastIndexOf(")"));     
+        String[] data = values.split(", ");
+        int rtv = returnValue-1>=data.length-1?data.length-1:returnValue-1;
+        return data[rtv];
     }
 
     

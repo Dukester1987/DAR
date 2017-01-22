@@ -223,7 +223,7 @@ public class PlantViewDataHandler {
                         // update operation
                         //System.out.println("UPDATING INTO PLANTALLOCATION");
                         Object[][] query = {{"StartHours","EndHours","Fuel","Notes","ApprovalID"},{StartHours,EndHours,Fuel,Notes==null?"":Notes,"NULL"}};
-                        Object[][] where = {{"ID"},{"="},{PlantUtilizationID},{}};
+                        Object[][] where = {{"ID","PlantAllocationID"},{"=","="},{PlantUtilizationID,PlantAllocationID},{"AND"}};
                         if(con.getRowCount(con.dbSelect("PlantUtilization", new Object[][] {
                             {"StartHours","EndHours","Fuel","Notes","ID"},
                             {"=","=","=","=","="},

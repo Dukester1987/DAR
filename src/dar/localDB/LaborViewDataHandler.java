@@ -370,7 +370,7 @@ public class LaborViewDataHandler extends DataHandler {
                     {"AND","AND","AND","AND"}
                 }))==0){
                     System.out.printf("Hours: %s, Status: %s, Notes: %s, UtilID: %s\n",hours,StatusID,notes,utilizationID);
-                    con.dbUpdate(dbTable, new Object[][]{{"Hours","Status","Notes"},{hours,StatusID,notes==null?"":notes}}, new Object[][]{{"ID"},{"="},{utilizationID},{}});             
+                    con.dbUpdate(dbTable, new Object[][]{{"Hours","Status","Notes"},{hours,StatusID,notes==null?"":notes}}, new Object[][]{{"ID","LaborAllocationID"},{"=","="},{utilizationID,allocationID},{"AND"}});             
                 }
             }
         }

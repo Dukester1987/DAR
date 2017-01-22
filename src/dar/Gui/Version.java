@@ -17,7 +17,7 @@ import java.util.Properties;
  * @author ldulka
  */
 public class Version {
-    public static String version = "1.2.5";
+    public static String version = "1.2.8";
     
     public Version(){
         try {

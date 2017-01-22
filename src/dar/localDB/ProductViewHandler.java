@@ -362,7 +362,7 @@ public class ProductViewHandler{
         return write;
     }
 
-    public boolean utilizeProducts(ProductListView item, JTextField produced, JTextArea Notes,Date date,int TrType,Gui g,AddProduct p) {
+        public boolean utilizeProducts(ProductListView item, JTextField produced, JTextArea Notes,Date date,int TrType,Gui g,AddProduct p) {
         boolean write = true;
         boolean success = false;
         String msg = "";
@@ -550,9 +550,10 @@ public class ProductViewHandler{
 
     public void updateProduct(DefaultTableModel model, int row) {
         int ID = (int) model.getValueAt(row,0);
+        int AllocationID = (int) model.getValueAt(row,1);
         double amount = (double) model.getValueAt(row, 3);
         String notes = (String) model.getValueAt(row, 4);                    
-        con.dbUpdate("ProductUtilization", new Object[][]{{"Qty","Notes","ApprovalID"},{amount,notes,"NULL"}}, new Object[][]{{"ID"},{"="},{ID},{}});                            
+        con.dbUpdate("ProductUtilization", new Object[][]{{"Qty","Notes","ApprovalID"},{amount,notes,"NULL"}}, new Object[][]{{"ID","ProductAllocationID"},{"=","="},{ID,AllocationID},{"AND"}});                            
     }
 
     private void deleteUtilForProducts(Integer delId, Date previousDay) {

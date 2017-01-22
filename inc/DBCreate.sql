@@ -439,7 +439,7 @@ ALTER TABLE `inputValidation`
 -- Indexes for table `Sales`
 --
 ALTER TABLE `Sales`
-  ADD PRIMARY KEY (`ID`);  
+  ADD PRIMARY KEY (`ID`,`SiteID`);  
 
 --
 -- Indexes for table `AFFuel`

@@ -76,7 +76,7 @@ public class NoteViewHandler {
             
             //get Note ID
             int noteID = getNoteID(date);
-            con.dbUpdate("SiteNotes", new Object[][]{{"Notes"},{text}}, new Object[][]{{"ID"},{"="},{noteID},{"AND"}});
+            con.dbUpdate("SiteNotes", new Object[][]{{"Notes"},{text}}, new Object[][]{{"ID","SiteID"},{"=","="},{noteID,con.userData.getSiteID()},{"AND"}});
         } else {
             // insert
             con.dbInsert("SiteNotes", new Object[][]{{"SiteID","Notes","DateFor"},{con.userData.getSiteID(),text,date}});
