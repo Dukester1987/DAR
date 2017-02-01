@@ -14,8 +14,10 @@ import dar.Functions.RXTable;
 import dar.Functions.TimeWrapper;
 import dar.Functions.tableRenderers.NumberTableCellRenderer;
 import dar.Gui.About.About_popup;
+import dar.Gui.AplicationLog.ALGui;
 import dar.Gui.Labour.LabourEdit;
 import dar.Gui.Production.ProdSettings;
+import dar.Gui.Settings.SettingsGui;
 import dar.Gui.Stock.StockGui;
 import dar.dbObjects.LaborList;
 import dar.dbObjects.LaborView;
@@ -219,6 +221,7 @@ public class Gui extends javax.swing.JFrame {
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem8 = new javax.swing.JMenuItem();
+        jMenuItem6 = new javax.swing.JMenuItem();
         About = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
 
@@ -1149,6 +1152,14 @@ public class Gui extends javax.swing.JFrame {
         });
         jMenu2.add(jMenuItem8);
 
+        jMenuItem6.setText("Settings");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem6);
+
         jMenuBar1.add(jMenu2);
 
         About.setText("Help");
@@ -1296,7 +1307,9 @@ public class Gui extends javax.swing.JFrame {
     }//GEN-LAST:event_pRemoveSelectedActionPerformed
 
     private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
-        // TODO add your handling code here:
+        ALGui appLog = new ALGui();
+        appLog.setLocationRelativeTo(null);
+        appLog.setVisible(true);
     }//GEN-LAST:event_jMenuItem8ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
@@ -1466,6 +1479,12 @@ public class Gui extends javax.swing.JFrame {
         ConfirmDay(db.userData.getDate(), db.userData.getSiteID());
     }//GEN-LAST:event_reportConfirmActionPerformed
 
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+        SettingsGui sGui = new SettingsGui();
+        sGui.setLocationRelativeTo(null);
+        sGui.setVisible(true);
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu About;
     private javax.swing.JButton AddAFuel;
@@ -1532,6 +1551,7 @@ public class Gui extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;

@@ -90,11 +90,13 @@ public class SalesDataHandler {
                                     "s.Direction as Direction,\n" +
                                     "s.Amount as Tonage,\n" +
                                     "s.`PriceIncGST` as `PriceIncGST`,\n" +
-                                    "s.`PriceExGST` as `PriceExGST`\n" +
+                                    "s.`PriceExGST` as `PriceExGST`,\n" +
+                                    "e.Rate\n" +
                                     "FROM `Sales` s \n" +
                                     "left join Products p on s.`ProductID` = p.ID\n" +
-                                    "WHERE DateFor = '%s'\n" +
-                                    "AND s.SiteID = %s %s", dateFor,db.userData.getSiteID(),subQuery);
+                                    "left join EPA e on e.ID = p.EPA AND e.DateFor<='%s'\n" +
+                                    "WHERE s.DateFor = '%s'\n" +
+                                    "AND s.SiteID = %s %s", dateFor,dateFor,db.userData.getSiteID(),subQuery);
         ResultSet rs = db.runQuery(sql);
         if(db.getRowCount(rs)>0){
             try {
@@ -104,7 +106,8 @@ public class SalesDataHandler {
                             rs.getString("Direction"),
                             rs.getDouble("Tonage"),
                             rs.getDouble("PriceIncGST"),
-                            rs.getDouble("PriceExGST"));
+                            rs.getDouble("PriceExGST"),
+                            rs.getDouble("Rate"));
                     list.add(view);
                 }
             } catch (SQLException ex) {

@@ -16,19 +16,25 @@ public class SalesDetailView {
     private double tonage;
     private double priceIncGST;
     private double priceExtGST;
+    private double EPA;
 
-    public SalesDetailView(int salesID, String productName, String direction, double tonage, double priceIncGST, double priceExtGST) {
+    public SalesDetailView(int salesID, String productName, String direction, double tonage, double priceIncGST, double priceExtGST, double EPA) {
         this.salesID = salesID;
         this.productName = productName;
         this.direction = direction;
         this.tonage = tonage;
         this.priceIncGST = priceIncGST;
         this.priceExtGST = priceExtGST;
+        this.EPA = EPA;
     }
 
     public int getSalesID() {
         return salesID;
     }
+
+    public double getEPA() {
+        return EPA;
+    }        
 
     public String getProductName() {
         return productName;
