@@ -29,8 +29,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
-import javax.swing.SwingConstants;
-import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -315,7 +313,15 @@ public class ProductViewHandler{
               
                //delete all previous ingredients
                String idName = "RecID";
-               con.dbDelete("RecipeRel",new Object[][]{{idName},{"="},{recID},{}}, idName);
+               ResultSet dbSelect = con.dbSelect(new Object[]{"ID"}, "RecipeRel", new Object[][]{{idName},{"="},{recID},{}});
+               try {
+                   //con.dbDelete("RecipeRel",new Object[][]{{idName},{"="},{recID},{}}, idName);
+                   while(dbSelect.next()){
+                       con.dbDelete("RecipeRel",new Object[][]{{"ID"},{"="},{dbSelect.getInt("ID")},{}}, "ID");
+                   }
+               } catch (SQLException ex) {
+                   new FileLogger(ex.getStackTrace());
+               }
                
                //Insert new ingredients
                 for (SubProducts sp : subProd) {

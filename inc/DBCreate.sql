@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS `StockAdjustments` (
   `ID` int(11) NOT NULL,
   `SiteID` int(11) NOT NULL,
   `ProductID` int(11) NOT NULL,
-  `Qty` decimal(10,0) NOT NULL,
+  `Qty` decimal(10,2) NOT NULL,
   `Comment` varchar(180) NOT NULL
 );
 -- --------------------------------------------------------
@@ -198,7 +198,7 @@ CREATE TABLE IF NOT EXISTS `Login` (
   `ID` int(11) NOT NULL,
   `LoginName` varchar(80)  NOT NULL,
   `Password` varchar(32)  NOT NULL,
-  `Rights` varchar(80)  NOT NULL,
+  `Rights` varchar(500)  NOT NULL,
   `Status` int(11) NOT NULL,
   `LastUpload` timestamp NULL DEFAULT NULL,
   `LastDownload` timestamp NULL DEFAULT NULL

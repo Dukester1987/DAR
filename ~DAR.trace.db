@@ -1,23 +1,23 @@
-01-25 09:23:01 jdbc[3]: exception
+02-09 14:40:10 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM SITENOTES WHERE ID = '7' AND SITEID = ''2016[*]-11-07'' "; SQL statement:
 SELECT * FROM SiteNotes WHERE ID = '7' AND SiteID = ''2016-11-07'' [42000-176]
-01-25 09:23:01 jdbc[3]: exception
+02-09 14:40:10 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM SITENOTES WHERE ID = '23' AND SITEID = ''2016[*]-11-14'' "; SQL statement:
 SELECT * FROM SiteNotes WHERE ID = '23' AND SiteID = ''2016-11-14'' [42000-176]
-01-25 09:23:01 jdbc[3]: exception
+02-09 14:40:10 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM SiteNotes WHERE ID = '26' AND SiteID = 'will organise maintenance to rectify issues.)
 
 James advised chris same issues with same tyre on water truck again today. Tyre right to be onsite ASAP.'[*]'"; SQL statement:
 SELECT * FROM SiteNotes WHERE ID = '26' AND SiteID = 'will organise maintenance to rectify issues.)
 
 James advised chris same issues with same tyre on water truck again today. Tyre right to be onsite ASAP.'' [42000-176]
-01-25 09:23:01 jdbc[3]: exception
+02-09 14:40:10 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Value too long for column "COMMENT VARCHAR(180) NOT NULL": "'Checked with Kevin what ammount of stock was sitting on the floor, he estimates 3500-4000 tonne. Tonnage supplied from Operator... (197)"; SQL statement:
 INSERT INTO StockAdjustments (ID, `SiteID`, `ProductID`, `Qty`, `Comment`) VALUES (0, 2, 267, -7000.0, 'Checked with Kevin what ammount of stock was sitting on the floor, he estimates 3500-4000 tonne. Tonnage supplied from Operatorson production will need to be more careful estimating there tonnages,') [22001-176]
-01-25 09:23:03 jdbc[3]: exception
+02-09 14:40:11 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM SITENOTES WHERE ID = '85' AND SITEID = ''2016[*]-12-06'' "; SQL statement:
 SELECT * FROM SiteNotes WHERE ID = '85' AND SiteID = ''2016-12-06'' [42000-176]
-01-25 09:23:03 jdbc[3]: exception
+02-09 14:40:12 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM SiteNotes WHERE ID = '101' AND SiteID = 'Pads and drivesway 
 P318 
 Roller delivered by contractor 
@@ -26,140 +26,34 @@ SELECT * FROM SiteNotes WHERE ID = '101' AND SiteID = 'Pads and drivesway
 P318 
 Roller delivered by contractor 
 '' [42000-176]
-01-25 09:23:04 jdbc[3]: exception
+02-09 14:40:13 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM SITENOTES WHERE ID = '184' AND SITEID = ''2017[*]-01-17'' "; SQL statement:
 SELECT * FROM SiteNotes WHERE ID = '184' AND SiteID = ''2017-01-17'' [42000-176]
-01-25 09:23:04 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLException: Value too long for column "PRICEINCGST DECIMAL(10, 3) NOT NULL": "1546546546.000 (13)"; SQL statement:
-INSERT INTO Sales (ID, `SiteID`, `ProductID`, `Direction`, `Amount`, `PriceIncGST`, `PriceExGST`, `DateFor`) VALUES (0, 1, 307, 'IN', 800.0, 1.546546546E9, 1.40595140545E9, '2017-01-23') [22001-176]
-01-25 14:48:40 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-176]
+02-09 14:40:14 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM SITENOTES WHERE ID = '226' AND SITEID = ''2017[*]-01-30'' "; SQL statement:
+SELECT * FROM SiteNotes WHERE ID = '226' AND SiteID = ''2017-01-30'' [42000-176]
+02-09 14:40:14 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Column "QTY" not found; SQL statement:
+INSERT INTO ProductUtilization (Qty) VALUES (Qty+620.4200000000001) [42122-176]
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:344)
 	at org.h2.message.DbException.get(DbException.java:178)
 	at org.h2.message.DbException.get(DbException.java:154)
-	at org.h2.message.DbException.get(DbException.java:143)
-	at org.h2.jdbc.JdbcConnection.checkClosed(JdbcConnection.java:1468)
-	at org.h2.jdbc.JdbcStatement.checkClosed(JdbcStatement.java:987)
-	at org.h2.jdbc.JdbcStatement.checkClosed(JdbcStatement.java:961)
-	at org.h2.jdbc.JdbcResultSet.checkClosed(JdbcResultSet.java:3179)
-	at org.h2.jdbc.JdbcResultSet.checkColumnIndex(JdbcResultSet.java:3163)
-	at org.h2.jdbc.JdbcResultSet.get(JdbcResultSet.java:3193)
-	at org.h2.jdbc.JdbcResultSet.get(JdbcResultSet.java:3211)
-	at org.h2.jdbc.JdbcResultSet.getInt(JdbcResultSet.java:340)
-	at dar.localDB.LaborViewDataHandler.getView(LaborViewDataHandler.java:225)
-	at dar.localDB.LaborViewDataHandler.displayViewInTable(LaborViewDataHandler.java:63)
-	at dar.Gui.Gui.refreshLists(Gui.java:1618)
-	at dar.Gui.Gui.changeDate(Gui.java:1597)
-	at dar.Gui.Gui.datePickerPropertyChange(Gui.java:1227)
-	at dar.Gui.Gui.access$3600(Gui.java:57)
-	at dar.Gui.Gui$40.propertyChange(Gui.java:1077)
-	at java.beans.PropertyChangeSupport.fire(PropertyChangeSupport.java:335)
-	at java.beans.PropertyChangeSupport.firePropertyChange(PropertyChangeSupport.java:327)
-	at java.beans.PropertyChangeSupport.firePropertyChange(PropertyChangeSupport.java:263)
-	at java.awt.Component.firePropertyChange(Component.java:8428)
-	at javax.swing.JComponent.removeNotify(JComponent.java:4762)
-	at java.awt.Container.removeNotify(Container.java:2804)
-	at javax.swing.JComponent.removeNotify(JComponent.java:4758)
-	at java.awt.Container.removeNotify(Container.java:2804)
-	at javax.swing.JComponent.removeNotify(JComponent.java:4758)
-	at java.awt.Container.removeNotify(Container.java:2804)
-	at javax.swing.JComponent.removeNotify(JComponent.java:4758)
-	at javax.swing.JRootPane.removeNotify(JRootPane.java:765)
-	at java.awt.Container.removeNotify(Container.java:2804)
-	at java.awt.Window.removeNotify(Window.java:782)
-	at java.awt.Frame.removeNotify(Frame.java:1041)
-	at java.awt.Window$1DisposeAction.run(Window.java:1190)
-	at java.awt.Window.doDispose(Window.java:1206)
-	at java.awt.Window.dispose(Window.java:1147)
-	at dar.Gui.Gui.quitApp(Gui.java:1750)
-	at dar.Gui.Gui.formWindowClosing(Gui.java:1301)
-	at dar.Gui.Gui.access$800(Gui.java:57)
-	at dar.Gui.Gui$9.windowClosing(Gui.java:306)
-	at java.awt.Window.processWindowEvent(Window.java:2054)
-	at javax.swing.JFrame.processWindowEvent(JFrame.java:305)
-	at java.awt.Window.processEvent(Window.java:2013)
-	at java.awt.Component.dispatchEventImpl(Component.java:4889)
-	at java.awt.Container.dispatchEventImpl(Container.java:2294)
-	at java.awt.Window.dispatchEventImpl(Window.java:2746)
-	at java.awt.Component.dispatchEvent(Component.java:4711)
-	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:758)
-	at java.awt.EventQueue.access$500(EventQueue.java:97)
-	at java.awt.EventQueue$3.run(EventQueue.java:709)
-	at java.awt.EventQueue$3.run(EventQueue.java:703)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:76)
-	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:86)
-	at java.awt.EventQueue$4.run(EventQueue.java:731)
-	at java.awt.EventQueue$4.run(EventQueue.java:729)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:76)
-	at java.awt.EventQueue.dispatchEvent(EventQueue.java:728)
-	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:201)
-	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
-	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
-	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
-	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
-	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
-01-25 14:48:41 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-176]
-	at org.h2.message.DbException.getJdbcSQLException(DbException.java:344)
-	at org.h2.message.DbException.get(DbException.java:178)
-	at org.h2.message.DbException.get(DbException.java:154)
-	at org.h2.message.DbException.get(DbException.java:143)
-	at org.h2.jdbc.JdbcConnection.checkClosed(JdbcConnection.java:1468)
-	at org.h2.jdbc.JdbcConnection.checkClosed(JdbcConnection.java:1443)
-	at org.h2.jdbc.JdbcConnection.createStatement(JdbcConnection.java:220)
-	at dar.localDB.LocalWraper.runQuery(LocalWraper.java:235)
-	at dar.localDB.LaborViewDataHandler.getStatusList(LaborViewDataHandler.java:173)
-	at dar.Gui.Gui.refreshLists(Gui.java:1619)
-	at dar.Gui.Gui.changeDate(Gui.java:1597)
-	at dar.Gui.Gui.datePickerPropertyChange(Gui.java:1227)
-	at dar.Gui.Gui.access$3600(Gui.java:57)
-	at dar.Gui.Gui$40.propertyChange(Gui.java:1077)
-	at java.beans.PropertyChangeSupport.fire(PropertyChangeSupport.java:335)
-	at java.beans.PropertyChangeSupport.firePropertyChange(PropertyChangeSupport.java:327)
-	at java.beans.PropertyChangeSupport.firePropertyChange(PropertyChangeSupport.java:263)
-	at java.awt.Component.firePropertyChange(Component.java:8428)
-	at javax.swing.JComponent.removeNotify(JComponent.java:4762)
-	at java.awt.Container.removeNotify(Container.java:2804)
-	at javax.swing.JComponent.removeNotify(JComponent.java:4758)
-	at java.awt.Container.removeNotify(Container.java:2804)
-	at javax.swing.JComponent.removeNotify(JComponent.java:4758)
-	at java.awt.Container.removeNotify(Container.java:2804)
-	at javax.swing.JComponent.removeNotify(JComponent.java:4758)
-	at javax.swing.JRootPane.removeNotify(JRootPane.java:765)
-	at java.awt.Container.removeNotify(Container.java:2804)
-	at java.awt.Window.removeNotify(Window.java:782)
-	at java.awt.Frame.removeNotify(Frame.java:1041)
-	at java.awt.Window$1DisposeAction.run(Window.java:1190)
-	at java.awt.Window.doDispose(Window.java:1206)
-	at java.awt.Window.dispose(Window.java:1147)
-	at dar.Gui.Gui.quitApp(Gui.java:1750)
-	at dar.Gui.Gui.formWindowClosing(Gui.java:1301)
-	at dar.Gui.Gui.access$800(Gui.java:57)
-	at dar.Gui.Gui$9.windowClosing(Gui.java:306)
-	at java.awt.Window.processWindowEvent(Window.java:2054)
-	at javax.swing.JFrame.processWindowEvent(JFrame.java:305)
-	at java.awt.Window.processEvent(Window.java:2013)
-	at java.awt.Component.dispatchEventImpl(Component.java:4889)
-	at java.awt.Container.dispatchEventImpl(Container.java:2294)
-	at java.awt.Window.dispatchEventImpl(Window.java:2746)
-	at java.awt.Component.dispatchEvent(Component.java:4711)
-	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:758)
-	at java.awt.EventQueue.access$500(EventQueue.java:97)
-	at java.awt.EventQueue$3.run(EventQueue.java:709)
-	at java.awt.EventQueue$3.run(EventQueue.java:703)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:76)
-	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:86)
-	at java.awt.EventQueue$4.run(EventQueue.java:731)
-	at java.awt.EventQueue$4.run(EventQueue.java:729)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:76)
-	at java.awt.EventQueue.dispatchEvent(EventQueue.java:728)
-	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:201)
-	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
-	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
-	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
-	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
-	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:148)
+	at org.h2.expression.Operation.optimize(Operation.java:182)
+	at org.h2.command.dml.Insert.prepare(Insert.java:271)
+	at org.h2.command.Parser.prepareCommand(Parser.java:248)
+	at org.h2.engine.Session.prepareLocal(Session.java:442)
+	at org.h2.engine.Session.prepareCommand(Session.java:384)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1188)
+	at org.h2.jdbc.JdbcStatement.executeUpdateInternal(JdbcStatement.java:128)
+	at org.h2.jdbc.JdbcStatement.executeUpdate(JdbcStatement.java:784)
+	at dar.Functions.DBFunctions.executeQuery(DBFunctions.java:33)
+	at dar.remoteDB.ChangeManager.updateOperation(ChangeManager.java:158)
+	at dar.remoteDB.ChangeManager.runSync(ChangeManager.java:127)
+	at dar.remoteDB.DBWrapper.startSync(DBWrapper.java:190)
+	at dar.remoteDB.DBWrapper.checkConnection(DBWrapper.java:147)
+	at dar.remoteDB.DBWrapper.run(DBWrapper.java:74)
+	at java.lang.Thread.run(Thread.java:745)
+02-09 14:40:15 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM SITENOTES WHERE ID = '245' AND SITEID = ''2017[*]-02-07'' "; SQL statement:
+SELECT * FROM SiteNotes WHERE ID = '245' AND SiteID = ''2017-02-07'' [42000-176]

@@ -244,6 +244,7 @@ public class ChangeManager {
     private void removeDuplicities(int type) {
         DBFunctions destination = getConType(type);   
         String q = String.format("SELECT UID FROM ChangeLog WHERE Time>='%s'", lastUpdate.get(updateID[type]));
+        System.out.println();
         ArrayList<String> UIDs = new ArrayList<String>();
         ResultSet rs = destination.runQuery(q);
         try {
