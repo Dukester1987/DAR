@@ -34,8 +34,10 @@ public class Syncer implements Runnable{
             label.setText("Saving changes");
             db.syncBeforeClose(label);            
         }
-        long startTime = System.currentTimeMillis()+(1000*30);
+        long startTime = System.currentTimeMillis()+(1000*5);
         while(t.isAlive()){ 
+            Long timeLeft = (startTime - System.currentTimeMillis()) / 1000;
+            label.setText("Closing in: "+ timeLeft +"s");
             if(startTime<=System.currentTimeMillis()){
                 System.out.println("closing");                
                 System.exit(0);               

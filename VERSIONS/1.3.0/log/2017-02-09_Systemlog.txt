@@ -1,0 +1,69 @@
+Thu Feb 09 14:39:53 AEDT 2017
+Database Sucessfully initialised
+Thu Feb 09 14:40:10 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM SITENOTES WHERE ID = '7' AND SITEID = ''2016[*]-11-07'' "; SQL statement:
+SELECT * FROM SiteNotes WHERE ID = '7' AND SiteID = ''2016-11-07'' [42000-176]
+Thu Feb 09 14:40:10 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM SITENOTES WHERE ID = '23' AND SITEID = ''2016[*]-11-14'' "; SQL statement:
+SELECT * FROM SiteNotes WHERE ID = '23' AND SiteID = ''2016-11-14'' [42000-176]
+Thu Feb 09 14:40:10 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM SiteNotes WHERE ID = '26' AND SiteID = 'will organise maintenance to rectify issues.)
+
+James advised chris same issues with same tyre on water truck again today. Tyre right to be onsite ASAP.'[*]'"; SQL statement:
+SELECT * FROM SiteNotes WHERE ID = '26' AND SiteID = 'will organise maintenance to rectify issues.)
+
+James advised chris same issues with same tyre on water truck again today. Tyre right to be onsite ASAP.'' [42000-176]
+Thu Feb 09 14:40:10 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Value too long for column "COMMENT VARCHAR(180) NOT NULL": "'Checked with Kevin what ammount of stock was sitting on the floor, he estimates 3500-4000 tonne. Tonnage supplied from Operator... (197)"; SQL statement:
+INSERT INTO StockAdjustments (ID, `SiteID`, `ProductID`, `Qty`, `Comment`) VALUES (0, 2, 267, -7000.0, 'Checked with Kevin what ammount of stock was sitting on the floor, he estimates 3500-4000 tonne. Tonnage supplied from Operatorson production will need to be more careful estimating there tonnages,') [22001-176]
+Thu Feb 09 14:40:11 AEDT 2017
+org.h2.jdbc.JdbcSQLException: NULL not allowed for column "PRODUCTNAME"; SQL statement:
+INSERT INTO Products (EPA) VALUES ('1') [23502-176]
+Thu Feb 09 14:40:11 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_7E ON PUBLIC.SALES(ID, SITEID) VALUES ( /* key:465 */ 401, 4, null, null, null, null, null, null, null)"; SQL statement:
+UPDATE Sales SET ID = 401,`SiteID` = 4,`ProductID` = 34,`Direction` = 'OUT',`Amount` = 37.66,`PriceIncGST` = 2382.0,`PriceExGST` = 2165.45,`DateFor` = '2016-11-09' WHERE ID = 401 [23505-176]
+Thu Feb 09 14:40:11 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM SITENOTES WHERE ID = '85' AND SITEID = ''2016[*]-12-06'' "; SQL statement:
+SELECT * FROM SiteNotes WHERE ID = '85' AND SiteID = ''2016-12-06'' [42000-176]
+Thu Feb 09 14:40:12 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM SiteNotes WHERE ID = '101' AND SiteID = 'Pads and drivesway 
+P318 
+Roller delivered by contractor 
+'[*]'"; SQL statement:
+SELECT * FROM SiteNotes WHERE ID = '101' AND SiteID = 'Pads and drivesway 
+P318 
+Roller delivered by contractor 
+'' [42000-176]
+Thu Feb 09 14:40:13 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM SITENOTES WHERE ID = '184' AND SITEID = ''2017[*]-01-17'' "; SQL statement:
+SELECT * FROM SiteNotes WHERE ID = '184' AND SiteID = ''2017-01-17'' [42000-176]
+Thu Feb 09 14:40:13 AEDT 2017
+org.h2.jdbc.JdbcSQLException: NULL not allowed for column "PRODUCTNAME"; SQL statement:
+INSERT INTO Products (EPA) VALUES ('1') [23502-176]
+Thu Feb 09 14:40:14 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM SITENOTES WHERE ID = '226' AND SITEID = ''2017[*]-01-30'' "; SQL statement:
+SELECT * FROM SiteNotes WHERE ID = '226' AND SiteID = ''2017-01-30'' [42000-176]
+Thu Feb 09 14:40:14 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Column "QTY" not found; SQL statement:
+INSERT INTO ProductUtilization (Qty) VALUES (Qty+620.4200000000001) [42122-176]
+Thu Feb 09 14:40:14 AEDT 2017
+org.h2.jdbc.JdbcSQLException: NULL not allowed for column "PRODUCTALLOCATIONID"; SQL statement:
+INSERT INTO ProductUtilization (ApprovalID) VALUES (112) [23502-176]
+Thu Feb 09 14:40:14 AEDT 2017
+org.h2.jdbc.JdbcSQLException: NULL not allowed for column "PRODUCTALLOCATIONID"; SQL statement:
+INSERT INTO ProductUtilization (ApprovalID) VALUES (112) [23502-176]
+Thu Feb 09 14:40:14 AEDT 2017
+org.h2.jdbc.JdbcSQLException: NULL not allowed for column "PRODUCTALLOCATIONID"; SQL statement:
+INSERT INTO ProductUtilization (ApprovalID) VALUES (112) [23502-176]
+Thu Feb 09 14:40:14 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_59 ON PUBLIC.SITENOTES(ID, SITEID) VALUES ( /* key:452 */ 239, 5, null, null)"; SQL statement:
+UPDATE SiteNotes SET ID = 239,`SiteID` = 5,`Notes` = 'office
+weighbridge
+cover cell
+cover asbestos
+compact waste
+RDT,`DateFor` = Visy trucks
+COD from S A Civil and RMA contracting bungendore railway' WHERE ID = 239 [23505-176]
+Thu Feb 09 14:40:15 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM SITENOTES WHERE ID = '245' AND SITEID = ''2017[*]-02-07'' "; SQL statement:
+SELECT * FROM SiteNotes WHERE ID = '245' AND SiteID = ''2017-02-07'' [42000-176]

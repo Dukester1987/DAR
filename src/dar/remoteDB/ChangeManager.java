@@ -299,7 +299,7 @@ public class ChangeManager {
     private void getLastUpdate() {
         for (int type = 0; type<updateID.length;type++) {
             if(updateID[type]==0){
-                String query = String.format("SELECT ID, Start FROM UpdateLog where type =%s and (Start is not NULL or End is not null) order by ID desc LIMIT 0,1", type);
+                String query = String.format("SELECT ID, Start FROM UpdateLog where type =%s and (Start is not NULL and End is not null) order by ID desc LIMIT 0,1", type);
                 ResultSet rs = LocalCon.runQuery(query);
                 if(LocalCon.getRowCount(rs)>0){
                     try {

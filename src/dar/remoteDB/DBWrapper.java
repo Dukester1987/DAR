@@ -98,7 +98,7 @@ public class DBWrapper implements Runnable{
             System.out.println("interupted from sleep");
             //JOptionPane.showMessageDialog(null, "Program will close automaticaly once synchronization process is done!","Sync in progress",JOptionPane.INFORMATION_MESSAGE);  
             //syncBeforeClose();
-            return false;
+            return true;
         }
     }
 
@@ -121,6 +121,7 @@ public class DBWrapper implements Runnable{
         label.setForeground(Color.BLACK);
         label.setText("Connection to the remote database established");
         System.out.println("start sync");
+        startSync();
         if(checkForUpdates){            
             try {
                 initproperties();
@@ -143,8 +144,7 @@ public class DBWrapper implements Runnable{
                 ex.printStackTrace();
                 new FileLogger(ex.toString());
             }
-        }
-        startSync();        
+        }                
         //keepAlive = false;
         keepAlive = putSleep(CHECKCONNECTION);
         label.setText("Checking connection");        
@@ -186,7 +186,8 @@ public class DBWrapper implements Runnable{
     
     private void startSync() {
         label.setText("getting list of changes");
-        mgr = new ChangeManager(db, this);       
+        mgr = new ChangeManager(db, this);
+        saveMyWork();
         mgr.runSync(0,label); //see what do we need to download
         mgr.runSync(1,label);
         g.refreshLists();            
@@ -216,6 +217,11 @@ public class DBWrapper implements Runnable{
             new FileLogger(ex.toString());
             ex.printStackTrace();
         }
+    }
+
+    private void saveMyWork() {
+        g.nt.saveDate(g.MyComents, g.date);
+        System.out.println("Notes saved");
     }
     
 }

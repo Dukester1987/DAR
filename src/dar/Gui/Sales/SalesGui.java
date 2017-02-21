@@ -668,7 +668,7 @@ public class SalesGui extends javax.swing.JPanel {
                 tonageIn += view.getTonage();
                 exGSTIn += view.getPriceExtGST();
                 inGSTIn += view.getPriceIncGST();
-                lEPA += view.getEPA()*tonageIn;
+                lEPA += view.getEPA()*view.getTonage();
             } else if(view.getDirection().equals("OUT")){
                 tonageOut += view.getTonage();
                 exGSTOut += view.getPriceExtGST();

@@ -13,8 +13,6 @@ import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JTextArea;
 
 /**
@@ -74,9 +72,14 @@ public class NoteViewHandler {
         if(con.hasDuplicity(con.dbSelect("SiteNotes",new Object[][]{{"SiteID","DateFor"},{"=","="},{con.userData.getSiteID(),date},{"AND"}}))){
             // update
             
+            if(isNoteChanged(date, MyComents.getText()) || !MyComents.getText().isEmpty()){
+                System.err.println("note has changed");
+                int noteID = getNoteID(date);
+                con.dbUpdate("SiteNotes", new Object[][]{{"Notes"},{text}}, new Object[][]{{"ID","SiteID"},{"=","="},{noteID,con.userData.getSiteID()},{"AND"}});                
+            } else {
+                System.err.println("Note has not changed");
+            }
             //get Note ID
-            int noteID = getNoteID(date);
-            con.dbUpdate("SiteNotes", new Object[][]{{"Notes"},{text}}, new Object[][]{{"ID","SiteID"},{"=","="},{noteID,con.userData.getSiteID()},{"AND"}});
         } else {
             // insert
             con.dbInsert("SiteNotes", new Object[][]{{"SiteID","Notes","DateFor"},{con.userData.getSiteID(),text,date}});
@@ -94,6 +97,12 @@ public class NoteViewHandler {
             new FileLogger(ex.toString());
         }        
         return NoteID;
+    }
+    
+    private boolean isNoteChanged(Date date, String note){
+        int noteID = getNoteID(date);
+        ResultSet rs = con.dbSelect(new Object[]{"ID"},"SiteNotes", new Object[][]{{"Notes","ID"},{"=","="},{note,noteID},{"AND"}});
+        return con.getRowCount(rs)>0?false:true;
     }
     
 }
