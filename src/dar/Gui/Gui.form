@@ -1580,9 +1580,6 @@
         <Property name="maxSelectableDate" type="java.util.Date" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
           <Connection code="ti.today()" type="code"/>
         </Property>
-        <Property name="minSelectableDate" type="java.util.Date" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="ti.firstDate()" type="code"/>
-        </Property>
         <Property name="name" type="java.lang.String" value="dateFor" noResource="true"/>
       </Properties>
       <Events>

@@ -9,6 +9,7 @@ import dar.Functions.FileLogger;
 import dar.Functions.downloadManager;
 import dar.Functions.readXMLFile;
 import dar.Gui.Gui;
+import dar.Gui.Synchroniser;
 import dar.localDB.LocalWraper;
 import java.awt.Color;
 import java.io.FileInputStream;
@@ -185,12 +186,21 @@ public class DBWrapper implements Runnable{
     }
     
     private void startSync() {
+        //disable GUI
+        g.setEnabled(false);        
+        //display synchroniser
+        Synchroniser s =  new Synchroniser();
+        s.setVisible(true);
         label.setText("getting list of changes");
         mgr = new ChangeManager(db, this);
         saveMyWork();
         mgr.runSync(0,label); //see what do we need to download
-        mgr.runSync(1,label);
-        g.refreshLists();            
+        mgr.runSync(1,label);        
+        g.refreshLists();    
+        //enable GUI      
+        s.dispose();
+        g.toFront();        
+        g.setEnabled(true);
         System.out.println("refreshing lists");
 //        if(mgr.getTotalChanges()>0){
 //            label.setText(String.format("There are changes to exchange!"));            

@@ -1,0 +1,4 @@
+New in version 1.3.01
+
+- Added manual synchronization button
+- bug fix

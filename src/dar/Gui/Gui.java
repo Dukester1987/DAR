@@ -80,7 +80,7 @@ public class Gui extends javax.swing.JFrame {
     private StockGui stockGui;
     private SiteListHandler slh;
     public static boolean isAnyChangesApplicable = false;
-
+        
     public Gui(LocalWraper db) {    
         Version v = new Version();
         this.ti = new TimeWrapper();
@@ -1071,7 +1071,6 @@ public class Gui extends javax.swing.JFrame {
         datePicker.setDate(date);
         datePicker.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         datePicker.setMaxSelectableDate(ti.today());
-        datePicker.setMinSelectableDate(ti.firstDate());
         datePicker.setName("dateFor"); // NOI18N
         datePicker.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {

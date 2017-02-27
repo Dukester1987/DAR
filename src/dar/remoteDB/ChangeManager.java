@@ -41,17 +41,20 @@ public class ChangeManager {
     }
     
     private ArrayList<ChangeLogView> getListOfChanges(){
-        //initialize the variables
+        //disable GUI
+        //initialize the variables        
         changeList = new ArrayList<>();
         getLastUpdate();
-        String SQLString = "SELECT ID, AffectedTable, RowID, Operation, NewValue, LoginID, Time, UID, DateFor, SiteID FROM ChangeLog WHERE Time>'%s' ORDER BY Time,ID";
+        String SQLString = "SELECT ID, AffectedTable, RowID, Operation, NewValue, LoginID, Time, UID, DateFor, SiteID FROM ChangeLog WHERE Time>='%s' ORDER BY Time,ID";
         
         //get things to download        
         String query = String.format(SQLString,lastUpdate.get(updateID[0]));                
+        //String query = String.format(SQLString,stamp);                
         addResultIntoList(ServerCon,changeList,query,0);
         
         //get things to upload
-        query = String.format(SQLString,lastUpdate.get(updateID[1]));        
+        query = String.format(SQLString,lastUpdate.get(updateID[1]));  
+        //query = String.format(SQLString,stamp);        
         addResultIntoList(LocalCon,changeList, query, 1);
                 
         return changeList;
@@ -190,6 +193,10 @@ public class ChangeManager {
             String LaborAllocationID = getValuesFromInsert(clw.getSQLString(),2);
             query = String.format("SELECT * FROM %s WHERE ID = '%s' AND LaborAllocationID = '%s'", clw.getAffectedTable(),clw.getRowID(),LaborAllocationID);
             
+        } else if(clw.getAffectedTable().equalsIgnoreCase("LaborAllocation") && clw.getOperation().equalsIgnoreCase("Insert")){ //keys ID, ProductAllocationID
+            String SiteID = getValuesFromInsert(clw.getSQLString(),3);
+            query = String.format("SELECT * FROM %s WHERE ID = '%s' AND SiteID = '%s'", clw.getAffectedTable(),clw.getRowID(),SiteID);            
+            
         } else if(clw.getAffectedTable().equalsIgnoreCase("SiteNotes") && clw.getOperation().equalsIgnoreCase("Insert")){ //keys ID, SiteID
             String SiteID = getValuesFromInsert(clw.getSQLString(),2);
             query = String.format("SELECT * FROM %s WHERE ID = '%s' AND SiteID = '%s'", clw.getAffectedTable(),clw.getRowID(),SiteID);
@@ -299,12 +306,22 @@ public class ChangeManager {
     private void getLastUpdate() {
         for (int type = 0; type<updateID.length;type++) {
             if(updateID[type]==0){
+                Timestamp stamp = new Timestamp(System.currentTimeMillis()-2419200000L);
+                
                 String query = String.format("SELECT ID, Start FROM UpdateLog where type =%s and (Start is not NULL and End is not null) order by ID desc LIMIT 0,1", type);
                 ResultSet rs = LocalCon.runQuery(query);
                 if(LocalCon.getRowCount(rs)>0){
                     try {
                         rs.next();
-                        lastUpdate.put(rs.getInt("ID"), rs.getTimestamp("Start"));
+                        Timestamp dbStamp = rs.getTimestamp("Start");
+                        Timestamp useStamp;
+                        if(dbStamp.after(stamp)){
+                            useStamp = stamp;
+                        } else {
+                            useStamp = dbStamp;
+                        }
+                        System.err.println(useStamp);
+                        lastUpdate.put(rs.getInt("ID"), dbStamp);
                         //System.out.printf("Last update for type %s having ID: %s and Timestamp: %s\n",type,rs.getInt("ID"), rs.getTimestamp("Start"));
                         updateID[type] = rs.getInt("ID");
                     } catch (SQLException ex) {

@@ -36,6 +36,7 @@ public class StockHandler {
             "s.Production-s.UsedInProduction+s.SalesIN-s.SalesOUT+COALESCE(SUM(sa.Qty),0) as StockPile\n" +
             "FROM `Stock` s\n" +
             "left JOIN StockAdjustments sa on s.ProductID = sa.ProductID and s.SiteID = sa.SiteID\n" +
+            "inner JOIN SiteList sl on s.SiteID = sl.ID\n" +
             "WHERE s.SiteID = %s\n" +
             "GROUP BY s.ProductID",db.userData.getSiteID());
         
