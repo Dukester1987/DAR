@@ -7,7 +7,6 @@ package dar.Gui;
 
 import dar.Functions.FileLogger;
 import dar.Functions.Functions;
-import dar.Gui.CloserData.Closer;
 import dar.Gui.Production.AddProduct;
 import dar.Functions.JControlers;
 import dar.Functions.RXTable;
@@ -15,6 +14,7 @@ import dar.Functions.TimeWrapper;
 import dar.Functions.tableRenderers.NumberTableCellRenderer;
 import dar.Gui.About.About_popup;
 import dar.Gui.AplicationLog.ALGui;
+import dar.Gui.CloserData.Syncer;
 import dar.Gui.Labour.LabourEdit;
 import dar.Gui.Production.ProdSettings;
 import dar.Gui.Settings.SettingsGui;
@@ -34,7 +34,10 @@ import java.awt.Color;
 import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
@@ -43,6 +46,8 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.SwingUtilities;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 import javax.swing.event.RowSorterEvent;
 import javax.swing.event.RowSorterListener;
 import javax.swing.event.TableModelEvent;
@@ -80,6 +85,8 @@ public class Gui extends javax.swing.JFrame {
     private StockGui stockGui;
     private SiteListHandler slh;
     public static boolean isAnyChangesApplicable = false;
+    private double plantFuel;
+    private double aditionalFuel;
         
     public Gui(LocalWraper db) {    
         Version v = new Version();
@@ -148,7 +155,7 @@ public class Gui extends javax.swing.JFrame {
         pRemoveSelected = new javax.swing.JMenuItem();
         title = new javax.swing.JLabel();
         label = new javax.swing.JLabel();
-        Sales = new javax.swing.JTabbedPane();
+        TabbedPane = new javax.swing.JTabbedPane();
         jLayeredPane1 = new javax.swing.JLayeredPane();
         addp = new javax.swing.JButton();
         utilPerc = new javax.swing.JLabel();
@@ -168,6 +175,13 @@ public class Gui extends javax.swing.JFrame {
         fDesc = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         fAmount = new javax.swing.JTextField();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        plantF = new javax.swing.JLabel();
+        addF = new javax.swing.JLabel();
+        totalF = new javax.swing.JLabel();
         jLayeredPane2 = new javax.swing.JLayeredPane();
         jScrollPane4 = new javax.swing.JScrollPane();
         LaborUtil = new RXTable();
@@ -315,9 +329,9 @@ public class Gui extends javax.swing.JFrame {
         label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/Sync.png"))); // NOI18N
         label.setText("Trying to connect...");
 
-        Sales.setTabLayoutPolicy(javax.swing.JTabbedPane.SCROLL_TAB_LAYOUT);
-        Sales.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        Sales.setFont(Sales.getFont().deriveFont(Sales.getFont().getStyle() | java.awt.Font.BOLD, Sales.getFont().getSize()+3));
+        TabbedPane.setTabLayoutPolicy(javax.swing.JTabbedPane.SCROLL_TAB_LAYOUT);
+        TabbedPane.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        TabbedPane.setFont(TabbedPane.getFont().deriveFont(TabbedPane.getFont().getStyle() | java.awt.Font.BOLD, TabbedPane.getFont().getSize()+3));
 
         addp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/Create16.png"))); // NOI18N
         addp.setMnemonic('A');
@@ -471,7 +485,7 @@ public class Gui extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 83, Short.MAX_VALUE))
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(fDesc, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE)
@@ -482,7 +496,7 @@ public class Gui extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(11, 11, 11)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(fUnitNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
@@ -497,6 +511,59 @@ public class Gui extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jPanel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        jLabel12.setText("Plant Fuel:");
+
+        jLabel13.setText("Aditional Fuel:");
+
+        jLabel14.setText("Fuel Total:");
+
+        plantF.setText("jLabel15");
+
+        addF.setText("jLabel16");
+
+        totalF.setText("jLabel17");
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel12)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(plantF))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel14)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(totalF))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel13)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 90, Short.MAX_VALUE)
+                        .addComponent(addF)))
+                .addContainerGap())
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel12)
+                    .addComponent(plantF))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel13)
+                    .addComponent(addF))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel14)
+                    .addComponent(totalF))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
         jLayeredPane1.setLayer(addp, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(utilPerc, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(jScrollPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -507,6 +574,7 @@ public class Gui extends javax.swing.JFrame {
         jLayeredPane1.setLayer(utilProgressBar, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(ReportBreakdown, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(jPanel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(jPanel3, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
         jLayeredPane1.setLayout(jLayeredPane1Layout);
@@ -516,18 +584,6 @@ public class Gui extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jLayeredPane1Layout.createSequentialGroup()
-                        .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jLayeredPane1Layout.createSequentialGroup()
-                                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 227, Short.MAX_VALUE)
-                                .addGap(422, 422, 422)
-                                .addComponent(RemoveAFuel))
-                            .addComponent(jScrollPane2))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(AddAFuel)
-                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(186, Short.MAX_VALUE))
-                    .addGroup(jLayeredPane1Layout.createSequentialGroup()
                         .addComponent(addp)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(ReportBreakdown)
@@ -536,7 +592,26 @@ public class Gui extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(utilProgressBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(8, 8, 8))
-                    .addComponent(jScrollPane1)))
+                    .addComponent(jScrollPane1)
+                    .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                        .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 490, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                                        .addComponent(AddAFuel, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 133, Short.MAX_VALUE))
+                                    .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                                        .addComponent(RemoveAFuel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 134, Short.MAX_VALUE))
+                                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 206, Short.MAX_VALUE)))
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
         );
         jLayeredPane1Layout.setVerticalGroup(
             jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -546,22 +621,27 @@ public class Gui extends javax.swing.JFrame {
                     .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(addp)
                         .addComponent(utilPerc))
-                    .addComponent(utilProgressBar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(utilProgressBar, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE))
                 .addGap(4, 4, 4)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(RemoveAFuel)
-                    .addComponent(AddAFuel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(25, Short.MAX_VALUE))
+                    .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                                .addComponent(AddAFuel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(RemoveAFuel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(25, 25, 25))
         );
 
-        Sales.addTab("Plant Utilisation", jLayeredPane1);
+        TabbedPane.addTab("Plant Utilisation", jLayeredPane1);
 
         LaborUtil.setAutoCreateRowSorter(true);
         LaborUtil.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -836,7 +916,7 @@ public class Gui extends javax.swing.JFrame {
                 .addGap(29, 29, 29))
         );
 
-        Sales.addTab("Labour Utilisation", jLayeredPane2);
+        TabbedPane.addTab("Labour Utilisation", jLayeredPane2);
 
         UsedInProduction.setAutoCreateRowSorter(true);
         UsedInProduction.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -931,6 +1011,7 @@ public class Gui extends javax.swing.JFrame {
         jLabel11.setText("Used in Production");
 
         jButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/Create16.png"))); // NOI18N
+        jButton9.setMnemonic('q');
         jButton9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton9ActionPerformed(evt);
@@ -1024,8 +1105,8 @@ public class Gui extends javax.swing.JFrame {
                 .addGap(38, 38, 38))
         );
 
-        Sales.addTab("Production", jLayeredPane5);
-        Sales.addTab("Sales", salesGui);
+        TabbedPane.addTab("Production", jLayeredPane5);
+        TabbedPane.addTab("Sales", salesGui);
 
         MyComents.setColumns(20);
         MyComents.setRows(5);
@@ -1065,7 +1146,7 @@ public class Gui extends javax.swing.JFrame {
                 .addContainerGap(133, Short.MAX_VALUE))
         );
 
-        Sales.addTab("Daily Summary / Comments", jLayeredPane6);
+        TabbedPane.addTab("Daily Summary / Comments", jLayeredPane6);
 
         datePicker.setComponentPopupMenu(ProdPopup);
         datePicker.setDate(date);
@@ -1210,7 +1291,7 @@ public class Gui extends javax.swing.JFrame {
                         .addComponent(reportConfirm)
                         .addGap(18, 18, 18)
                         .addComponent(ConfirmationStatus))
-                    .addComponent(Sales))
+                    .addComponent(TabbedPane))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -1226,7 +1307,7 @@ public class Gui extends javax.swing.JFrame {
                         .addComponent(ConfirmationStatus))
                     .addComponent(title, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Sales, javax.swing.GroupLayout.PREFERRED_SIZE, 589, Short.MAX_VALUE)
+                .addComponent(TabbedPane, javax.swing.GroupLayout.PREFERRED_SIZE, 589, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1419,54 +1500,6 @@ public class Gui extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_LaborUtilMouseReleased
 
-    private void ReportBreakdownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReportBreakdownActionPerformed
-        JOptionPane.showMessageDialog(null, "Hahaaa stihnul sem to");
-    }//GEN-LAST:event_ReportBreakdownActionPerformed
-
-    private void AddAFuelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddAFuelActionPerformed
-        if(actionListenerGo)
-        af.addAditionalFuel(fUnitNo,fDesc,fAmount,date);
-    }//GEN-LAST:event_AddAFuelActionPerformed
-
-    private void RemoveAFuelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoveAFuelActionPerformed
-        if(actionListenerGo)
-        af.removeSelected(date);
-    }//GEN-LAST:event_RemoveAFuelActionPerformed
-
-    private void AditionalFuelPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_AditionalFuelPropertyChange
-        if(actionListenerGo)
-        af.editAditionalFuel(date);
-    }//GEN-LAST:event_AditionalFuelPropertyChange
-
-    private void PlantUtilPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_PlantUtilPropertyChange
-        //        if(actionListenerGo){
-            //            pw.updateTable(date);
-            //        }
-    }//GEN-LAST:event_PlantUtilPropertyChange
-
-    private void PlantUtilMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PlantUtilMouseReleased
-        if(evt.isPopupTrigger()){
-            PlantPopUp.show(PlantUtil, evt.getX(), evt.getY());
-        }
-    }//GEN-LAST:event_PlantUtilMouseReleased
-
-    private void PlantUtilMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PlantUtilMousePressed
-        if(PlantUtil.getSelectedRowCount()>0){
-            ReportBreakdown.setEnabled(true);
-        } else {
-            ReportBreakdown.setEnabled(false);
-        }
-    }//GEN-LAST:event_PlantUtilMousePressed
-
-    private void PlantUtilFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_PlantUtilFocusLost
-
-    }//GEN-LAST:event_PlantUtilFocusLost
-
-    private void addpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addpActionPerformed
-        if(actionListenerGo)
-        pw.addPlant(date);
-    }//GEN-LAST:event_addpActionPerformed
-
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
         if(!stockGui.isOpen){
             stockGui = new StockGui(db);
@@ -1503,6 +1536,56 @@ public class Gui extends javax.swing.JFrame {
         t.interrupt();
     }//GEN-LAST:event_jMenuItem7ActionPerformed
 
+    private void ReportBreakdownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReportBreakdownActionPerformed
+        JOptionPane.showMessageDialog(null, "Hahaaa stihnul sem to");
+    }//GEN-LAST:event_ReportBreakdownActionPerformed
+
+    private void AddAFuelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddAFuelActionPerformed
+        if(actionListenerGo)
+        af.addAditionalFuel(fUnitNo,fDesc,fAmount,date);
+        sumFuel();
+    }//GEN-LAST:event_AddAFuelActionPerformed
+
+    private void RemoveAFuelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoveAFuelActionPerformed
+        if(actionListenerGo)
+        af.removeSelected(date);
+    }//GEN-LAST:event_RemoveAFuelActionPerformed
+
+    private void AditionalFuelPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_AditionalFuelPropertyChange
+        if(actionListenerGo)
+        af.editAditionalFuel(date);
+        sumFuel();
+    }//GEN-LAST:event_AditionalFuelPropertyChange
+
+    private void PlantUtilPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_PlantUtilPropertyChange
+        //        if(actionListenerGo){
+            //            pw.updateTable(date);
+            //        }
+    }//GEN-LAST:event_PlantUtilPropertyChange
+
+    private void PlantUtilMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PlantUtilMouseReleased
+        if(evt.isPopupTrigger()){
+            PlantPopUp.show(PlantUtil, evt.getX(), evt.getY());
+        }
+    }//GEN-LAST:event_PlantUtilMouseReleased
+
+    private void PlantUtilMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PlantUtilMousePressed
+        if(PlantUtil.getSelectedRowCount()>0){
+            ReportBreakdown.setEnabled(true);
+        } else {
+            ReportBreakdown.setEnabled(false);
+        }
+    }//GEN-LAST:event_PlantUtilMousePressed
+
+    private void PlantUtilFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_PlantUtilFocusLost
+
+    }//GEN-LAST:event_PlantUtilFocusLost
+
+    private void addpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addpActionPerformed
+        if(actionListenerGo)
+        pw.addPlant(date);
+    }//GEN-LAST:event_addpActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu About;
     private javax.swing.JButton AddAFuel;
@@ -1524,9 +1607,10 @@ public class Gui extends javax.swing.JFrame {
     private javax.swing.JMenuItem RemoveSelection;
     private javax.swing.JMenuItem RemoveSelection1;
     private javax.swing.JButton ReportBreakdown;
-    private javax.swing.JTabbedPane Sales;
+    private javax.swing.JTabbedPane TabbedPane;
     private javax.swing.JPopupMenu UsedInProdPopUP;
     public javax.swing.JTable UsedInProduction;
+    private javax.swing.JLabel addF;
     private javax.swing.JButton addp;
     private com.toedter.calendar.JDateChooser datePicker;
     private javax.swing.JMenuItem editLabour;
@@ -1547,6 +1631,9 @@ public class Gui extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -1573,6 +1660,7 @@ public class Gui extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -1589,10 +1677,12 @@ public class Gui extends javax.swing.JFrame {
     private javax.swing.JList<String> laborList;
     private javax.swing.JList<String> laborOnSiteList;
     private javax.swing.JMenuItem pRemoveSelected;
+    private javax.swing.JLabel plantF;
     private javax.swing.JComboBox<String> powerTitle;
     private javax.swing.JButton reportConfirm;
     private dar.Gui.Sales.SalesGui salesGui;
     private javax.swing.JLabel title;
+    private javax.swing.JLabel totalF;
     private javax.swing.JLabel utilPerc;
     private javax.swing.JProgressBar utilProgressBar;
     // End of variables declaration//GEN-END:variables
@@ -1636,7 +1726,7 @@ public class Gui extends javax.swing.JFrame {
         lw.fillComboBoxWithFunctions(lFunc);
         lw.displayViewInTable(LaborUtil, date);
         lw.getStatusList();
-        pw.displayPlantViewInTable(PlantUtil, date); 
+        pw.displayPlantViewInTable(PlantUtil, date);       
         pw.utilPercChange();
         af.displayViewInTable(AditionalFuel, date);        
         ph.displayUtilizationInTable(ProdUtilization, 3,date);
@@ -1648,6 +1738,7 @@ public class Gui extends javax.swing.JFrame {
         c.refreshList(fullList, (DefaultListModel) laborList.getModel());
         c.refreshList(siteLabourList, (DefaultListModel) laborOnSiteList.getModel());   
         salesGui.refreshData(date);
+        sumFuel(); //display Fuel summary
         actionListenerGo = true;
     }
 
@@ -1706,6 +1797,15 @@ public class Gui extends javax.swing.JFrame {
         setTitle();
         
         setRenderers();
+        //tabbedPan
+        TabbedPane.addChangeListener(new ChangeListener() {
+            @Override
+            public void stateChanged(ChangeEvent ce) {
+                System.out.println("changed");
+                //t.interrupt();
+            }
+        });
+        
         //productUtilization
         ProdUtilization.getModel().addTableModelListener( new TableModelListener() {
             @Override
@@ -1731,7 +1831,8 @@ public class Gui extends javax.swing.JFrame {
             @Override
             public void tableChanged(TableModelEvent tme) {
                 if(actionListenerGo){                    
-                    pw.updateTable(date,g);                    
+                    pw.updateTable(date,g);
+                    sumFuel();
                     //System.out.println("changed now");
                 }                
             }
@@ -1764,9 +1865,18 @@ public class Gui extends javax.swing.JFrame {
 
     private void quitApp() {
         System.out.println("closing app!");
-        label.setText("Saving data before close please wait...");
-        Closer c = new Closer(db1,t);
-        this.dispose();              
+        int myPrompt = JOptionPane.showConfirmDialog(null, "Do you want to save changes to the server?", "Save changes", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE);
+        if(myPrompt == JOptionPane.YES_OPTION){   
+            Syncer snc = new Syncer(db1,t,label);
+            Thread t1 = new Thread(snc);
+            t1.start();
+        } else if(myPrompt == JOptionPane.NO_OPTION) {
+            System.exit(0);
+        } else {
+            System.out.println("we are not closing down!");
+        }
+
+        //this.dispose();              
     }
 
     private void setRenderers() {
@@ -1968,4 +2078,24 @@ public class Gui extends javax.swing.JFrame {
     private boolean isCommentsFilled() {
         return !MyComents.getText().isEmpty();
     }
+
+    public void sumFuel() {
+        NumberFormat numberFormat = NumberFormat.getInstance();
+        //plant Utilization
+        plantFuel = sumFuelFromTbl(plantF, PlantUtil,6);
+        aditionalFuel = sumFuelFromTbl(addF, AditionalFuel,4);
+        totalF.setText(numberFormat.format(plantFuel+aditionalFuel)+" L");
+    }
+
+    private double sumFuelFromTbl(JLabel fuel,JTable table,int columnNo) {
+        NumberFormat numberFormat = NumberFormat.getInstance();
+        DefaultTableModel m = (DefaultTableModel) table.getModel();
+        System.out.println(m.getRowCount());
+        double total = 0;
+        for (int i = 0; i < m.getRowCount(); i++) {
+            total += (double) m.getValueAt(i, columnNo);
+        }
+        fuel.setText(numberFormat.format(total)+" L");
+        return total;
+    }    
 }

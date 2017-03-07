@@ -99,6 +99,12 @@ public class AddProduct extends javax.swing.JFrame {
 
         jLabel3.setText("amount produced");
 
+        produced.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                producedActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -239,6 +245,15 @@ public class AddProduct extends javax.swing.JFrame {
             this.dispose();
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void producedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_producedActionPerformed
+        //do the magic and add an item
+        //get all ID of selected item
+        if(ph.utilizeProducts((ProductListView) itemBox.getSelectedItem(),produced,Notes,date,prodType,g,this)){
+            g.refreshLists();
+            this.dispose();
+        }
+    }//GEN-LAST:event_producedActionPerformed
 
     /**
      * @param args the command line arguments

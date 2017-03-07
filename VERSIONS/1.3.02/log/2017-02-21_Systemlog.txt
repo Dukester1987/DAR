@@ -1,0 +1,36 @@
+Tue Feb 21 15:31:56 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Column "QTY" not found; SQL statement:
+INSERT INTO ProductUtilization (Qty) VALUES (Qty+620.4200000000001) [42122-176]
+Tue Feb 21 15:31:56 AEDT 2017
+org.h2.jdbc.JdbcSQLException: NULL not allowed for column "PRODUCTALLOCATIONID"; SQL statement:
+INSERT INTO ProductUtilization (ApprovalID) VALUES (112) [23502-176]
+Tue Feb 21 15:31:56 AEDT 2017
+org.h2.jdbc.JdbcSQLException: NULL not allowed for column "PRODUCTALLOCATIONID"; SQL statement:
+INSERT INTO ProductUtilization (ApprovalID) VALUES (112) [23502-176]
+Tue Feb 21 15:31:56 AEDT 2017
+org.h2.jdbc.JdbcSQLException: NULL not allowed for column "PRODUCTALLOCATIONID"; SQL statement:
+INSERT INTO ProductUtilization (ApprovalID) VALUES (112) [23502-176]
+Tue Feb 21 15:31:56 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_59 ON PUBLIC.SITENOTES(ID, SITEID) VALUES ( /* key:453 */ 239, 5, null, null)"; SQL statement:
+UPDATE SiteNotes SET ID = 239,`SiteID` = 5,`Notes` = 'office
+weighbridge
+cover cell
+cover asbestos
+compact waste
+RDT,`DateFor` = Visy trucks
+COD from S A Civil and RMA contracting bungendore railway' WHERE ID = 239 [23505-176]
+Tue Feb 21 15:31:57 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM SITENOTES WHERE ID = '245' AND SITEID = ''2017[*]-02-07'' "; SQL statement:
+SELECT * FROM SiteNotes WHERE ID = '245' AND SiteID = ''2017-02-07'' [42000-176]
+Tue Feb 21 15:31:57 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM SITENOTES WHERE ID = '268' AND SITEID = ''2017[*]-02-13'' "; SQL statement:
+SELECT * FROM SiteNotes WHERE ID = '268' AND SiteID = ''2017-02-13'' [42000-176]
+Tue Feb 21 15:31:58 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_59 ON PUBLIC.SITENOTES(ID, SITEID) VALUES ( /* key:593 */ 47, 1, null, null)"; SQL statement:
+UPDATE SiteNotes SET ID = 47,`SiteID` = 1,`Notes` = '',`DateFor` = '2017-02-15' WHERE ID = 47 [23505-176]
+Tue Feb 21 15:31:58 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Value too long for column "RIGHTS VARCHAR(80) NOT NULL": "'{""Pages"":[""plantutilization"",""labourutilization"",""Sales"",""Productutilization"",""Stocks""],""Rights"":1,""Sites"":[1,2,3,4,5,6]}' (121)"; SQL statement:
+UPDATE Login SET Rights = '{"Pages":["plantutilization","labourutilization","Sales","Productutilization","Stocks"],"Rights":1,"Sites":[1,2,3,4,5,6]}'  WHERE ID = 3  [22001-176]
+Tue Feb 21 15:31:58 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Value too long for column "RIGHTS VARCHAR(80) NOT NULL": "'{""Pages"":[""plantutilization"",""labourutilization"",""Sales"",""Productutilization"",""Stocks""],""Rights"":1,""Sites"":[1,2,3,4,5,6]}' (121)"; SQL statement:
+UPDATE Login SET Rights = '{"Pages":["plantutilization","labourutilization","Sales","Productutilization","Stocks"],"Rights":1,"Sites":[1,2,3,4,5,6]}'  WHERE ID = 3  [22001-176]

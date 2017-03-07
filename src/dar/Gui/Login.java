@@ -9,7 +9,6 @@ import dar.Functions.FileLogger;
 import dar.localDB.LocalWraper;
 import java.awt.Color;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 
 /**
  *

@@ -136,6 +136,11 @@ public class newSale extends javax.swing.JFrame {
 
         jLabel6.setText("Price exc GST:");
 
+        incGST.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                incGSTActionPerformed(evt);
+            }
+        });
         incGST.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 incGSTKeyReleased(evt);
@@ -274,6 +279,14 @@ public class newSale extends javax.swing.JFrame {
     private void amountKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_amountKeyReleased
         checkNumber(amount);
     }//GEN-LAST:event_amountKeyReleased
+
+    private void incGSTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_incGSTActionPerformed
+        if(writeDown){
+            insertIntoDB();
+        } else {
+            JOptionPane.showMessageDialog(null,"Price is not numeric number", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_incGSTActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField amount;

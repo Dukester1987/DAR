@@ -218,6 +218,7 @@ public class SalesGui extends javax.swing.JPanel {
         });
 
         jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/Create16.png"))); // NOI18N
+        jButton7.setMnemonic('q');
         jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton7ActionPerformed(evt);

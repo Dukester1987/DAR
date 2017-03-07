@@ -135,7 +135,7 @@ public class DBFunctions {
             rs = st.executeQuery(query);
         } catch (SQLException ex) {
             System.out.println("SQL ERROR runQuery");
-            //System.out.println(query);
+            System.out.println(query);
             ex.printStackTrace();
             new FileLogger(ex.toString());
         }

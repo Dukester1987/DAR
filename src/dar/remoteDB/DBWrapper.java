@@ -49,6 +49,7 @@ public class DBWrapper implements Runnable{
     private long FAIL_TOTALRECONNECT;
     private long CHECKCONNECTION;
     private boolean checkForUpdates = true;
+    public static boolean isSynced = true;
 
     public DBWrapper(JLabel label, LocalWraper db, Gui g) {
         this.label = label;
@@ -91,11 +92,13 @@ public class DBWrapper implements Runnable{
     private boolean putSleep(long i) {
         try {
             System.out.println("Being inactive for "+i+"s");
+            isSynced = true;
             Thread.sleep(1000*i);            
             return true;
         } catch (InterruptedException ex) {
             //ex.printStackTrace();
             //new FileLogger(ex.toString()); 
+            isSynced = false;
             System.out.println("interupted from sleep");
             //JOptionPane.showMessageDialog(null, "Program will close automaticaly once synchronization process is done!","Sync in progress",JOptionPane.INFORMATION_MESSAGE);  
             //syncBeforeClose();
@@ -193,7 +196,7 @@ public class DBWrapper implements Runnable{
         s.setVisible(true);
         label.setText("getting list of changes");
         mgr = new ChangeManager(db, this);
-        saveMyWork();
+        //saveMyWork();
         mgr.runSync(0,label); //see what do we need to download
         mgr.runSync(1,label);        
         g.refreshLists();    
@@ -230,8 +233,10 @@ public class DBWrapper implements Runnable{
     }
 
     private void saveMyWork() {
+        /*
         g.nt.saveDate(g.MyComents, g.date);
         System.out.println("Notes saved");
+        */
     }
     
 }

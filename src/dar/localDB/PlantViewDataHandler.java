@@ -18,7 +18,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.sql.Date;
 import java.text.NumberFormat;
-import java.util.logging.Logger;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JProgressBar;
@@ -42,6 +41,7 @@ public class PlantViewDataHandler {
     private TimeWrapper ti;
     private JProgressBar utilProgressBar;
     private static ArrayList<Integer> rows;
+    public static double totalFuel;
 
     public PlantViewDataHandler(LocalWraper con, User user,JTable table,JLabel utilPerc,JProgressBar utilProgressBar) {
         this.con = con;
@@ -111,6 +111,7 @@ public class PlantViewDataHandler {
     
     public void displayPlantViewInTable(JTable table, Date dateFor){
         this.dateFor = dateFor;
+        totalFuel = 0.00;
         ArrayList<PlantView> list = getPlantView();        
         DefaultTableModel model = (DefaultTableModel) table.getModel();
         refreshTable(model);
@@ -125,6 +126,7 @@ public class PlantViewDataHandler {
             if(write){
                 int hours = list.get(i).getEndHours()-list.get(i).getStartHours();
                 int display = hours<0?0:hours;
+                totalFuel += list.get(i).getFuel();
                 model.addRow(new Object[]{list.get(i).getUtilizationID(),
                     list.get(i).getAllocationID(),
                     list.get(i).getPlantID(),
@@ -380,7 +382,7 @@ public class PlantViewDataHandler {
                utilPerc.setForeground(Color.green);
            } else if(percentage>120) {
                utilPerc.setForeground(Color.red);
-               JOptionPane.showMessageDialog(null,"Check your hours!","Error",JOptionPane.ERROR_MESSAGE);
+               //JOptionPane.showMessageDialog(null,"Check your hours!","Error",JOptionPane.ERROR_MESSAGE);
            } else {
                 utilPerc.setForeground(Color.BLACK);
            }

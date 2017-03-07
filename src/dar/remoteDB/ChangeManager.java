@@ -262,13 +262,16 @@ public class ChangeManager {
             ex.printStackTrace();
             new FileLogger(ex.toString());
         }
-        for (int i = changeList.size()-1; i > -1; i--) {
+        int totalSize = changeList.size()-1;
+        for (int i = totalSize; i >= 0; i--) {
             if(changeList.get(i).getType()==type){
                 if(UIDs.size()>0){
                     for (String UID : UIDs) {                        
                         String checkedID = changeList.get(i).getUid();
-                        if(UID.equals(checkedID)){                            
+                        if(UID.equals(checkedID)){     
+                            
                             changeList.remove(i);   
+                            totalSize--;
                             break;
                         }
                     }
@@ -321,7 +324,7 @@ public class ChangeManager {
                             useStamp = dbStamp;
                         }
                         System.err.println(useStamp);
-                        lastUpdate.put(rs.getInt("ID"), dbStamp);
+                        lastUpdate.put(rs.getInt("ID"), useStamp);
                         //System.out.printf("Last update for type %s having ID: %s and Timestamp: %s\n",type,rs.getInt("ID"), rs.getTimestamp("Start"));
                         updateID[type] = rs.getInt("ID");
                     } catch (SQLException ex) {
