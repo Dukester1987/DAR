@@ -379,7 +379,8 @@ public class LaborViewDataHandler extends DataHandler {
 
     public void updateLabour(String originalName, String newName, int id, JTable table, Date date) {
         //run update
-        con.dbUpdate("LaborList", new Object[][]{{"LaborName","LaborFunction"},{newName,id}}, new Object[][]{{"LaborName"},{"="},{originalName},{}});
+        int laborID = getLaborIDByName(originalName);
+        con.dbUpdate("LaborList", new Object[][]{{"LaborName","LaborFunction"},{newName,id}}, new Object[][]{{"ID"},{"="},{laborID},{}});
         displayViewInTable(table, date);
     }
 
@@ -390,6 +391,18 @@ public class LaborViewDataHandler extends DataHandler {
             {delId,previousDay},
             {"AND"}
         }, "LaborAllocationID");
+    }
+
+    private int getLaborIDByName(String originalName) {
+        int id = 0;
+        ResultSet rs = con.dbSelect(new Object[] {"ID"}, "LaborList", new Object[][] {{"LaborName"},{"="},{originalName},{}});
+        try {
+            rs.next();
+            id = rs.getInt("ID");
+        } catch (SQLException ex) {
+            new FileLogger(ex.getStackTrace());
+        }
+        return id;
     }
     
     

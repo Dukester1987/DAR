@@ -154,8 +154,7 @@ public class ProductViewHandler{
                 }
             }
             
-            if(del){
-                //JOptionPane.showMessageDialog(null,lw.getAllocationID());                
+            if(del && lw.getAllocationID()>0){                                
                 list.add(lw.getAllocationID());
             }
         }
@@ -167,6 +166,8 @@ public class ProductViewHandler{
         //delete removed products
         ArrayList<Integer> delIds = getIdsToDelete();
         
+        //JOptionPane.showMessageDialog(null,delIds.size() + " IDs to delete");
+        
         for (Integer delId : delIds) {
             Object[][] w = {{"EndDate"},{ti.yesterday()}};
             Object[][] wh = {{"ID"},{"="},{delId},{}};   
@@ -176,8 +177,9 @@ public class ProductViewHandler{
         
         //add new products
         ArrayList<Integer> addIds = getIdsToAdd();
+        //JOptionPane.showMessageDialog(null,addIds.size() + " Ids to add");
         for (Integer addId : addIds) {
-            //System.out.println(addId);
+            System.out.println(addId);
             allocateProducts(addId,user.getSiteID(),date);
         }
                 

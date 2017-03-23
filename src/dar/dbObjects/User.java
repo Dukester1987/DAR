@@ -80,7 +80,8 @@ public class User {
         return date;
     }
     
-    public long getSiteID(String JSONString){       
+    public long getSiteID(String JSONString){ 
+        System.out.println(JSONString);
         return getSiteIDs(JSONString).get(0);
     }  
     
@@ -109,6 +110,7 @@ public class User {
     }    
     
     public String getSiteName(LocalWraper db){
+        System.out.println(getSiteID());
         String query = String.format("SELECT SiteName FROM SiteList WHERE ID = %s",getSiteID());
         String toReturn = getLoginName();
         ResultSet rs = db.runQuery(query);

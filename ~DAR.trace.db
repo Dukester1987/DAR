@@ -1,23 +1,23 @@
-03-07 09:29:40 jdbc[3]: exception
+03-21 15:17:46 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM SITENOTES WHERE ID = '7' AND SITEID = ''2016[*]-11-07'' "; SQL statement:
 SELECT * FROM SiteNotes WHERE ID = '7' AND SiteID = ''2016-11-07'' [42000-176]
-03-07 09:29:41 jdbc[3]: exception
+03-21 15:17:46 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM SITENOTES WHERE ID = '23' AND SITEID = ''2016[*]-11-14'' "; SQL statement:
 SELECT * FROM SiteNotes WHERE ID = '23' AND SiteID = ''2016-11-14'' [42000-176]
-03-07 09:29:41 jdbc[3]: exception
+03-21 15:17:47 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM SiteNotes WHERE ID = '26' AND SiteID = 'will organise maintenance to rectify issues.)
 
 James advised chris same issues with same tyre on water truck again today. Tyre right to be onsite ASAP.'[*]'"; SQL statement:
 SELECT * FROM SiteNotes WHERE ID = '26' AND SiteID = 'will organise maintenance to rectify issues.)
 
 James advised chris same issues with same tyre on water truck again today. Tyre right to be onsite ASAP.'' [42000-176]
-03-07 09:29:41 jdbc[3]: exception
+03-21 15:17:47 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Value too long for column "COMMENT VARCHAR(180) NOT NULL": "'Checked with Kevin what ammount of stock was sitting on the floor, he estimates 3500-4000 tonne. Tonnage supplied from Operator... (197)"; SQL statement:
 INSERT INTO StockAdjustments (ID, `SiteID`, `ProductID`, `Qty`, `Comment`) VALUES (0, 2, 267, -7000.0, 'Checked with Kevin what ammount of stock was sitting on the floor, he estimates 3500-4000 tonne. Tonnage supplied from Operatorson production will need to be more careful estimating there tonnages,') [22001-176]
-03-07 09:29:42 jdbc[3]: exception
+03-21 15:17:48 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM SITENOTES WHERE ID = '85' AND SITEID = ''2016[*]-12-06'' "; SQL statement:
 SELECT * FROM SiteNotes WHERE ID = '85' AND SiteID = ''2016-12-06'' [42000-176]
-03-07 09:29:43 jdbc[3]: exception
+03-21 15:17:49 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM SiteNotes WHERE ID = '101' AND SiteID = 'Pads and drivesway 
 P318 
 Roller delivered by contractor 
@@ -26,13 +26,13 @@ SELECT * FROM SiteNotes WHERE ID = '101' AND SiteID = 'Pads and drivesway
 P318 
 Roller delivered by contractor 
 '' [42000-176]
-03-07 09:29:44 jdbc[3]: exception
+03-21 15:17:50 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM SITENOTES WHERE ID = '184' AND SITEID = ''2017[*]-01-17'' "; SQL statement:
 SELECT * FROM SiteNotes WHERE ID = '184' AND SiteID = ''2017-01-17'' [42000-176]
-03-07 09:29:45 jdbc[3]: exception
+03-21 15:17:51 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM SITENOTES WHERE ID = '226' AND SITEID = ''2017[*]-01-30'' "; SQL statement:
 SELECT * FROM SiteNotes WHERE ID = '226' AND SiteID = ''2017-01-30'' [42000-176]
-03-07 09:29:45 jdbc[3]: exception
+03-21 15:17:52 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Column "QTY" not found; SQL statement:
 INSERT INTO ProductUtilization (Qty) VALUES (Qty+620.4200000000001) [42122-176]
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:344)
@@ -54,9 +54,31 @@ INSERT INTO ProductUtilization (Qty) VALUES (Qty+620.4200000000001) [42122-176]
 	at dar.remoteDB.DBWrapper.checkConnection(DBWrapper.java:128)
 	at dar.remoteDB.DBWrapper.run(DBWrapper.java:76)
 	at java.lang.Thread.run(Thread.java:745)
-03-07 09:29:46 jdbc[3]: exception
+03-21 15:17:52 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM SITENOTES WHERE ID = '245' AND SITEID = ''2017[*]-02-07'' "; SQL statement:
 SELECT * FROM SiteNotes WHERE ID = '245' AND SiteID = ''2017-02-07'' [42000-176]
-03-07 09:29:46 jdbc[3]: exception
+03-21 15:17:53 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM SITENOTES WHERE ID = '268' AND SITEID = ''2017[*]-02-13'' "; SQL statement:
 SELECT * FROM SiteNotes WHERE ID = '268' AND SiteID = ''2017-02-13'' [42000-176]
+03-21 15:18:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Column "P297" not found; SQL statement:
+UPDATE PlantList SET `ID` = 'P297',`PlantDesc` = 'Komatsu PC200 LC-8 Exc',`Rate` = '329',`UnitOfMeasurement` = 'h' WHERE ID = P297 [42122-176]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:344)
+	at org.h2.message.DbException.get(DbException.java:178)
+	at org.h2.message.DbException.get(DbException.java:154)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:148)
+	at org.h2.expression.Comparison.optimize(Comparison.java:181)
+	at org.h2.command.dml.Update.prepare(Update.java:182)
+	at org.h2.command.Parser.prepareCommand(Parser.java:248)
+	at org.h2.engine.Session.prepareLocal(Session.java:442)
+	at org.h2.engine.Session.prepareCommand(Session.java:384)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1188)
+	at org.h2.jdbc.JdbcStatement.executeUpdateInternal(JdbcStatement.java:128)
+	at org.h2.jdbc.JdbcStatement.executeUpdate(JdbcStatement.java:784)
+	at dar.Functions.DBFunctions.executeQuery(DBFunctions.java:33)
+	at dar.remoteDB.ChangeManager.insertOperation(ChangeManager.java:153)
+	at dar.remoteDB.ChangeManager.runSync(ChangeManager.java:127)
+	at dar.remoteDB.DBWrapper.startSync(DBWrapper.java:200)
+	at dar.remoteDB.DBWrapper.checkConnection(DBWrapper.java:128)
+	at dar.remoteDB.DBWrapper.run(DBWrapper.java:76)
+	at java.lang.Thread.run(Thread.java:745)

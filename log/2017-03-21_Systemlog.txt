@@ -1,0 +1,421 @@
+Tue Mar 21 15:01:53 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Column "P297" not found; SQL statement:
+UPDATE PlantList SET `ID` = 'P297',`PlantDesc` = 'Komatsu PC200 LC-8 Exc',`Rate` = '329',`UnitOfMeasurement` = 'h' WHERE ID = P297 [42122-176]
+Tue Mar 21 15:17:28 AEDT 2017
+Database Sucessfully initialised
+Tue Mar 21 15:17:46 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM SITENOTES WHERE ID = '7' AND SITEID = ''2016[*]-11-07'' "; SQL statement:
+SELECT * FROM SiteNotes WHERE ID = '7' AND SiteID = ''2016-11-07'' [42000-176]
+Tue Mar 21 15:17:46 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM SITENOTES WHERE ID = '23' AND SITEID = ''2016[*]-11-14'' "; SQL statement:
+SELECT * FROM SiteNotes WHERE ID = '23' AND SiteID = ''2016-11-14'' [42000-176]
+Tue Mar 21 15:17:47 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM SiteNotes WHERE ID = '26' AND SiteID = 'will organise maintenance to rectify issues.)
+
+James advised chris same issues with same tyre on water truck again today. Tyre right to be onsite ASAP.'[*]'"; SQL statement:
+SELECT * FROM SiteNotes WHERE ID = '26' AND SiteID = 'will organise maintenance to rectify issues.)
+
+James advised chris same issues with same tyre on water truck again today. Tyre right to be onsite ASAP.'' [42000-176]
+Tue Mar 21 15:17:47 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Value too long for column "COMMENT VARCHAR(180) NOT NULL": "'Checked with Kevin what ammount of stock was sitting on the floor, he estimates 3500-4000 tonne. Tonnage supplied from Operator... (197)"; SQL statement:
+INSERT INTO StockAdjustments (ID, `SiteID`, `ProductID`, `Qty`, `Comment`) VALUES (0, 2, 267, -7000.0, 'Checked with Kevin what ammount of stock was sitting on the floor, he estimates 3500-4000 tonne. Tonnage supplied from Operatorson production will need to be more careful estimating there tonnages,') [22001-176]
+Tue Mar 21 15:17:47 AEDT 2017
+org.h2.jdbc.JdbcSQLException: NULL not allowed for column "PRODUCTNAME"; SQL statement:
+INSERT INTO Products (EPA) VALUES ('1') [23502-176]
+Tue Mar 21 15:17:47 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_7E ON PUBLIC.SALES(ID, SITEID) VALUES ( /* key:465 */ 401, 4, null, null, null, null, null, null, null)"; SQL statement:
+UPDATE Sales SET ID = 401,`SiteID` = 4,`ProductID` = 34,`Direction` = 'OUT',`Amount` = 37.66,`PriceIncGST` = 2382.0,`PriceExGST` = 2165.45,`DateFor` = '2016-11-09' WHERE ID = 401 [23505-176]
+Tue Mar 21 15:17:48 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM SITENOTES WHERE ID = '85' AND SITEID = ''2016[*]-12-06'' "; SQL statement:
+SELECT * FROM SiteNotes WHERE ID = '85' AND SiteID = ''2016-12-06'' [42000-176]
+Tue Mar 21 15:17:49 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM SiteNotes WHERE ID = '101' AND SiteID = 'Pads and drivesway 
+P318 
+Roller delivered by contractor 
+'[*]'"; SQL statement:
+SELECT * FROM SiteNotes WHERE ID = '101' AND SiteID = 'Pads and drivesway 
+P318 
+Roller delivered by contractor 
+'' [42000-176]
+Tue Mar 21 15:17:50 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM SITENOTES WHERE ID = '184' AND SITEID = ''2017[*]-01-17'' "; SQL statement:
+SELECT * FROM SiteNotes WHERE ID = '184' AND SiteID = ''2017-01-17'' [42000-176]
+Tue Mar 21 15:17:50 AEDT 2017
+org.h2.jdbc.JdbcSQLException: NULL not allowed for column "PRODUCTNAME"; SQL statement:
+INSERT INTO Products (EPA) VALUES ('1') [23502-176]
+Tue Mar 21 15:17:51 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM SITENOTES WHERE ID = '226' AND SITEID = ''2017[*]-01-30'' "; SQL statement:
+SELECT * FROM SiteNotes WHERE ID = '226' AND SiteID = ''2017-01-30'' [42000-176]
+Tue Mar 21 15:17:52 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Column "QTY" not found; SQL statement:
+INSERT INTO ProductUtilization (Qty) VALUES (Qty+620.4200000000001) [42122-176]
+Tue Mar 21 15:17:52 AEDT 2017
+org.h2.jdbc.JdbcSQLException: NULL not allowed for column "PRODUCTALLOCATIONID"; SQL statement:
+INSERT INTO ProductUtilization (ApprovalID) VALUES (112) [23502-176]
+Tue Mar 21 15:17:52 AEDT 2017
+org.h2.jdbc.JdbcSQLException: NULL not allowed for column "PRODUCTALLOCATIONID"; SQL statement:
+INSERT INTO ProductUtilization (ApprovalID) VALUES (112) [23502-176]
+Tue Mar 21 15:17:52 AEDT 2017
+org.h2.jdbc.JdbcSQLException: NULL not allowed for column "PRODUCTALLOCATIONID"; SQL statement:
+INSERT INTO ProductUtilization (ApprovalID) VALUES (112) [23502-176]
+Tue Mar 21 15:17:52 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_59 ON PUBLIC.SITENOTES(ID, SITEID) VALUES ( /* key:452 */ 239, 5, null, null)"; SQL statement:
+UPDATE SiteNotes SET ID = 239,`SiteID` = 5,`Notes` = 'office
+weighbridge
+cover cell
+cover asbestos
+compact waste
+RDT,`DateFor` = Visy trucks
+COD from S A Civil and RMA contracting bungendore railway' WHERE ID = 239 [23505-176]
+Tue Mar 21 15:17:52 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM SITENOTES WHERE ID = '245' AND SITEID = ''2017[*]-02-07'' "; SQL statement:
+SELECT * FROM SiteNotes WHERE ID = '245' AND SiteID = ''2017-02-07'' [42000-176]
+Tue Mar 21 15:17:53 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM SITENOTES WHERE ID = '268' AND SITEID = ''2017[*]-02-13'' "; SQL statement:
+SELECT * FROM SiteNotes WHERE ID = '268' AND SiteID = ''2017-02-13'' [42000-176]
+Tue Mar 21 15:17:54 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_59 ON PUBLIC.SITENOTES(ID, SITEID) VALUES ( /* key:592 */ 47, 1, null, null)"; SQL statement:
+UPDATE SiteNotes SET ID = 47,`SiteID` = 1,`Notes` = '',`DateFor` = '2017-02-15' WHERE ID = 47 [23505-176]
+Tue Mar 21 15:17:54 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_59 ON PUBLIC.SITENOTES(ID, SITEID) VALUES ( /* key:641 */ 1, 1, null, null)"; SQL statement:
+UPDATE SiteNotes SET ID = 1,`SiteID` = 1,`Notes` = '',`DateFor` = '2017-02-21' WHERE ID = 1 [23505-176]
+Tue Mar 21 15:17:54 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_59 ON PUBLIC.SITENOTES(ID, SITEID) VALUES ( /* key:646 */ 279, 3, null, null)"; SQL statement:
+UPDATE SiteNotes SET ID = 279,`SiteID` = 3,`Notes` = '',`DateFor` = '2017-02-21' WHERE ID = 279 [23505-176]
+Tue Mar 21 15:17:54 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_7E ON PUBLIC.SALES(ID, SITEID) VALUES ( /* key:1867 */ 1317, 3, null, null, null, null, null, null, null)"; SQL statement:
+UPDATE Sales SET ID = 1317,`SiteID` = 3,`ProductID` = 7,`Direction` = 'IN',`Amount` = 647.94,`PriceIncGST` = 7127.34,`PriceExGST` = 6479.4,`DateFor` = '2017-02-21' WHERE ID = 1317 [23505-176]
+Tue Mar 21 15:17:54 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_59 ON PUBLIC.SITENOTES(ID, SITEID) VALUES ( /* key:661 */ 1, 1, null, null)"; SQL statement:
+UPDATE SiteNotes SET ID = 1,`SiteID` = 1,`Notes` = '',`DateFor` = '2017-02-22' WHERE ID = 1 [23505-176]
+Tue Mar 21 15:17:54 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_59 ON PUBLIC.SITENOTES(ID, SITEID) VALUES ( /* key:663 */ 1, 1, null, null)"; SQL statement:
+UPDATE SiteNotes SET ID = 1,`SiteID` = 1,`Notes` = '',`DateFor` = '2017-02-22' WHERE ID = 1 [23505-176]
+Tue Mar 21 15:17:54 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_59 ON PUBLIC.SITENOTES(ID, SITEID) VALUES ( /* key:674 */ 282, 3, null, null)"; SQL statement:
+UPDATE SiteNotes SET ID = 282,`SiteID` = 3,`Notes` = '',`DateFor` = '2017-02-22' WHERE ID = 282 [23505-176]
+Tue Mar 21 15:17:54 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_59 ON PUBLIC.SITENOTES(ID, SITEID) VALUES ( /* key:707 */ 1, 1, null, null)"; SQL statement:
+UPDATE SiteNotes SET ID = 1,`SiteID` = 1,`Notes` = '',`DateFor` = '2017-02-23' WHERE ID = 1 [23505-176]
+Tue Mar 21 15:17:55 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_6 ON PUBLIC.PLANTUTILIZATION(ID, PLANTALLOCATIONID) VALUES ( /* key:9973 */ 20958, 105, null, null, null, null, null, null)"; SQL statement:
+UPDATE PlantUtilization SET ID = 20958,`PlantAllocationID` = 105,`StartHours` = 9878,`EndHours` = 9878,`DateFor` = '2017-02-22',`Fuel` = 0.0,`Notes` = '' WHERE ID = 20958 [23505-176]
+Tue Mar 21 15:17:55 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_6 ON PUBLIC.PLANTUTILIZATION(ID, PLANTALLOCATIONID) VALUES ( /* key:9976 */ 20959, 106, null, null, null, null, null, null)"; SQL statement:
+UPDATE PlantUtilization SET ID = 20959,`PlantAllocationID` = 106,`StartHours` = 2191,`EndHours` = 2191,`DateFor` = '2017-02-22',`Fuel` = 0.0,`Notes` = '' WHERE ID = 20959 [23505-176]
+Tue Mar 21 15:17:55 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_6 ON PUBLIC.PLANTUTILIZATION(ID, PLANTALLOCATIONID) VALUES ( /* key:9979 */ 20960, 187, null, null, null, null, null, null)"; SQL statement:
+UPDATE PlantUtilization SET ID = 20960,`PlantAllocationID` = 187,`StartHours` = 8690,`EndHours` = 8690,`DateFor` = '2017-02-22',`Fuel` = 0.0,`Notes` = '' WHERE ID = 20960 [23505-176]
+Tue Mar 21 15:17:55 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_6 ON PUBLIC.PLANTUTILIZATION(ID, PLANTALLOCATIONID) VALUES ( /* key:9982 */ 20961, 109, null, null, null, null, null, null)"; SQL statement:
+UPDATE PlantUtilization SET ID = 20961,`PlantAllocationID` = 109,`StartHours` = 9716,`EndHours` = 9716,`DateFor` = '2017-02-22',`Fuel` = 0.0,`Notes` = '' WHERE ID = 20961 [23505-176]
+Tue Mar 21 15:17:55 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_6 ON PUBLIC.PLANTUTILIZATION(ID, PLANTALLOCATIONID) VALUES ( /* key:9985 */ 20962, 110, null, null, null, null, null, null)"; SQL statement:
+UPDATE PlantUtilization SET ID = 20962,`PlantAllocationID` = 110,`StartHours` = 4367,`EndHours` = 4367,`DateFor` = '2017-02-22',`Fuel` = 0.0,`Notes` = '' WHERE ID = 20962 [23505-176]
+Tue Mar 21 15:17:55 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_6 ON PUBLIC.PLANTUTILIZATION(ID, PLANTALLOCATIONID) VALUES ( /* key:9988 */ 20963, 111, null, null, null, null, null, null)"; SQL statement:
+UPDATE PlantUtilization SET ID = 20963,`PlantAllocationID` = 111,`StartHours` = 86,`EndHours` = 86,`DateFor` = '2017-02-22',`Fuel` = 0.0,`Notes` = '' WHERE ID = 20963 [23505-176]
+Tue Mar 21 15:17:55 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_6 ON PUBLIC.PLANTUTILIZATION(ID, PLANTALLOCATIONID) VALUES ( /* key:9991 */ 20964, 125, null, null, null, null, null, null)"; SQL statement:
+UPDATE PlantUtilization SET ID = 20964,`PlantAllocationID` = 125,`StartHours` = 8461,`EndHours` = 8461,`DateFor` = '2017-02-22',`Fuel` = 0.0,`Notes` = '' WHERE ID = 20964 [23505-176]
+Tue Mar 21 15:17:55 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_6 ON PUBLIC.PLANTUTILIZATION(ID, PLANTALLOCATIONID) VALUES ( /* key:9994 */ 20965, 177, null, null, null, null, null, null)"; SQL statement:
+UPDATE PlantUtilization SET ID = 20965,`PlantAllocationID` = 177,`StartHours` = 10735,`EndHours` = 10735,`DateFor` = '2017-02-22',`Fuel` = 0.0,`Notes` = '' WHERE ID = 20965 [23505-176]
+Tue Mar 21 15:17:55 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_6 ON PUBLIC.PLANTUTILIZATION(ID, PLANTALLOCATIONID) VALUES ( /* key:9997 */ 20966, 114, null, null, null, null, null, null)"; SQL statement:
+UPDATE PlantUtilization SET ID = 20966,`PlantAllocationID` = 114,`StartHours` = 6830,`EndHours` = 6831,`DateFor` = '2017-02-22',`Fuel` = 0.0,`Notes` = '' WHERE ID = 20966 [23505-176]
+Tue Mar 21 15:17:55 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_E6 ON PUBLIC.LABORUTILIZATION(ID, LABORALLOCATIONID) VALUES ( /* key:7451 */ 3093, 71, null, null, null, null, null, null)"; SQL statement:
+UPDATE LaborUtilization SET ID = 3093,`LaborAllocationID` = 71,`PlantID` = '',`Hours` = 10.0,`Status` = 0,`Notes` = '',`DateFor` = '2017-02-22',`ApprovalID` = NULL WHERE ID = 3093 [23505-176]
+Tue Mar 21 15:17:55 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_E6 ON PUBLIC.LABORUTILIZATION(ID, LABORALLOCATIONID) VALUES ( /* key:7454 */ 3094, 74, null, null, null, null, null, null)"; SQL statement:
+UPDATE LaborUtilization SET ID = 3094,`LaborAllocationID` = 74,`PlantID` = '',`Hours` = 10.0,`Status` = 0,`Notes` = '',`DateFor` = '2017-02-22',`ApprovalID` = NULL WHERE ID = 3094 [23505-176]
+Tue Mar 21 15:17:55 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_E6 ON PUBLIC.LABORUTILIZATION(ID, LABORALLOCATIONID) VALUES ( /* key:7457 */ 3095, 75, null, null, null, null, null, null)"; SQL statement:
+UPDATE LaborUtilization SET ID = 3095,`LaborAllocationID` = 75,`PlantID` = '',`Hours` = 5.0,`Status` = 0,`Notes` = '',`DateFor` = '2017-02-22',`ApprovalID` = NULL WHERE ID = 3095 [23505-176]
+Tue Mar 21 15:17:55 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_E6 ON PUBLIC.LABORUTILIZATION(ID, LABORALLOCATIONID) VALUES ( /* key:7460 */ 3096, 70, null, null, null, null, null, null)"; SQL statement:
+UPDATE LaborUtilization SET ID = 3096,`LaborAllocationID` = 70,`PlantID` = '',`Hours` = 8.0,`Status` = 0,`Notes` = '',`DateFor` = '2017-02-22',`ApprovalID` = NULL WHERE ID = 3096 [23505-176]
+Tue Mar 21 15:17:55 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_7E ON PUBLIC.SALES(ID, SITEID) VALUES ( /* key:1901 */ 1337, 5, null, null, null, null, null, null, null)"; SQL statement:
+UPDATE Sales SET ID = 1337,`SiteID` = 5,`ProductID` = 298,`Direction` = 'OUT',`Amount` = 72.32,`PriceIncGST` = 2784.32,`PriceExGST` = 2531.2,`DateFor` = '2017-02-22' WHERE ID = 1337 [23505-176]
+Tue Mar 21 15:17:55 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_7E ON PUBLIC.SALES(ID, SITEID) VALUES ( /* key:1906 */ 1339, 6, null, null, null, null, null, null, null)"; SQL statement:
+UPDATE Sales SET ID = 1339,`SiteID` = 6,`ProductID` = 112,`Direction` = 'OUT',`Amount` = 68.62,`PriceIncGST` = 1358.68,`PriceExGST` = 1235.16,`DateFor` = '2017-02-22' WHERE ID = 1339 [23505-176]
+Tue Mar 21 15:17:55 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_5 ON PUBLIC.PRODUCTUTILIZATION(ID, PRODUCTALLOCATIONID) VALUES ( /* key:1265 */ 842, 167, null, null, null, null, null)"; SQL statement:
+UPDATE ProductUtilization SET ID = 842,`ProductAllocationID` = 167,`Qty` = 420.0,`Notes` = '',`TransactionType` = 3,`DateFor` = '2017-02-22' WHERE ID = 842 [23505-176]
+Tue Mar 21 15:17:55 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_59 ON PUBLIC.SITENOTES(ID, SITEID) VALUES ( /* key:722 */ 1, 1, null, null)"; SQL statement:
+UPDATE SiteNotes SET ID = 1,`SiteID` = 1,`Notes` = '',`DateFor` = '2017-02-23' WHERE ID = 1 [23505-176]
+Tue Mar 21 15:17:55 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_59 ON PUBLIC.SITENOTES(ID, SITEID) VALUES ( /* key:725 */ 285, 1, null, null)"; SQL statement:
+UPDATE SiteNotes SET ID = 285,`SiteID` = 1,`Notes` = '',`DateFor` = '2017-02-23' WHERE ID = 285 [23505-176]
+Tue Mar 21 15:17:55 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_7E ON PUBLIC.SALES(ID, SITEID) VALUES ( /* key:1928 */ 1342, 3, null, null, null, null, null, null, null)"; SQL statement:
+UPDATE Sales SET ID = 1342,`SiteID` = 3,`ProductID` = 7,`Direction` = 'IN',`Amount` = 1000.0,`PriceIncGST` = 11000.0,`PriceExGST` = 10000.0,`DateFor` = '2017-02-23' WHERE ID = 1342 [23505-176]
+Tue Mar 21 15:17:55 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_7E ON PUBLIC.SALES(ID, SITEID) VALUES ( /* key:1931 */ 1343, 3, null, null, null, null, null, null, null)"; SQL statement:
+UPDATE Sales SET ID = 1343,`SiteID` = 3,`ProductID` = 6,`Direction` = 'IN',`Amount` = 49.26,`PriceIncGST` = 2980.23,`PriceExGST` = 2709.3,`DateFor` = '2017-02-23' WHERE ID = 1343 [23505-176]
+Tue Mar 21 15:17:55 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_E6 ON PUBLIC.LABORUTILIZATION(ID, LABORALLOCATIONID) VALUES ( /* key:7548 */ 3122, 71, null, null, null, null, null, null)"; SQL statement:
+UPDATE LaborUtilization SET ID = 3122,`LaborAllocationID` = 71,`PlantID` = '',`Hours` = 10.0,`Status` = 0,`Notes` = '',`DateFor` = '2017-02-23',`ApprovalID` = NULL WHERE ID = 3122 [23505-176]
+Tue Mar 21 15:17:55 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_E6 ON PUBLIC.LABORUTILIZATION(ID, LABORALLOCATIONID) VALUES ( /* key:7551 */ 3123, 75, null, null, null, null, null, null)"; SQL statement:
+UPDATE LaborUtilization SET ID = 3123,`LaborAllocationID` = 75,`PlantID` = '',`Hours` = 5.0,`Status` = 0,`Notes` = '',`DateFor` = '2017-02-23',`ApprovalID` = NULL WHERE ID = 3123 [23505-176]
+Tue Mar 21 15:17:55 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_E6 ON PUBLIC.LABORUTILIZATION(ID, LABORALLOCATIONID) VALUES ( /* key:7554 */ 3124, 70, null, null, null, null, null, null)"; SQL statement:
+UPDATE LaborUtilization SET ID = 3124,`LaborAllocationID` = 70,`PlantID` = '',`Hours` = 7.75,`Status` = 0,`Notes` = '',`DateFor` = '2017-02-23',`ApprovalID` = NULL WHERE ID = 3124 [23505-176]
+Tue Mar 21 15:17:55 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_7E ON PUBLIC.SALES(ID, SITEID) VALUES ( /* key:1934 */ 1344, 5, null, null, null, null, null, null, null)"; SQL statement:
+UPDATE Sales SET ID = 1344,`SiteID` = 5,`ProductID` = 292,`Direction` = 'IN',`Amount` = 123.86,`PriceIncGST` = 14987.06,`PriceExGST` = 13624.6,`DateFor` = '2017-02-23' WHERE ID = 1344 [23505-176]
+Tue Mar 21 15:17:56 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_7E ON PUBLIC.SALES(ID, SITEID) VALUES ( /* key:1937 */ 1345, 5, null, null, null, null, null, null, null)"; SQL statement:
+UPDATE Sales SET ID = 1345,`SiteID` = 5,`ProductID` = 296,`Direction` = 'IN',`Amount` = 3.84,`PriceIncGST` = 940.5,`PriceExGST` = 855.0,`DateFor` = '2017-02-23' WHERE ID = 1345 [23505-176]
+Tue Mar 21 15:17:56 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_E6 ON PUBLIC.LABORUTILIZATION(ID, LABORALLOCATIONID) VALUES ( /* key:7563 */ 3125, 80, null, null, null, null, null, null)"; SQL statement:
+UPDATE LaborUtilization SET ID = 3125,`LaborAllocationID` = 80,`PlantID` = '',`Hours` = 11.0,`Status` = 0,`Notes` = '',`DateFor` = '2017-02-23',`ApprovalID` = NULL WHERE ID = 3125 [23505-176]
+Tue Mar 21 15:17:56 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_E6 ON PUBLIC.LABORUTILIZATION(ID, LABORALLOCATIONID) VALUES ( /* key:7566 */ 3126, 77, null, null, null, null, null, null)"; SQL statement:
+UPDATE LaborUtilization SET ID = 3126,`LaborAllocationID` = 77,`PlantID` = '',`Hours` = 5.0,`Status` = 0,`Notes` = '',`DateFor` = '2017-02-23',`ApprovalID` = NULL WHERE ID = 3126 [23505-176]
+Tue Mar 21 15:17:56 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_E6 ON PUBLIC.LABORUTILIZATION(ID, LABORALLOCATIONID) VALUES ( /* key:7569 */ 3127, 247, null, null, null, null, null, null)"; SQL statement:
+UPDATE LaborUtilization SET ID = 3127,`LaborAllocationID` = 247,`PlantID` = '',`Hours` = 9.0,`Status` = 0,`Notes` = '',`DateFor` = '2017-02-23',`ApprovalID` = NULL WHERE ID = 3127 [23505-176]
+Tue Mar 21 15:17:56 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_E6 ON PUBLIC.LABORUTILIZATION(ID, LABORALLOCATIONID) VALUES ( /* key:7572 */ 3128, 81, null, null, null, null, null, null)"; SQL statement:
+UPDATE LaborUtilization SET ID = 3128,`LaborAllocationID` = 81,`PlantID` = '',`Hours` = 11.5,`Status` = 0,`Notes` = '',`DateFor` = '2017-02-23',`ApprovalID` = NULL WHERE ID = 3128 [23505-176]
+Tue Mar 21 15:17:56 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_5 ON PUBLIC.PRODUCTUTILIZATION(ID, PRODUCTALLOCATIONID) VALUES ( /* key:1287 */ 848, 165, null, null, null, null, null)"; SQL statement:
+UPDATE ProductUtilization SET ID = 848,`ProductAllocationID` = 165,`Qty` = 450.0,`Notes` = '',`TransactionType` = 4,`DateFor` = '2017-02-23' WHERE ID = 848 [23505-176]
+Tue Mar 21 15:17:56 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_5 ON PUBLIC.PRODUCTUTILIZATION(ID, PRODUCTALLOCATIONID) VALUES ( /* key:1290 */ 849, 167, null, null, null, null, null)"; SQL statement:
+UPDATE ProductUtilization SET ID = 849,`ProductAllocationID` = 167,`Qty` = 180.0,`Notes` = '',`TransactionType` = 3,`DateFor` = '2017-02-23' WHERE ID = 849 [23505-176]
+Tue Mar 21 15:17:56 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_5 ON PUBLIC.PRODUCTUTILIZATION(ID, PRODUCTALLOCATIONID) VALUES ( /* key:1293 */ 850, 160, null, null, null, null, null)"; SQL statement:
+UPDATE ProductUtilization SET ID = 850,`ProductAllocationID` = 160,`Qty` = 90.0,`Notes` = '',`TransactionType` = 3,`DateFor` = '2017-02-23' WHERE ID = 850 [23505-176]
+Tue Mar 21 15:17:56 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_5 ON PUBLIC.PRODUCTUTILIZATION(ID, PRODUCTALLOCATIONID) VALUES ( /* key:1296 */ 851, 161, null, null, null, null, null)"; SQL statement:
+UPDATE ProductUtilization SET ID = 851,`ProductAllocationID` = 161,`Qty` = 15.0,`Notes` = '',`TransactionType` = 3,`DateFor` = '2017-02-23' WHERE ID = 851 [23505-176]
+Tue Mar 21 15:17:56 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_5 ON PUBLIC.PRODUCTUTILIZATION(ID, PRODUCTALLOCATIONID) VALUES ( /* key:1299 */ 852, 162, null, null, null, null, null)"; SQL statement:
+UPDATE ProductUtilization SET ID = 852,`ProductAllocationID` = 162,`Qty` = 45.0,`Notes` = '',`TransactionType` = 3,`DateFor` = '2017-02-23' WHERE ID = 852 [23505-176]
+Tue Mar 21 15:17:56 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_5 ON PUBLIC.PRODUCTUTILIZATION(ID, PRODUCTALLOCATIONID) VALUES ( /* key:1302 */ 853, 163, null, null, null, null, null)"; SQL statement:
+UPDATE ProductUtilization SET ID = 853,`ProductAllocationID` = 163,`Qty` = 45.0,`Notes` = '',`TransactionType` = 3,`DateFor` = '2017-02-23' WHERE ID = 853 [23505-176]
+Tue Mar 21 15:17:56 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_7E ON PUBLIC.SALES(ID, SITEID) VALUES ( /* key:1940 */ 1346, 6, null, null, null, null, null, null, null)"; SQL statement:
+UPDATE Sales SET ID = 1346,`SiteID` = 6,`ProductID` = 112,`Direction` = 'OUT',`Amount` = 36.12,`PriceIncGST` = 715.18,`PriceExGST` = 650.16,`DateFor` = '2017-02-23' WHERE ID = 1346 [23505-176]
+Tue Mar 21 15:17:56 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_59 ON PUBLIC.SITENOTES(ID, SITEID) VALUES ( /* key:747 */ 1, 1, null, null)"; SQL statement:
+UPDATE SiteNotes SET ID = 1,`SiteID` = 1,`Notes` = '',`DateFor` = '2017-02-24' WHERE ID = 1 [23505-176]
+Tue Mar 21 15:17:56 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_7E ON PUBLIC.SALES(ID, SITEID) VALUES ( /* key:1949 */ 1347, 1, null, null, null, null, null, null, null)"; SQL statement:
+UPDATE Sales SET ID = 1347,`SiteID` = 1,`ProductID` = 100,`Direction` = 'IN',`Amount` = 280.36,`PriceIncGST` = 2730.8,`PriceExGST` = 2482.55,`DateFor` = '2016-11-30' WHERE ID = 1347 [23505-176]
+Tue Mar 21 15:17:56 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_7E ON PUBLIC.SALES(ID, SITEID) VALUES ( /* key:1951 */ 1347, 1, null, null, null, null, null, null, null)"; SQL statement:
+UPDATE Sales SET ID = 1347,`SiteID` = 1,`ProductID` = 100,`Direction` = 'IN',`Amount` = 280.36,`PriceIncGST` = 2730.8,`PriceExGST` = 2482.55,`DateFor` = '2016-11-30' WHERE ID = 1347 [23505-176]
+Tue Mar 21 15:17:56 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_5 ON PUBLIC.PRODUCTUTILIZATION(ID, PRODUCTALLOCATIONID) VALUES ( /* key:1316 */ 857, 89, null, null, null, null, null)"; SQL statement:
+UPDATE ProductUtilization SET ID = 857,`ProductAllocationID` = 89,`Qty` = 156.0,`Notes` = '',`TransactionType` = 3,`DateFor` = '2017-01-16' WHERE ID = 857 [23505-176]
+Tue Mar 21 15:17:56 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_59 ON PUBLIC.SITENOTES(ID, SITEID) VALUES ( /* key:762 */ 290, 3, null, null)"; SQL statement:
+UPDATE SiteNotes SET ID = 290,`SiteID` = 3,`Notes` = '',`DateFor` = '2017-02-24' WHERE ID = 290 [23505-176]
+Tue Mar 21 15:17:56 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_6 ON PUBLIC.PLANTUTILIZATION(ID, PLANTALLOCATIONID) VALUES ( /* key:10150 */ 21016, 85, null, null, null, null, null, null)"; SQL statement:
+UPDATE PlantUtilization SET ID = 21016,`PlantAllocationID` = 85,`StartHours` = 11669,`EndHours` = 11676,`DateFor` = '2017-02-24',`Fuel` = 0.0,`Notes` = '' WHERE ID = 21016 [23505-176]
+Tue Mar 21 15:17:56 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_6 ON PUBLIC.PLANTUTILIZATION(ID, PLANTALLOCATIONID) VALUES ( /* key:10153 */ 21017, 174, null, null, null, null, null, null)"; SQL statement:
+UPDATE PlantUtilization SET ID = 21017,`PlantAllocationID` = 174,`StartHours` = 2788,`EndHours` = 2796,`DateFor` = '2017-02-24',`Fuel` = 0.0,`Notes` = '' WHERE ID = 21017 [23505-176]
+Tue Mar 21 15:17:56 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_6 ON PUBLIC.PLANTUTILIZATION(ID, PLANTALLOCATIONID) VALUES ( /* key:10156 */ 21018, 175, null, null, null, null, null, null)"; SQL statement:
+UPDATE PlantUtilization SET ID = 21018,`PlantAllocationID` = 175,`StartHours` = 4006,`EndHours` = 4006,`DateFor` = '2017-02-24',`Fuel` = 0.0,`Notes` = '' WHERE ID = 21018 [23505-176]
+Tue Mar 21 15:17:56 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_E6 ON PUBLIC.LABORUTILIZATION(ID, LABORALLOCATIONID) VALUES ( /* key:7616 */ 3131, 203, null, null, null, null, null, null)"; SQL statement:
+UPDATE LaborUtilization SET ID = 3131,`LaborAllocationID` = 203,`PlantID` = '',`Hours` = 8.0,`Status` = 0,`Notes` = '',`DateFor` = '2017-02-24',`ApprovalID` = NULL WHERE ID = 3131 [23505-176]
+Tue Mar 21 15:17:56 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_E6 ON PUBLIC.LABORUTILIZATION(ID, LABORALLOCATIONID) VALUES ( /* key:7619 */ 3132, 219, null, null, null, null, null, null)"; SQL statement:
+UPDATE LaborUtilization SET ID = 3132,`LaborAllocationID` = 219,`PlantID` = '',`Hours` = 8.0,`Status` = 0,`Notes` = '',`DateFor` = '2017-02-24',`ApprovalID` = NULL WHERE ID = 3132 [23505-176]
+Tue Mar 21 15:17:56 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_E6 ON PUBLIC.LABORUTILIZATION(ID, LABORALLOCATIONID) VALUES ( /* key:7622 */ 3133, 52, null, null, null, null, null, null)"; SQL statement:
+UPDATE LaborUtilization SET ID = 3133,`LaborAllocationID` = 52,`PlantID` = '',`Hours` = 9.0,`Status` = 0,`Notes` = '',`DateFor` = '2017-02-24',`ApprovalID` = NULL WHERE ID = 3133 [23505-176]
+Tue Mar 21 15:17:56 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_59 ON PUBLIC.SITENOTES(ID, SITEID) VALUES ( /* key:780 */ 299, 3, null, null)"; SQL statement:
+UPDATE SiteNotes SET ID = 299,`SiteID` = 3,`Notes` = '',`DateFor` = '2017-02-27' WHERE ID = 299 [23505-176]
+Tue Mar 21 15:17:56 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_6 ON PUBLIC.PLANTUTILIZATION(ID, PLANTALLOCATIONID) VALUES ( /* key:10200 */ 21033, 85, null, null, null, null, null, null)"; SQL statement:
+UPDATE PlantUtilization SET ID = 21033,`PlantAllocationID` = 85,`StartHours` = 11676,`EndHours` = 11676,`DateFor` = '2017-02-25',`Fuel` = 0.0,`Notes` = '' WHERE ID = 21033 [23505-176]
+Tue Mar 21 15:17:56 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_6 ON PUBLIC.PLANTUTILIZATION(ID, PLANTALLOCATIONID) VALUES ( /* key:10203 */ 21034, 174, null, null, null, null, null, null)"; SQL statement:
+UPDATE PlantUtilization SET ID = 21034,`PlantAllocationID` = 174,`StartHours` = 2796,`EndHours` = 2796,`DateFor` = '2017-02-25',`Fuel` = 0.0,`Notes` = '' WHERE ID = 21034 [23505-176]
+Tue Mar 21 15:17:56 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_6 ON PUBLIC.PLANTUTILIZATION(ID, PLANTALLOCATIONID) VALUES ( /* key:10206 */ 21035, 175, null, null, null, null, null, null)"; SQL statement:
+UPDATE PlantUtilization SET ID = 21035,`PlantAllocationID` = 175,`StartHours` = 4006,`EndHours` = 4006,`DateFor` = '2017-02-25',`Fuel` = 0.0,`Notes` = '' WHERE ID = 21035 [23505-176]
+Tue Mar 21 15:17:56 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_7E ON PUBLIC.SALES(ID, SITEID) VALUES ( /* key:2014 */ 1380, 3, null, null, null, null, null, null, null)"; SQL statement:
+UPDATE Sales SET ID = 1380,`SiteID` = 3,`ProductID` = 6,`Direction` = 'IN',`Amount` = 53.54,`PriceIncGST` = 3239.17,`PriceExGST` = 2944.7,`DateFor` = '2017-02-25' WHERE ID = 1380 [23505-176]
+Tue Mar 21 15:17:57 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_7E ON PUBLIC.SALES(ID, SITEID) VALUES ( /* key:2017 */ 1381, 3, null, null, null, null, null, null, null)"; SQL statement:
+UPDATE Sales SET ID = 1381,`SiteID` = 3,`ProductID` = 61,`Direction` = 'IN',`Amount` = 0.0,`PriceIncGST` = 60.0,`PriceExGST` = 54.55,`DateFor` = '2017-02-25' WHERE ID = 1381 [23505-176]
+Tue Mar 21 15:17:57 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_59 ON PUBLIC.SITENOTES(ID, SITEID) VALUES ( /* key:783 */ 307, 2, null, null)"; SQL statement:
+UPDATE SiteNotes SET ID = 307,`SiteID` = 2,`Notes` = '',`DateFor` = '2017-02-27' WHERE ID = 307 [23505-176]
+Tue Mar 21 15:17:57 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_59 ON PUBLIC.SITENOTES(ID, SITEID) VALUES ( /* key:788 */ 308, 1, null, null)"; SQL statement:
+UPDATE SiteNotes SET ID = 308,`SiteID` = 1,`Notes` = '',`DateFor` = '2017-02-27' WHERE ID = 308 [23505-176]
+Tue Mar 21 15:17:57 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_7E ON PUBLIC.SALES(ID, SITEID) VALUES ( /* key:2030 */ 1389, 6, null, null, null, null, null, null, null)"; SQL statement:
+UPDATE Sales SET ID = 1389,`SiteID` = 6,`ProductID` = 115,`Direction` = 'OUT',`Amount` = 20.12,`PriceIncGST` = 509.04,`PriceExGST` = 462.76,`DateFor` = '2017-02-24' WHERE ID = 1389 [23505-176]
+Tue Mar 21 15:17:57 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_5 ON PUBLIC.PRODUCTUTILIZATION(ID, PRODUCTALLOCATIONID) VALUES ( /* key:1345 */ 870, 167, null, null, null, null, null)"; SQL statement:
+UPDATE ProductUtilization SET ID = 870,`ProductAllocationID` = 167,`Qty` = 120.0,`Notes` = '',`TransactionType` = 3,`DateFor` = '2017-02-24' WHERE ID = 870 [23505-176]
+Tue Mar 21 15:17:57 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_5 ON PUBLIC.PRODUCTUTILIZATION(ID, PRODUCTALLOCATIONID) VALUES ( /* key:1348 */ 871, 160, null, null, null, null, null)"; SQL statement:
+UPDATE ProductUtilization SET ID = 871,`ProductAllocationID` = 160,`Qty` = 40.0,`Notes` = '',`TransactionType` = 3,`DateFor` = '2017-02-24' WHERE ID = 871 [23505-176]
+Tue Mar 21 15:17:57 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_5 ON PUBLIC.PRODUCTUTILIZATION(ID, PRODUCTALLOCATIONID) VALUES ( /* key:1351 */ 872, 161, null, null, null, null, null)"; SQL statement:
+UPDATE ProductUtilization SET ID = 872,`ProductAllocationID` = 161,`Qty` = 10.0,`Notes` = '',`TransactionType` = 3,`DateFor` = '2017-02-24' WHERE ID = 872 [23505-176]
+Tue Mar 21 15:17:57 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_5 ON PUBLIC.PRODUCTUTILIZATION(ID, PRODUCTALLOCATIONID) VALUES ( /* key:1354 */ 873, 162, null, null, null, null, null)"; SQL statement:
+UPDATE ProductUtilization SET ID = 873,`ProductAllocationID` = 162,`Qty` = 30.0,`Notes` = '',`TransactionType` = 3,`DateFor` = '2017-02-24' WHERE ID = 873 [23505-176]
+Tue Mar 21 15:17:57 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_5 ON PUBLIC.PRODUCTUTILIZATION(ID, PRODUCTALLOCATIONID) VALUES ( /* key:1357 */ 874, 163, null, null, null, null, null)"; SQL statement:
+UPDATE ProductUtilization SET ID = 874,`ProductAllocationID` = 163,`Qty` = 30.0,`Notes` = '',`TransactionType` = 3,`DateFor` = '2017-02-24' WHERE ID = 874 [23505-176]
+Tue Mar 21 15:17:57 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_5 ON PUBLIC.PRODUCTUTILIZATION(ID, PRODUCTALLOCATIONID) VALUES ( /* key:1360 */ 875, 165, null, null, null, null, null)"; SQL statement:
+UPDATE ProductUtilization SET ID = 875,`ProductAllocationID` = 165,`Qty` = 275.0,`Notes` = '',`TransactionType` = 4,`DateFor` = '2017-02-24' WHERE ID = 875 [23505-176]
+Tue Mar 21 15:17:57 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_59 ON PUBLIC.SITENOTES(ID, SITEID) VALUES ( /* key:797 */ 1, 1, null, null)"; SQL statement:
+UPDATE SiteNotes SET ID = 1,`SiteID` = 1,`Notes` = '',`DateFor` = '2017-02-23' WHERE ID = 1 [23505-176]
+Tue Mar 21 15:17:57 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_59 ON PUBLIC.SITENOTES(ID, SITEID) VALUES ( /* key:801 */ 1, 1, null, null)"; SQL statement:
+UPDATE SiteNotes SET ID = 1,`SiteID` = 1,`Notes` = '',`DateFor` = '2017-02-27' WHERE ID = 1 [23505-176]
+Tue Mar 21 15:17:57 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_59 ON PUBLIC.SITENOTES(ID, SITEID) VALUES ( /* key:803 */ 1, 1, null, null)"; SQL statement:
+UPDATE SiteNotes SET ID = 1,`SiteID` = 1,`Notes` = '',`DateFor` = '2017-02-27' WHERE ID = 1 [23505-176]
+Tue Mar 21 15:17:57 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_E6 ON PUBLIC.LABORUTILIZATION(ID, LABORALLOCATIONID) VALUES ( /* key:7746 */ 3163, 52, null, null, null, null, null, null)"; SQL statement:
+UPDATE LaborUtilization SET ID = 3163,`LaborAllocationID` = 52,`PlantID` = '',`Hours` = 0.0,`Status` = 1,`Notes` = '',`DateFor` = '2017-02-27',`ApprovalID` = NULL WHERE ID = 3163 [23505-176]
+Tue Mar 21 15:17:57 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_E6 ON PUBLIC.LABORUTILIZATION(ID, LABORALLOCATIONID) VALUES ( /* key:7749 */ 3164, 203, null, null, null, null, null, null)"; SQL statement:
+UPDATE LaborUtilization SET ID = 3164,`LaborAllocationID` = 203,`PlantID` = '',`Hours` = 0.0,`Status` = 1,`Notes` = '',`DateFor` = '2017-02-27',`ApprovalID` = NULL WHERE ID = 3164 [23505-176]
+Tue Mar 21 15:17:57 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_59 ON PUBLIC.SITENOTES(ID, SITEID) VALUES ( /* key:812 */ 311, 1, null, null)"; SQL statement:
+UPDATE SiteNotes SET ID = 311,`SiteID` = 1,`Notes` = '',`DateFor` = '2017-02-28' WHERE ID = 311 [23505-176]
+Tue Mar 21 15:17:57 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_59 ON PUBLIC.SITENOTES(ID, SITEID) VALUES ( /* key:814 */ 311, 1, null, null)"; SQL statement:
+UPDATE SiteNotes SET ID = 311,`SiteID` = 1,`Notes` = '',`DateFor` = '2017-02-28' WHERE ID = 311 [23505-176]
+Tue Mar 21 15:17:57 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_59 ON PUBLIC.SITENOTES(ID, SITEID) VALUES ( /* key:816 */ 311, 1, null, null)"; SQL statement:
+UPDATE SiteNotes SET ID = 311,`SiteID` = 1,`Notes` = '',`DateFor` = '2017-02-28' WHERE ID = 311 [23505-176]
+Tue Mar 21 15:17:57 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_59 ON PUBLIC.SITENOTES(ID, SITEID) VALUES ( /* key:818 */ 311, 1, null, null)"; SQL statement:
+UPDATE SiteNotes SET ID = 311,`SiteID` = 1,`Notes` = '',`DateFor` = '2017-02-28' WHERE ID = 311 [23505-176]
+Tue Mar 21 15:17:57 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_59 ON PUBLIC.SITENOTES(ID, SITEID) VALUES ( /* key:820 */ 311, 1, null, null)"; SQL statement:
+UPDATE SiteNotes SET ID = 311,`SiteID` = 1,`Notes` = '',`DateFor` = '2017-02-28' WHERE ID = 311 [23505-176]
+Tue Mar 21 15:17:57 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_59 ON PUBLIC.SITENOTES(ID, SITEID) VALUES ( /* key:825 */ 311, 1, null, null)"; SQL statement:
+UPDATE SiteNotes SET ID = 311,`SiteID` = 1,`Notes` = '',`DateFor` = '2017-02-28' WHERE ID = 311 [23505-176]
+Tue Mar 21 15:17:57 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_59 ON PUBLIC.SITENOTES(ID, SITEID) VALUES ( /* key:827 */ 311, 1, null, null)"; SQL statement:
+UPDATE SiteNotes SET ID = 311,`SiteID` = 1,`Notes` = '',`DateFor` = '2017-02-28' WHERE ID = 311 [23505-176]
+Tue Mar 21 15:17:57 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_6 ON PUBLIC.PLANTUTILIZATION(ID, PLANTALLOCATIONID) VALUES ( /* key:10625 */ 21199, 85, null, null, null, null, null, null)"; SQL statement:
+UPDATE PlantUtilization SET ID = 21199,`PlantAllocationID` = 85,`StartHours` = 11696,`EndHours` = 11696,`DateFor` = '2017-03-02',`Fuel` = 84.5,`Notes` = '' WHERE ID = 21199 [23505-176]
+Tue Mar 21 15:17:57 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_6 ON PUBLIC.PLANTUTILIZATION(ID, PLANTALLOCATIONID) VALUES ( /* key:10628 */ 21200, 174, null, null, null, null, null, null)"; SQL statement:
+UPDATE PlantUtilization SET ID = 21200,`PlantAllocationID` = 174,`StartHours` = 2803,`EndHours` = 2803,`DateFor` = '2017-03-02',`Fuel` = 152.32,`Notes` = '' WHERE ID = 21200 [23505-176]
+Tue Mar 21 15:17:57 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_E6 ON PUBLIC.LABORUTILIZATION(ID, LABORALLOCATIONID) VALUES ( /* key:8147 */ 3257, 52, null, null, null, null, null, null)"; SQL statement:
+UPDATE LaborUtilization SET ID = 3257,`LaborAllocationID` = 52,`PlantID` = '',`Hours` = 0.0,`Status` = 1,`Notes` = '',`DateFor` = '2017-03-02',`ApprovalID` = NULL WHERE ID = 3257 [23505-176]
+Tue Mar 21 15:17:58 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_E6 ON PUBLIC.LABORUTILIZATION(ID, LABORALLOCATIONID) VALUES ( /* key:8150 */ 3258, 203, null, null, null, null, null, null)"; SQL statement:
+UPDATE LaborUtilization SET ID = 3258,`LaborAllocationID` = 203,`PlantID` = '',`Hours` = 0.0,`Status` = 1,`Notes` = '',`DateFor` = '2017-03-02',`ApprovalID` = NULL WHERE ID = 3258 [23505-176]
+Tue Mar 21 15:17:58 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_E6 ON PUBLIC.LABORUTILIZATION(ID, LABORALLOCATIONID) VALUES ( /* key:8153 */ 3259, 266, null, null, null, null, null, null)"; SQL statement:
+UPDATE LaborUtilization SET ID = 3259,`LaborAllocationID` = 266,`PlantID` = '',`Hours` = 0.0,`Status` = 1,`Notes` = '',`DateFor` = '2017-03-02',`ApprovalID` = NULL WHERE ID = 3259 [23505-176]
+Tue Mar 21 15:17:58 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_59 ON PUBLIC.SITENOTES(ID, SITEID) VALUES ( /* key:883 */ 317, 1, null, null)"; SQL statement:
+UPDATE SiteNotes SET ID = 317,`SiteID` = 1,`Notes` = '',`DateFor` = '2017-03-02' WHERE ID = 317 [23505-176]
+Tue Mar 21 15:17:58 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_6 ON PUBLIC.PLANTUTILIZATION(ID, PLANTALLOCATIONID) VALUES ( /* key:10649 */ 21219, 175, null, null, null, null, null, null)"; SQL statement:
+UPDATE PlantUtilization SET ID = 21219,`PlantAllocationID` = 175,`StartHours` = 4006,`EndHours` = 4009,`DateFor` = '2017-03-02',`Fuel` = 0.0,`Notes` = '' WHERE ID = 21219 [23505-176]
+Tue Mar 21 15:17:58 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_59 ON PUBLIC.SITENOTES(ID, SITEID) VALUES ( /* key:895 */ 314, 1, null, null)"; SQL statement:
+UPDATE SiteNotes SET ID = 314,`SiteID` = 1,`Notes` = '',`DateFor` = '2017-03-03' WHERE ID = 314 [23505-176]
+Tue Mar 21 15:17:58 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_59 ON PUBLIC.SITENOTES(ID, SITEID) VALUES ( /* key:897 */ 314, 1, null, null)"; SQL statement:
+UPDATE SiteNotes SET ID = 314,`SiteID` = 1,`Notes` = '',`DateFor` = '2017-03-03' WHERE ID = 314 [23505-176]
+Tue Mar 21 15:17:58 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_59 ON PUBLIC.SITENOTES(ID, SITEID) VALUES ( /* key:899 */ 314, 1, null, null)"; SQL statement:
+UPDATE SiteNotes SET ID = 314,`SiteID` = 1,`Notes` = '',`DateFor` = '2017-03-03' WHERE ID = 314 [23505-176]
+Tue Mar 21 15:17:58 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_59 ON PUBLIC.SITENOTES(ID, SITEID) VALUES ( /* key:904 */ 319, 6, null, null)"; SQL statement:
+UPDATE SiteNotes SET ID = 319,`SiteID` = 6,`Notes` = 'load truck
+run washery',`DateFor` = '2017-03-02' WHERE ID = 319 [23505-176]
+Tue Mar 21 15:17:58 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_59 ON PUBLIC.SITENOTES(ID, SITEID) VALUES ( /* key:933 */ 311, 1, null, null)"; SQL statement:
+UPDATE SiteNotes SET ID = 311,`SiteID` = 1,`Notes` = '',`DateFor` = '2017-03-06' WHERE ID = 311 [23505-176]
+Tue Mar 21 15:17:58 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_59 ON PUBLIC.SITENOTES(ID, SITEID) VALUES ( /* key:935 */ 311, 1, null, null)"; SQL statement:
+UPDATE SiteNotes SET ID = 311,`SiteID` = 1,`Notes` = '',`DateFor` = '2017-03-06' WHERE ID = 311 [23505-176]
+Tue Mar 21 15:17:58 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_59 ON PUBLIC.SITENOTES(ID, SITEID) VALUES ( /* key:937 */ 311, 1, null, null)"; SQL statement:
+UPDATE SiteNotes SET ID = 311,`SiteID` = 1,`Notes` = '',`DateFor` = '2017-03-06' WHERE ID = 311 [23505-176]
+Tue Mar 21 15:17:58 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_59 ON PUBLIC.SITENOTES(ID, SITEID) VALUES ( /* key:939 */ 311, 1, null, null)"; SQL statement:
+UPDATE SiteNotes SET ID = 311,`SiteID` = 1,`Notes` = '',`DateFor` = '2017-03-06' WHERE ID = 311 [23505-176]
+Tue Mar 21 15:17:58 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_59 ON PUBLIC.SITENOTES(ID, SITEID) VALUES ( /* key:941 */ 311, 1, null, null)"; SQL statement:
+UPDATE SiteNotes SET ID = 311,`SiteID` = 1,`Notes` = '',`DateFor` = '2017-03-06' WHERE ID = 311 [23505-176]
+Tue Mar 21 15:17:58 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_59 ON PUBLIC.SITENOTES(ID, SITEID) VALUES ( /* key:943 */ 311, 1, null, null)"; SQL statement:
+UPDATE SiteNotes SET ID = 311,`SiteID` = 1,`Notes` = '',`DateFor` = '2017-03-06' WHERE ID = 311 [23505-176]
+Tue Mar 21 15:17:58 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_59 ON PUBLIC.SITENOTES(ID, SITEID) VALUES ( /* key:945 */ 311, 1, null, null)"; SQL statement:
+UPDATE SiteNotes SET ID = 311,`SiteID` = 1,`Notes` = '',`DateFor` = '2017-03-06' WHERE ID = 311 [23505-176]
+Tue Mar 21 15:17:58 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_59 ON PUBLIC.SITENOTES(ID, SITEID) VALUES ( /* key:947 */ 311, 1, null, null)"; SQL statement:
+UPDATE SiteNotes SET ID = 311,`SiteID` = 1,`Notes` = '',`DateFor` = '2017-03-06' WHERE ID = 311 [23505-176]
+Tue Mar 21 15:17:58 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_59 ON PUBLIC.SITENOTES(ID, SITEID) VALUES ( /* key:949 */ 311, 1, null, null)"; SQL statement:
+UPDATE SiteNotes SET ID = 311,`SiteID` = 1,`Notes` = '',`DateFor` = '2017-03-06' WHERE ID = 311 [23505-176]
+Tue Mar 21 15:17:58 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_59 ON PUBLIC.SITENOTES(ID, SITEID) VALUES ( /* key:951 */ 311, 1, null, null)"; SQL statement:
+UPDATE SiteNotes SET ID = 311,`SiteID` = 1,`Notes` = '',`DateFor` = '2017-03-06' WHERE ID = 311 [23505-176]
+Tue Mar 21 15:17:58 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_59 ON PUBLIC.SITENOTES(ID, SITEID) VALUES ( /* key:953 */ 311, 1, null, null)"; SQL statement:
+UPDATE SiteNotes SET ID = 311,`SiteID` = 1,`Notes` = '',`DateFor` = '2017-03-06' WHERE ID = 311 [23505-176]
+Tue Mar 21 15:17:58 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_59 ON PUBLIC.SITENOTES(ID, SITEID) VALUES ( /* key:955 */ 311, 1, null, null)"; SQL statement:
+UPDATE SiteNotes SET ID = 311,`SiteID` = 1,`Notes` = '',`DateFor` = '2017-03-06' WHERE ID = 311 [23505-176]
+Tue Mar 21 15:17:58 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_59 ON PUBLIC.SITENOTES(ID, SITEID) VALUES ( /* key:957 */ 311, 1, null, null)"; SQL statement:
+UPDATE SiteNotes SET ID = 311,`SiteID` = 1,`Notes` = '',`DateFor` = '2017-03-06' WHERE ID = 311 [23505-176]
+Tue Mar 21 15:17:58 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_59 ON PUBLIC.SITENOTES(ID, SITEID) VALUES ( /* key:959 */ 311, 1, null, null)"; SQL statement:
+UPDATE SiteNotes SET ID = 311,`SiteID` = 1,`Notes` = '',`DateFor` = '2017-03-06' WHERE ID = 311 [23505-176]
+Tue Mar 21 15:17:58 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_59 ON PUBLIC.SITENOTES(ID, SITEID) VALUES ( /* key:961 */ 311, 1, null, null)"; SQL statement:
+UPDATE SiteNotes SET ID = 311,`SiteID` = 1,`Notes` = '',`DateFor` = '2017-03-06' WHERE ID = 311 [23505-176]
+Tue Mar 21 15:17:58 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_59 ON PUBLIC.SITENOTES(ID, SITEID) VALUES ( /* key:963 */ 311, 1, null, null)"; SQL statement:
+UPDATE SiteNotes SET ID = 311,`SiteID` = 1,`Notes` = '',`DateFor` = '2017-03-06' WHERE ID = 311 [23505-176]
+Tue Mar 21 15:17:58 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_59 ON PUBLIC.SITENOTES(ID, SITEID) VALUES ( /* key:1038 */ 323, 5, null, null)"; SQL statement:
+UPDATE SiteNotes SET ID = 323,`SiteID` = 5,`Notes` = '',`DateFor` = '2017-03-07' WHERE ID = 323 [23505-176]
+Tue Mar 21 15:17:58 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_59 ON PUBLIC.SITENOTES(ID, SITEID) VALUES ( /* key:1048 */ 1, 1, null, null)"; SQL statement:
+UPDATE SiteNotes SET ID = 1,`SiteID` = 1,`Notes` = '',`DateFor` = '2017-03-07' WHERE ID = 1 [23505-176]
+Tue Mar 21 15:17:58 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_59 ON PUBLIC.SITENOTES(ID, SITEID) VALUES ( /* key:1059 */ 321, 1, null, null)"; SQL statement:
+UPDATE SiteNotes SET ID = 321,`SiteID` = 1,`Notes` = '',`DateFor` = '2017-03-07' WHERE ID = 321 [23505-176]
+Tue Mar 21 15:17:58 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_59 ON PUBLIC.SITENOTES(ID, SITEID) VALUES ( /* key:1061 */ 321, 1, null, null)"; SQL statement:
+UPDATE SiteNotes SET ID = 321,`SiteID` = 1,`Notes` = '',`DateFor` = '2017-03-07' WHERE ID = 321 [23505-176]
+Tue Mar 21 15:17:59 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_59 ON PUBLIC.SITENOTES(ID, SITEID) VALUES ( /* key:1063 */ 321, 1, null, null)"; SQL statement:
+UPDATE SiteNotes SET ID = 321,`SiteID` = 1,`Notes` = '',`DateFor` = '2017-03-07' WHERE ID = 321 [23505-176]
+Tue Mar 21 15:18:00 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Column "P297" not found; SQL statement:
+UPDATE PlantList SET `ID` = 'P297',`PlantDesc` = 'Komatsu PC200 LC-8 Exc',`Rate` = '329',`UnitOfMeasurement` = 'h' WHERE ID = P297 [42122-176]

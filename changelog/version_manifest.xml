@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<root version="1.3.02">
+<root version="1.3.03">
   <dir name="inc">
     <file name="dbcon.properties"/>
     <file name="DBCreate.sql"/>
@@ -15,8 +15,7 @@
     <file name="mysql-connector-java-5.1.39-bin.jar"/>
     <file name="swingx-core-1.6.2-AutoCompletition.jar"/>
   </dir>
-  <file name="DAR.jar"/>
-  <file name="~DAR.h2.db"/>
+  <file name="DAR.jar"/>  
   <file name="DAR_Updater.jar"/>
   <dir name="changelog">
     <file name="version_manifest.properties"/>
