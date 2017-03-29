@@ -6,12 +6,14 @@
 package dar.localDB;
 
 import dar.Functions.FileLogger;
+import dar.Gui.Sales.SalesGui;
 import dar.dbObjects.SalesDetailView;
 import dar.dbObjects.SalesSummaryView;
 import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
@@ -24,6 +26,7 @@ public class SalesDataHandler {
     private static Date dateFor;
     public ArrayList<SalesSummaryView> salesSummaryList;
     public ArrayList<SalesDetailView> salesDetailList;
+    private final double GST = 10;
 
     public SalesDataHandler(LocalWraper db,Date dateFor){        
         this.db = db;
@@ -73,7 +76,8 @@ public class SalesDataHandler {
                 salesSummaryView.getProductName(),
                 salesSummaryView.getTonage(),
                 salesSummaryView.getPriceIncGST(),
-                salesSummaryView.getPriceExtGST()
+                salesSummaryView.getPriceExtGST(),
+                salesSummaryView.getPricePerTon()
             });
         }        
     }
@@ -129,7 +133,8 @@ public class SalesDataHandler {
                 view.getDirection(),
                 view.getTonage(),
                 view.getPriceIncGST(),
-                view.getPriceExtGST()
+                view.getPriceExtGST(),
+                view.getPricePerTon()
             });
         }         
     }
@@ -143,6 +148,31 @@ public class SalesDataHandler {
         for(int i = rowNum-1;i>=0;i--){
             model.removeRow(i);
         }
+    }
+
+    public void UpdateSales(int updatedRow, JTable table) {
+        DefaultTableModel model = (DefaultTableModel) table.getModel();
+        int SalesID = (int) model.getValueAt(updatedRow, 0);
+        double tonage = (double) model.getValueAt(updatedRow, 3);
+        double price = (double) model.getValueAt(updatedRow, 4);
+       
+        // check whether something really changed in the database
+        ResultSet rs = db.dbSelect("Sales", new Object[][] {{"ID","Amount","PriceIncGST"},{"=","=","="},{SalesID,tonage,price},{"AND","AND","AND"}});
+        if(!db.hasDuplicity(rs)){ //value changed
+            double excGST = price/(GST/100+1D);
+            
+            SalesGui.actionListenersGo = false; //this change won't triger this method recursively
+            model.setValueAt(excGST, updatedRow, 5);
+            SalesGui.actionListenersGo = true;
+            
+            System.out.printf("Updated ID is %s and tonage is %s and price is %s and new price exc GST is %s",SalesID,tonage,price,excGST);
+            System.out.println("");     
+            
+            //update database add new values
+            db.dbUpdate("Sales",new Object[][]{{"Amount", "PriceIncGST", "PriceExGST"},{tonage,price,excGST}}, new Object[][]{{"ID","SiteID"},{"=","="},{SalesID,db.userData.getSiteID()},{"AND"}});
+            JOptionPane.showMessageDialog(null,"Sales successfuly updated!","Updated",JOptionPane.INFORMATION_MESSAGE);
+        }
+        
     }
 
 }

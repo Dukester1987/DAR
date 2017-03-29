@@ -55,6 +55,10 @@ public class SalesDetailView {
     public double getPriceExtGST() {
         return priceExtGST;
     }
+
+    public Object getPricePerTon() {
+        return priceExtGST/tonage;
+    }
     
     
     
