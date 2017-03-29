@@ -44,6 +44,10 @@ public class SalesSummaryView {
         return priceExtGST;
     }
     
+    public double getPricePerTon() {
+        return priceExtGST/tonage;    
+    }
+    
     
     
 }

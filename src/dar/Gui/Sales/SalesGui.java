@@ -23,6 +23,8 @@ import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
+import javax.swing.event.TableModelEvent;
+import javax.swing.event.TableModelListener;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -36,6 +38,7 @@ public class SalesGui extends javax.swing.JPanel {
     private newSale sale;
     private SalesDataHandler sdh;
     private final JControlers controller;
+    public static boolean actionListenersGo;
 
     /**
      * Creates new form SalesGui
@@ -49,6 +52,7 @@ public class SalesGui extends javax.swing.JPanel {
     }
     
     public SalesGui(LocalWraper db, Gui gui) {
+        //actionListenersGo = false;
         initComponents();
         editComponents();
         this.db = db;
@@ -58,8 +62,10 @@ public class SalesGui extends javax.swing.JPanel {
         controller = new JControlers();
         controller.setTableCellRenderer(summaryTable, 3, new CurrencyTableCellRenderer());                               
         controller.setTableCellRenderer(summaryTable, 4, new CurrencyTableCellRenderer());   
+        controller.setTableCellRenderer(summaryTable, 5, new CurrencyTableCellRenderer()); 
         controller.setTableCellRenderer(salesDetail, 4, new CurrencyTableCellRenderer());                               
         controller.setTableCellRenderer(salesDetail, 5, new CurrencyTableCellRenderer());  
+        controller.setTableCellRenderer(salesDetail, 6, new CurrencyTableCellRenderer());  
         
         hideColumn(summaryTable, "ProductID");
         hideColumn(salesDetail, "SalesID");
@@ -192,12 +198,19 @@ public class SalesGui extends javax.swing.JPanel {
 
             },
             new String [] {
-                "SalesID", "Product Name", "Direction", "Tonnage", "Price inc GST", "Price ex GST"
+                "SalesID", "Product Name", "Direction", "Tonnage", "Price inc GST", "Price ex GST", "Price per ton"
             }
         ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+            Class[] types = new Class [] {
+                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class
             };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, true, true, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
@@ -234,12 +247,19 @@ public class SalesGui extends javax.swing.JPanel {
 
             },
             new String [] {
-                "ProductID", "Product Name", "Tonnage", "Price inc GST", "Price ex GST"
+                "ProductID", "Product Name", "Tonnage", "Price inc GST", "Price ex GST", "Price per ton"
             }
         ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+            Class[] types = new Class [] {
+                java.lang.Object.class, java.lang.Object.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class
             };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
@@ -516,11 +536,11 @@ public class SalesGui extends javax.swing.JPanel {
                     .addComponent(jButton7)
                     .addComponent(jButton8))
                 .addGap(9, 9, 9)
-                .addComponent(jScrollPane11, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane11, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel12)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane9, javax.swing.GroupLayout.DEFAULT_SIZE, 127, Short.MAX_VALUE)
+                .addComponent(jScrollPane9, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jLayeredPane7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -647,10 +667,12 @@ public class SalesGui extends javax.swing.JPanel {
         table.removeColumn(table.getColumn(columnName));
     }
     
-    public void refreshData(Date date){        
+    public void refreshData(Date date){ 
+        actionListenersGo = false;
         sdh.displaySummaryInTable(summaryTable,date);
         sdh.displayDetailInTable(salesDetail, gui.date, -1);
         countSummaryTable(date);
+        actionListenersGo = true;
     }
 
     private void countSummaryTable(Date date) {
@@ -767,10 +789,22 @@ public class SalesGui extends javax.swing.JPanel {
                         DefaultTableModel model = (DefaultTableModel) summaryTable.getModel();
                         int productID = (int) model.getValueAt(rowNo, 0);
                         //System.out.println(productID);
+                        actionListenersGo = false;
                         sdh.displayDetailInTable(salesDetail, gui.date, productID);
+                        actionListenersGo = true;
                     }                    
                 }
             }
         });
+        
+        salesDetail.getModel().addTableModelListener(new TableModelListener() {
+            @Override
+            public void tableChanged(TableModelEvent tme) {
+                if(actionListenersGo){
+                    sdh.UpdateSales(tme.getFirstRow(),salesDetail);                
+                }
+            }
+        });
+        
     }
 }

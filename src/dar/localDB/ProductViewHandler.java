@@ -127,7 +127,7 @@ public class ProductViewHandler{
         "	Products.UOM as UOM\n" +
         "FROM Products \n" +
         "LEFT JOIN ProductAllocation ON Products.ID = ProductAllocation.ProductID AND ProductAllocation.StartDate<= '%s'\n" +
-        "AND ProductAllocation.EndDate >= '%s' AND ProductAllocation.SiteID = %s", dateFor,dateFor,con.userData.getSiteID());
+        "AND ProductAllocation.EndDate >= '%s' AND ProductAllocation.SiteID = %s ORDER BY ProductName", dateFor,dateFor,con.userData.getSiteID());
         ResultSet rs = con.runQuery(query);
         
         try {

@@ -224,6 +224,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="extGST">
           <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="extGSTActionPerformed"/>
             <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="extGSTKeyReleased"/>
           </Events>
         </Component>

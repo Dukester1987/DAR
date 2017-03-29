@@ -31,13 +31,12 @@ import dar.localDB.PlantViewDataHandler;
 import dar.localDB.ProductViewHandler;
 import dar.localDB.SiteListHandler;
 import java.awt.Color;
+import java.awt.MouseInfo;
 import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.NumberFormat;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
@@ -54,6 +53,7 @@ import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellEditor;
+import javax.swing.table.TableModel;
 
 /**
  *
@@ -87,6 +87,7 @@ public class Gui extends javax.swing.JFrame {
     public static boolean isAnyChangesApplicable = false;
     private double plantFuel;
     private double aditionalFuel;
+    private AfEditor aFEditor;
         
     public Gui(LocalWraper db) {    
         Version v = new Version();
@@ -153,6 +154,9 @@ public class Gui extends javax.swing.JFrame {
         editLabour = new javax.swing.JMenuItem();
         PlantPopUp = new javax.swing.JPopupMenu();
         pRemoveSelected = new javax.swing.JMenuItem();
+        AfPopUp = new javax.swing.JPopupMenu();
+        editSelected = new javax.swing.JMenuItem();
+        removeSelected = new javax.swing.JMenuItem();
         title = new javax.swing.JLabel();
         label = new javax.swing.JLabel();
         TabbedPane = new javax.swing.JTabbedPane();
@@ -312,6 +316,25 @@ public class Gui extends javax.swing.JFrame {
         });
         PlantPopUp.add(pRemoveSelected);
 
+        editSelected.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/edit16.png"))); // NOI18N
+        editSelected.setText("Edit selected item");
+        editSelected.setToolTipText("");
+        editSelected.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editSelectedActionPerformed(evt);
+            }
+        });
+        AfPopUp.add(editSelected);
+
+        removeSelected.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/No-entry16.png"))); // NOI18N
+        removeSelected.setText("Remove selected items");
+        removeSelected.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                removeSelectedActionPerformed(evt);
+            }
+        });
+        AfPopUp.add(removeSelected);
+
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle(String.format("DAR v%s - Hi Quality Group",Version.version));
         setMinimumSize(new java.awt.Dimension(1128, 682));
@@ -427,6 +450,11 @@ public class Gui extends javax.swing.JFrame {
             }
         });
         AditionalFuel.setMinimumSize(new java.awt.Dimension(75, 50));
+        AditionalFuel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                AditionalFuelMouseReleased(evt);
+            }
+        });
         AditionalFuel.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
                 AditionalFuelPropertyChange(evt);
@@ -1395,6 +1423,7 @@ public class Gui extends javax.swing.JFrame {
     private void pRemoveSelectedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pRemoveSelectedActionPerformed
         int option = JOptionPane.showConfirmDialog(null, "Selected plants will be removed for selected date.\nAll data inputed for next days will be lost\nProceed?","Info",JOptionPane.INFORMATION_MESSAGE);
         if(option==0)pw.deleteSelectedRows(date,PlantUtil);
+        sumFuel();
     }//GEN-LAST:event_pRemoveSelectedActionPerformed
 
     private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
@@ -1582,12 +1611,46 @@ public class Gui extends javax.swing.JFrame {
         pw.addPlant(date);
     }//GEN-LAST:event_addpActionPerformed
 
+    private void removeSelectedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeSelectedActionPerformed
+        if(actionListenerGo)
+        af.removeSelected(date);
+    }//GEN-LAST:event_removeSelectedActionPerformed
+
+    private void editSelectedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editSelectedActionPerformed
+        if(AditionalFuel.getSelectedRowCount()>1){
+            JOptionPane.showMessageDialog(null, "You can edit only one row at the time.\nPlease change selection to one row only", "Exception", JOptionPane.ERROR_MESSAGE);
+        } else if (AditionalFuel.getSelectedRowCount()<1) {
+            JOptionPane.showMessageDialog(null, "You have to select row which you want to edit", "Exception", JOptionPane.ERROR_MESSAGE);
+        } else { // everything is ok           
+            if(aFEditor.wOpened){ //window is already opened
+                aFEditor.toFront();
+            } else {
+                int row = AditionalFuel.convertRowIndexToModel(AditionalFuel.getSelectedRow());
+                TableModel model = AditionalFuel.getModel();                
+                String Rego = (String) model.getValueAt(row, 2);
+                String Desc = (String) model.getValueAt(row, 3);
+                int AllocID = (int) model.getValueAt(row, 0);                
+                aFEditor = new AfEditor(db, this, Rego, Desc, AllocID);
+                aFEditor.setLocation(MouseInfo.getPointerInfo().getLocation());
+                aFEditor.setResizable(false);
+                aFEditor.setVisible(true);
+            }
+        }
+    }//GEN-LAST:event_editSelectedActionPerformed
+
+    private void AditionalFuelMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AditionalFuelMouseReleased
+        if(evt.isPopupTrigger()){
+            AfPopUp.show(AditionalFuel, evt.getX(), evt.getY());
+        }
+    }//GEN-LAST:event_AditionalFuelMouseReleased
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu About;
     private javax.swing.JButton AddAFuel;
     private javax.swing.JMenuItem AddNew;
     private javax.swing.JMenuItem AddNew1;
     private javax.swing.JTable AditionalFuel;
+    private javax.swing.JPopupMenu AfPopUp;
     private javax.swing.JLabel ConfirmationStatus;
     private javax.swing.JPopupMenu LaborChangeMenu;
     public javax.swing.JTable LaborUtil;
@@ -1610,6 +1673,7 @@ public class Gui extends javax.swing.JFrame {
     private javax.swing.JButton addp;
     private com.toedter.calendar.JDateChooser datePicker;
     private javax.swing.JMenuItem editLabour;
+    private javax.swing.JMenuItem editSelected;
     public javax.swing.JTextField fAmount;
     private javax.swing.JTextField fDesc;
     private javax.swing.JTextField fUnitNo;
@@ -1675,6 +1739,7 @@ public class Gui extends javax.swing.JFrame {
     private javax.swing.JMenuItem pRemoveSelected;
     private javax.swing.JLabel plantF;
     private javax.swing.JComboBox<String> powerTitle;
+    private javax.swing.JMenuItem removeSelected;
     private javax.swing.JButton reportConfirm;
     private dar.Gui.Sales.SalesGui salesGui;
     private javax.swing.JLabel title;
@@ -1700,7 +1765,7 @@ public class Gui extends javax.swing.JFrame {
             //af.displayViewInTable(AditionalFuel, date);
             //pw.utilPercChange();            
             refreshLists();
-            if(!ti.today().toString().equals(date.toString())){
+            /*if(!ti.today().toString().equals(date.toString())){
                 //addp.setEnabled(false);
                 AddAFuel.setEnabled(false);
                 RemoveAFuel.setEnabled(false);
@@ -1708,7 +1773,7 @@ public class Gui extends javax.swing.JFrame {
                 addp.setEnabled(true);
                 AddAFuel.setEnabled(true);
                 RemoveAFuel.setEnabled(true);
-            }
+            }*/
         }        
     }
 

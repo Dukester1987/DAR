@@ -147,6 +147,11 @@ public class newSale extends javax.swing.JFrame {
             }
         });
 
+        extGST.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                extGSTActionPerformed(evt);
+            }
+        });
         extGST.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 extGSTKeyReleased(evt);
@@ -287,6 +292,14 @@ public class newSale extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,"Price is not numeric number", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_incGSTActionPerformed
+
+    private void extGSTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_extGSTActionPerformed
+        if(writeDown){
+            insertIntoDB();
+        } else {
+            JOptionPane.showMessageDialog(null,"Price is not numeric number", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_extGSTActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField amount;
