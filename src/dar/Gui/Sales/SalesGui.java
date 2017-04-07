@@ -39,6 +39,7 @@ public class SalesGui extends javax.swing.JPanel {
     private SalesDataHandler sdh;
     private final JControlers controller;
     public static boolean actionListenersGo;
+    public static String lastDirection = "OUT";
 
     /**
      * Creates new form SalesGui
@@ -579,7 +580,7 @@ public class SalesGui extends javax.swing.JPanel {
     }//GEN-LAST:event_salesDetailMouseReleased
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        insertSale();       
+        insertSale(lastDirection);       
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void clearSelectionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearSelectionActionPerformed
@@ -587,15 +588,15 @@ public class SalesGui extends javax.swing.JPanel {
     }//GEN-LAST:event_clearSelectionActionPerformed
 
     private void insertSaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertSaleActionPerformed
-        insertSale();
+        insertSale(lastDirection);
     }//GEN-LAST:event_insertSaleActionPerformed
 
     private void insertSaleTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertSaleTableActionPerformed
-        insertSale();
+        insertSale(lastDirection);
     }//GEN-LAST:event_insertSaleTableActionPerformed
 
     private void insertSaleTable1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertSaleTable1ActionPerformed
-        insertSale();
+        insertSale(lastDirection);
     }//GEN-LAST:event_insertSaleTable1ActionPerformed
 
     private void removeSelected1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeSelected1ActionPerformed
@@ -713,10 +714,11 @@ public class SalesGui extends javax.swing.JPanel {
         EPA.setText(currencyFormat.format(lEPA));
     }
 
-    private void insertSale() {
+    private void insertSale(String direction) {
         if(!sale.running){
-            sale = new newSale(db,gui.date,this);
+            sale = new newSale(db,gui.date,this,direction);
             sale.setLocationRelativeTo(null);
+            sale.setAlwaysOnTop(true);
             sale.setResizable(false);
             sale.setVisible(true);
         } else {

@@ -1,3 +1,11 @@
-New in version 1.2.91
-
-- fixed problem with decimal numbers in stockadjustments
+1.3.05
+- Possibility to edit Sales in a table just by writing new Value for it
+- Possibility to edit additional fuel items by new right click menu
+- Added price per ton column in a sales tables and possibility to sort by this column
+- Possibility to add additional fuel records in a past
+- Sales / Production dropdown lists are now sorted by name (easier to select the product)
+- eDAR reporting services now display additional fuel under the plant utilization table
+- bug fixes
+                - fuel Summary changes even when de-allocate plant from a site
+                - Fixed Gui stretching problem on high resolution screens
+                - Fixed bug with excessive uploads during product allocation changes

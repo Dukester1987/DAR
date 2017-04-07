@@ -202,7 +202,8 @@ public class DBWrapper implements Runnable{
         g.refreshLists();    
         //enable GUI      
         s.dispose();
-        g.toFront();        
+        g.toFront(); 
+        g.isSyncNeeded = false;
         g.setEnabled(true);
         System.out.println("refreshing lists");
 //        if(mgr.getTotalChanges()>0){

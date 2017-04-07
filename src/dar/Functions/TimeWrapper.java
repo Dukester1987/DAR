@@ -25,6 +25,11 @@ public class TimeWrapper {
     public Date previousDay(Date date){
         return new Date(date.getTime()-24*60*60*1000);
     }
+    
+    public Date moveDate(Date date, int i) {
+        int total = (24*60*60*1000)*i;
+        return new Date(date.getTime()+total);
+    }
 
     public java.util.Date firstDate(){
         java.util.Date d = new java.util.Date();
@@ -37,10 +42,8 @@ public class TimeWrapper {
         return sqldate;       
     }      
     
-    public Date today() {
-        Date date;
-        date = new Date(System.currentTimeMillis());
-        return date;
+    public Date today() {               
+        return new Date(System.currentTimeMillis());        
     }    
     
     private Long getSeconds(Long s) {

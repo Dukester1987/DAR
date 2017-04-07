@@ -88,6 +88,7 @@ public class Gui extends javax.swing.JFrame {
     private double plantFuel;
     private double aditionalFuel;
     private AfEditor aFEditor;
+    public static boolean isSyncNeeded = false;
         
     public Gui(LocalWraper db) {    
         Version v = new Version();
@@ -230,6 +231,8 @@ public class Gui extends javax.swing.JFrame {
         powerTitle = new javax.swing.JComboBox<>();
         reportConfirm = new javax.swing.JButton();
         ConfirmationStatus = new javax.swing.JLabel();
+        prevD = new javax.swing.JButton();
+        nextD = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
@@ -924,10 +927,10 @@ public class Gui extends javax.swing.JFrame {
             .addGroup(jLayeredPane2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 1083, Short.MAX_VALUE)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 1129, Short.MAX_VALUE)
                     .addGroup(jLayeredPane2Layout.createSequentialGroup()
                         .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 491, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 592, Short.MAX_VALUE)))
+                        .addGap(0, 638, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jLayeredPane2Layout.setVerticalGroup(
@@ -1089,7 +1092,7 @@ public class Gui extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jLayeredPane5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane8, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1083, Short.MAX_VALUE)
+                    .addComponent(jScrollPane7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1129, Short.MAX_VALUE)
                     .addGroup(jLayeredPane5Layout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1154,7 +1157,7 @@ public class Gui extends javax.swing.JFrame {
             .addGroup(jLayeredPane6Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jLayeredPane6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 1083, Short.MAX_VALUE)
+                    .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 1129, Short.MAX_VALUE)
                     .addGroup(jLayeredPane6Layout.createSequentialGroup()
                         .addComponent(jButton5)
                         .addGap(0, 0, Short.MAX_VALUE)))
@@ -1174,6 +1177,8 @@ public class Gui extends javax.swing.JFrame {
 
         datePicker.setComponentPopupMenu(ProdPopup);
         datePicker.setDate(date);
+        datePicker.setDateFormatString("E - dd/MM/yy");
+        datePicker.setFocusable(false);
         datePicker.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         datePicker.setMaxSelectableDate(ti.today());
         datePicker.setName("dateFor"); // NOI18N
@@ -1201,6 +1206,23 @@ public class Gui extends javax.swing.JFrame {
         ConfirmationStatus.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         ConfirmationStatus.setForeground(new java.awt.Color(255, 0, 0));
         ConfirmationStatus.setText("jLabel12");
+
+        prevD.setMnemonic('P');
+        prevD.setText("<");
+        prevD.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                prevDActionPerformed(evt);
+            }
+        });
+
+        nextD.setMnemonic('N');
+        nextD.setText(">");
+        nextD.setEnabled(false);
+        nextD.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nextDActionPerformed(evt);
+            }
+        });
 
         jMenu1.setText("File");
 
@@ -1307,8 +1329,12 @@ public class Gui extends javax.swing.JFrame {
                         .addComponent(title, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(powerTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(28, 28, 28)
-                        .addComponent(datePicker, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(29, 29, 29)
+                        .addComponent(prevD)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(datePicker, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(nextD)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(label, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(104, 104, 104)
@@ -1328,8 +1354,10 @@ public class Gui extends javax.swing.JFrame {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(label, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(reportConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(ConfirmationStatus))
-                    .addComponent(title, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(ConfirmationStatus)
+                        .addComponent(nextD, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(title, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(prevD, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(TabbedPane, javax.swing.GroupLayout.DEFAULT_SIZE, 589, Short.MAX_VALUE)
                 .addContainerGap())
@@ -1339,7 +1367,7 @@ public class Gui extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-        quitApp();
+        quitApp(true);
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void datePickerPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_datePickerPropertyChange
@@ -1348,6 +1376,7 @@ public class Gui extends javax.swing.JFrame {
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         this.dispose();
+        //System.out.printf("Yes: %s No: %s Cancel: %s\n",JOptionPane.YES_OPTION,JOptionPane.NO_OPTION,JOptionPane.CANCEL_OPTION);
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
@@ -1417,7 +1446,7 @@ public class Gui extends javax.swing.JFrame {
     }//GEN-LAST:event_editLabourActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-        quitApp();
+        quitApp(true);
     }//GEN-LAST:event_formWindowClosing
 
     private void pRemoveSelectedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pRemoveSelectedActionPerformed
@@ -1644,6 +1673,14 @@ public class Gui extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_AditionalFuelMouseReleased
 
+    private void prevDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prevDActionPerformed
+        moveDate(date,-1);
+    }//GEN-LAST:event_prevDActionPerformed
+
+    private void nextDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextDActionPerformed
+        moveDate(date,1);
+    }//GEN-LAST:event_nextDActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu About;
     private javax.swing.JButton AddAFuel;
@@ -1736,9 +1773,11 @@ public class Gui extends javax.swing.JFrame {
     private javax.swing.JLabel label;
     private javax.swing.JList<String> laborList;
     private javax.swing.JList<String> laborOnSiteList;
+    private javax.swing.JButton nextD;
     private javax.swing.JMenuItem pRemoveSelected;
     private javax.swing.JLabel plantF;
     private javax.swing.JComboBox<String> powerTitle;
+    private javax.swing.JButton prevD;
     private javax.swing.JMenuItem removeSelected;
     private javax.swing.JButton reportConfirm;
     private dar.Gui.Sales.SalesGui salesGui;
@@ -1758,8 +1797,14 @@ public class Gui extends javax.swing.JFrame {
     }
 
     private void changeDate() {
-        if(actionListenerGo){
+        if(actionListenerGo){            
             date = ti.setDate(datePicker.getDate());
+            System.out.printf("Date in date variable is %s date today is %s difference is: %s\n",date,ti.today(),date.compareTo(ti.today()));
+            if(date.toString().equals(ti.today().toString())){
+                nextD.setEnabled(false);
+            } else {
+                nextD.setEnabled(true);
+            }            
             db.userData.setDate(date);
             //pw.displayPlantViewInTable(PlantUtil, date); //refresh table
             //af.displayViewInTable(AditionalFuel, date);
@@ -1924,22 +1969,27 @@ public class Gui extends javax.swing.JFrame {
         
     }
 
-    private void quitApp() {
+    private void quitApp(boolean close) {
         System.out.println("closing app!");
-        int myPrompt = JOptionPane.showConfirmDialog(null, "Do you want to save changes to the server?", "Save changes", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE);
-        switch (myPrompt) {
-            case JOptionPane.YES_OPTION:
-                Syncer snc = new Syncer(db1,t,label);
-                Thread t1 = new Thread(snc);
-                t1.start();
-                break;
-        //this.dispose();
-            case JOptionPane.NO_OPTION:
-                System.exit(0);
-            default:
-                System.out.println("we are not closing down!");
-                break;
-        }
+        if(isSyncNeeded){
+            int myPrompt = JOptionPane.showConfirmDialog(null, "Do you want to save changes to the server?", "Save changes", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE);
+            switch (myPrompt) {
+                case JOptionPane.YES_OPTION:
+                    Syncer snc = new Syncer(db1,t,label);
+                    Thread t1 = new Thread(snc);
+                    t1.start();
+                    break;
+            //this.dispose();
+                case JOptionPane.NO_OPTION:
+                    closeOrExit(close);
+                    break;
+                default:
+                    System.out.println("we are not closing down!");
+                    break;
+            }
+        } else {
+            closeOrExit(close);
+        }             
     }
 
     private void setRenderers() {
@@ -2161,4 +2211,18 @@ public class Gui extends javax.swing.JFrame {
         fuel.setText(numberFormat.format(total)+" L");
         return total;
     }    
+
+    private void moveDate(Date date, int i) {
+        //System.out.println(ti.moveDate(date, i));
+        datePicker.setDate(ti.moveDate(date, i));
+    }
+
+    private void closeOrExit(boolean close) {
+        if(close){
+            System.exit(0);
+        } else {
+            this.dispose();
+        }
+                         
+    }
 }

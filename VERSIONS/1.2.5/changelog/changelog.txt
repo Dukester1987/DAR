@@ -1,6 +1,0 @@
-New in version 1.2.5
-
-- Fixed graphic issue with window size wrapping
-- Fixed problem with displayed sites for users with more then one allocated site
-- Added status bar when closing application displaying all active events to the user.
-- Fixed problem with sync freeze

@@ -1,2 +1,0 @@
-Thu Oct 27 12:26:25 AEDT 2016
-Database Sucessfully initialised

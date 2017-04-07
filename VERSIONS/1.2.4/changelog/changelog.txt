@@ -1,4 +1,0 @@
-New in version 1.2.1
-
--Added Sync checker during application close event
--Implemented number formating for dolars and standard numbers

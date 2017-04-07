@@ -1,3 +1,0 @@
-New in version 1.2.91
-
-- fixed problem with decimal numbers in stockadjustments

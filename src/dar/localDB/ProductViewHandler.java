@@ -440,7 +440,8 @@ public class ProductViewHandler{
                     new FileLogger(ex.toString());
                 }
             } else {
-                msg = "Production updated!";
+                //msg = "Production updated!";
+                displayMessage = false;
                 msgType = "Info";
                 iconType = JOptionPane.INFORMATION_MESSAGE;
                 //add just production

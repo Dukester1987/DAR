@@ -367,6 +367,8 @@ public class LocalWraper {
     }
 
     public void changeLog(String tbl, int ID, String insert, String inputs, int loginId) {
+        Gui.isSyncNeeded = true;
+        System.err.println("isSyncNeeded is changing to fucking true now wtf???");
         try {
             Functions fn = new Functions();
             String fixInputs = fn.forHTML(inputs);

@@ -1,3 +1,0 @@
-New in version 1.2.3
-
-- Fixed minor bugs with synchronization process.

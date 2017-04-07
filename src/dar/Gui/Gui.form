@@ -330,8 +330,12 @@
                       <Component id="title" min="-2" pref="167" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="powerTitle" min="-2" pref="108" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                      <Component id="datePicker" min="-2" pref="152" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                      <Component id="prevD" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="datePicker" min="-2" pref="167" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="nextD" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                       <Component id="label" min="-2" pref="278" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="104" max="-2" attributes="0"/>
@@ -356,8 +360,10 @@
                       <Component id="label" alignment="3" min="-2" pref="49" max="-2" attributes="0"/>
                       <Component id="reportConfirm" alignment="3" min="-2" pref="49" max="-2" attributes="0"/>
                       <Component id="ConfirmationStatus" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="nextD" alignment="3" min="-2" pref="49" max="-2" attributes="0"/>
                   </Group>
                   <Component id="title" min="-2" pref="49" max="-2" attributes="0"/>
+                  <Component id="prevD" min="-2" pref="49" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="TabbedPane" pref="589" max="32767" attributes="0"/>
@@ -916,10 +922,10 @@
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jScrollPane4" alignment="0" pref="1083" max="32767" attributes="0"/>
+                          <Component id="jScrollPane4" alignment="0" pref="1129" max="32767" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jTabbedPane2" min="-2" pref="491" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="592" max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="638" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -1353,7 +1359,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jScrollPane8" alignment="1" max="32767" attributes="0"/>
-                          <Component id="jScrollPane7" alignment="1" pref="1083" max="32767" attributes="0"/>
+                          <Component id="jScrollPane7" alignment="1" pref="1129" max="32767" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
@@ -1645,7 +1651,7 @@
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jScrollPane6" pref="1083" max="32767" attributes="0"/>
+                          <Component id="jScrollPane6" pref="1129" max="32767" attributes="0"/>
                           <Group type="102" attributes="0">
                               <Component id="jButton5" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -1709,6 +1715,8 @@
         <Property name="date" type="java.util.Date" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
           <Connection code="date" type="code"/>
         </Property>
+        <Property name="dateFormatString" type="java.lang.String" value="E - dd/MM/yy"/>
+        <Property name="focusable" type="boolean" value="false"/>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="18" style="0"/>
         </Property>
@@ -1758,6 +1766,25 @@
         </Property>
         <Property name="text" type="java.lang.String" value="jLabel12"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="prevD">
+      <Properties>
+        <Property name="mnemonic" type="int" value="80"/>
+        <Property name="text" type="java.lang.String" value="&lt;"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="prevDActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="nextD">
+      <Properties>
+        <Property name="mnemonic" type="int" value="78"/>
+        <Property name="text" type="java.lang.String" value="&gt;"/>
+        <Property name="enabled" type="boolean" value="false"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nextDActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
