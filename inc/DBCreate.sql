@@ -1096,5 +1096,5 @@ FROM Products p
 left JOIN ProductAllocation pa on pa.ProductID = p.ID
 left join `ProductUtilization` pu on pa.ProductID = pu.ID
 left JOIN Sales sa on pa.ProductID = sa.ProductID and pa.SiteID = sa.SiteID
-GROUP BY pa.ProductID, p.ProductName, pa.SiteID
+GROUP BY pa.ProductID, p.ProductName, pa.SiteID, pa.ID
 ORDER BY pa.ProductID DESC;

@@ -153,6 +153,7 @@ public class Gui extends javax.swing.JFrame {
         RemoveSelection1 = new javax.swing.JMenuItem();
         LaborChangeMenu = new javax.swing.JPopupMenu();
         editLabour = new javax.swing.JMenuItem();
+        deleteLabour = new javax.swing.JMenuItem();
         PlantPopUp = new javax.swing.JPopupMenu();
         pRemoveSelected = new javax.swing.JMenuItem();
         AfPopUp = new javax.swing.JPopupMenu();
@@ -309,6 +310,15 @@ public class Gui extends javax.swing.JFrame {
             }
         });
         LaborChangeMenu.add(editLabour);
+
+        deleteLabour.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/No-entry16.png"))); // NOI18N
+        deleteLabour.setText("Remove labour");
+        deleteLabour.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteLabourActionPerformed(evt);
+            }
+        });
+        LaborChangeMenu.add(deleteLabour);
 
         pRemoveSelected.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/No-entry16.png"))); // NOI18N
         pRemoveSelected.setText("Remove Selected");
@@ -1681,6 +1691,18 @@ public class Gui extends javax.swing.JFrame {
         moveDate(date,1);
     }//GEN-LAST:event_nextDActionPerformed
 
+    private void deleteLabourActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteLabourActionPerformed
+       if(LaborUtil.getSelectedRow()>-1){
+           int selRow = LaborUtil.convertRowIndexToModel(LaborUtil.getSelectedRow());           
+           DefaultTableModel model = (DefaultTableModel) LaborUtil.getModel();
+           
+           int laborAllocationId = (int) model.getValueAt(selRow, 1);
+           //System.out.println(model.getValueAt(selRow, 2));
+           lw.deallocateLabour(laborAllocationId,date);
+           refreshLists();
+       }
+    }//GEN-LAST:event_deleteLabourActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu About;
     private javax.swing.JButton AddAFuel;
@@ -1709,6 +1731,7 @@ public class Gui extends javax.swing.JFrame {
     private javax.swing.JLabel addF;
     private javax.swing.JButton addp;
     private com.toedter.calendar.JDateChooser datePicker;
+    private javax.swing.JMenuItem deleteLabour;
     private javax.swing.JMenuItem editLabour;
     private javax.swing.JMenuItem editSelected;
     public javax.swing.JTextField fAmount;

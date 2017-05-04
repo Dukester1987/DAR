@@ -735,7 +735,7 @@ public class SalesGui extends javax.swing.JPanel {
                 //preform deletion
                 System.out.println("deleting item ID "+SalesID);
                 db.dbDelete("Sales", new Object[][]{
-                    {"ID"},{"="},{SalesID},{}
+                    {"ID","SiteID"},{"=","="},{SalesID,db.userData.getSiteID()},{"AND"}
                 }, "ID");
                 System.out.println("Deleted");
             }
@@ -754,7 +754,7 @@ public class SalesGui extends javax.swing.JPanel {
                 ArrayList<Integer> delIDs = getIdsToDeleteByProductId(productID);
                 for (Integer delID : delIDs) {
                     db.dbDelete("Sales", new Object[][]{
-                        {"ID"},{"="},{delID},{}
+                        {"ID","SiteID"},{"=","="},{delID,db.userData.getSiteID()},{"AND"}
                     },"ID");
                 }               
             }

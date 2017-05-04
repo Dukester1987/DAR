@@ -293,10 +293,7 @@ public class LaborViewDataHandler extends DataHandler {
         ArrayList<Integer> delIds = getIdsToDelete();
         
         for (Integer delId : delIds) {
-            Object[][] w = {{"EndDate"},{ti.previousDay(date)}};
-            Object[][] wh = {{"ID"},{"="},{delId},{}};   
-            con.dbUpdate("LaborAllocation", w, wh);
-            deleteUtilForLabor(delId,ti.previousDay(date));
+            deallocateLabour(delId, date);
         }
         
         //add new labors
@@ -403,6 +400,13 @@ public class LaborViewDataHandler extends DataHandler {
             new FileLogger(ex.getStackTrace());
         }
         return id;
+    }
+
+    public void deallocateLabour(int delId, Date date) {
+            Object[][] w = {{"EndDate"},{ti.previousDay(date)}};
+            Object[][] wh = {{"ID"},{"="},{delId},{}};   
+            con.dbUpdate("LaborAllocation", w, wh);
+            deleteUtilForLabor(delId,ti.previousDay(date));
     }
     
     
