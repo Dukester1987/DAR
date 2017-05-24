@@ -1,23 +1,23 @@
-05-03 16:10:26 jdbc[3]: exception
+05-24 10:39:35 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM SITENOTES WHERE ID = '7' AND SITEID = ''2016[*]-11-07'' "; SQL statement:
 SELECT * FROM SiteNotes WHERE ID = '7' AND SiteID = ''2016-11-07'' [42000-176]
-05-03 16:10:26 jdbc[3]: exception
+05-24 10:39:36 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM SITENOTES WHERE ID = '23' AND SITEID = ''2016[*]-11-14'' "; SQL statement:
 SELECT * FROM SiteNotes WHERE ID = '23' AND SiteID = ''2016-11-14'' [42000-176]
-05-03 16:10:26 jdbc[3]: exception
+05-24 10:39:36 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM SiteNotes WHERE ID = '26' AND SiteID = 'will organise maintenance to rectify issues.)
 
 James advised chris same issues with same tyre on water truck again today. Tyre right to be onsite ASAP.'[*]'"; SQL statement:
 SELECT * FROM SiteNotes WHERE ID = '26' AND SiteID = 'will organise maintenance to rectify issues.)
 
 James advised chris same issues with same tyre on water truck again today. Tyre right to be onsite ASAP.'' [42000-176]
-05-03 16:10:27 jdbc[3]: exception
+05-24 10:39:36 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Value too long for column "COMMENT VARCHAR(180) NOT NULL": "'Checked with Kevin what ammount of stock was sitting on the floor, he estimates 3500-4000 tonne. Tonnage supplied from Operator... (197)"; SQL statement:
 INSERT INTO StockAdjustments (ID, `SiteID`, `ProductID`, `Qty`, `Comment`) VALUES (0, 2, 267, -7000.0, 'Checked with Kevin what ammount of stock was sitting on the floor, he estimates 3500-4000 tonne. Tonnage supplied from Operatorson production will need to be more careful estimating there tonnages,') [22001-176]
-05-03 16:10:28 jdbc[3]: exception
+05-24 10:39:37 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM SITENOTES WHERE ID = '85' AND SITEID = ''2016[*]-12-06'' "; SQL statement:
 SELECT * FROM SiteNotes WHERE ID = '85' AND SiteID = ''2016-12-06'' [42000-176]
-05-03 16:10:28 jdbc[3]: exception
+05-24 10:39:38 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM SiteNotes WHERE ID = '101' AND SiteID = 'Pads and drivesway 
 P318 
 Roller delivered by contractor 
@@ -26,13 +26,13 @@ SELECT * FROM SiteNotes WHERE ID = '101' AND SiteID = 'Pads and drivesway
 P318 
 Roller delivered by contractor 
 '' [42000-176]
-05-03 16:10:29 jdbc[3]: exception
+05-24 10:39:39 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM SITENOTES WHERE ID = '184' AND SITEID = ''2017[*]-01-17'' "; SQL statement:
 SELECT * FROM SiteNotes WHERE ID = '184' AND SiteID = ''2017-01-17'' [42000-176]
-05-03 16:10:30 jdbc[3]: exception
+05-24 10:39:40 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM SITENOTES WHERE ID = '226' AND SITEID = ''2017[*]-01-30'' "; SQL statement:
 SELECT * FROM SiteNotes WHERE ID = '226' AND SiteID = ''2017-01-30'' [42000-176]
-05-03 16:10:30 jdbc[3]: exception
+05-24 10:39:40 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Column "QTY" not found; SQL statement:
 INSERT INTO ProductUtilization (Qty) VALUES (Qty+620.4200000000001) [42122-176]
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:344)
@@ -48,19 +48,19 @@ INSERT INTO ProductUtilization (Qty) VALUES (Qty+620.4200000000001) [42122-176]
 	at org.h2.jdbc.JdbcStatement.executeUpdateInternal(JdbcStatement.java:128)
 	at org.h2.jdbc.JdbcStatement.executeUpdate(JdbcStatement.java:784)
 	at dar.Functions.DBFunctions.executeQuery(DBFunctions.java:33)
-	at dar.remoteDB.ChangeManager.updateOperation(ChangeManager.java:161)
-	at dar.remoteDB.ChangeManager.runSync(ChangeManager.java:130)
-	at dar.remoteDB.DBWrapper.startSync(DBWrapper.java:200)
-	at dar.remoteDB.DBWrapper.checkConnection(DBWrapper.java:128)
-	at dar.remoteDB.DBWrapper.run(DBWrapper.java:76)
+	at dar.remoteDB.ChangeManager.updateOperation(ChangeManager.java:164)
+	at dar.remoteDB.ChangeManager.runSync(ChangeManager.java:133)
+	at dar.remoteDB.DBWrapper.startSync(DBWrapper.java:211)
+	at dar.remoteDB.DBWrapper.checkConnection(DBWrapper.java:133)
+	at dar.remoteDB.DBWrapper.run(DBWrapper.java:81)
 	at java.lang.Thread.run(Thread.java:745)
-05-03 16:10:31 jdbc[3]: exception
+05-24 10:39:41 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM SITENOTES WHERE ID = '245' AND SITEID = ''2017[*]-02-07'' "; SQL statement:
 SELECT * FROM SiteNotes WHERE ID = '245' AND SiteID = ''2017-02-07'' [42000-176]
-05-03 16:10:31 jdbc[3]: exception
+05-24 10:39:41 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM SITENOTES WHERE ID = '268' AND SITEID = ''2017[*]-02-13'' "; SQL statement:
 SELECT * FROM SiteNotes WHERE ID = '268' AND SiteID = ''2017-02-13'' [42000-176]
-05-03 16:10:39 jdbc[3]: exception
+05-24 10:39:51 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Column "P297" not found; SQL statement:
 UPDATE PlantList SET `ID` = 'P297',`PlantDesc` = 'Komatsu PC200 LC-8 Exc',`Rate` = '329',`UnitOfMeasurement` = 'h' WHERE ID = P297 [42122-176]
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:344)
@@ -76,12 +76,37 @@ UPDATE PlantList SET `ID` = 'P297',`PlantDesc` = 'Komatsu PC200 LC-8 Exc',`Rate`
 	at org.h2.jdbc.JdbcStatement.executeUpdateInternal(JdbcStatement.java:128)
 	at org.h2.jdbc.JdbcStatement.executeUpdate(JdbcStatement.java:784)
 	at dar.Functions.DBFunctions.executeQuery(DBFunctions.java:33)
-	at dar.remoteDB.ChangeManager.insertOperation(ChangeManager.java:153)
-	at dar.remoteDB.ChangeManager.runSync(ChangeManager.java:127)
-	at dar.remoteDB.DBWrapper.startSync(DBWrapper.java:200)
-	at dar.remoteDB.DBWrapper.checkConnection(DBWrapper.java:128)
-	at dar.remoteDB.DBWrapper.run(DBWrapper.java:76)
+	at dar.remoteDB.ChangeManager.insertOperation(ChangeManager.java:156)
+	at dar.remoteDB.ChangeManager.runSync(ChangeManager.java:130)
+	at dar.remoteDB.DBWrapper.startSync(DBWrapper.java:211)
+	at dar.remoteDB.DBWrapper.checkConnection(DBWrapper.java:133)
+	at dar.remoteDB.DBWrapper.run(DBWrapper.java:81)
 	at java.lang.Thread.run(Thread.java:745)
-05-03 16:10:40 jdbc[3]: exception
+05-24 10:39:52 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "UPDATE AFAllocation SET VehicleID = 'U92-BX97BG' , Description = 'Tim's Ute[*]'  WHERE ID = 20 AND SiteID = 2 "; SQL statement:
 UPDATE AFAllocation SET VehicleID = 'U92-BX97BG' , Description = 'Tim's Ute'  WHERE ID = 20 AND SiteID = 2  [42000-176]
+05-24 10:39:58 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM SITENOTES WHERE ID = '566' AND SITEID = ''2017[*]-05-15'' "; SQL statement:
+SELECT * FROM SiteNotes WHERE ID = '566' AND SiteID = ''2017-05-15'' [42000-176]
+05-24 10:39:59 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Column "P321" not found; SQL statement:
+UPDATE PlantList SET `ID` = 'P321',`PlantDesc` = 'Mack Bogie Watercart 12KL',`Rate` = '277.20',`UnitOfMeasurement` = 'h' WHERE ID = P321 [42122-176]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:344)
+	at org.h2.message.DbException.get(DbException.java:178)
+	at org.h2.message.DbException.get(DbException.java:154)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:148)
+	at org.h2.expression.Comparison.optimize(Comparison.java:181)
+	at org.h2.command.dml.Update.prepare(Update.java:182)
+	at org.h2.command.Parser.prepareCommand(Parser.java:248)
+	at org.h2.engine.Session.prepareLocal(Session.java:442)
+	at org.h2.engine.Session.prepareCommand(Session.java:384)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1188)
+	at org.h2.jdbc.JdbcStatement.executeUpdateInternal(JdbcStatement.java:128)
+	at org.h2.jdbc.JdbcStatement.executeUpdate(JdbcStatement.java:784)
+	at dar.Functions.DBFunctions.executeQuery(DBFunctions.java:33)
+	at dar.remoteDB.ChangeManager.insertOperation(ChangeManager.java:156)
+	at dar.remoteDB.ChangeManager.runSync(ChangeManager.java:130)
+	at dar.remoteDB.DBWrapper.startSync(DBWrapper.java:211)
+	at dar.remoteDB.DBWrapper.checkConnection(DBWrapper.java:133)
+	at dar.remoteDB.DBWrapper.run(DBWrapper.java:81)
+	at java.lang.Thread.run(Thread.java:745)

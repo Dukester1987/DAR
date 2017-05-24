@@ -1,0 +1,6 @@
+Mon May 22 15:51:31 AEST 2017
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM SITENOTES WHERE ID = '566' AND SITEID = ''2017[*]-05-15'' "; SQL statement:
+SELECT * FROM SiteNotes WHERE ID = '566' AND SiteID = ''2017-05-15'' [42000-176]
+Mon May 22 15:51:32 AEST 2017
+org.h2.jdbc.JdbcSQLException: Column "P321" not found; SQL statement:
+UPDATE PlantList SET `ID` = 'P321',`PlantDesc` = 'Mack Bogie Watercart 12KL',`Rate` = '277.20',`UnitOfMeasurement` = 'h' WHERE ID = P321 [42122-176]

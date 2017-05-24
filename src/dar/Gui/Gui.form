@@ -347,6 +347,8 @@
                       <Component id="datePicker" min="-2" pref="167" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="nextD" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="negStock" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                       <Component id="label" min="-2" pref="278" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="104" max="-2" attributes="0"/>
@@ -372,6 +374,7 @@
                       <Component id="reportConfirm" alignment="3" min="-2" pref="49" max="-2" attributes="0"/>
                       <Component id="ConfirmationStatus" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="nextD" alignment="3" min="-2" pref="49" max="-2" attributes="0"/>
+                      <Component id="negStock" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Component id="title" min="-2" pref="49" max="-2" attributes="0"/>
                   <Component id="prevD" min="-2" pref="49" max="-2" attributes="0"/>
@@ -933,10 +936,10 @@
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jScrollPane4" alignment="0" pref="1129" max="32767" attributes="0"/>
+                          <Component id="jScrollPane4" alignment="0" pref="1181" max="32767" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jTabbedPane2" min="-2" pref="491" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="638" max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="690" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -1370,7 +1373,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jScrollPane8" alignment="1" max="32767" attributes="0"/>
-                          <Component id="jScrollPane7" alignment="1" pref="1129" max="32767" attributes="0"/>
+                          <Component id="jScrollPane7" alignment="1" pref="1181" max="32767" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
@@ -1662,7 +1665,7 @@
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jScrollPane6" pref="1129" max="32767" attributes="0"/>
+                          <Component id="jScrollPane6" pref="1181" max="32767" attributes="0"/>
                           <Group type="102" attributes="0">
                               <Component id="jButton5" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -1796,6 +1799,20 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nextDActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="negStock">
+      <Properties>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="33" green="33" red="ff" type="rgb"/>
+        </Property>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/res/Alert.png"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Negative Stock"/>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+      </AuxValues>
     </Component>
   </SubComponents>
 </Form>

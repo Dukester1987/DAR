@@ -89,6 +89,7 @@ public class Gui extends javax.swing.JFrame {
     private double aditionalFuel;
     private AfEditor aFEditor;
     public static boolean isSyncNeeded = false;
+    private final Thread t2;
         
     public Gui(LocalWraper db) {    
         Version v = new Version();
@@ -99,6 +100,7 @@ public class Gui extends javax.swing.JFrame {
         isAnyChangesApplicable = checkChanges();
         initComponents();
         editComponents();
+        negStock.setVisible(false);
         
         //init custom components
         c = new JControlers();                    
@@ -127,15 +129,19 @@ public class Gui extends javax.swing.JFrame {
         
         actionListenerGo = true;
         setName(title);
-        pw.utilPercChange();        
+        pw.utilPercChange();  
         
-        db1 = new DBWrapper(label,db,this);
+        StockAlert sa = new StockAlert(this, db);
+        t2 = new Thread(sa);
+        
+        
+        db1 = new DBWrapper(label,db,this,t2);
         t = new Thread(db1);
         t.start();
         
         ButtonController bc = new ButtonController(this);
         Thread t1 = new Thread(bc);
-        t1.start();
+        t1.start();        
         
     }
 
@@ -234,6 +240,7 @@ public class Gui extends javax.swing.JFrame {
         ConfirmationStatus = new javax.swing.JLabel();
         prevD = new javax.swing.JButton();
         nextD = new javax.swing.JButton();
+        negStock = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
@@ -937,10 +944,10 @@ public class Gui extends javax.swing.JFrame {
             .addGroup(jLayeredPane2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 1129, Short.MAX_VALUE)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 1181, Short.MAX_VALUE)
                     .addGroup(jLayeredPane2Layout.createSequentialGroup()
                         .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 491, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 638, Short.MAX_VALUE)))
+                        .addGap(0, 690, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jLayeredPane2Layout.setVerticalGroup(
@@ -1102,7 +1109,7 @@ public class Gui extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jLayeredPane5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane8, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1129, Short.MAX_VALUE)
+                    .addComponent(jScrollPane7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1181, Short.MAX_VALUE)
                     .addGroup(jLayeredPane5Layout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1167,7 +1174,7 @@ public class Gui extends javax.swing.JFrame {
             .addGroup(jLayeredPane6Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jLayeredPane6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 1129, Short.MAX_VALUE)
+                    .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 1181, Short.MAX_VALUE)
                     .addGroup(jLayeredPane6Layout.createSequentialGroup()
                         .addComponent(jButton5)
                         .addGap(0, 0, Short.MAX_VALUE)))
@@ -1233,6 +1240,10 @@ public class Gui extends javax.swing.JFrame {
                 nextDActionPerformed(evt);
             }
         });
+
+        negStock.setForeground(new java.awt.Color(255, 51, 51));
+        negStock.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/Alert.png"))); // NOI18N
+        negStock.setText("Negative Stock");
 
         jMenu1.setText("File");
 
@@ -1345,6 +1356,8 @@ public class Gui extends javax.swing.JFrame {
                         .addComponent(datePicker, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(nextD)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(negStock)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(label, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(104, 104, 104)
@@ -1365,7 +1378,8 @@ public class Gui extends javax.swing.JFrame {
                         .addComponent(label, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(reportConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(ConfirmationStatus)
-                        .addComponent(nextD, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(nextD, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(negStock))
                     .addComponent(title, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(prevD, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1582,6 +1596,7 @@ public class Gui extends javax.swing.JFrame {
             db.userData.setSiteID(site.getSiteID());
             //System.out.println("choosed site is:" + site.getSiteName());
             refreshLists();
+            t2.interrupt();
             //System.out.println("success / refreshing lists");
         }
     }//GEN-LAST:event_powerTitleActionPerformed
@@ -1796,6 +1811,7 @@ public class Gui extends javax.swing.JFrame {
     private javax.swing.JLabel label;
     private javax.swing.JList<String> laborList;
     private javax.swing.JList<String> laborOnSiteList;
+    public static javax.swing.JLabel negStock;
     private javax.swing.JButton nextD;
     private javax.swing.JMenuItem pRemoveSelected;
     private javax.swing.JLabel plantF;
@@ -2202,7 +2218,7 @@ public class Gui extends javax.swing.JFrame {
         ResultSet rs = db.dbSelect("Sales", new Object[][]{{"DateFor","SiteID"},{"=","="},{dt,siteID},{"AND"}});
         try {
             while(rs.next()){
-                db.dbUpdate("Sales", new Object[][]{{"ApprovalID"},{insertID}}, new Object[][]{{"ID"},{"="},{rs.getInt("ID")},{"AND"}});                
+                db.dbUpdate("Sales", new Object[][]{{"ApprovalID"},{insertID}}, new Object[][]{{"ID","SiteID"},{"=","="},{rs.getInt("ID"),db.userData.getSiteID()},{"AND"}});                
             }            
         } catch (SQLException ex) {
             ex.printStackTrace();

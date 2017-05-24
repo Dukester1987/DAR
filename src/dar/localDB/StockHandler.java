@@ -8,10 +8,15 @@ package dar.localDB;
 import dar.Functions.FileLogger;
 import dar.Functions.JControlers;
 import dar.dbObjects.StockData;
+import java.awt.Color;
+import java.awt.Component;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.NumberFormat;
 import java.util.ArrayList;
+import javax.swing.JLabel;
 import javax.swing.JTable;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -54,7 +59,7 @@ public class StockHandler {
         }   
         return list;
     }
-    
+      
     public void displayStockInTable(JTable table){
         ArrayList<StockData> list = getStockData();
         DefaultTableModel model = (DefaultTableModel) table.getModel();

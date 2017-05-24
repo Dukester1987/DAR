@@ -9,6 +9,7 @@ import dar.Functions.FileLogger;
 import dar.Functions.downloadManager;
 import dar.Functions.readXMLFile;
 import dar.Gui.Gui;
+import dar.Gui.StockAlert;
 import dar.Gui.Synchroniser;
 import dar.localDB.LocalWraper;
 import java.awt.Color;
@@ -50,12 +51,16 @@ public class DBWrapper implements Runnable{
     private long CHECKCONNECTION;
     private boolean checkForUpdates = true;
     public static boolean isSynced = true;
+    public final Thread t2;
 
-    public DBWrapper(JLabel label, LocalWraper db, Gui g) {
+    public DBWrapper(JLabel label, LocalWraper db, Gui g, Thread t2) {
         this.label = label;
         this.db = db;
         this.g = g;
         initProperties();
+                
+        this.t2 = t2; 
+        
     }
     
     public boolean isConnected(){
@@ -150,6 +155,11 @@ public class DBWrapper implements Runnable{
             }
         }                
         //keepAlive = false;
+        if(firstOpen){
+            t2.start();     
+            firstOpen = false;
+        }        
+        
         keepAlive = putSleep(CHECKCONNECTION);
         label.setText("Checking connection");        
     }
@@ -197,14 +207,21 @@ public class DBWrapper implements Runnable{
         label.setText("getting list of changes");
         mgr = new ChangeManager(db, this);
         //saveMyWork();
+        long downTime1 = System.currentTimeMillis();
         mgr.runSync(0,label); //see what do we need to download
+        long downTime2 = System.currentTimeMillis();
+        System.out.printf("download complete waiting for upload operation took: %.4f s\n",(double)(downTime2-downTime1)/1000);
+        long upTime1 = System.currentTimeMillis();
         mgr.runSync(1,label);        
+        long upTime2 = System.currentTimeMillis();
+        System.out.printf("Upload complete waiting for upload operation took: %.4f s\n",(double)(upTime2-upTime1)/1000);
         g.refreshLists();    
         //enable GUI      
         s.dispose();
         g.toFront(); 
         g.isSyncNeeded = false;
-        g.setEnabled(true);
+        g.setEnabled(true);        
+        
         System.out.println("refreshing lists");
 //        if(mgr.getTotalChanges()>0){
 //            label.setText(String.format("There are changes to exchange!"));            

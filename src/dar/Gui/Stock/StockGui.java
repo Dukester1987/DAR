@@ -12,9 +12,18 @@ import dar.Functions.tableRenderers.NumberTableCellRenderer;
 import dar.Gui.GuiIcon;
 import dar.localDB.LocalWraper;
 import dar.localDB.StockHandler;
+import java.awt.Color;
+import java.awt.Component;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+import java.util.ArrayList;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 
 /**
  *
@@ -26,6 +35,7 @@ public class StockGui extends javax.swing.JFrame {
     public static boolean isOpen = false;
     private final StockHandler sh;
     private final LocalWraper db;
+    private static ArrayList<Integer> rows;
 
     /**
      * Creates new form StockGui
@@ -37,7 +47,7 @@ public class StockGui extends javax.swing.JFrame {
         GuiIcon icon = new GuiIcon(this);
               
         controller = new JControlers();
-        controller.setTableCellRenderer(summaryTable, 2, new NumberTableCellRenderer());
+        //controller.setTableCellRenderer(summaryTable, 2, new NumberTableCellRenderer());
         controller.hideColumn(summaryTable, "ProductID");
         double min = -1000000.00;
         double value = 0.00;
@@ -46,12 +56,60 @@ public class StockGui extends javax.swing.JFrame {
         controller.makeDecimalSpinner(jSpinner1,min,value,max,stepSize);
         summaryTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         
+        summaryTable.setDefaultRenderer(Object.class, new rowColorer());
+        summaryTable.setDefaultRenderer(Double.class, new rowColorer());        
+        summaryTable.setDefaultRenderer(Integer.class, new rowColorer());         
+        
         sh = new StockHandler(db);
         sh.displayStockInTable(summaryTable);
-        
+
         isOpen = true;
     }
+  
+    
+    public static class rowColorer extends DefaultTableCellRenderer {
+    private static final DecimalFormat formatter = new DecimalFormat( "#.00" );
+        public rowColorer(){
+            setOpaque(true);
+        }
 
+        @Override
+        public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
+            
+            super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column); //To change body of generated methods, choose Tools | Templates.            
+            if (value instanceof Number) {
+                setHorizontalAlignment(JLabel.RIGHT);
+                NumberFormat FORMAT = NumberFormat.getInstance();
+                value = formatter.format((Number)value);
+                //setText(FORMAT.format(value));                
+            }
+            DefaultTableModel model = (DefaultTableModel) table.getModel();
+            int actualRow = table.convertRowIndexToModel(row);
+            if((double) model.getValueAt(actualRow, 2)<0){
+                //JOptionPane.showMessageDialog(null, row);
+                setBackground(new java.awt.Color(255,117,131));
+                setForeground(Color.WHITE);
+                if(isSelected){
+                    setBackground(new java.awt.Color(226,31,38));
+                    setForeground(Color.WHITE);
+                }  
+            } else {                    
+                setBackground(Color.WHITE);
+                setForeground(Color.BLACK);
+                if(isSelected){
+                    setBackground(new java.awt.Color(184,207,229));
+                    setForeground(Color.BLACK);
+                }                    
+            }
+
+            repaint();
+
+            //setBackground(new java.awt.Color(255,117,131));
+            return this;
+        }
+        
+                
+    }        
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -94,7 +152,7 @@ public class StockGui extends javax.swing.JFrame {
                 java.lang.Object.class, java.lang.Object.class, java.lang.Double.class
             };
             boolean[] canEdit = new boolean [] {
-                true, false, false
+                false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -227,7 +285,6 @@ public class StockGui extends javax.swing.JFrame {
                 jTextArea1.setText("");
                 //refresh table
                 sh.displayStockInTable(summaryTable);
-                
             } else {
                 JOptionPane.showMessageDialog(null,"No products selected", "Error",JOptionPane.ERROR_MESSAGE);
             }

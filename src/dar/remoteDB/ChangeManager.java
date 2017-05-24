@@ -61,8 +61,10 @@ public class ChangeManager {
     }
     
     public int getAmountOfChanges(int type){
-        int counter = 0;         
+        int counter = 0; 
+        System.out.println("removing duplicities");
         removeDuplicities(type);        
+        System.out.println("preparing counter");
         for (int i = changeList.size()-1;i>-1;i--) {            
             counter += (changeList.get(i).getType()==type)?1:0;
         }
@@ -109,6 +111,7 @@ public class ChangeManager {
         DBFunctions destination = getConType(type);     
         String userColumn = getUserColumn(type);
         String operation = type==0?"Downloading":"Uploading";       
+        System.out.println("Getting amount of changes");
         int s = getAmountOfChanges(type);         
         System.out.println("start "+ operation + " with "+s+" changes");
         if(s>0){ //check if there is anything to download / upload
@@ -251,7 +254,7 @@ public class ChangeManager {
     private void removeDuplicities(int type) {
         DBFunctions destination = getConType(type);   
         String q = String.format("SELECT UID FROM ChangeLog WHERE Time>='%s'", lastUpdate.get(updateID[type]));
-        System.out.println();
+        System.out.println("Downloaded UID from Database since "+ lastUpdate.get(updateID[type]));
         ArrayList<String> UIDs = new ArrayList<String>();
         ResultSet rs = destination.runQuery(q);
         try {
@@ -263,6 +266,7 @@ public class ChangeManager {
             new FileLogger(ex.toString());
         }
         int totalSize = changeList.size()-1;
+        System.out.println("itterating through results with size of "+totalSize+" records");
         for (int i = totalSize; i >= 0; i--) {
             if(changeList.get(i).getType()==type){
                 if(UIDs.size()>0){
@@ -325,14 +329,21 @@ public class ChangeManager {
                         }
                         System.err.println(useStamp);
                         lastUpdate.put(rs.getInt("ID"), useStamp);
-                        //System.out.printf("Last update for type %s having ID: %s and Timestamp: %s\n",type,rs.getInt("ID"), rs.getTimestamp("Start"));
+                        System.out.printf("Last update for type %s having ID: %s and Timestamp: %s\n",type,rs.getInt("ID"), rs.getTimestamp("Start"));
                         updateID[type] = rs.getInt("ID");
                     } catch (SQLException ex) {
                         ex.printStackTrace();
                         new FileLogger(ex.toString());
                     }
                 } else {
-                        lastUpdate.put(0, new Timestamp(1L));                        
+                        //original just lastUpdate.put(0, new Timestamp(1L));
+                        
+                        //new revision version should be faster on uploads
+                        if(type==0){
+                            lastUpdate.put(0, new Timestamp(1L));
+                        } else {
+                            lastUpdate.put(0, new Timestamp(System.currentTimeMillis()-2419200000L));
+                        }                     
                 }                    
             }            
         }
