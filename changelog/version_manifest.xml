@@ -17,7 +17,6 @@
   </dir>
   <file name="DAR.jar"/>  
   <file name="DAR_Updater.jar"/>
-  <file name="~DAR.h2.db"/>
   <dir name="changelog">
     <file name="version_manifest.properties"/>
   </dir>

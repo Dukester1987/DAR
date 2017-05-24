@@ -340,9 +340,11 @@ public class ChangeManager {
                         
                         //new revision version should be faster on uploads
                         if(type==0){
-                            lastUpdate.put(0, new Timestamp(1L));
+                            lastUpdate.put(1, new Timestamp(1L));
+                            updateID[type] = 1;
                         } else {
                             lastUpdate.put(0, new Timestamp(System.currentTimeMillis()-2419200000L));
+                            updateID[type] = 0;
                         }                     
                 }                    
             }            
