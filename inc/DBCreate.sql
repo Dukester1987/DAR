@@ -469,9 +469,7 @@ ALTER TABLE `LaborAllocation`
 -- Indexes for table `StockAdjustments`
 --
 ALTER TABLE `StockAdjustments`
-  ADD PRIMARY KEY (`ID`);
-  
-
+  ADD PRIMARY KEY (`ID`,`SiteID`,`ProductID`);  
 --
 -- Indexes for table `LaborFunctions`
 --

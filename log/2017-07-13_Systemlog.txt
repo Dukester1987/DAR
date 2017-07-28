@@ -1,0 +1,11 @@
+Thu Jul 13 14:36:49 AEST 2017
+org.h2.jdbc.JdbcSQLException: Column "S.PRODUCTION" must be in the GROUP BY list; SQL statement:
+SELECT 
+s.ProductID,
+s.ProductName,
+s.Production-s.UsedInProduction+s.SalesIN-s.SalesOUT+COALESCE(SUM(sa.Qty),0) as StockPile
+FROM `Stock` s
+left JOIN StockAdjustments sa on s.ProductID = sa.ProductID and s.SiteID = sa.SiteID
+inner JOIN SiteList sl on s.SiteID = sl.ID
+WHERE s.SiteID = 2
+GROUP BY s.ProductID [90016-176]

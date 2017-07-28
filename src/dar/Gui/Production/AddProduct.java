@@ -242,6 +242,7 @@ public class AddProduct extends javax.swing.JFrame {
         //get all ID of selected item
         if(ph.utilizeProducts((ProductListView) itemBox.getSelectedItem(),produced,Notes,date,prodType,g,this)){
             g.refreshLists();
+            g.StockCheckThread.interrupt();
             this.dispose();
         }
     }//GEN-LAST:event_jButton1ActionPerformed

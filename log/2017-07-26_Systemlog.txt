@@ -1,0 +1,9 @@
+Wed Jul 26 10:49:54 AEST 2017
+org.h2.jdbc.JdbcSQLException: NULL not allowed for column "PRODUCTALLOCATIONID"; SQL statement:
+INSERT INTO ProductUtilization (ApprovalID) VALUES (440) [23502-176]
+Wed Jul 26 10:49:54 AEST 2017
+org.h2.jdbc.JdbcSQLException: NULL not allowed for column "PRODUCTALLOCATIONID"; SQL statement:
+INSERT INTO ProductUtilization (ApprovalID) VALUES (440) [23502-176]
+Wed Jul 26 10:49:54 AEST 2017
+org.h2.jdbc.JdbcSQLException: NULL not allowed for column "PRODUCTALLOCATIONID"; SQL statement:
+INSERT INTO ProductUtilization (ApprovalID) VALUES (440) [23502-176]

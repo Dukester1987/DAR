@@ -8,7 +8,7 @@ package dar.Gui.Stock;
 import dar.Functions.Functions;
 import dar.Functions.JControlers;
 import dar.Functions.RXTable;
-import dar.Functions.tableRenderers.NumberTableCellRenderer;
+import dar.Gui.Gui;
 import dar.Gui.GuiIcon;
 import dar.localDB.LocalWraper;
 import dar.localDB.StockHandler;
@@ -23,7 +23,6 @@ import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableModel;
 
 /**
  *
@@ -36,14 +35,16 @@ public class StockGui extends javax.swing.JFrame {
     private final StockHandler sh;
     private final LocalWraper db;
     private static ArrayList<Integer> rows;
+    private final Gui gui;
 
     /**
      * Creates new form StockGui
      */
-    public StockGui(LocalWraper db) {
+    public StockGui(LocalWraper db,Gui g) {
         initComponents();
         Functions.setFrameMinimumSize(this);
         this.db = db;
+        this.gui = g;
         GuiIcon icon = new GuiIcon(this);
               
         controller = new JControlers();
@@ -285,6 +286,7 @@ public class StockGui extends javax.swing.JFrame {
                 jTextArea1.setText("");
                 //refresh table
                 sh.displayStockInTable(summaryTable);
+                gui.StockCheckThread.interrupt();
             } else {
                 JOptionPane.showMessageDialog(null,"No products selected", "Error",JOptionPane.ERROR_MESSAGE);
             }

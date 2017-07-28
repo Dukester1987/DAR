@@ -1,0 +1,3 @@
+Mon Jul 03 10:22:30 AEST 2017
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM SITENOTES WHERE ID = '738' AND SITEID = ''2017[*]-06-19'' "; SQL statement:
+SELECT * FROM SiteNotes WHERE ID = '738' AND SiteID = ''2017-06-19'' [42000-176]

@@ -156,15 +156,15 @@ public class AFViewDataHandler extends DataHandler{
                 System.out.println("trying to add empty value to fuel");
             }
 
-            if(utilID!=0){ // update
+            if(utilID!=0){ // update                
                 if(con.getRowCount(con.dbSelect("AFFuel", new Object[][]{
                     {"amount","ID"},
                     {"=","="},
-                    {fuelAmount,utilID},
-                    {"AND","AND"}
+                    {fuelAmount,utilID,allID},
+                    {"AND","AND","AND"}
                 }))==0){
                     Object[][] what = {{"amount"},{fuelAmount}};
-                    Object[][] where = {{"ID"},{"="},{utilID},{}};                                       
+                    Object[][] where = {{"ID","AFAllocationID"},{"=","="},{utilID,allID},{"AND","AND"}};                                       
                     con.dbUpdate("AFFuel", what, where);
                 }
             } else { // insert

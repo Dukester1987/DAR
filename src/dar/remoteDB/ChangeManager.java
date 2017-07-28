@@ -203,7 +203,16 @@ public class ChangeManager {
         } else if(clw.getAffectedTable().equalsIgnoreCase("SiteNotes") && clw.getOperation().equalsIgnoreCase("Insert")){ //keys ID, SiteID
             String SiteID = getValuesFromInsert(clw.getSQLString(),2);
             query = String.format("SELECT * FROM %s WHERE ID = '%s' AND SiteID = '%s'", clw.getAffectedTable(),clw.getRowID(),SiteID);
-                                          
+            
+        } else if(clw.getAffectedTable().equalsIgnoreCase("AFFuel") && clw.getOperation().equalsIgnoreCase("Insert")){ //keys ID, AFAllocationID
+            String AFAllocationID = getValuesFromInsert(clw.getSQLString(),2);
+            query = String.format("SELECT * FROM %s WHERE ID = '%s' AND AFAllocationID = '%s'", clw.getAffectedTable(),clw.getRowID(),AFAllocationID);       
+            
+        } else if(clw.getAffectedTable().equalsIgnoreCase("StockAdjustments") && clw.getOperation().equalsIgnoreCase("Insert")){ //keys ID, SiteID, ProductID
+            String SiteID = getValuesFromInsert(clw.getSQLString(),2);
+            String ProductID = getValuesFromInsert(clw.getSQLString(),3);
+            query = String.format("SELECT * FROM %s WHERE ID = '%s' AND SiteID = '%s' AND ProductID = '%s'", clw.getAffectedTable(),clw.getRowID(),SiteID,ProductID);                
+            
         } else {
             query = String.format("SELECT * FROM %s WHERE ID = '%s'", clw.getAffectedTable(),clw.getRowID());
         }

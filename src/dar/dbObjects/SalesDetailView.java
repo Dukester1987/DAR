@@ -60,6 +60,12 @@ public class SalesDetailView {
         return priceExtGST/tonage;
     }
     
+    public Object getEPAPerTon() {
+        if(EPA>0)
+            return tonage*EPA;
+        return 0D;
+    }
+    
     
     
 }

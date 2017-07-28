@@ -1,0 +1,6 @@
+Mon Jun 05 10:45:38 AEST 2017
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "UPDATE StockAdjustments SET ID = 255,`SiteID` = 2,`ProductID` = 135,`Qty` = 3603.18,`Comment` = [*]'not a stockable item WHERE ID = 255"; SQL statement:
+UPDATE StockAdjustments SET ID = 255,`SiteID` = 2,`ProductID` = 135,`Qty` = 3603.18,`Comment` = 'not a stockable item WHERE ID = 255 [42000-176]
+Mon Jun 05 10:45:39 AEST 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_6 ON PUBLIC.PLANTUTILIZATION(ID, PLANTALLOCATIONID) VALUES ( /* key:23977 */ 25791, 328, null, null, null, null, null, null)"; SQL statement:
+UPDATE PlantUtilization SET ID = 25791,`PlantAllocationID` = 328,`StartHours` = 1210,`EndHours` = 1210,`DateFor` = '2017-05-29',`Fuel` = 0.0,`Notes` = '' WHERE ID = 25791 [23505-176]

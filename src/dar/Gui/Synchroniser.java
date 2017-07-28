@@ -36,7 +36,7 @@ public class Synchroniser extends javax.swing.JFrame {
         setForeground(java.awt.Color.white);
         setUndecorated(true);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/Diagram.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/Spinner.gif"))); // NOI18N
         jLabel1.setText("Synchronization with server is in progress please wait...");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

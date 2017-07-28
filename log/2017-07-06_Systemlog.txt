@@ -1,0 +1,10 @@
+Thu Jul 06 10:15:43 AEST 2017
+org.h2.jdbc.JdbcSQLException: Column "INTERNAL" not found; SQL statement:
+INSERT INTO `Products` (`ID`, `ProductName`, `ProductVal`, `Type`, `EPA`, `GroupID`, `UOM`, `Internal`) VALUES (NULL, 'Cat C Asbestos load rate', '', '1', '3', '3', 't', NULL); [42122-176]
+Thu Jul 06 10:24:01 AEST 2017
+org.h2.jdbc.JdbcSQLException: Data conversion error converting "'' (PRODUCTS: PRODUCTVAL DECIMAL(10, 0) NOT NULL)"; SQL statement:
+INSERT INTO `Products` (`ID`, `ProductName`, `ProductVal`, `Type`, `EPA`, `GroupID`, `UOM`) VALUES (347, 'Cat C Asbestos load rate', '', '1', '3', '3', 't') -- (347, 'Cat C Asbestos load rate', '', '1', '3', '3', 't') [22018-176]
+Thu Jul 06 10:26:43 AEST 2017
+com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'ID' cannot be null
+Thu Jul 06 10:26:44 AEST 2017
+java.sql.SQLException: Incorrect decimal value: '' for column 'ProductVal' at row 1

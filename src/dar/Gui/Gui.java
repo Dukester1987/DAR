@@ -44,6 +44,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import javax.swing.RowFilter;
 import javax.swing.SwingUtilities;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
@@ -54,6 +55,8 @@ import javax.swing.event.TableModelListener;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellEditor;
 import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
+import org.jdesktop.swingx.prompt.PromptSupport;
 
 /**
  *
@@ -89,7 +92,7 @@ public class Gui extends javax.swing.JFrame {
     private double aditionalFuel;
     private AfEditor aFEditor;
     public static boolean isSyncNeeded = false;
-    private final Thread t2;
+    public final Thread StockCheckThread;
         
     public Gui(LocalWraper db) {    
         Version v = new Version();
@@ -101,6 +104,7 @@ public class Gui extends javax.swing.JFrame {
         initComponents();
         editComponents();
         negStock.setVisible(false);
+        PromptSupport.setPrompt("Filter", searchFilter);
         
         //init custom components
         c = new JControlers();                    
@@ -132,10 +136,10 @@ public class Gui extends javax.swing.JFrame {
         pw.utilPercChange();  
         
         StockAlert sa = new StockAlert(this, db);
-        t2 = new Thread(sa);
+        StockCheckThread = new Thread(sa);
         
         
-        db1 = new DBWrapper(label,db,this,t2);
+        db1 = new DBWrapper(label,db,this,StockCheckThread);
         t = new Thread(db1);
         t.start();
         
@@ -194,6 +198,7 @@ public class Gui extends javax.swing.JFrame {
         plantF = new javax.swing.JLabel();
         addF = new javax.swing.JLabel();
         totalF = new javax.swing.JLabel();
+        searchFilter = new javax.swing.JTextField();
         jLayeredPane2 = new javax.swing.JLayeredPane();
         jScrollPane4 = new javax.swing.JScrollPane();
         LaborUtil = new RXTable();
@@ -612,6 +617,12 @@ public class Gui extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        searchFilter.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                searchFilterKeyReleased(evt);
+            }
+        });
+
         jLayeredPane1.setLayer(addp, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(utilPerc, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(jScrollPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -623,6 +634,7 @@ public class Gui extends javax.swing.JFrame {
         jLayeredPane1.setLayer(ReportBreakdown, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(jPanel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(jPanel3, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(searchFilter, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
         jLayeredPane1.setLayout(jLayeredPane1Layout);
@@ -635,6 +647,8 @@ public class Gui extends javax.swing.JFrame {
                         .addComponent(addp)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(ReportBreakdown)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(searchFilter, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(utilPerc)
                         .addGap(18, 18, 18)
@@ -661,14 +675,16 @@ public class Gui extends javax.swing.JFrame {
             jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jLayeredPane1Layout.createSequentialGroup()
                 .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(utilProgressBar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ReportBreakdown)
-                    .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(addp)
-                        .addComponent(utilPerc))
-                    .addComponent(utilProgressBar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(4, 4, 4)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 266, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
+                    .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(searchFilter, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(addp)
+                            .addComponent(utilPerc))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jLayeredPane1Layout.createSequentialGroup()
                         .addComponent(jLabel1)
@@ -1580,7 +1596,7 @@ public class Gui extends javax.swing.JFrame {
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
         if(!stockGui.isOpen){
-            stockGui = new StockGui(db);
+            stockGui = new StockGui(db,this);
             stockGui.setLocationRelativeTo(null);
             stockGui.setVisible(true);
         } else {
@@ -1596,7 +1612,7 @@ public class Gui extends javax.swing.JFrame {
             db.userData.setSiteID(site.getSiteID());
             //System.out.println("choosed site is:" + site.getSiteName());
             refreshLists();
-            t2.interrupt();
+            StockCheckThread.interrupt();
             //System.out.println("success / refreshing lists");
         }
     }//GEN-LAST:event_powerTitleActionPerformed
@@ -1718,6 +1734,10 @@ public class Gui extends javax.swing.JFrame {
        }
     }//GEN-LAST:event_deleteLabourActionPerformed
 
+    private void searchFilterKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchFilterKeyReleased
+        setFilter(searchFilter.getText());
+    }//GEN-LAST:event_searchFilterKeyReleased
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu About;
     private javax.swing.JButton AddAFuel;
@@ -1820,6 +1840,7 @@ public class Gui extends javax.swing.JFrame {
     private javax.swing.JMenuItem removeSelected;
     private javax.swing.JButton reportConfirm;
     private dar.Gui.Sales.SalesGui salesGui;
+    private javax.swing.JTextField searchFilter;
     private javax.swing.JLabel title;
     private javax.swing.JLabel totalF;
     private javax.swing.JLabel utilPerc;
@@ -1957,6 +1978,7 @@ public class Gui extends javax.swing.JFrame {
             public void tableChanged(TableModelEvent tme) {
                 if(actionListenerGo){
                     ph.updateProduct((DefaultTableModel) ProdUtilization.getModel(),tme.getFirstRow());
+                    StockCheckThread.interrupt();
                     //refreshLists();
                 }
             }
@@ -1989,6 +2011,7 @@ public class Gui extends javax.swing.JFrame {
             public void tableChanged(TableModelEvent tme) {
                 if(actionListenerGo){
                     ph.updateProduct((DefaultTableModel) UsedInProduction.getModel(),tme.getFirstRow());
+                    StockCheckThread.interrupt();
                     //refreshLists();
                 }
             }
@@ -2263,5 +2286,13 @@ public class Gui extends javax.swing.JFrame {
             this.dispose();
         }
                          
+    }
+
+    private void setFilter(String text) {
+        DefaultTableModel dm = (DefaultTableModel) PlantUtil.getModel();
+        TableRowSorter<DefaultTableModel> tr = new TableRowSorter<DefaultTableModel> (dm);
+        PlantUtil.setRowSorter(tr);
+        
+        tr.setRowFilter(RowFilter.regexFilter(text));
     }
 }

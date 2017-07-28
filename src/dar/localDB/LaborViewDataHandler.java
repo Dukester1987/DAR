@@ -355,16 +355,18 @@ public class LaborViewDataHandler extends DataHandler {
             
             if(utilizationID==0){
                 // add new dataset
+                System.err.println("ADDING NEW RECORD FOR LABOR");
                 int utilID = con.dbInsert(dbTable, new Object[][]{{"LaborAllocationID","PlantID","Hours","Status","Notes","DateFor","ApprovalID"},{allocationID,"",hours,StatusID,notes,date,"NULL"}});
                 System.out.println("Utilization ID is "+utilID);
                 model.setValueAt(utilID, k, 0);
             } else {
                 // edit actual dataset
+                System.err.println("EDITING EXISTING RECORD FOR LABOR");
                 if(con.getRowCount(con.dbSelect(dbTable, new Object[][] {
-                    {"ID","Hours","Status","Notes"},
-                    {"=","=","=","="},
-                    {utilizationID,hours,StatusID,notes},
-                    {"AND","AND","AND","AND"}
+                    {"ID","LaborAllocationID","Hours","Status","Notes"},
+                    {"=","=","=","=","="},
+                    {utilizationID,allocationID,hours,StatusID,notes},
+                    {"AND","AND","AND","AND","AND"}
                 }))==0){
                     System.out.printf("Hours: %s, Status: %s, Notes: %s, UtilID: %s\n",hours,StatusID,notes,utilizationID);
                     con.dbUpdate(dbTable, new Object[][]{{"Hours","Status","Notes"},{hours,StatusID,notes==null?"":notes}}, new Object[][]{{"ID","LaborAllocationID"},{"=","="},{utilizationID,allocationID},{"AND"}});             

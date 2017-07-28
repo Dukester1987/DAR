@@ -134,7 +134,8 @@ public class SalesDataHandler {
                 view.getTonage(),
                 view.getPriceIncGST(),
                 view.getPriceExtGST(),
-                view.getPricePerTon()
+                view.getPricePerTon(),
+                view.getEPAPerTon()
             });
         }         
     }
