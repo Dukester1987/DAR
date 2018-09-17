@@ -10,6 +10,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.text.CharacterIterator;
 import java.text.StringCharacterIterator;
+import java.util.UUID;
 import javax.swing.JFrame;
 
 /**
@@ -42,7 +43,12 @@ public class Functions {
           hashtext = "0"+hashtext;
         }
         return hashtext;
-    }    
+    }   
+    
+    public static String getUUIDString() {
+        UUID uuid = UUID.randomUUID();
+        return uuid.toString();
+    }
     
    public static String forHTML(String aText){
      final StringBuilder result = new StringBuilder();

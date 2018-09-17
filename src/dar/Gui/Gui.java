@@ -1884,27 +1884,51 @@ public class Gui extends javax.swing.JFrame {
 
     public void refreshLists() {
         //lists housekeeping stuff
-        confirmationControl();
-        System.out.println(db.userData.getSiteName(db)+" "+db.userData.getSiteID());
-        actionListenerGo = false;
-        lw.createLaborList(date);
-        lw.createFunctionsList();
-        lw.fillComboBoxWithFunctions(lFunc);
-        lw.displayViewInTable(LaborUtil, date);
-        lw.getStatusList();
-        pw.displayPlantViewInTable(PlantUtil, date);       
-        pw.utilPercChange();
-        af.displayViewInTable(AditionalFuel, date);        
-        ph.displayUtilizationInTable(ProdUtilization, 3,date);
-        ph.displayUtilizationInTable(UsedInProduction, 4,date);
-        nt.displayNotesInTextField(MyComents, date);
-        siteLabourList = lw.getLaborsOnSiteList();        
-        fullList = lw.getLaborList();
-        laborView = lw.getLaborView();     
-        c.refreshList(fullList, (DefaultListModel) laborList.getModel());
-        c.refreshList(siteLabourList, (DefaultListModel) laborOnSiteList.getModel());   
-        salesGui.refreshData(date);
-        sumFuel(); //display Fuel summary
+        refreshLists(TabbedPane.getModel().getSelectedIndex());
+    }
+    
+    public void refreshLists(int activeTab){
+        System.out.println(activeTab);
+        confirmationControl();        
+        actionListenerGo = false; //disable action listeners from getting crazy
+        //START labourUtilisation 
+        if(activeTab==1){
+            lw.createLaborList(date);
+            lw.createFunctionsList();
+            lw.fillComboBoxWithFunctions(lFunc);
+            lw.displayViewInTable(LaborUtil, date);
+            lw.getStatusList();
+            siteLabourList = lw.getLaborsOnSiteList();        
+            fullList = lw.getLaborList();
+            laborView = lw.getLaborView();     
+            c.refreshList(fullList, (DefaultListModel) laborList.getModel());
+            c.refreshList(siteLabourList, (DefaultListModel) laborOnSiteList.getModel());   
+        }
+        //END Labour Utilisation
+        //START Plant Utilisation
+        else if(activeTab==0){
+            pw.displayPlantViewInTable(PlantUtil, date);       
+            pw.utilPercChange();
+            af.displayViewInTable(AditionalFuel, date);      
+            sumFuel(); //display Fuel summary
+        }
+        //END Plant Utilisiation
+        //START Production
+        else if(activeTab==2){
+            ph.displayUtilizationInTable(ProdUtilization, 3,date);
+            ph.displayUtilizationInTable(UsedInProduction, 4,date);
+        }
+        //END Production
+        //START Notes
+        else if(activeTab==4){
+            nt.displayNotesInTextField(MyComents, date);
+        }
+        //END Notes                
+        //START Sales
+        else if(activeTab==3){
+            salesGui.refreshData(date);
+        }
+        //END Sales        
         actionListenerGo = true;
     }
 
@@ -1963,11 +1987,14 @@ public class Gui extends javax.swing.JFrame {
         setTitle();
         
         setRenderers();
-        //tabbedPan
+        //tabbedPan use this listener to render data for just opened tab
+        
         TabbedPane.addChangeListener(new ChangeListener() {
             @Override
             public void stateChanged(ChangeEvent ce) {
-                System.out.println("changed");
+                refreshLists(TabbedPane.getModel().getSelectedIndex());
+                System.out.println("changed with index: "+ TabbedPane.getModel().getSelectedIndex());
+                
                 //t.interrupt();
             }
         });

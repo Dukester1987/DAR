@@ -65,10 +65,13 @@ public class PlantViewDataHandler {
 "                            `PlantList`.`PlantDesc` AS `PlantDesc`,\n" +
 "                            `PlantList`.`Rate` AS `Rate`,\n" +
 "                            CASE WHEN PlantUtilization.StartHours IS NULL THEN \n" +
-"(SELECT PlantUtilization.EndHours FROM PlantAllocation\n" +
-"LEFT JOIN PlantUtilization on PlantAllocation.ID = PlantUtilization.PlantAllocationID\n" +
-"WHERE PlantID = PlantList.ID\n" +
-"ORDER BY PlantUtilization.EndHours DESC\n" +
+"(SELECT \n" +
+"pu.EndHours\n" +
+"FROM\n" +
+"PlantAllocation pa\n" +
+"INNER JOIN PlantUtilization pu on pu.PlantAllocationID = pa.ID\n" +
+"WHERE pa.PlantID = PlantList.ID\n" +
+"ORDER BY pu.DateFor DESC\n" +
 "LIMIT 0,1)                             \n" +
 "                             ELSE PlantUtilization.StartHours END as StartHours,\n" +
 "                            `PlantUtilization`.EndHours as EndHours,\n" +
@@ -83,7 +86,7 @@ public class PlantViewDataHandler {
 "                            left join `SiteList` on `SiteList`.`ID` = `PlantAllocation`.`SiteID`\n" +
 "                            WHERE StartDate <= '%s' AND EndDate >= '%s' AND SiteID = '%s' ORDER BY PlantID",dateFor,dateFor,dateFor,user.getSiteID());
             ResultSet rs = con.runQuery(query);
-            //System.out.println(user.getSiteID());
+            System.out.println(query);
             try {
                 while(rs.next()){
                     PlantView plantUtil = new PlantView(rs.getInt("AllocationID"),
@@ -203,7 +206,11 @@ public class PlantViewDataHandler {
             double Fuel = (double) model.getValueAt(k, 6);
             String Notes = (String) model.getValueAt(k, 7);
             
-            model.setValueAt(EndHours-StartHours, k, 8);            
+            model.setValueAt(EndHours-StartHours, k, 8);   
+            
+            if(StartHours==0 || EndHours==0){
+                System.out.println(StartHours+" "+EndHours+" "+PlantNo);
+            }
             
             if(EndHours<StartHours && EndHours!=0){
                 JOptionPane.showMessageDialog(null,"End hours can not be lower than start hours!", "Error", JOptionPane.ERROR_MESSAGE);

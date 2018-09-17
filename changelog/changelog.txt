@@ -1,3 +1,2 @@
-1.3.08
-- negative stock detection
-- adjusted sync mechanism to provide faster sync times
+1.3.14
+- migration transfer

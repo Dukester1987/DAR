@@ -1,0 +1,402 @@
+Fri Sep 22 16:37:17 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CLIENTS" not found; SQL statement:
+SELECT * FROM QR_Clients WHERE ID = '1' [42102-176]
+Fri Sep 22 16:37:17 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CLIENTS" not found; SQL statement:
+INSERT INTO QR_Clients (ID, `ID`, `GlobeID`, `ClientName`) VALUES (1, 1, '', 'Asphalt Laying Services') [42102-176]
+Fri Sep 22 16:37:17 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CONTACTS" not found; SQL statement:
+SELECT * FROM QR_Contacts WHERE ID = '1' [42102-176]
+Fri Sep 22 16:37:17 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CONTACTS" not found; SQL statement:
+INSERT INTO QR_Contacts (ID, `ID`, `ClientID`, `Name`, `LastName`, `email`, `phone`) VALUES (1, 1, 1, 'Michelle', 'Michelle', '', '9672 4554') [42102-176]
+Fri Sep 22 16:37:17 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CLIENTS" not found; SQL statement:
+SELECT * FROM QR_Clients WHERE ID = '2' [42102-176]
+Fri Sep 22 16:37:17 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CLIENTS" not found; SQL statement:
+INSERT INTO QR_Clients (ID, `ID`, `GlobeID`, `ClientName`) VALUES (2, 2, '', 'Archer Tippers') [42102-176]
+Fri Sep 22 16:37:17 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CONTACTS" not found; SQL statement:
+SELECT * FROM QR_Contacts WHERE ID = '2' [42102-176]
+Fri Sep 22 16:37:17 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CONTACTS" not found; SQL statement:
+INSERT INTO QR_Contacts (ID, `ID`, `ClientID`, `Name`, `LastName`, `email`, `phone`) VALUES (2, 2, 2, 'Matt', 'Matt', '', '0412 654 701') [42102-176]
+Fri Sep 22 16:37:18 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CLIENTS" not found; SQL statement:
+SELECT * FROM QR_Clients WHERE ID = '3' [42102-176]
+Fri Sep 22 16:37:18 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CLIENTS" not found; SQL statement:
+INSERT INTO QR_Clients (ID, `ID`, `GlobeID`, `ClientName`) VALUES (3, 3, '', 'Turps Tippers') [42102-176]
+Fri Sep 22 16:37:18 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CONTACTS" not found; SQL statement:
+SELECT * FROM QR_Contacts WHERE ID = '3' [42102-176]
+Fri Sep 22 16:37:18 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CONTACTS" not found; SQL statement:
+INSERT INTO QR_Contacts (ID, `ID`, `ClientID`, `Name`, `LastName`, `email`, `phone`) VALUES (3, 3, 3, 'Ian ', 'Turner', 'turpstippers@yahoo.com.au', '0400 662 246') [42102-176]
+Fri Sep 22 16:37:18 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CLIENTS" not found; SQL statement:
+SELECT * FROM QR_Clients WHERE ID = '4' [42102-176]
+Fri Sep 22 16:37:18 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CLIENTS" not found; SQL statement:
+INSERT INTO QR_Clients (ID, `ID`, `GlobeID`, `ClientName`) VALUES (4, 4, '', 'Burton Contractors') [42102-176]
+Fri Sep 22 16:37:18 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CONTACTS" not found; SQL statement:
+SELECT * FROM QR_Contacts WHERE ID = '4' [42102-176]
+Fri Sep 22 16:37:18 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CONTACTS" not found; SQL statement:
+INSERT INTO QR_Contacts (ID, `ID`, `ClientID`, `Name`, `LastName`, `email`, `phone`) VALUES (4, 4, 4, 'Vijay', 'Arcot', '', '0409 951 524') [42102-176]
+Fri Sep 22 16:37:18 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CLIENTS" not found; SQL statement:
+SELECT * FROM QR_Clients WHERE ID = '5' [42102-176]
+Fri Sep 22 16:37:18 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CLIENTS" not found; SQL statement:
+INSERT INTO QR_Clients (ID, `ID`, `GlobeID`, `ClientName`) VALUES (5, 5, '', 'JKW') [42102-176]
+Fri Sep 22 16:37:18 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CONTACTS" not found; SQL statement:
+SELECT * FROM QR_Contacts WHERE ID = '5' [42102-176]
+Fri Sep 22 16:37:18 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CONTACTS" not found; SQL statement:
+INSERT INTO QR_Contacts (ID, `ID`, `ClientID`, `Name`, `LastName`, `email`, `phone`) VALUES (5, 5, 5, 'Jayse', 'Sui', '', '0437 928 754') [42102-176]
+Fri Sep 22 16:37:18 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CLIENTS" not found; SQL statement:
+SELECT * FROM QR_Clients WHERE ID = '6' [42102-176]
+Fri Sep 22 16:37:18 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CLIENTS" not found; SQL statement:
+INSERT INTO QR_Clients (ID, `ID`, `GlobeID`, `ClientName`) VALUES (6, 6, '', 'Diona') [42102-176]
+Fri Sep 22 16:37:18 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CONTACTS" not found; SQL statement:
+SELECT * FROM QR_Contacts WHERE ID = '6' [42102-176]
+Fri Sep 22 16:37:18 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CONTACTS" not found; SQL statement:
+INSERT INTO QR_Contacts (ID, `ID`, `ClientID`, `Name`, `LastName`, `email`, `phone`) VALUES (6, 6, 6, 'Brett', 'Vanderlight', '', '0428 420 549') [42102-176]
+Fri Sep 22 16:37:18 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CLIENTS" not found; SQL statement:
+SELECT * FROM QR_Clients WHERE ID = '7' [42102-176]
+Fri Sep 22 16:37:18 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CLIENTS" not found; SQL statement:
+INSERT INTO QR_Clients (ID, `ID`, `GlobeID`, `ClientName`) VALUES (7, 7, '', 'Steward Coobms') [42102-176]
+Fri Sep 22 16:37:18 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CONTACTS" not found; SQL statement:
+SELECT * FROM QR_Contacts WHERE ID = '7' [42102-176]
+Fri Sep 22 16:37:18 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CONTACTS" not found; SQL statement:
+INSERT INTO QR_Contacts (ID, `ID`, `ClientID`, `Name`, `LastName`, `email`, `phone`) VALUES (7, 7, 7, 'Steward', 'Coobms', '', '0408 581 227') [42102-176]
+Fri Sep 22 16:37:19 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CLIENTS" not found; SQL statement:
+SELECT * FROM QR_Clients WHERE ID = '8' [42102-176]
+Fri Sep 22 16:37:19 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CLIENTS" not found; SQL statement:
+INSERT INTO QR_Clients (ID, `ID`, `GlobeID`, `ClientName`) VALUES (8, 8, '', 'Asbestos REM') [42102-176]
+Fri Sep 22 16:37:19 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CONTACTS" not found; SQL statement:
+SELECT * FROM QR_Contacts WHERE ID = '8' [42102-176]
+Fri Sep 22 16:37:19 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CONTACTS" not found; SQL statement:
+INSERT INTO QR_Contacts (ID, `ID`, `ClientID`, `Name`, `LastName`, `email`, `phone`) VALUES (8, 8, 8, 'Wade ', 'Rogers', '', '0420 978 737') [42102-176]
+Fri Sep 22 16:37:19 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CLIENTS" not found; SQL statement:
+SELECT * FROM QR_Clients WHERE ID = '9' [42102-176]
+Fri Sep 22 16:37:19 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CLIENTS" not found; SQL statement:
+INSERT INTO QR_Clients (ID, `ID`, `GlobeID`, `ClientName`) VALUES (9, 9, '', 'Ward Civil') [42102-176]
+Fri Sep 22 16:37:19 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CONTACTS" not found; SQL statement:
+SELECT * FROM QR_Contacts WHERE ID = '9' [42102-176]
+Fri Sep 22 16:37:19 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CONTACTS" not found; SQL statement:
+INSERT INTO QR_Contacts (ID, `ID`, `ClientID`, `Name`, `LastName`, `email`, `phone`) VALUES (9, 9, 9, 'Alex', 'Mountakis', '', '0418 485 330') [42102-176]
+Fri Sep 22 16:37:19 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CLIENTS" not found; SQL statement:
+SELECT * FROM QR_Clients WHERE ID = '10' [42102-176]
+Fri Sep 22 16:37:19 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CLIENTS" not found; SQL statement:
+INSERT INTO QR_Clients (ID, `ID`, `GlobeID`, `ClientName`) VALUES (10, 10, '', 'COD Duncan Mc Killop') [42102-176]
+Fri Sep 22 16:37:19 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CONTACTS" not found; SQL statement:
+SELECT * FROM QR_Contacts WHERE ID = '10' [42102-176]
+Fri Sep 22 16:37:19 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CONTACTS" not found; SQL statement:
+INSERT INTO QR_Contacts (ID, `ID`, `ClientID`, `Name`, `LastName`, `email`, `phone`) VALUES (10, 10, 10, 'Duncan', 'Mc Killop', '', '0411 097 738') [42102-176]
+Fri Sep 22 16:37:20 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CLIENTS" not found; SQL statement:
+SELECT * FROM QR_Clients WHERE ID = '11' [42102-176]
+Fri Sep 22 16:37:20 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CLIENTS" not found; SQL statement:
+INSERT INTO QR_Clients (ID, `ID`, `GlobeID`, `ClientName`) VALUES (11, 11, '', 'WCX M5') [42102-176]
+Fri Sep 22 16:37:20 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CONTACTS" not found; SQL statement:
+SELECT * FROM QR_Contacts WHERE ID = '11' [42102-176]
+Fri Sep 22 16:37:20 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CONTACTS" not found; SQL statement:
+INSERT INTO QR_Contacts (ID, `ID`, `ClientID`, `Name`, `LastName`, `email`, `phone`) VALUES (11, 11, 11, 'Brian', 'Donohue', '', '0436 012 507') [42102-176]
+Fri Sep 22 16:37:20 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CLIENTS" not found; SQL statement:
+SELECT * FROM QR_Clients WHERE ID = '12' [42102-176]
+Fri Sep 22 16:37:20 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CLIENTS" not found; SQL statement:
+INSERT INTO QR_Clients (ID, `ID`, `GlobeID`, `ClientName`) VALUES (12, 12, '', 'Veljohn') [42102-176]
+Fri Sep 22 16:37:20 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CONTACTS" not found; SQL statement:
+SELECT * FROM QR_Contacts WHERE ID = '12' [42102-176]
+Fri Sep 22 16:37:20 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CONTACTS" not found; SQL statement:
+INSERT INTO QR_Contacts (ID, `ID`, `ClientID`, `Name`, `LastName`, `email`, `phone`) VALUES (12, 12, 12, 'Daniel ', 'Vella', '', '0437 323 628') [42102-176]
+Fri Sep 22 16:37:20 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CLIENTS" not found; SQL statement:
+SELECT * FROM QR_Clients WHERE ID = '13' [42102-176]
+Fri Sep 22 16:37:20 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CLIENTS" not found; SQL statement:
+INSERT INTO QR_Clients (ID, `ID`, `GlobeID`, `ClientName`) VALUES (13, 13, '', 'BTS') [42102-176]
+Fri Sep 22 16:37:20 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CONTACTS" not found; SQL statement:
+SELECT * FROM QR_Contacts WHERE ID = '13' [42102-176]
+Fri Sep 22 16:37:20 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CONTACTS" not found; SQL statement:
+INSERT INTO QR_Contacts (ID, `ID`, `ClientID`, `Name`, `LastName`, `email`, `phone`) VALUES (13, 13, 13, 'Anne ', 'Bostock', '', '0403 561 234') [42102-176]
+Fri Sep 22 16:37:20 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CLIENTS" not found; SQL statement:
+SELECT * FROM QR_Clients WHERE ID = '14' [42102-176]
+Fri Sep 22 16:37:20 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CLIENTS" not found; SQL statement:
+INSERT INTO QR_Clients (ID, `ID`, `GlobeID`, `ClientName`) VALUES (14, 14, '', 'North Shore Paving') [42102-176]
+Fri Sep 22 16:37:20 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CONTACTS" not found; SQL statement:
+SELECT * FROM QR_Contacts WHERE ID = '14' [42102-176]
+Fri Sep 22 16:37:20 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CONTACTS" not found; SQL statement:
+INSERT INTO QR_Contacts (ID, `ID`, `ClientID`, `Name`, `LastName`, `email`, `phone`) VALUES (14, 14, 14, 'Gaye', 'Lewin', '', '9416 0100') [42102-176]
+Fri Sep 22 16:37:21 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CLIENTS" not found; SQL statement:
+SELECT * FROM QR_Clients WHERE ID = '15' [42102-176]
+Fri Sep 22 16:37:21 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CLIENTS" not found; SQL statement:
+INSERT INTO QR_Clients (ID, `ID`, `GlobeID`, `ClientName`) VALUES (15, 15, '', 'Ford Civil') [42102-176]
+Fri Sep 22 16:37:21 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CONTACTS" not found; SQL statement:
+SELECT * FROM QR_Contacts WHERE ID = '15' [42102-176]
+Fri Sep 22 16:37:21 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CONTACTS" not found; SQL statement:
+INSERT INTO QR_Contacts (ID, `ID`, `ClientID`, `Name`, `LastName`, `email`, `phone`) VALUES (15, 15, 15, 'Robert', 'Browne', '', '0403 265 468') [42102-176]
+Fri Sep 22 16:37:21 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CLIENTS" not found; SQL statement:
+SELECT * FROM QR_Clients WHERE ID = '16' [42102-176]
+Fri Sep 22 16:37:21 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CLIENTS" not found; SQL statement:
+INSERT INTO QR_Clients (ID, `ID`, `GlobeID`, `ClientName`) VALUES (16, 16, '', 'WEM') [42102-176]
+Fri Sep 22 16:37:21 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CONTACTS" not found; SQL statement:
+SELECT * FROM QR_Contacts WHERE ID = '16' [42102-176]
+Fri Sep 22 16:37:21 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CONTACTS" not found; SQL statement:
+INSERT INTO QR_Contacts (ID, `ID`, `ClientID`, `Name`, `LastName`, `email`, `phone`) VALUES (16, 16, 16, 'Tvrtko', 'Tepic', '', '0433 454 950') [42102-176]
+Fri Sep 22 16:37:21 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CLIENTS" not found; SQL statement:
+SELECT * FROM QR_Clients WHERE ID = '17' [42102-176]
+Fri Sep 22 16:37:21 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CLIENTS" not found; SQL statement:
+INSERT INTO QR_Clients (ID, `ID`, `GlobeID`, `ClientName`) VALUES (17, 17, '', 'Attcall') [42102-176]
+Fri Sep 22 16:37:21 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CONTACTS" not found; SQL statement:
+SELECT * FROM QR_Contacts WHERE ID = '17' [42102-176]
+Fri Sep 22 16:37:21 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CONTACTS" not found; SQL statement:
+INSERT INTO QR_Contacts (ID, `ID`, `ClientID`, `Name`, `LastName`, `email`, `phone`) VALUES (17, 17, 17, 'Jordan', 'Kenyon', '', '0410 568 683') [42102-176]
+Fri Sep 22 16:37:21 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CLIENTS" not found; SQL statement:
+SELECT * FROM QR_Clients WHERE ID = '18' [42102-176]
+Fri Sep 22 16:37:21 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CLIENTS" not found; SQL statement:
+INSERT INTO QR_Clients (ID, `ID`, `GlobeID`, `ClientName`) VALUES (18, 18, '', 'NRT') [42102-176]
+Fri Sep 22 16:37:21 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CONTACTS" not found; SQL statement:
+SELECT * FROM QR_Contacts WHERE ID = '18' [42102-176]
+Fri Sep 22 16:37:21 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CONTACTS" not found; SQL statement:
+INSERT INTO QR_Contacts (ID, `ID`, `ClientID`, `Name`, `LastName`, `email`, `phone`) VALUES (18, 18, 18, 'Michaela ', 'Hodson', '', '0427 400 832') [42102-176]
+Fri Sep 22 16:37:21 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CLIENTS" not found; SQL statement:
+SELECT * FROM QR_Clients WHERE ID = '19' [42102-176]
+Fri Sep 22 16:37:21 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CLIENTS" not found; SQL statement:
+INSERT INTO QR_Clients (ID, `ID`, `GlobeID`, `ClientName`) VALUES (19, 19, '', 'BTS') [42102-176]
+Fri Sep 22 16:37:21 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CONTACTS" not found; SQL statement:
+SELECT * FROM QR_Contacts WHERE ID = '19' [42102-176]
+Fri Sep 22 16:37:21 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CONTACTS" not found; SQL statement:
+INSERT INTO QR_Contacts (ID, `ID`, `ClientID`, `Name`, `LastName`, `email`, `phone`) VALUES (19, 19, 19, 'Anne', 'Bostock', '', '0403 561 234') [42102-176]
+Fri Sep 22 16:37:21 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CLIENTS" not found; SQL statement:
+SELECT * FROM QR_Clients WHERE ID = '20' [42102-176]
+Fri Sep 22 16:37:22 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CLIENTS" not found; SQL statement:
+INSERT INTO QR_Clients (ID, `ID`, `GlobeID`, `ClientName`) VALUES (20, 20, '', 'BTS') [42102-176]
+Fri Sep 22 16:37:22 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CONTACTS" not found; SQL statement:
+SELECT * FROM QR_Contacts WHERE ID = '20' [42102-176]
+Fri Sep 22 16:37:22 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CONTACTS" not found; SQL statement:
+INSERT INTO QR_Contacts (ID, `ID`, `ClientID`, `Name`, `LastName`, `email`, `phone`) VALUES (20, 20, 20, 'Anne', 'Bostock', '', '0403 561 234') [42102-176]
+Fri Sep 22 16:37:22 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CLIENTS" not found; SQL statement:
+SELECT * FROM QR_Clients WHERE ID = '21' [42102-176]
+Fri Sep 22 16:37:22 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CLIENTS" not found; SQL statement:
+INSERT INTO QR_Clients (ID, `ID`, `GlobeID`, `ClientName`) VALUES (21, 21, '', 'Haslin') [42102-176]
+Fri Sep 22 16:37:22 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CONTACTS" not found; SQL statement:
+SELECT * FROM QR_Contacts WHERE ID = '21' [42102-176]
+Fri Sep 22 16:37:22 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CONTACTS" not found; SQL statement:
+INSERT INTO QR_Contacts (ID, `ID`, `ClientID`, `Name`, `LastName`, `email`, `phone`) VALUES (21, 21, 21, 'William', 'Huynh', '', '8522 3900') [42102-176]
+Fri Sep 22 16:37:22 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CLIENTS" not found; SQL statement:
+SELECT * FROM QR_Clients WHERE ID = '22' [42102-176]
+Fri Sep 22 16:37:22 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CLIENTS" not found; SQL statement:
+INSERT INTO QR_Clients (ID, `ID`, `GlobeID`, `ClientName`) VALUES (22, 22, '', 'BMD') [42102-176]
+Fri Sep 22 16:37:22 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CONTACTS" not found; SQL statement:
+SELECT * FROM QR_Contacts WHERE ID = '22' [42102-176]
+Fri Sep 22 16:37:22 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CONTACTS" not found; SQL statement:
+INSERT INTO QR_Contacts (ID, `ID`, `ClientID`, `Name`, `LastName`, `email`, `phone`) VALUES (22, 22, 22, 'Boa', 'Nguyen', '', '0417 705 969') [42102-176]
+Fri Sep 22 16:37:22 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CLIENTS" not found; SQL statement:
+SELECT * FROM QR_Clients WHERE ID = '23' [42102-176]
+Fri Sep 22 16:37:22 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CLIENTS" not found; SQL statement:
+INSERT INTO QR_Clients (ID, `ID`, `GlobeID`, `ClientName`) VALUES (23, 23, '', 'Antoun Civil') [42102-176]
+Fri Sep 22 16:37:22 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CONTACTS" not found; SQL statement:
+SELECT * FROM QR_Contacts WHERE ID = '23' [42102-176]
+Fri Sep 22 16:37:22 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CONTACTS" not found; SQL statement:
+INSERT INTO QR_Contacts (ID, `ID`, `ClientID`, `Name`, `LastName`, `email`, `phone`) VALUES (23, 23, 23, 'Nelson', 'Wong', '', '0419 314 131') [42102-176]
+Fri Sep 22 16:37:23 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CLIENTS" not found; SQL statement:
+SELECT * FROM QR_Clients WHERE ID = '24' [42102-176]
+Fri Sep 22 16:37:23 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CLIENTS" not found; SQL statement:
+INSERT INTO QR_Clients (ID, `ID`, `GlobeID`, `ClientName`) VALUES (24, 24, '', 'Skipmaster/Dartanyon') [42102-176]
+Fri Sep 22 16:37:23 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CONTACTS" not found; SQL statement:
+SELECT * FROM QR_Contacts WHERE ID = '24' [42102-176]
+Fri Sep 22 16:37:23 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CONTACTS" not found; SQL statement:
+INSERT INTO QR_Contacts (ID, `ID`, `ClientID`, `Name`, `LastName`, `email`, `phone`) VALUES (24, 24, 24, 'Greg', 'Kellner', '', '0416 191 799') [42102-176]
+Fri Sep 22 16:37:23 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CLIENTS" not found; SQL statement:
+SELECT * FROM QR_Clients WHERE ID = '25' [42102-176]
+Fri Sep 22 16:37:23 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CLIENTS" not found; SQL statement:
+INSERT INTO QR_Clients (ID, `ID`, `GlobeID`, `ClientName`) VALUES (25, 25, '', 'Nepean Landscapes') [42102-176]
+Fri Sep 22 16:37:23 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CONTACTS" not found; SQL statement:
+SELECT * FROM QR_Contacts WHERE ID = '25' [42102-176]
+Fri Sep 22 16:37:23 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CONTACTS" not found; SQL statement:
+INSERT INTO QR_Contacts (ID, `ID`, `ClientID`, `Name`, `LastName`, `email`, `phone`) VALUES (25, 25, 25, 'Christian', 'Wheatley', '', '0416 052 153') [42102-176]
+Fri Sep 22 16:37:23 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CLIENTS" not found; SQL statement:
+SELECT * FROM QR_Clients WHERE ID = '26' [42102-176]
+Fri Sep 22 16:37:23 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CLIENTS" not found; SQL statement:
+INSERT INTO QR_Clients (ID, `ID`, `GlobeID`, `ClientName`) VALUES (26, 26, '', 'Abbca Developments') [42102-176]
+Fri Sep 22 16:37:23 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CONTACTS" not found; SQL statement:
+SELECT * FROM QR_Contacts WHERE ID = '26' [42102-176]
+Fri Sep 22 16:37:23 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CONTACTS" not found; SQL statement:
+INSERT INTO QR_Contacts (ID, `ID`, `ClientID`, `Name`, `LastName`, `email`, `phone`) VALUES (26, 26, 26, 'Joe', 'Joe', '', '0414 973 118') [42102-176]
+Fri Sep 22 16:37:23 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CLIENTS" not found; SQL statement:
+SELECT * FROM QR_Clients WHERE ID = '27' [42102-176]
+Fri Sep 22 16:37:23 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CLIENTS" not found; SQL statement:
+INSERT INTO QR_Clients (ID, `ID`, `GlobeID`, `ClientName`) VALUES (27, 27, '', 'Holdmark Constructions') [42102-176]
+Fri Sep 22 16:37:23 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CONTACTS" not found; SQL statement:
+SELECT * FROM QR_Contacts WHERE ID = '27' [42102-176]
+Fri Sep 22 16:37:23 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CONTACTS" not found; SQL statement:
+INSERT INTO QR_Contacts (ID, `ID`, `ClientID`, `Name`, `LastName`, `email`, `phone`) VALUES (27, 27, 27, 'Tony', 'Tony', '', '98895540') [42102-176]
+Fri Sep 22 16:37:24 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CLIENTS" not found; SQL statement:
+SELECT * FROM QR_Clients WHERE ID = '28' [42102-176]
+Fri Sep 22 16:37:24 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CLIENTS" not found; SQL statement:
+INSERT INTO QR_Clients (ID, `ID`, `GlobeID`, `ClientName`) VALUES (28, 28, '', 'Haines Bros') [42102-176]
+Fri Sep 22 16:37:24 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CONTACTS" not found; SQL statement:
+SELECT * FROM QR_Contacts WHERE ID = '28' [42102-176]
+Fri Sep 22 16:37:24 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CONTACTS" not found; SQL statement:
+INSERT INTO QR_Contacts (ID, `ID`, `ClientID`, `Name`, `LastName`, `email`, `phone`) VALUES (28, 28, 28, 'Tolga', 'Cengiz', '', '47748899') [42102-176]
+Fri Sep 22 16:37:24 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CLIENTS" not found; SQL statement:
+SELECT * FROM QR_Clients WHERE ID = '29' [42102-176]
+Fri Sep 22 16:37:24 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CLIENTS" not found; SQL statement:
+INSERT INTO QR_Clients (ID, `ID`, `GlobeID`, `ClientName`) VALUES (29, 29, '', 'Schembris Earthmoving') [42102-176]
+Fri Sep 22 16:37:24 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CONTACTS" not found; SQL statement:
+SELECT * FROM QR_Contacts WHERE ID = '29' [42102-176]
+Fri Sep 22 16:37:24 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CONTACTS" not found; SQL statement:
+INSERT INTO QR_Contacts (ID, `ID`, `ClientID`, `Name`, `LastName`, `email`, `phone`) VALUES (29, 29, 29, 'Charlie', 'Schembri', '', '?') [42102-176]
+Fri Sep 22 16:37:24 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CLIENTS" not found; SQL statement:
+SELECT * FROM QR_Clients WHERE ID = '30' [42102-176]
+Fri Sep 22 16:37:24 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CLIENTS" not found; SQL statement:
+INSERT INTO QR_Clients (ID, `ID`, `GlobeID`, `ClientName`) VALUES (30, 30, '', 'Pace Eathworks') [42102-176]
+Fri Sep 22 16:37:24 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CONTACTS" not found; SQL statement:
+SELECT * FROM QR_Contacts WHERE ID = '30' [42102-176]
+Fri Sep 22 16:37:24 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CONTACTS" not found; SQL statement:
+INSERT INTO QR_Contacts (ID, `ID`, `ClientID`, `Name`, `LastName`, `email`, `phone`) VALUES (30, 30, 30, 'Craig', 'Pace', '', '0415 914 776') [42102-176]
+Fri Sep 22 16:37:24 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CLIENTS" not found; SQL statement:
+SELECT * FROM QR_Clients WHERE ID = '31' [42102-176]
+Fri Sep 22 16:37:24 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CLIENTS" not found; SQL statement:
+INSERT INTO QR_Clients (ID, `ID`, `GlobeID`, `ClientName`) VALUES (31, 31, '', 'AGH') [42102-176]
+Fri Sep 22 16:37:24 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CONTACTS" not found; SQL statement:
+SELECT * FROM QR_Contacts WHERE ID = '31' [42102-176]
+Fri Sep 22 16:37:24 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CONTACTS" not found; SQL statement:
+INSERT INTO QR_Contacts (ID, `ID`, `ClientID`, `Name`, `LastName`, `email`, `phone`) VALUES (31, 31, 31, 'Emily', 'Emily', '', '62990323') [42102-176]
+Fri Sep 22 16:37:24 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CONTACTS" not found; SQL statement:
+SELECT * FROM QR_Contacts WHERE ID = '32' [42102-176]
+Fri Sep 22 16:37:24 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CONTACTS" not found; SQL statement:
+INSERT INTO QR_Contacts (ID, `ID`, `ClientID`, `Name`, `LastName`, `email`, `phone`) VALUES (32, 32, 23, 'Joe', 'Diaz', '', '0419 938 247') [42102-176]
+Fri Sep 22 16:37:24 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CLIENTS" not found; SQL statement:
+SELECT * FROM QR_Clients WHERE ID = '32' [42102-176]
+Fri Sep 22 16:37:24 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CLIENTS" not found; SQL statement:
+INSERT INTO QR_Clients (ID, `ID`, `GlobeID`, `ClientName`) VALUES (32, 32, '', 'Codmah') [42102-176]
+Fri Sep 22 16:37:25 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CONTACTS" not found; SQL statement:
+SELECT * FROM QR_Contacts WHERE ID = '33' [42102-176]
+Fri Sep 22 16:37:25 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CONTACTS" not found; SQL statement:
+INSERT INTO QR_Contacts (ID, `ID`, `ClientID`, `Name`, `LastName`, `email`, `phone`) VALUES (33, 33, 32, 'Andy', 'Saunders', '', '0413 215 788') [42102-176]
+Fri Sep 22 16:37:25 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CLIENTS" not found; SQL statement:
+SELECT * FROM QR_Clients WHERE ID = '33' [42102-176]
+Fri Sep 22 16:37:25 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CLIENTS" not found; SQL statement:
+INSERT INTO QR_Clients (ID, `ID`, `GlobeID`, `ClientName`) VALUES (33, 33, '', 'M Collins') [42102-176]
+Fri Sep 22 16:37:25 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CONTACTS" not found; SQL statement:
+SELECT * FROM QR_Contacts WHERE ID = '34' [42102-176]
+Fri Sep 22 16:37:25 AEST 2017
+org.h2.jdbc.JdbcSQLException: Table "QR_CONTACTS" not found; SQL statement:
+INSERT INTO QR_Contacts (ID, `ID`, `ClientID`, `Name`, `LastName`, `email`, `phone`) VALUES (34, 34, 33, 'Nicole ', 'Pearce', '', '0419 297 107') [42102-176]

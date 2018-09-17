@@ -1,0 +1,822 @@
+Mon Feb 19 09:15:06 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '17786' AND LABORALLOCATIONID = ''784[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '17786' AND LaborAllocationID = ''784'' [42000-176]
+Mon Feb 19 09:15:07 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '17787' AND LABORALLOCATIONID = ''762[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '17787' AND LaborAllocationID = ''762'' [42000-176]
+Mon Feb 19 09:15:07 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '17788' AND LABORALLOCATIONID = ''793[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '17788' AND LaborAllocationID = ''793'' [42000-176]
+Mon Feb 19 09:15:07 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '17789' AND LABORALLOCATIONID = ''764[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '17789' AND LaborAllocationID = ''764'' [42000-176]
+Mon Feb 19 09:15:07 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '17790' AND LABORALLOCATIONID = ''775[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '17790' AND LaborAllocationID = ''775'' [42000-176]
+Mon Feb 19 09:15:07 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '17791' AND LABORALLOCATIONID = ''795[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '17791' AND LaborAllocationID = ''795'' [42000-176]
+Mon Feb 19 09:15:07 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '17792' AND LABORALLOCATIONID = ''765[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '17792' AND LaborAllocationID = ''765'' [42000-176]
+Mon Feb 19 09:15:07 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '17793' AND LABORALLOCATIONID = ''788[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '17793' AND LaborAllocationID = ''788'' [42000-176]
+Mon Feb 19 09:15:07 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '17794' AND LABORALLOCATIONID = ''776[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '17794' AND LaborAllocationID = ''776'' [42000-176]
+Mon Feb 19 09:15:07 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '17795' AND LABORALLOCATIONID = ''789[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '17795' AND LaborAllocationID = ''789'' [42000-176]
+Mon Feb 19 09:15:07 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '17796' AND LABORALLOCATIONID = ''767[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '17796' AND LaborAllocationID = ''767'' [42000-176]
+Mon Feb 19 09:15:07 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '17797' AND LABORALLOCATIONID = ''777[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '17797' AND LaborAllocationID = ''777'' [42000-176]
+Mon Feb 19 09:15:07 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '17798' AND LABORALLOCATIONID = ''785[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '17798' AND LaborAllocationID = ''785'' [42000-176]
+Mon Feb 19 09:15:07 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '17799' AND LABORALLOCATIONID = ''768[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '17799' AND LaborAllocationID = ''768'' [42000-176]
+Mon Feb 19 09:15:07 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '17800' AND LABORALLOCATIONID = ''786[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '17800' AND LaborAllocationID = ''786'' [42000-176]
+Mon Feb 19 09:15:07 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '17801' AND LABORALLOCATIONID = ''791[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '17801' AND LaborAllocationID = ''791'' [42000-176]
+Mon Feb 19 09:15:07 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Value too long for column "PLANTID VARCHAR(5) NOT NULL SELECTIVITY 1": "'GLS017' (6)"; SQL statement:
+INSERT INTO `LaborUtilization` (`ID`, `LaborAllocationID`, `PlantID`, `Hours`, `Status`, `Notes`, `DateFor`, `ApprovalID`) VALUES (17801, '791', 'GLS017', '1', '1', '', '2018-02-02', NULL); [22001-176]
+Mon Feb 19 09:15:07 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '17802' AND LABORALLOCATIONID = ''771[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '17802' AND LaborAllocationID = ''771'' [42000-176]
+Mon Feb 19 09:15:07 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '17803' AND LABORALLOCATIONID = ''770[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '17803' AND LaborAllocationID = ''770'' [42000-176]
+Mon Feb 19 09:15:07 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '17814' AND LABORALLOCATIONID = ''789[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '17814' AND LaborAllocationID = ''789'' [42000-176]
+Mon Feb 19 09:15:07 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORALLOCATION WHERE ID = '798' AND SITEID = ''2018[*]-02-02'' "; SQL statement:
+SELECT * FROM LaborAllocation WHERE ID = '798' AND SiteID = ''2018-02-02'' [42000-176]
+Mon Feb 19 09:15:07 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '17815' AND LABORALLOCATIONID = ''798[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '17815' AND LaborAllocationID = ''798'' [42000-176]
+Mon Feb 19 09:15:08 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '17831' AND LABORALLOCATIONID = ''772[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '17831' AND LaborAllocationID = ''772'' [42000-176]
+Mon Feb 19 09:15:08 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '17869' AND LABORALLOCATIONID = ''788[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '17869' AND LaborAllocationID = ''788'' [42000-176]
+Mon Feb 19 09:15:08 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '17870' AND LABORALLOCATIONID = ''789[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '17870' AND LaborAllocationID = ''789'' [42000-176]
+Mon Feb 19 09:15:08 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '17871' AND LABORALLOCATIONID = ''786[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '17871' AND LaborAllocationID = ''786'' [42000-176]
+Mon Feb 19 09:15:08 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '17872' AND LABORALLOCATIONID = ''764[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '17872' AND LaborAllocationID = ''764'' [42000-176]
+Mon Feb 19 09:15:08 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '17873' AND LABORALLOCATIONID = ''788[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '17873' AND LaborAllocationID = ''788'' [42000-176]
+Mon Feb 19 09:15:08 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '17874' AND LABORALLOCATIONID = ''777[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '17874' AND LaborAllocationID = ''777'' [42000-176]
+Mon Feb 19 09:15:08 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '17875' AND LABORALLOCATIONID = ''775[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '17875' AND LaborAllocationID = ''775'' [42000-176]
+Mon Feb 19 09:15:08 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '17876' AND LABORALLOCATIONID = ''795[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '17876' AND LaborAllocationID = ''795'' [42000-176]
+Mon Feb 19 09:15:08 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '17877' AND LABORALLOCATIONID = ''765[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '17877' AND LaborAllocationID = ''765'' [42000-176]
+Mon Feb 19 09:15:08 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '17878' AND LABORALLOCATIONID = ''762[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '17878' AND LaborAllocationID = ''762'' [42000-176]
+Mon Feb 19 09:15:08 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '17879' AND LABORALLOCATIONID = ''776[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '17879' AND LaborAllocationID = ''776'' [42000-176]
+Mon Feb 19 09:15:08 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '17880' AND LABORALLOCATIONID = ''769[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '17880' AND LaborAllocationID = ''769'' [42000-176]
+Mon Feb 19 09:15:08 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '17881' AND LABORALLOCATIONID = ''767[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '17881' AND LaborAllocationID = ''767'' [42000-176]
+Mon Feb 19 09:15:08 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '17882' AND LABORALLOCATIONID = ''766[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '17882' AND LaborAllocationID = ''766'' [42000-176]
+Mon Feb 19 09:15:08 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '17883' AND LABORALLOCATIONID = ''768[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '17883' AND LaborAllocationID = ''768'' [42000-176]
+Mon Feb 19 09:15:08 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '17884' AND LABORALLOCATIONID = ''791[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '17884' AND LaborAllocationID = ''791'' [42000-176]
+Mon Feb 19 09:15:08 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Value too long for column "PLANTID VARCHAR(5) NOT NULL SELECTIVITY 1": "'GLS017' (6)"; SQL statement:
+INSERT INTO `LaborUtilization` (`ID`, `LaborAllocationID`, `PlantID`, `Hours`, `Status`, `Notes`, `DateFor`, `ApprovalID`) VALUES (17884, '791', 'GLS017', '1', '1', '', '2018-02-05', NULL); [22001-176]
+Mon Feb 19 09:15:08 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '17885' AND LABORALLOCATIONID = ''771[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '17885' AND LaborAllocationID = ''771'' [42000-176]
+Mon Feb 19 09:15:08 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '17886' AND LABORALLOCATIONID = ''770[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '17886' AND LaborAllocationID = ''770'' [42000-176]
+Mon Feb 19 09:15:08 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '17887' AND LABORALLOCATIONID = ''789[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '17887' AND LaborAllocationID = ''789'' [42000-176]
+Mon Feb 19 09:15:09 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '17919' AND LABORALLOCATIONID = ''784[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '17919' AND LaborAllocationID = ''784'' [42000-176]
+Mon Feb 19 09:15:09 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORALLOCATION WHERE ID = '804' AND SITEID = ''2018[*]-02-05'' "; SQL statement:
+SELECT * FROM LaborAllocation WHERE ID = '804' AND SiteID = ''2018-02-05'' [42000-176]
+Mon Feb 19 09:15:09 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '17931' AND LABORALLOCATIONID = ''804[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '17931' AND LaborAllocationID = ''804'' [42000-176]
+Mon Feb 19 09:15:09 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '17932' AND LABORALLOCATIONID = ''793[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '17932' AND LaborAllocationID = ''793'' [42000-176]
+Mon Feb 19 09:15:09 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '17962' AND LABORALLOCATIONID = ''786[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '17962' AND LaborAllocationID = ''786'' [42000-176]
+Mon Feb 19 09:15:09 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '17963' AND LABORALLOCATIONID = ''780[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '17963' AND LaborAllocationID = ''780'' [42000-176]
+Mon Feb 19 09:15:09 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '17964' AND LABORALLOCATIONID = ''764[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '17964' AND LaborAllocationID = ''764'' [42000-176]
+Mon Feb 19 09:15:09 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '17965' AND LABORALLOCATIONID = ''775[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '17965' AND LaborAllocationID = ''775'' [42000-176]
+Mon Feb 19 09:15:09 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '17966' AND LABORALLOCATIONID = ''795[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '17966' AND LaborAllocationID = ''795'' [42000-176]
+Mon Feb 19 09:15:09 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '17967' AND LABORALLOCATIONID = ''765[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '17967' AND LaborAllocationID = ''765'' [42000-176]
+Mon Feb 19 09:15:09 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '17968' AND LABORALLOCATIONID = ''766[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '17968' AND LaborAllocationID = ''766'' [42000-176]
+Mon Feb 19 09:15:09 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '17969' AND LABORALLOCATIONID = ''788[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '17969' AND LaborAllocationID = ''788'' [42000-176]
+Mon Feb 19 09:15:09 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '17970' AND LABORALLOCATIONID = ''776[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '17970' AND LaborAllocationID = ''776'' [42000-176]
+Mon Feb 19 09:15:09 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '17971' AND LABORALLOCATIONID = ''769[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '17971' AND LaborAllocationID = ''769'' [42000-176]
+Mon Feb 19 09:15:09 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '17972' AND LABORALLOCATIONID = ''767[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '17972' AND LaborAllocationID = ''767'' [42000-176]
+Mon Feb 19 09:15:09 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '17973' AND LABORALLOCATIONID = ''791[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '17973' AND LaborAllocationID = ''791'' [42000-176]
+Mon Feb 19 09:15:09 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '17974' AND LABORALLOCATIONID = ''768[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '17974' AND LaborAllocationID = ''768'' [42000-176]
+Mon Feb 19 09:15:09 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '17975' AND LABORALLOCATIONID = ''777[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '17975' AND LaborAllocationID = ''777'' [42000-176]
+Mon Feb 19 09:15:09 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Value too long for column "PLANTID VARCHAR(5) NOT NULL SELECTIVITY 1": "'GLS017' (6)"; SQL statement:
+INSERT INTO `LaborUtilization` (`ID`, `LaborAllocationID`, `PlantID`, `Hours`, `Status`, `Notes`, `DateFor`, `ApprovalID`) VALUES (17975, '777', 'GLS017', '1', '1', '', '2018-02-06', NULL); [22001-176]
+Mon Feb 19 09:15:09 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '17976' AND LABORALLOCATIONID = ''762[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '17976' AND LaborAllocationID = ''762'' [42000-176]
+Mon Feb 19 09:15:09 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '17977' AND LABORALLOCATIONID = ''793[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '17977' AND LaborAllocationID = ''793'' [42000-176]
+Mon Feb 19 09:15:09 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '17978' AND LABORALLOCATIONID = ''784[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '17978' AND LaborAllocationID = ''784'' [42000-176]
+Mon Feb 19 09:15:09 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '17979' AND LABORALLOCATIONID = ''771[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '17979' AND LaborAllocationID = ''771'' [42000-176]
+Mon Feb 19 09:15:09 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '17980' AND LABORALLOCATIONID = ''770[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '17980' AND LaborAllocationID = ''770'' [42000-176]
+Mon Feb 19 09:15:09 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '17982' AND LABORALLOCATIONID = ''804[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '17982' AND LaborAllocationID = ''804'' [42000-176]
+Mon Feb 19 09:15:09 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '17983' AND LABORALLOCATIONID = ''789[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '17983' AND LaborAllocationID = ''789'' [42000-176]
+Mon Feb 19 09:15:09 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '17986' AND LABORALLOCATIONID = ''784[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '17986' AND LaborAllocationID = ''784'' [42000-176]
+Mon Feb 19 09:15:10 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORALLOCATION WHERE ID = '809' AND SITEID = ''2018[*]-02-06'' "; SQL statement:
+SELECT * FROM LaborAllocation WHERE ID = '809' AND SiteID = ''2018-02-06'' [42000-176]
+Mon Feb 19 09:15:10 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '17998' AND LABORALLOCATIONID = ''809[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '17998' AND LaborAllocationID = ''809'' [42000-176]
+Mon Feb 19 09:15:10 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18006' AND LABORALLOCATIONID = ''777[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18006' AND LaborAllocationID = ''777'' [42000-176]
+Mon Feb 19 09:15:10 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18007' AND LABORALLOCATIONID = ''791[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18007' AND LaborAllocationID = ''791'' [42000-176]
+Mon Feb 19 09:15:10 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Value too long for column "PLANTID VARCHAR(5) NOT NULL SELECTIVITY 1": "'GLS017' (6)"; SQL statement:
+INSERT INTO `LaborUtilization` (`ID`, `LaborAllocationID`, `PlantID`, `Hours`, `Status`, `Notes`, `DateFor`, `ApprovalID`) VALUES (18007, '791', 'GLS017', '1', '1', '', '2018-02-06', NULL); [22001-176]
+Mon Feb 19 09:15:10 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18021' AND LABORALLOCATIONID = ''765[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18021' AND LaborAllocationID = ''765'' [42000-176]
+Mon Feb 19 09:15:10 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18022' AND LABORALLOCATIONID = ''776[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18022' AND LaborAllocationID = ''776'' [42000-176]
+Mon Feb 19 09:15:10 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18023' AND LABORALLOCATIONID = ''767[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18023' AND LaborAllocationID = ''767'' [42000-176]
+Mon Feb 19 09:15:10 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18024' AND LABORALLOCATIONID = ''768[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18024' AND LaborAllocationID = ''768'' [42000-176]
+Mon Feb 19 09:15:10 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18025' AND LABORALLOCATIONID = ''762[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18025' AND LaborAllocationID = ''762'' [42000-176]
+Mon Feb 19 09:15:10 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18026' AND LABORALLOCATIONID = ''793[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18026' AND LaborAllocationID = ''793'' [42000-176]
+Mon Feb 19 09:15:10 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18027' AND LABORALLOCATIONID = ''771[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18027' AND LaborAllocationID = ''771'' [42000-176]
+Mon Feb 19 09:15:10 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18028' AND LABORALLOCATIONID = ''770[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18028' AND LaborAllocationID = ''770'' [42000-176]
+Mon Feb 19 09:15:10 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18029' AND LABORALLOCATIONID = ''784[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18029' AND LaborAllocationID = ''784'' [42000-176]
+Mon Feb 19 09:15:10 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18030' AND LABORALLOCATIONID = ''780[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18030' AND LaborAllocationID = ''780'' [42000-176]
+Mon Feb 19 09:15:10 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18031' AND LABORALLOCATIONID = ''764[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18031' AND LaborAllocationID = ''764'' [42000-176]
+Mon Feb 19 09:15:10 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18032' AND LABORALLOCATIONID = ''775[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18032' AND LaborAllocationID = ''775'' [42000-176]
+Mon Feb 19 09:15:10 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18033' AND LABORALLOCATIONID = ''795[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18033' AND LaborAllocationID = ''795'' [42000-176]
+Mon Feb 19 09:15:10 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18034' AND LABORALLOCATIONID = ''766[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18034' AND LaborAllocationID = ''766'' [42000-176]
+Mon Feb 19 09:15:10 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18035' AND LABORALLOCATIONID = ''788[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18035' AND LaborAllocationID = ''788'' [42000-176]
+Mon Feb 19 09:15:10 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18036' AND LABORALLOCATIONID = ''809[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18036' AND LaborAllocationID = ''809'' [42000-176]
+Mon Feb 19 09:15:10 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18037' AND LABORALLOCATIONID = ''777[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18037' AND LaborAllocationID = ''777'' [42000-176]
+Mon Feb 19 09:15:10 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18039' AND LABORALLOCATIONID = ''804[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18039' AND LaborAllocationID = ''804'' [42000-176]
+Mon Feb 19 09:15:10 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18040' AND LABORALLOCATIONID = ''791[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18040' AND LaborAllocationID = ''791'' [42000-176]
+Mon Feb 19 09:15:11 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Value too long for column "PLANTID VARCHAR(5) NOT NULL SELECTIVITY 1": "'GLS017' (6)"; SQL statement:
+INSERT INTO `LaborUtilization` (`ID`, `LaborAllocationID`, `PlantID`, `Hours`, `Status`, `Notes`, `DateFor`, `ApprovalID`) VALUES (18040, '791', 'GLS017', '1', '1', '', '2018-02-07', NULL); [22001-176]
+Mon Feb 19 09:15:11 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18041' AND LABORALLOCATIONID = ''789[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18041' AND LaborAllocationID = ''789'' [42000-176]
+Mon Feb 19 09:15:11 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18054' AND LABORALLOCATIONID = ''784[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18054' AND LaborAllocationID = ''784'' [42000-176]
+Mon Feb 19 09:15:11 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18055' AND LABORALLOCATIONID = ''780[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18055' AND LaborAllocationID = ''780'' [42000-176]
+Mon Feb 19 09:15:11 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18056' AND LABORALLOCATIONID = ''764[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18056' AND LaborAllocationID = ''764'' [42000-176]
+Mon Feb 19 09:15:11 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18057' AND LABORALLOCATIONID = ''775[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18057' AND LaborAllocationID = ''775'' [42000-176]
+Mon Feb 19 09:15:11 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18058' AND LABORALLOCATIONID = ''795[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18058' AND LaborAllocationID = ''795'' [42000-176]
+Mon Feb 19 09:15:11 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18059' AND LABORALLOCATIONID = ''765[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18059' AND LaborAllocationID = ''765'' [42000-176]
+Mon Feb 19 09:15:11 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18060' AND LABORALLOCATIONID = ''766[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18060' AND LaborAllocationID = ''766'' [42000-176]
+Mon Feb 19 09:15:11 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18061' AND LABORALLOCATIONID = ''788[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18061' AND LaborAllocationID = ''788'' [42000-176]
+Mon Feb 19 09:15:11 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18062' AND LABORALLOCATIONID = ''776[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18062' AND LaborAllocationID = ''776'' [42000-176]
+Mon Feb 19 09:15:11 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18063' AND LABORALLOCATIONID = ''809[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18063' AND LaborAllocationID = ''809'' [42000-176]
+Mon Feb 19 09:15:11 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18064' AND LABORALLOCATIONID = ''767[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18064' AND LaborAllocationID = ''767'' [42000-176]
+Mon Feb 19 09:15:11 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18065' AND LABORALLOCATIONID = ''777[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18065' AND LaborAllocationID = ''777'' [42000-176]
+Mon Feb 19 09:15:11 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18066' AND LABORALLOCATIONID = ''804[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18066' AND LaborAllocationID = ''804'' [42000-176]
+Mon Feb 19 09:15:11 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18067' AND LABORALLOCATIONID = ''768[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18067' AND LaborAllocationID = ''768'' [42000-176]
+Mon Feb 19 09:15:11 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18068' AND LABORALLOCATIONID = ''791[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18068' AND LaborAllocationID = ''791'' [42000-176]
+Mon Feb 19 09:15:11 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Value too long for column "PLANTID VARCHAR(5) NOT NULL SELECTIVITY 1": "'GLS017' (6)"; SQL statement:
+INSERT INTO `LaborUtilization` (`ID`, `LaborAllocationID`, `PlantID`, `Hours`, `Status`, `Notes`, `DateFor`, `ApprovalID`) VALUES (18068, '791', 'GLS017', '1', '1', '', '2018-02-08', NULL); [22001-176]
+Mon Feb 19 09:15:11 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18069' AND LABORALLOCATIONID = ''762[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18069' AND LaborAllocationID = ''762'' [42000-176]
+Mon Feb 19 09:15:11 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18070' AND LABORALLOCATIONID = ''793[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18070' AND LaborAllocationID = ''793'' [42000-176]
+Mon Feb 19 09:15:11 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18071' AND LABORALLOCATIONID = ''771[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18071' AND LaborAllocationID = ''771'' [42000-176]
+Mon Feb 19 09:15:11 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18072' AND LABORALLOCATIONID = ''770[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18072' AND LaborAllocationID = ''770'' [42000-176]
+Mon Feb 19 09:15:11 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18073' AND LABORALLOCATIONID = ''789[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18073' AND LaborAllocationID = ''789'' [42000-176]
+Mon Feb 19 09:15:12 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Duplicate column name "ID"; SQL statement:
+UPDATE PlantList SET `ID` = P356,`ID` = 'P356',`PlantDesc` = 'Komatsu WA380-6 ',`Rate` = '341.5',`UnitOfMeasurement` = 'h' WHERE ID = P356 [42121-176]
+Mon Feb 19 09:15:12 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18151' AND LABORALLOCATIONID = ''777[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18151' AND LaborAllocationID = ''777'' [42000-176]
+Mon Feb 19 09:15:12 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18152' AND LABORALLOCATIONID = ''776[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18152' AND LaborAllocationID = ''776'' [42000-176]
+Mon Feb 19 09:15:12 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18153' AND LABORALLOCATIONID = ''804[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18153' AND LaborAllocationID = ''804'' [42000-176]
+Mon Feb 19 09:15:12 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18154' AND LABORALLOCATIONID = ''764[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18154' AND LaborAllocationID = ''764'' [42000-176]
+Mon Feb 19 09:15:12 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18155' AND LABORALLOCATIONID = ''788[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18155' AND LaborAllocationID = ''788'' [42000-176]
+Mon Feb 19 09:15:12 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18156' AND LABORALLOCATIONID = ''771[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18156' AND LaborAllocationID = ''771'' [42000-176]
+Mon Feb 19 09:15:12 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18157' AND LABORALLOCATIONID = ''795[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18157' AND LaborAllocationID = ''795'' [42000-176]
+Mon Feb 19 09:15:12 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18161' AND LABORALLOCATIONID = ''766[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18161' AND LaborAllocationID = ''766'' [42000-176]
+Mon Feb 19 09:15:12 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18162' AND LABORALLOCATIONID = ''784[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18162' AND LaborAllocationID = ''784'' [42000-176]
+Mon Feb 19 09:15:12 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18163' AND LABORALLOCATIONID = ''780[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18163' AND LaborAllocationID = ''780'' [42000-176]
+Mon Feb 19 09:15:12 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18164' AND LABORALLOCATIONID = ''762[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18164' AND LaborAllocationID = ''762'' [42000-176]
+Mon Feb 19 09:15:12 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18165' AND LABORALLOCATIONID = ''765[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18165' AND LaborAllocationID = ''765'' [42000-176]
+Mon Feb 19 09:15:12 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18166' AND LABORALLOCATIONID = ''809[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18166' AND LaborAllocationID = ''809'' [42000-176]
+Mon Feb 19 09:15:12 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18167' AND LABORALLOCATIONID = ''767[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18167' AND LaborAllocationID = ''767'' [42000-176]
+Mon Feb 19 09:15:12 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18168' AND LABORALLOCATIONID = ''768[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18168' AND LaborAllocationID = ''768'' [42000-176]
+Mon Feb 19 09:15:12 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18169' AND LABORALLOCATIONID = ''791[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18169' AND LaborAllocationID = ''791'' [42000-176]
+Mon Feb 19 09:15:12 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Value too long for column "PLANTID VARCHAR(5) NOT NULL SELECTIVITY 1": "'GLS017' (6)"; SQL statement:
+INSERT INTO `LaborUtilization` (`ID`, `LaborAllocationID`, `PlantID`, `Hours`, `Status`, `Notes`, `DateFor`, `ApprovalID`) VALUES (18169, '791', 'GLS017', '1', '1', '', '2018-02-09', NULL); [22001-176]
+Mon Feb 19 09:15:12 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18170' AND LABORALLOCATIONID = ''789[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18170' AND LaborAllocationID = ''789'' [42000-176]
+Mon Feb 19 09:15:12 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Column "NAME" not found; SQL statement:
+UPDATE Login SET Name = 'Brenda', LastName = 'Gaal', Rights = '{"Pages":["dashboard","plantutilization","labourutilization","Sales","Productutilization","Stocks","Transport"],"Rights":1,"Sites":[1,2,3,4,5,6,7,8]}' WHERE id = '47' [42122-176]
+Mon Feb 19 09:15:13 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18212' AND LABORALLOCATIONID = ''770[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18212' AND LaborAllocationID = ''770'' [42000-176]
+Mon Feb 19 09:15:13 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18270' AND LABORALLOCATIONID = ''786[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18270' AND LaborAllocationID = ''786'' [42000-176]
+Mon Feb 19 09:15:13 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18271' AND LABORALLOCATIONID = ''784[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18271' AND LaborAllocationID = ''784'' [42000-176]
+Mon Feb 19 09:15:13 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18272' AND LABORALLOCATIONID = ''771[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18272' AND LaborAllocationID = ''771'' [42000-176]
+Mon Feb 19 09:15:13 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18273' AND LABORALLOCATIONID = ''764[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18273' AND LaborAllocationID = ''764'' [42000-176]
+Mon Feb 19 09:15:13 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18274' AND LABORALLOCATIONID = ''775[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18274' AND LaborAllocationID = ''775'' [42000-176]
+Mon Feb 19 09:15:13 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18275' AND LABORALLOCATIONID = ''791[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18275' AND LaborAllocationID = ''791'' [42000-176]
+Mon Feb 19 09:15:13 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Value too long for column "PLANTID VARCHAR(5) NOT NULL SELECTIVITY 1": "'GLS017' (6)"; SQL statement:
+INSERT INTO `LaborUtilization` (`ID`, `LaborAllocationID`, `PlantID`, `Hours`, `Status`, `Notes`, `DateFor`, `ApprovalID`) VALUES (18275, '791', 'GLS017', '1', '1', '', '2018-02-12', NULL); [22001-176]
+Mon Feb 19 09:15:13 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18276' AND LABORALLOCATIONID = ''795[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18276' AND LaborAllocationID = ''795'' [42000-176]
+Mon Feb 19 09:15:13 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18277' AND LABORALLOCATIONID = ''777[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18277' AND LaborAllocationID = ''777'' [42000-176]
+Mon Feb 19 09:15:13 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18278' AND LABORALLOCATIONID = ''765[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18278' AND LaborAllocationID = ''765'' [42000-176]
+Mon Feb 19 09:15:13 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18279' AND LABORALLOCATIONID = ''789[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18279' AND LaborAllocationID = ''789'' [42000-176]
+Mon Feb 19 09:15:13 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18280' AND LABORALLOCATIONID = ''766[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18280' AND LaborAllocationID = ''766'' [42000-176]
+Mon Feb 19 09:15:13 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18281' AND LABORALLOCATIONID = ''768[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18281' AND LaborAllocationID = ''768'' [42000-176]
+Mon Feb 19 09:15:13 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18282' AND LABORALLOCATIONID = ''793[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18282' AND LaborAllocationID = ''793'' [42000-176]
+Mon Feb 19 09:15:13 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18283' AND LABORALLOCATIONID = ''780[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18283' AND LaborAllocationID = ''780'' [42000-176]
+Mon Feb 19 09:15:13 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18284' AND LABORALLOCATIONID = ''762[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18284' AND LaborAllocationID = ''762'' [42000-176]
+Mon Feb 19 09:15:13 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18285' AND LABORALLOCATIONID = ''776[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18285' AND LaborAllocationID = ''776'' [42000-176]
+Mon Feb 19 09:15:13 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18286' AND LABORALLOCATIONID = ''767[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18286' AND LaborAllocationID = ''767'' [42000-176]
+Mon Feb 19 09:15:13 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18287' AND LABORALLOCATIONID = ''809[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18287' AND LaborAllocationID = ''809'' [42000-176]
+Mon Feb 19 09:15:13 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18288' AND LABORALLOCATIONID = ''804[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18288' AND LaborAllocationID = ''804'' [42000-176]
+Mon Feb 19 09:15:13 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18292' AND LABORALLOCATIONID = ''784[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18292' AND LaborAllocationID = ''784'' [42000-176]
+Mon Feb 19 09:15:14 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18293' AND LABORALLOCATIONID = ''780[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18293' AND LaborAllocationID = ''780'' [42000-176]
+Mon Feb 19 09:15:14 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18294' AND LABORALLOCATIONID = ''764[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18294' AND LaborAllocationID = ''764'' [42000-176]
+Mon Feb 19 09:15:14 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18295' AND LABORALLOCATIONID = ''775[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18295' AND LaborAllocationID = ''775'' [42000-176]
+Mon Feb 19 09:15:14 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18300' AND LABORALLOCATIONID = ''762[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18300' AND LaborAllocationID = ''762'' [42000-176]
+Mon Feb 19 09:15:14 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18301' AND LABORALLOCATIONID = ''765[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18301' AND LaborAllocationID = ''765'' [42000-176]
+Mon Feb 19 09:15:14 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18302' AND LABORALLOCATIONID = ''766[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18302' AND LaborAllocationID = ''766'' [42000-176]
+Mon Feb 19 09:15:14 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18303' AND LABORALLOCATIONID = ''788[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18303' AND LaborAllocationID = ''788'' [42000-176]
+Mon Feb 19 09:15:14 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18304' AND LABORALLOCATIONID = ''776[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18304' AND LaborAllocationID = ''776'' [42000-176]
+Mon Feb 19 09:15:14 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18305' AND LABORALLOCATIONID = ''809[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18305' AND LaborAllocationID = ''809'' [42000-176]
+Mon Feb 19 09:15:14 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18306' AND LABORALLOCATIONID = ''767[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18306' AND LaborAllocationID = ''767'' [42000-176]
+Mon Feb 19 09:15:14 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18307' AND LABORALLOCATIONID = ''804[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18307' AND LaborAllocationID = ''804'' [42000-176]
+Mon Feb 19 09:15:14 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18312' AND LABORALLOCATIONID = ''786[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18312' AND LaborAllocationID = ''786'' [42000-176]
+Mon Feb 19 09:15:14 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18313' AND LABORALLOCATIONID = ''784[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18313' AND LaborAllocationID = ''784'' [42000-176]
+Mon Feb 19 09:15:14 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18314' AND LABORALLOCATIONID = ''780[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18314' AND LaborAllocationID = ''780'' [42000-176]
+Mon Feb 19 09:15:14 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18315' AND LABORALLOCATIONID = ''764[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18315' AND LaborAllocationID = ''764'' [42000-176]
+Mon Feb 19 09:15:14 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18316' AND LABORALLOCATIONID = ''775[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18316' AND LaborAllocationID = ''775'' [42000-176]
+Mon Feb 19 09:15:14 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18317' AND LABORALLOCATIONID = ''795[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18317' AND LaborAllocationID = ''795'' [42000-176]
+Mon Feb 19 09:15:14 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18318' AND LABORALLOCATIONID = ''765[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18318' AND LaborAllocationID = ''765'' [42000-176]
+Mon Feb 19 09:15:14 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18319' AND LABORALLOCATIONID = ''766[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18319' AND LaborAllocationID = ''766'' [42000-176]
+Mon Feb 19 09:15:14 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18358' AND LABORALLOCATIONID = ''788[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18358' AND LaborAllocationID = ''788'' [42000-176]
+Mon Feb 19 09:15:14 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18359' AND LABORALLOCATIONID = ''776[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18359' AND LaborAllocationID = ''776'' [42000-176]
+Mon Feb 19 09:15:14 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18360' AND LABORALLOCATIONID = ''809[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18360' AND LaborAllocationID = ''809'' [42000-176]
+Mon Feb 19 09:15:14 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18361' AND LABORALLOCATIONID = ''767[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18361' AND LaborAllocationID = ''767'' [42000-176]
+Mon Feb 19 09:15:14 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18362' AND LABORALLOCATIONID = ''777[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18362' AND LaborAllocationID = ''777'' [42000-176]
+Mon Feb 19 09:15:14 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18363' AND LABORALLOCATIONID = ''804[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18363' AND LaborAllocationID = ''804'' [42000-176]
+Mon Feb 19 09:15:14 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18364' AND LABORALLOCATIONID = ''762[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18364' AND LaborAllocationID = ''762'' [42000-176]
+Mon Feb 19 09:15:15 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18365' AND LABORALLOCATIONID = ''791[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18365' AND LaborAllocationID = ''791'' [42000-176]
+Mon Feb 19 09:15:15 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Value too long for column "PLANTID VARCHAR(5) NOT NULL SELECTIVITY 1": "'GLS017' (6)"; SQL statement:
+INSERT INTO `LaborUtilization` (`ID`, `LaborAllocationID`, `PlantID`, `Hours`, `Status`, `Notes`, `DateFor`, `ApprovalID`) VALUES (18365, '791', 'GLS017', '1', '1', '', '2018-02-13', NULL); [22001-176]
+Mon Feb 19 09:15:15 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18366' AND LABORALLOCATIONID = ''768[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18366' AND LaborAllocationID = ''768'' [42000-176]
+Mon Feb 19 09:15:15 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18367' AND LABORALLOCATIONID = ''793[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18367' AND LaborAllocationID = ''793'' [42000-176]
+Mon Feb 19 09:15:15 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18368' AND LABORALLOCATIONID = ''770[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18368' AND LaborAllocationID = ''770'' [42000-176]
+Mon Feb 19 09:15:15 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18369' AND LABORALLOCATIONID = ''789[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18369' AND LaborAllocationID = ''789'' [42000-176]
+Mon Feb 19 09:15:15 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18414' AND LABORALLOCATIONID = ''786[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18414' AND LaborAllocationID = ''786'' [42000-176]
+Mon Feb 19 09:15:15 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18415' AND LABORALLOCATIONID = ''780[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18415' AND LaborAllocationID = ''780'' [42000-176]
+Mon Feb 19 09:15:15 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18416' AND LABORALLOCATIONID = ''764[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18416' AND LaborAllocationID = ''764'' [42000-176]
+Mon Feb 19 09:15:15 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18417' AND LABORALLOCATIONID = ''775[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18417' AND LaborAllocationID = ''775'' [42000-176]
+Mon Feb 19 09:15:15 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18418' AND LABORALLOCATIONID = ''795[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18418' AND LaborAllocationID = ''795'' [42000-176]
+Mon Feb 19 09:15:15 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18419' AND LABORALLOCATIONID = ''766[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18419' AND LaborAllocationID = ''766'' [42000-176]
+Mon Feb 19 09:15:15 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18420' AND LABORALLOCATIONID = ''788[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18420' AND LaborAllocationID = ''788'' [42000-176]
+Mon Feb 19 09:15:15 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18421' AND LABORALLOCATIONID = ''776[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18421' AND LaborAllocationID = ''776'' [42000-176]
+Mon Feb 19 09:15:15 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18422' AND LABORALLOCATIONID = ''804[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18422' AND LaborAllocationID = ''804'' [42000-176]
+Mon Feb 19 09:15:15 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18423' AND LABORALLOCATIONID = ''784[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18423' AND LaborAllocationID = ''784'' [42000-176]
+Mon Feb 19 09:15:15 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18424' AND LABORALLOCATIONID = ''771[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18424' AND LaborAllocationID = ''771'' [42000-176]
+Mon Feb 19 09:15:15 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18425' AND LABORALLOCATIONID = ''770[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18425' AND LaborAllocationID = ''770'' [42000-176]
+Mon Feb 19 09:15:15 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18426' AND LABORALLOCATIONID = ''793[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18426' AND LaborAllocationID = ''793'' [42000-176]
+Mon Feb 19 09:15:15 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18427' AND LABORALLOCATIONID = ''791[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18427' AND LaborAllocationID = ''791'' [42000-176]
+Mon Feb 19 09:15:15 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Value too long for column "PLANTID VARCHAR(5) NOT NULL SELECTIVITY 1": "'GLS017' (6)"; SQL statement:
+INSERT INTO `LaborUtilization` (`ID`, `LaborAllocationID`, `PlantID`, `Hours`, `Status`, `Notes`, `DateFor`, `ApprovalID`) VALUES (18427, '791', 'GLS017', '1', '1', '', '2018-02-14', NULL); [22001-176]
+Mon Feb 19 09:15:15 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18428' AND LABORALLOCATIONID = ''809[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18428' AND LaborAllocationID = ''809'' [42000-176]
+Mon Feb 19 09:15:16 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18433' AND LABORALLOCATIONID = ''767[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18433' AND LaborAllocationID = ''767'' [42000-176]
+Mon Feb 19 09:15:16 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18434' AND LABORALLOCATIONID = ''777[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18434' AND LaborAllocationID = ''777'' [42000-176]
+Mon Feb 19 09:15:16 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18440' AND LABORALLOCATIONID = ''762[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18440' AND LaborAllocationID = ''762'' [42000-176]
+Mon Feb 19 09:15:16 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18448' AND LABORALLOCATIONID = ''789[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18448' AND LaborAllocationID = ''789'' [42000-176]
+Mon Feb 19 09:15:16 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18452' AND LABORALLOCATIONID = ''786[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18452' AND LaborAllocationID = ''786'' [42000-176]
+Mon Feb 19 09:15:16 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18453' AND LABORALLOCATIONID = ''780[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18453' AND LaborAllocationID = ''780'' [42000-176]
+Mon Feb 19 09:15:16 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18454' AND LABORALLOCATIONID = ''764[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18454' AND LaborAllocationID = ''764'' [42000-176]
+Mon Feb 19 09:15:16 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18455' AND LABORALLOCATIONID = ''775[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18455' AND LaborAllocationID = ''775'' [42000-176]
+Mon Feb 19 09:15:16 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18456' AND LABORALLOCATIONID = ''795[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18456' AND LaborAllocationID = ''795'' [42000-176]
+Mon Feb 19 09:15:16 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18457' AND LABORALLOCATIONID = ''766[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18457' AND LaborAllocationID = ''766'' [42000-176]
+Mon Feb 19 09:15:16 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18458' AND LABORALLOCATIONID = ''788[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18458' AND LaborAllocationID = ''788'' [42000-176]
+Mon Feb 19 09:15:16 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18459' AND LABORALLOCATIONID = ''776[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18459' AND LaborAllocationID = ''776'' [42000-176]
+Mon Feb 19 09:15:16 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18460' AND LABORALLOCATIONID = ''809[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18460' AND LaborAllocationID = ''809'' [42000-176]
+Mon Feb 19 09:15:16 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18461' AND LABORALLOCATIONID = ''767[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18461' AND LaborAllocationID = ''767'' [42000-176]
+Mon Feb 19 09:15:16 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18462' AND LABORALLOCATIONID = ''777[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18462' AND LaborAllocationID = ''777'' [42000-176]
+Mon Feb 19 09:15:16 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18463' AND LABORALLOCATIONID = ''804[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18463' AND LaborAllocationID = ''804'' [42000-176]
+Mon Feb 19 09:15:16 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18464' AND LABORALLOCATIONID = ''762[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18464' AND LaborAllocationID = ''762'' [42000-176]
+Mon Feb 19 09:15:16 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18465' AND LABORALLOCATIONID = ''791[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18465' AND LaborAllocationID = ''791'' [42000-176]
+Mon Feb 19 09:15:16 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Value too long for column "PLANTID VARCHAR(5) NOT NULL SELECTIVITY 1": "'GLS017' (6)"; SQL statement:
+INSERT INTO `LaborUtilization` (`ID`, `LaborAllocationID`, `PlantID`, `Hours`, `Status`, `Notes`, `DateFor`, `ApprovalID`) VALUES (18465, '791', 'GLS017', '1', '1', '', '2018-02-15', NULL); [22001-176]
+Mon Feb 19 09:15:16 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18467' AND LABORALLOCATIONID = ''770[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18467' AND LaborAllocationID = ''770'' [42000-176]
+Mon Feb 19 09:15:16 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18468' AND LABORALLOCATIONID = ''793[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18468' AND LaborAllocationID = ''793'' [42000-176]
+Mon Feb 19 09:15:16 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18469' AND LABORALLOCATIONID = ''789[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18469' AND LaborAllocationID = ''789'' [42000-176]
+Mon Feb 19 09:15:16 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18473' AND LABORALLOCATIONID = ''784[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18473' AND LaborAllocationID = ''784'' [42000-176]
+Mon Feb 19 09:15:17 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18548' AND LABORALLOCATIONID = ''786[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18548' AND LaborAllocationID = ''786'' [42000-176]
+Mon Feb 19 09:15:17 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18549' AND LABORALLOCATIONID = ''780[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18549' AND LaborAllocationID = ''780'' [42000-176]
+Mon Feb 19 09:15:17 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18550' AND LABORALLOCATIONID = ''764[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18550' AND LaborAllocationID = ''764'' [42000-176]
+Mon Feb 19 09:15:17 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18551' AND LABORALLOCATIONID = ''775[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18551' AND LaborAllocationID = ''775'' [42000-176]
+Mon Feb 19 09:15:17 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18552' AND LABORALLOCATIONID = ''795[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18552' AND LaborAllocationID = ''795'' [42000-176]
+Mon Feb 19 09:15:17 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18553' AND LABORALLOCATIONID = ''766[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18553' AND LaborAllocationID = ''766'' [42000-176]
+Mon Feb 19 09:15:17 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18554' AND LABORALLOCATIONID = ''788[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18554' AND LaborAllocationID = ''788'' [42000-176]
+Mon Feb 19 09:15:17 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18555' AND LABORALLOCATIONID = ''776[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18555' AND LaborAllocationID = ''776'' [42000-176]
+Mon Feb 19 09:15:17 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18556' AND LABORALLOCATIONID = ''809[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18556' AND LaborAllocationID = ''809'' [42000-176]
+Mon Feb 19 09:15:17 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18557' AND LABORALLOCATIONID = ''767[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18557' AND LaborAllocationID = ''767'' [42000-176]
+Mon Feb 19 09:15:17 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18558' AND LABORALLOCATIONID = ''777[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18558' AND LaborAllocationID = ''777'' [42000-176]
+Mon Feb 19 09:15:17 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18559' AND LABORALLOCATIONID = ''804[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18559' AND LaborAllocationID = ''804'' [42000-176]
+Mon Feb 19 09:15:17 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18560' AND LABORALLOCATIONID = ''762[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18560' AND LaborAllocationID = ''762'' [42000-176]
+Mon Feb 19 09:15:17 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18561' AND LABORALLOCATIONID = ''793[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18561' AND LaborAllocationID = ''793'' [42000-176]
+Mon Feb 19 09:15:17 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18562' AND LABORALLOCATIONID = ''784[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18562' AND LaborAllocationID = ''784'' [42000-176]
+Mon Feb 19 09:15:17 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18563' AND LABORALLOCATIONID = ''770[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18563' AND LaborAllocationID = ''770'' [42000-176]
+Mon Feb 19 09:15:17 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18564' AND LABORALLOCATIONID = ''789[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18564' AND LaborAllocationID = ''789'' [42000-176]
+Mon Feb 19 09:15:17 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18628' AND LABORALLOCATIONID = ''786[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18628' AND LaborAllocationID = ''786'' [42000-176]
+Mon Feb 19 09:15:17 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18629' AND LABORALLOCATIONID = ''768[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18629' AND LaborAllocationID = ''768'' [42000-176]
+Mon Feb 19 09:15:17 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18642' AND LABORALLOCATIONID = ''770[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18642' AND LaborAllocationID = ''770'' [42000-176]
+Mon Feb 19 09:15:17 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18645' AND LABORALLOCATIONID = ''764[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18645' AND LaborAllocationID = ''764'' [42000-176]
+Mon Feb 19 09:15:17 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18646' AND LABORALLOCATIONID = ''775[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18646' AND LaborAllocationID = ''775'' [42000-176]
+Mon Feb 19 09:15:17 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18647' AND LABORALLOCATIONID = ''795[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18647' AND LaborAllocationID = ''795'' [42000-176]
+Mon Feb 19 09:15:17 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18648' AND LABORALLOCATIONID = ''765[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18648' AND LaborAllocationID = ''765'' [42000-176]
+Mon Feb 19 09:15:17 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18649' AND LABORALLOCATIONID = ''772[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18649' AND LaborAllocationID = ''772'' [42000-176]
+Mon Feb 19 09:15:18 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18650' AND LABORALLOCATIONID = ''788[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18650' AND LaborAllocationID = ''788'' [42000-176]
+Mon Feb 19 09:15:18 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18651' AND LABORALLOCATIONID = ''776[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18651' AND LaborAllocationID = ''776'' [42000-176]
+Mon Feb 19 09:15:18 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18652' AND LABORALLOCATIONID = ''809[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18652' AND LaborAllocationID = ''809'' [42000-176]
+Mon Feb 19 09:15:18 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18653' AND LABORALLOCATIONID = ''767[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18653' AND LaborAllocationID = ''767'' [42000-176]
+Mon Feb 19 09:15:18 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18654' AND LABORALLOCATIONID = ''777[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18654' AND LaborAllocationID = ''777'' [42000-176]
+Mon Feb 19 09:15:18 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18655' AND LABORALLOCATIONID = ''804[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18655' AND LaborAllocationID = ''804'' [42000-176]
+Mon Feb 19 09:15:18 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18656' AND LABORALLOCATIONID = ''762[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18656' AND LaborAllocationID = ''762'' [42000-176]
+Mon Feb 19 09:15:18 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18661' AND LABORALLOCATIONID = ''791[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18661' AND LaborAllocationID = ''791'' [42000-176]
+Mon Feb 19 09:15:18 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Value too long for column "PLANTID VARCHAR(5) NOT NULL SELECTIVITY 1": "'GLS017' (6)"; SQL statement:
+INSERT INTO `LaborUtilization` (`ID`, `LaborAllocationID`, `PlantID`, `Hours`, `Status`, `Notes`, `DateFor`, `ApprovalID`) VALUES (18661, '791', 'GLS017', '1', '1', '', '2018-02-19', NULL); [22001-176]
+Mon Feb 19 09:15:18 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18662' AND LABORALLOCATIONID = ''793[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18662' AND LaborAllocationID = ''793'' [42000-176]
+Mon Feb 19 09:15:18 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18663' AND LABORALLOCATIONID = ''784[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18663' AND LaborAllocationID = ''784'' [42000-176]
+Mon Feb 19 09:15:18 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18664' AND LABORALLOCATIONID = ''791[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18664' AND LaborAllocationID = ''791'' [42000-176]
+Mon Feb 19 09:15:18 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18665' AND LABORALLOCATIONID = ''789[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18665' AND LaborAllocationID = ''789'' [42000-176]
+Mon Feb 19 09:18:29 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18661' AND LABORALLOCATIONID = ''791[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18661' AND LaborAllocationID = ''791'' [42000-176]
+Mon Feb 19 09:18:29 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Value too long for column "PLANTID VARCHAR(5) NOT NULL SELECTIVITY 1": "'GLS017' (6)"; SQL statement:
+INSERT INTO `LaborUtilization` (`ID`, `LaborAllocationID`, `PlantID`, `Hours`, `Status`, `Notes`, `DateFor`, `ApprovalID`) VALUES (18661, '791', 'GLS017', '1', '1', '', '2018-02-19', NULL); [22001-176]
+Mon Feb 19 09:18:29 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18662' AND LABORALLOCATIONID = ''793[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18662' AND LaborAllocationID = ''793'' [42000-176]
+Mon Feb 19 09:18:29 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18663' AND LABORALLOCATIONID = ''784[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18663' AND LaborAllocationID = ''784'' [42000-176]
+Mon Feb 19 09:18:29 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18664' AND LABORALLOCATIONID = ''791[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18664' AND LaborAllocationID = ''791'' [42000-176]
+Mon Feb 19 09:18:29 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '18665' AND LABORALLOCATIONID = ''789[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '18665' AND LaborAllocationID = ''789'' [42000-176]

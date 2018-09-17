@@ -70,6 +70,10 @@ public class PlantView {
         return startHours;
     }
 
+    public void setEndHours(int endHours) {
+        this.endHours = endHours;
+    }
+
     public int getEndHours() {
         return endHours;
     }

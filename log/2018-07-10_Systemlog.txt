@@ -1,0 +1,540 @@
+Tue Jul 10 09:30:51 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_7E ON PUBLIC.SALES(ID, SITEID) VALUES ( /* key:28130 */ 18737, 1, null, null, null, null, null, null, null)"; SQL statement:
+UPDATE Sales SET ID = 18737,`SiteID` = 1,`ProductID` = 40,`Direction` = 'OUT',`Amount` = 131.32,`PriceIncGST` = 3177.94,`PriceExGST` = 2889.04,`DateFor` = '2018-06-07' WHERE ID = 18737 [23505-176]
+Tue Jul 10 09:30:51 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_7E ON PUBLIC.SALES(ID, SITEID) VALUES ( /* key:28132 */ 18738, 1, null, null, null, null, null, null, null)"; SQL statement:
+UPDATE Sales SET ID = 18738,`SiteID` = 1,`ProductID` = 100,`Direction` = 'IN',`Amount` = 40.6,`PriceIncGST` = 312.62,`PriceExGST` = 284.2,`DateFor` = '2018-06-07' WHERE ID = 18738 [23505-176]
+Tue Jul 10 09:30:51 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_7E ON PUBLIC.SALES(ID, SITEID) VALUES ( /* key:28134 */ 18739, 1, null, null, null, null, null, null, null)"; SQL statement:
+UPDATE Sales SET ID = 18739,`SiteID` = 1,`ProductID` = 100,`Direction` = 'IN',`Amount` = 11.1,`PriceIncGST` = 490.16,`PriceExGST` = 445.6,`DateFor` = '2018-06-07' WHERE ID = 18739 [23505-176]
+Tue Jul 10 09:30:51 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_7E ON PUBLIC.SALES(ID, SITEID) VALUES ( /* key:28136 */ 18740, 1, null, null, null, null, null, null, null)"; SQL statement:
+UPDATE Sales SET ID = 18740,`SiteID` = 1,`ProductID` = 95,`Direction` = 'OUT',`Amount` = 87.7,`PriceIncGST` = 2315.27,`PriceExGST` = 2104.79,`DateFor` = '2018-06-07' WHERE ID = 18740 [23505-176]
+Tue Jul 10 09:30:51 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_7E ON PUBLIC.SALES(ID, SITEID) VALUES ( /* key:28138 */ 18741, 1, null, null, null, null, null, null, null)"; SQL statement:
+UPDATE Sales SET ID = 18741,`SiteID` = 1,`ProductID` = 100,`Direction` = 'IN',`Amount` = 0.64,`PriceIncGST` = 44.0,`PriceExGST` = 40.0,`DateFor` = '2018-06-09' WHERE ID = 18741 [23505-176]
+Tue Jul 10 09:30:51 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_E6 ON PUBLIC.LABORUTILIZATION(ID, LABORALLOCATIONID) VALUES ( /* key:68490 */ 25123, 1047, null, null, null, null, null, null)"; SQL statement:
+UPDATE LaborUtilization SET ID = 25123,`LaborAllocationID` = 1047,`PlantID` = '',`Hours` = 0.0,`Status` = 2,`Notes` = '',`DateFor` = '2018-06-07',`ApprovalID` = NULL WHERE ID = 25123 [23505-176]
+Tue Jul 10 09:30:51 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_E6 ON PUBLIC.LABORUTILIZATION(ID, LABORALLOCATIONID) VALUES ( /* key:68492 */ 25124, 1047, null, null, null, null, null, null)"; SQL statement:
+UPDATE LaborUtilization SET ID = 25124,`LaborAllocationID` = 1047,`PlantID` = '',`Hours` = 0.0,`Status` = 2,`Notes` = '',`DateFor` = '2018-06-08',`ApprovalID` = NULL WHERE ID = 25124 [23505-176]
+Tue Jul 10 09:30:51 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_E6 ON PUBLIC.LABORUTILIZATION(ID, LABORALLOCATIONID) VALUES ( /* key:68494 */ 25125, 1083, null, null, null, null, null, null)"; SQL statement:
+UPDATE LaborUtilization SET ID = 25125,`LaborAllocationID` = 1083,`PlantID` = '',`Hours` = 0.0,`Status` = 4,`Notes` = '',`DateFor` = '2018-06-08',`ApprovalID` = NULL WHERE ID = 25125 [23505-176]
+Tue Jul 10 09:30:51 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_E6 ON PUBLIC.LABORUTILIZATION(ID, LABORALLOCATIONID) VALUES ( /* key:68496 */ 25126, 1046, null, null, null, null, null, null)"; SQL statement:
+UPDATE LaborUtilization SET ID = 25126,`LaborAllocationID` = 1046,`PlantID` = '',`Hours` = 6.0,`Status` = 0,`Notes` = '',`DateFor` = '2018-06-09',`ApprovalID` = NULL WHERE ID = 25126 [23505-176]
+Tue Jul 10 09:30:51 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_E6 ON PUBLIC.LABORUTILIZATION(ID, LABORALLOCATIONID) VALUES ( /* key:68498 */ 25127, 1048, null, null, null, null, null, null)"; SQL statement:
+UPDATE LaborUtilization SET ID = 25127,`LaborAllocationID` = 1048,`PlantID` = '',`Hours` = 6.0,`Status` = 0,`Notes` = '',`DateFor` = '2018-06-09',`ApprovalID` = NULL WHERE ID = 25127 [23505-176]
+Tue Jul 10 09:30:51 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_E6 ON PUBLIC.LABORUTILIZATION(ID, LABORALLOCATIONID) VALUES ( /* key:68500 */ 25128, 1126, null, null, null, null, null, null)"; SQL statement:
+UPDATE LaborUtilization SET ID = 25128,`LaborAllocationID` = 1126,`PlantID` = '',`Hours` = 6.0,`Status` = 0,`Notes` = '',`DateFor` = '2018-06-09',`ApprovalID` = NULL WHERE ID = 25128 [23505-176]
+Tue Jul 10 09:30:51 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_E6 ON PUBLIC.LABORUTILIZATION(ID, LABORALLOCATIONID) VALUES ( /* key:68502 */ 25129, 1080, null, null, null, null, null, null)"; SQL statement:
+UPDATE LaborUtilization SET ID = 25129,`LaborAllocationID` = 1080,`PlantID` = '',`Hours` = 6.0,`Status` = 0,`Notes` = '',`DateFor` = '2018-06-09',`ApprovalID` = NULL WHERE ID = 25129 [23505-176]
+Tue Jul 10 09:30:51 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_E6 ON PUBLIC.LABORUTILIZATION(ID, LABORALLOCATIONID) VALUES ( /* key:68504 */ 25130, 1078, null, null, null, null, null, null)"; SQL statement:
+UPDATE LaborUtilization SET ID = 25130,`LaborAllocationID` = 1078,`PlantID` = '',`Hours` = 6.0,`Status` = 0,`Notes` = '',`DateFor` = '2018-06-09',`ApprovalID` = NULL WHERE ID = 25130 [23505-176]
+Tue Jul 10 09:30:51 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_E6 ON PUBLIC.LABORUTILIZATION(ID, LABORALLOCATIONID) VALUES ( /* key:68506 */ 25131, 1083, null, null, null, null, null, null)"; SQL statement:
+UPDATE LaborUtilization SET ID = 25131,`LaborAllocationID` = 1083,`PlantID` = '',`Hours` = 6.0,`Status` = 0,`Notes` = '',`DateFor` = '2018-06-09',`ApprovalID` = NULL WHERE ID = 25131 [23505-176]
+Tue Jul 10 09:30:51 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_6 ON PUBLIC.PLANTUTILIZATION(ID, PLANTALLOCATIONID) VALUES ( /* key:85952 */ 52020, 549, null, null, null, null, null, null)"; SQL statement:
+UPDATE PlantUtilization SET ID = 52020,`PlantAllocationID` = 549,`StartHours` = 0,`EndHours` = 0,`DateFor` = '2018-06-11',`Fuel` = 0.0,`Notes` = '' WHERE ID = 52020 [23505-176]
+Tue Jul 10 09:30:51 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_6 ON PUBLIC.PLANTUTILIZATION(ID, PLANTALLOCATIONID) VALUES ( /* key:85954 */ 52021, 672, null, null, null, null, null, null)"; SQL statement:
+UPDATE PlantUtilization SET ID = 52021,`PlantAllocationID` = 672,`StartHours` = 0,`EndHours` = 0,`DateFor` = '2018-06-11',`Fuel` = 0.0,`Notes` = '' WHERE ID = 52021 [23505-176]
+Tue Jul 10 09:30:51 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_6 ON PUBLIC.PLANTUTILIZATION(ID, PLANTALLOCATIONID) VALUES ( /* key:85956 */ 52022, 362, null, null, null, null, null, null)"; SQL statement:
+UPDATE PlantUtilization SET ID = 52022,`PlantAllocationID` = 362,`StartHours` = 2163,`EndHours` = 2163,`DateFor` = '2018-06-11',`Fuel` = 0.0,`Notes` = '' WHERE ID = 52022 [23505-176]
+Tue Jul 10 09:30:51 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_6 ON PUBLIC.PLANTUTILIZATION(ID, PLANTALLOCATIONID) VALUES ( /* key:85958 */ 52023, 504, null, null, null, null, null, null)"; SQL statement:
+UPDATE PlantUtilization SET ID = 52023,`PlantAllocationID` = 504,`StartHours` = 914,`EndHours` = 914,`DateFor` = '2018-06-11',`Fuel` = 0.0,`Notes` = '' WHERE ID = 52023 [23505-176]
+Tue Jul 10 09:30:51 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_6 ON PUBLIC.PLANTUTILIZATION(ID, PLANTALLOCATIONID) VALUES ( /* key:85960 */ 52024, 424, null, null, null, null, null, null)"; SQL statement:
+UPDATE PlantUtilization SET ID = 52024,`PlantAllocationID` = 424,`StartHours` = 8738,`EndHours` = 8738,`DateFor` = '2018-06-11',`Fuel` = 0.0,`Notes` = '' WHERE ID = 52024 [23505-176]
+Tue Jul 10 09:30:51 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_6 ON PUBLIC.PLANTUTILIZATION(ID, PLANTALLOCATIONID) VALUES ( /* key:85962 */ 52025, 311, null, null, null, null, null, null)"; SQL statement:
+UPDATE PlantUtilization SET ID = 52025,`PlantAllocationID` = 311,`StartHours` = 4598,`EndHours` = 4598,`DateFor` = '2018-06-11',`Fuel` = 0.0,`Notes` = '' WHERE ID = 52025 [23505-176]
+Tue Jul 10 09:30:51 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_6 ON PUBLIC.PLANTUTILIZATION(ID, PLANTALLOCATIONID) VALUES ( /* key:85964 */ 52026, 308, null, null, null, null, null, null)"; SQL statement:
+UPDATE PlantUtilization SET ID = 52026,`PlantAllocationID` = 308,`StartHours` = 6297,`EndHours` = 6297,`DateFor` = '2018-06-11',`Fuel` = 0.0,`Notes` = '' WHERE ID = 52026 [23505-176]
+Tue Jul 10 09:30:51 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_6 ON PUBLIC.PLANTUTILIZATION(ID, PLANTALLOCATIONID) VALUES ( /* key:85966 */ 52027, 678, null, null, null, null, null, null)"; SQL statement:
+UPDATE PlantUtilization SET ID = 52027,`PlantAllocationID` = 678,`StartHours` = 0,`EndHours` = 0,`DateFor` = '2018-06-11',`Fuel` = 0.0,`Notes` = '' WHERE ID = 52027 [23505-176]
+Tue Jul 10 09:30:51 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_6 ON PUBLIC.PLANTUTILIZATION(ID, PLANTALLOCATIONID) VALUES ( /* key:85968 */ 52028, 679, null, null, null, null, null, null)"; SQL statement:
+UPDATE PlantUtilization SET ID = 52028,`PlantAllocationID` = 679,`StartHours` = 0,`EndHours` = 0,`DateFor` = '2018-06-11',`Fuel` = 0.0,`Notes` = '' WHERE ID = 52028 [23505-176]
+Tue Jul 10 09:30:51 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_6 ON PUBLIC.PLANTUTILIZATION(ID, PLANTALLOCATIONID) VALUES ( /* key:85971 */ 52030, 232, null, null, null, null, null, null)"; SQL statement:
+UPDATE PlantUtilization SET ID = 52030,`PlantAllocationID` = 232,`StartHours` = 23792,`EndHours` = 23792,`DateFor` = '2018-06-11',`Fuel` = 0.0,`Notes` = '' WHERE ID = 52030 [23505-176]
+Tue Jul 10 09:30:51 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_6 ON PUBLIC.PLANTUTILIZATION(ID, PLANTALLOCATIONID) VALUES ( /* key:85973 */ 52031, 513, null, null, null, null, null, null)"; SQL statement:
+UPDATE PlantUtilization SET ID = 52031,`PlantAllocationID` = 513,`StartHours` = 42,`EndHours` = 42,`DateFor` = '2018-06-11',`Fuel` = 0.0,`Notes` = '' WHERE ID = 52031 [23505-176]
+Tue Jul 10 09:30:51 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_6 ON PUBLIC.PLANTUTILIZATION(ID, PLANTALLOCATIONID) VALUES ( /* key:85975 */ 52032, 539, null, null, null, null, null, null)"; SQL statement:
+UPDATE PlantUtilization SET ID = 52032,`PlantAllocationID` = 539,`StartHours` = 23552,`EndHours` = 23552,`DateFor` = '2018-06-11',`Fuel` = 0.0,`Notes` = '' WHERE ID = 52032 [23505-176]
+Tue Jul 10 09:30:51 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_6 ON PUBLIC.PLANTUTILIZATION(ID, PLANTALLOCATIONID) VALUES ( /* key:85977 */ 52033, 495, null, null, null, null, null, null)"; SQL statement:
+UPDATE PlantUtilization SET ID = 52033,`PlantAllocationID` = 495,`StartHours` = 20122,`EndHours` = 20122,`DateFor` = '2018-06-11',`Fuel` = 0.0,`Notes` = '' WHERE ID = 52033 [23505-176]
+Tue Jul 10 09:30:51 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_6 ON PUBLIC.PLANTUTILIZATION(ID, PLANTALLOCATIONID) VALUES ( /* key:85979 */ 52034, 235, null, null, null, null, null, null)"; SQL statement:
+UPDATE PlantUtilization SET ID = 52034,`PlantAllocationID` = 235,`StartHours` = 90,`EndHours` = 90,`DateFor` = '2018-06-11',`Fuel` = 0.0,`Notes` = '' WHERE ID = 52034 [23505-176]
+Tue Jul 10 09:30:51 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_6 ON PUBLIC.PLANTUTILIZATION(ID, PLANTALLOCATIONID) VALUES ( /* key:85981 */ 52035, 236, null, null, null, null, null, null)"; SQL statement:
+UPDATE PlantUtilization SET ID = 52035,`PlantAllocationID` = 236,`StartHours` = 847,`EndHours` = 847,`DateFor` = '2018-06-11',`Fuel` = 0.0,`Notes` = '' WHERE ID = 52035 [23505-176]
+Tue Jul 10 09:30:52 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_6 ON PUBLIC.PLANTUTILIZATION(ID, PLANTALLOCATIONID) VALUES ( /* key:85983 */ 52036, 514, null, null, null, null, null, null)"; SQL statement:
+UPDATE PlantUtilization SET ID = 52036,`PlantAllocationID` = 514,`StartHours` = 11099,`EndHours` = 11099,`DateFor` = '2018-06-11',`Fuel` = 0.0,`Notes` = '' WHERE ID = 52036 [23505-176]
+Tue Jul 10 09:30:52 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_6 ON PUBLIC.PLANTUTILIZATION(ID, PLANTALLOCATIONID) VALUES ( /* key:85985 */ 52037, 238, null, null, null, null, null, null)"; SQL statement:
+UPDATE PlantUtilization SET ID = 52037,`PlantAllocationID` = 238,`StartHours` = 6907,`EndHours` = 6907,`DateFor` = '2018-06-11',`Fuel` = 0.0,`Notes` = '' WHERE ID = 52037 [23505-176]
+Tue Jul 10 09:30:52 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_6 ON PUBLIC.PLANTUTILIZATION(ID, PLANTALLOCATIONID) VALUES ( /* key:85987 */ 52038, 239, null, null, null, null, null, null)"; SQL statement:
+UPDATE PlantUtilization SET ID = 52038,`PlantAllocationID` = 239,`StartHours` = 12972,`EndHours` = 12972,`DateFor` = '2018-06-11',`Fuel` = 0.0,`Notes` = '' WHERE ID = 52038 [23505-176]
+Tue Jul 10 09:30:52 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_6 ON PUBLIC.PLANTUTILIZATION(ID, PLANTALLOCATIONID) VALUES ( /* key:85989 */ 52039, 516, null, null, null, null, null, null)"; SQL statement:
+UPDATE PlantUtilization SET ID = 52039,`PlantAllocationID` = 516,`StartHours` = 11257,`EndHours` = 11257,`DateFor` = '2018-06-11',`Fuel` = 0.0,`Notes` = '' WHERE ID = 52039 [23505-176]
+Tue Jul 10 09:30:52 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_6 ON PUBLIC.PLANTUTILIZATION(ID, PLANTALLOCATIONID) VALUES ( /* key:85991 */ 52040, 314, null, null, null, null, null, null)"; SQL statement:
+UPDATE PlantUtilization SET ID = 52040,`PlantAllocationID` = 314,`StartHours` = 3786,`EndHours` = 3786,`DateFor` = '2018-06-11',`Fuel` = 0.0,`Notes` = '' WHERE ID = 52040 [23505-176]
+Tue Jul 10 09:30:52 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_6 ON PUBLIC.PLANTUTILIZATION(ID, PLANTALLOCATIONID) VALUES ( /* key:85993 */ 52041, 361, null, null, null, null, null, null)"; SQL statement:
+UPDATE PlantUtilization SET ID = 52041,`PlantAllocationID` = 361,`StartHours` = 5612,`EndHours` = 5612,`DateFor` = '2018-06-11',`Fuel` = 0.0,`Notes` = '' WHERE ID = 52041 [23505-176]
+Tue Jul 10 09:30:52 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_E6 ON PUBLIC.LABORUTILIZATION(ID, LABORALLOCATIONID) VALUES ( /* key:68508 */ 25123, 708, null, null, null, null, null, null)"; SQL statement:
+UPDATE LaborUtilization SET ID = 25123,`LaborAllocationID` = 708,`PlantID` = '',`Hours` = 11.0,`Status` = 0,`Notes` = '',`DateFor` = '2018-06-11',`ApprovalID` = NULL WHERE ID = 25123 [23505-176]
+Tue Jul 10 09:30:52 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_E6 ON PUBLIC.LABORUTILIZATION(ID, LABORALLOCATIONID) VALUES ( /* key:68511 */ 25124, 820, null, null, null, null, null, null)"; SQL statement:
+UPDATE LaborUtilization SET ID = 25124,`LaborAllocationID` = 820,`PlantID` = '',`Hours` = 11.25,`Status` = 0,`Notes` = '',`DateFor` = '2018-06-11',`ApprovalID` = NULL WHERE ID = 25124 [23505-176]
+Tue Jul 10 09:30:52 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_E6 ON PUBLIC.LABORUTILIZATION(ID, LABORALLOCATIONID) VALUES ( /* key:68513 */ 25125, 422, null, null, null, null, null, null)"; SQL statement:
+UPDATE LaborUtilization SET ID = 25125,`LaborAllocationID` = 422,`PlantID` = '',`Hours` = 10.25,`Status` = 0,`Notes` = '',`DateFor` = '2018-06-11',`ApprovalID` = NULL WHERE ID = 25125 [23505-176]
+Tue Jul 10 09:30:52 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_E6 ON PUBLIC.LABORUTILIZATION(ID, LABORALLOCATIONID) VALUES ( /* key:68515 */ 25126, 821, null, null, null, null, null, null)"; SQL statement:
+UPDATE LaborUtilization SET ID = 25126,`LaborAllocationID` = 821,`PlantID` = '',`Hours` = 10.25,`Status` = 0,`Notes` = '',`DateFor` = '2018-06-11',`ApprovalID` = NULL WHERE ID = 25126 [23505-176]
+Tue Jul 10 09:30:52 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_E6 ON PUBLIC.LABORUTILIZATION(ID, LABORALLOCATIONID) VALUES ( /* key:68519 */ 25123, 385, null, null, null, null, null, null)"; SQL statement:
+UPDATE LaborUtilization SET ID = 25123,`LaborAllocationID` = 385,`PlantID` = '',`Hours` = 9.75,`Status` = 0,`Notes` = '',`DateFor` = '2018-06-08',`ApprovalID` = NULL WHERE ID = 25123 [23505-176]
+Tue Jul 10 09:30:52 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_E6 ON PUBLIC.LABORUTILIZATION(ID, LABORALLOCATIONID) VALUES ( /* key:68521 */ 25124, 401, null, null, null, null, null, null)"; SQL statement:
+UPDATE LaborUtilization SET ID = 25124,`LaborAllocationID` = 401,`PlantID` = '',`Hours` = 10.0,`Status` = 0,`Notes` = '',`DateFor` = '2018-06-08',`ApprovalID` = NULL WHERE ID = 25124 [23505-176]
+Tue Jul 10 09:30:52 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_E6 ON PUBLIC.LABORUTILIZATION(ID, LABORALLOCATIONID) VALUES ( /* key:68523 */ 25125, 384, null, null, null, null, null, null)"; SQL statement:
+UPDATE LaborUtilization SET ID = 25125,`LaborAllocationID` = 384,`PlantID` = '',`Hours` = 7.5,`Status` = 0,`Notes` = '',`DateFor` = '2018-06-08',`ApprovalID` = NULL WHERE ID = 25125 [23505-176]
+Tue Jul 10 09:30:52 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_E6 ON PUBLIC.LABORUTILIZATION(ID, LABORALLOCATIONID) VALUES ( /* key:68526 */ 25126, 389, null, null, null, null, null, null)"; SQL statement:
+UPDATE LaborUtilization SET ID = 25126,`LaborAllocationID` = 389,`PlantID` = '',`Hours` = 0.0,`Status` = 1,`Notes` = '',`DateFor` = '2018-06-08',`ApprovalID` = NULL WHERE ID = 25126 [23505-176]
+Tue Jul 10 09:30:52 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_E6 ON PUBLIC.LABORUTILIZATION(ID, LABORALLOCATIONID) VALUES ( /* key:68530 */ 25127, 497, null, null, null, null, null, null)"; SQL statement:
+UPDATE LaborUtilization SET ID = 25127,`LaborAllocationID` = 497,`PlantID` = '',`Hours` = 0.0,`Status` = 8,`Notes` = '',`DateFor` = '2018-06-08',`ApprovalID` = NULL WHERE ID = 25127 [23505-176]
+Tue Jul 10 09:30:52 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_E6 ON PUBLIC.LABORUTILIZATION(ID, LABORALLOCATIONID) VALUES ( /* key:68532 */ 25128, 801, null, null, null, null, null, null)"; SQL statement:
+UPDATE LaborUtilization SET ID = 25128,`LaborAllocationID` = 801,`PlantID` = '',`Hours` = 0.0,`Status` = 8,`Notes` = '',`DateFor` = '2018-06-08',`ApprovalID` = NULL WHERE ID = 25128 [23505-176]
+Tue Jul 10 09:30:52 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_E6 ON PUBLIC.LABORUTILIZATION(ID, LABORALLOCATIONID) VALUES ( /* key:68534 */ 25129, 1118, null, null, null, null, null, null)"; SQL statement:
+UPDATE LaborUtilization SET ID = 25129,`LaborAllocationID` = 1118,`PlantID` = '',`Hours` = 0.0,`Status` = 8,`Notes` = '',`DateFor` = '2018-06-08',`ApprovalID` = NULL WHERE ID = 25129 [23505-176]
+Tue Jul 10 09:30:52 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_E6 ON PUBLIC.LABORUTILIZATION(ID, LABORALLOCATIONID) VALUES ( /* key:68536 */ 25130, 977, null, null, null, null, null, null)"; SQL statement:
+UPDATE LaborUtilization SET ID = 25130,`LaborAllocationID` = 977,`PlantID` = '',`Hours` = 0.0,`Status` = 8,`Notes` = '',`DateFor` = '2018-06-08',`ApprovalID` = NULL WHERE ID = 25130 [23505-176]
+Tue Jul 10 09:30:52 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_E6 ON PUBLIC.LABORUTILIZATION(ID, LABORALLOCATIONID) VALUES ( /* key:68538 */ 25131, 383, null, null, null, null, null, null)"; SQL statement:
+UPDATE LaborUtilization SET ID = 25131,`LaborAllocationID` = 383,`PlantID` = '',`Hours` = 0.0,`Status` = 4,`Notes` = '',`DateFor` = '2018-06-08',`ApprovalID` = NULL WHERE ID = 25131 [23505-176]
+Tue Jul 10 09:30:52 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_E6 ON PUBLIC.LABORUTILIZATION(ID, LABORALLOCATIONID) VALUES ( /* key:68540 */ 25132, 806, null, null, null, null, null, null)"; SQL statement:
+UPDATE LaborUtilization SET ID = 25132,`LaborAllocationID` = 806,`PlantID` = '',`Hours` = 6.0,`Status` = 0,`Notes` = '',`DateFor` = '2018-06-09',`ApprovalID` = NULL WHERE ID = 25132 [23505-176]
+Tue Jul 10 09:30:52 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_E6 ON PUBLIC.LABORUTILIZATION(ID, LABORALLOCATIONID) VALUES ( /* key:68542 */ 25133, 447, null, null, null, null, null, null)"; SQL statement:
+UPDATE LaborUtilization SET ID = 25133,`LaborAllocationID` = 447,`PlantID` = '',`Hours` = 6.0,`Status` = 0,`Notes` = '',`DateFor` = '2018-06-09',`ApprovalID` = NULL WHERE ID = 25133 [23505-176]
+Tue Jul 10 09:30:52 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_E6 ON PUBLIC.LABORUTILIZATION(ID, LABORALLOCATIONID) VALUES ( /* key:68544 */ 25134, 817, null, null, null, null, null, null)"; SQL statement:
+UPDATE LaborUtilization SET ID = 25134,`LaborAllocationID` = 817,`PlantID` = '',`Hours` = 6.0,`Status` = 0,`Notes` = '',`DateFor` = '2018-06-09',`ApprovalID` = NULL WHERE ID = 25134 [23505-176]
+Tue Jul 10 09:30:52 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_E6 ON PUBLIC.LABORUTILIZATION(ID, LABORALLOCATIONID) VALUES ( /* key:68546 */ 25135, 808, null, null, null, null, null, null)"; SQL statement:
+UPDATE LaborUtilization SET ID = 25135,`LaborAllocationID` = 808,`PlantID` = '',`Hours` = 6.0,`Status` = 0,`Notes` = '',`DateFor` = '2018-06-09',`ApprovalID` = NULL WHERE ID = 25135 [23505-176]
+Tue Jul 10 09:30:52 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_6 ON PUBLIC.PLANTUTILIZATION(ID, PLANTALLOCATIONID) VALUES ( /* key:86035 */ 52017, 425, null, null, null, null, null, null)"; SQL statement:
+UPDATE PlantUtilization SET ID = 52017,`PlantAllocationID` = 425,`StartHours` = 17096,`EndHours` = 17096,`DateFor` = '2018-06-09',`Fuel` = 0.0,`Notes` = '' WHERE ID = 52017 [23505-176]
+Tue Jul 10 09:30:52 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_6 ON PUBLIC.PLANTUTILIZATION(ID, PLANTALLOCATIONID) VALUES ( /* key:86037 */ 52018, 267, null, null, null, null, null, null)"; SQL statement:
+UPDATE PlantUtilization SET ID = 52018,`PlantAllocationID` = 267,`StartHours` = 5831,`EndHours` = 5836,`DateFor` = '2018-06-09',`Fuel` = 0.0,`Notes` = '' WHERE ID = 52018 [23505-176]
+Tue Jul 10 09:30:52 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_6 ON PUBLIC.PLANTUTILIZATION(ID, PLANTALLOCATIONID) VALUES ( /* key:86039 */ 52019, 268, null, null, null, null, null, null)"; SQL statement:
+UPDATE PlantUtilization SET ID = 52019,`PlantAllocationID` = 268,`StartHours` = 13150,`EndHours` = 13150,`DateFor` = '2018-06-09',`Fuel` = 0.0,`Notes` = '' WHERE ID = 52019 [23505-176]
+Tue Jul 10 09:30:52 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_6 ON PUBLIC.PLANTUTILIZATION(ID, PLANTALLOCATIONID) VALUES ( /* key:86041 */ 52020, 266, null, null, null, null, null, null)"; SQL statement:
+UPDATE PlantUtilization SET ID = 52020,`PlantAllocationID` = 266,`StartHours` = 14697,`EndHours` = 14697,`DateFor` = '2018-06-09',`Fuel` = 0.0,`Notes` = '' WHERE ID = 52020 [23505-176]
+Tue Jul 10 09:30:52 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_6 ON PUBLIC.PLANTUTILIZATION(ID, PLANTALLOCATIONID) VALUES ( /* key:86043 */ 52021, 265, null, null, null, null, null, null)"; SQL statement:
+UPDATE PlantUtilization SET ID = 52021,`PlantAllocationID` = 265,`StartHours` = 10025,`EndHours` = 10031,`DateFor` = '2018-06-09',`Fuel` = 0.0,`Notes` = '' WHERE ID = 52021 [23505-176]
+Tue Jul 10 09:30:52 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_6 ON PUBLIC.PLANTUTILIZATION(ID, PLANTALLOCATIONID) VALUES ( /* key:86045 */ 52022, 312, null, null, null, null, null, null)"; SQL statement:
+UPDATE PlantUtilization SET ID = 52022,`PlantAllocationID` = 312,`StartHours` = 6515,`EndHours` = 6515,`DateFor` = '2018-06-09',`Fuel` = 0.0,`Notes` = '' WHERE ID = 52022 [23505-176]
+Tue Jul 10 09:30:52 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_6 ON PUBLIC.PLANTUTILIZATION(ID, PLANTALLOCATIONID) VALUES ( /* key:86047 */ 52023, 302, null, null, null, null, null, null)"; SQL statement:
+UPDATE PlantUtilization SET ID = 52023,`PlantAllocationID` = 302,`StartHours` = 9494,`EndHours` = 9494,`DateFor` = '2018-06-09',`Fuel` = 0.0,`Notes` = '' WHERE ID = 52023 [23505-176]
+Tue Jul 10 09:30:52 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_6 ON PUBLIC.PLANTUTILIZATION(ID, PLANTALLOCATIONID) VALUES ( /* key:86049 */ 52024, 274, null, null, null, null, null, null)"; SQL statement:
+UPDATE PlantUtilization SET ID = 52024,`PlantAllocationID` = 274,`StartHours` = 5680,`EndHours` = 5680,`DateFor` = '2018-06-09',`Fuel` = 0.0,`Notes` = '' WHERE ID = 52024 [23505-176]
+Tue Jul 10 09:30:52 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_6 ON PUBLIC.PLANTUTILIZATION(ID, PLANTALLOCATIONID) VALUES ( /* key:86051 */ 52025, 269, null, null, null, null, null, null)"; SQL statement:
+UPDATE PlantUtilization SET ID = 52025,`PlantAllocationID` = 269,`StartHours` = 5774,`EndHours` = 5780,`DateFor` = '2018-06-09',`Fuel` = 0.0,`Notes` = '' WHERE ID = 52025 [23505-176]
+Tue Jul 10 09:30:52 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_6 ON PUBLIC.PLANTUTILIZATION(ID, PLANTALLOCATIONID) VALUES ( /* key:86053 */ 52026, 272, null, null, null, null, null, null)"; SQL statement:
+UPDATE PlantUtilization SET ID = 52026,`PlantAllocationID` = 272,`StartHours` = 6374,`EndHours` = 6380,`DateFor` = '2018-06-09',`Fuel` = 0.0,`Notes` = '' WHERE ID = 52026 [23505-176]
+Tue Jul 10 09:30:52 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_6 ON PUBLIC.PLANTUTILIZATION(ID, PLANTALLOCATIONID) VALUES ( /* key:86055 */ 52027, 270, null, null, null, null, null, null)"; SQL statement:
+UPDATE PlantUtilization SET ID = 52027,`PlantAllocationID` = 270,`StartHours` = 16426,`EndHours` = 16426,`DateFor` = '2018-06-09',`Fuel` = 0.0,`Notes` = '' WHERE ID = 52027 [23505-176]
+Tue Jul 10 09:30:52 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_6 ON PUBLIC.PLANTUTILIZATION(ID, PLANTALLOCATIONID) VALUES ( /* key:86057 */ 52028, 616, null, null, null, null, null, null)"; SQL statement:
+UPDATE PlantUtilization SET ID = 52028,`PlantAllocationID` = 616,`StartHours` = 4218,`EndHours` = 4218,`DateFor` = '2018-06-09',`Fuel` = 0.0,`Notes` = '' WHERE ID = 52028 [23505-176]
+Tue Jul 10 09:30:52 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_16 ON PUBLIC.AFFUEL(ID, AFALLOCATIONID) VALUES ( /* key:3688 */ 3414, 220, null, null)"; SQL statement:
+UPDATE AFFuel SET ID = 3414,`AFAllocationID` = 220,`Amount` = 53.13,`DateFor` = '2018-06-07' WHERE ID = 3414 [23505-176]
+Tue Jul 10 09:30:52 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_5 ON PUBLIC.PRODUCTUTILIZATION(ID, PRODUCTALLOCATIONID) VALUES ( /* key:9532 */ 6283, 197, null, null, null, null, null)"; SQL statement:
+UPDATE ProductUtilization SET ID = 6283,`ProductAllocationID` = 197,`Qty` = 120.0,`Notes` = '',`TransactionType` = 3,`DateFor` = '2018-06-09' WHERE ID = 6283 [23505-176]
+Tue Jul 10 09:30:52 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_5 ON PUBLIC.PRODUCTUTILIZATION(ID, PRODUCTALLOCATIONID) VALUES ( /* key:9534 */ 6284, 200, null, null, null, null, null)"; SQL statement:
+UPDATE ProductUtilization SET ID = 6284,`ProductAllocationID` = 200,`Qty` = 115.0,`Notes` = '',`TransactionType` = 3,`DateFor` = '2018-06-09' WHERE ID = 6284 [23505-176]
+Tue Jul 10 09:30:52 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_5 ON PUBLIC.PRODUCTUTILIZATION(ID, PRODUCTALLOCATIONID) VALUES ( /* key:9536 */ 6285, 212, null, null, null, null, null)"; SQL statement:
+UPDATE ProductUtilization SET ID = 6285,`ProductAllocationID` = 212,`Qty` = 316.0,`Notes` = '',`TransactionType` = 3,`DateFor` = '2018-06-09' WHERE ID = 6285 [23505-176]
+Tue Jul 10 09:30:52 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_5 ON PUBLIC.PRODUCTUTILIZATION(ID, PRODUCTALLOCATIONID) VALUES ( /* key:9545 */ 6283, 107, null, null, null, null, null)"; SQL statement:
+UPDATE ProductUtilization SET ID = 6283,`ProductAllocationID` = 107,`Qty` = 1281.0,`Notes` = '',`TransactionType` = 4,`DateFor` = '2018-06-09' WHERE ID = 6283 [23505-176]
+Tue Jul 10 09:30:52 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_5 ON PUBLIC.PRODUCTUTILIZATION(ID, PRODUCTALLOCATIONID) VALUES ( /* key:9547 */ 6284, 49, null, null, null, null, null)"; SQL statement:
+UPDATE ProductUtilization SET ID = 6284,`ProductAllocationID` = 49,`Qty` = 1281.0,`Notes` = '',`TransactionType` = 3,`DateFor` = '2018-06-09' WHERE ID = 6284 [23505-176]
+Tue Jul 10 09:30:52 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_5 ON PUBLIC.PRODUCTUTILIZATION(ID, PRODUCTALLOCATIONID) VALUES ( /* key:9549 */ 6285, 104, null, null, null, null, null)"; SQL statement:
+UPDATE ProductUtilization SET ID = 6285,`ProductAllocationID` = 104,`Qty` = 205.0,`Notes` = '',`TransactionType` = 3,`DateFor` = '2018-06-09' WHERE ID = 6285 [23505-176]
+Tue Jul 10 09:30:52 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_6 ON PUBLIC.PLANTUTILIZATION(ID, PLANTALLOCATIONID) VALUES ( /* key:86071 */ 52070, 696, null, null, null, null, null, null)"; SQL statement:
+UPDATE PlantUtilization SET ID = 52070,`PlantAllocationID` = 696,`StartHours` = 3327,`EndHours` = 3327,`DateFor` = '2018-06-09',`Fuel` = 0.0,`Notes` = '' WHERE ID = 52070 [23505-176]
+Tue Jul 10 09:30:52 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_6 ON PUBLIC.PLANTUTILIZATION(ID, PLANTALLOCATIONID) VALUES ( /* key:86074 */ 52071, 135, null, null, null, null, null, null)"; SQL statement:
+UPDATE PlantUtilization SET ID = 52071,`PlantAllocationID` = 135,`StartHours` = 9810,`EndHours` = 9815,`DateFor` = '2018-06-09',`Fuel` = 0.0,`Notes` = '' WHERE ID = 52071 [23505-176]
+Tue Jul 10 09:30:52 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_6 ON PUBLIC.PLANTUTILIZATION(ID, PLANTALLOCATIONID) VALUES ( /* key:86076 */ 52072, 583, null, null, null, null, null, null)"; SQL statement:
+UPDATE PlantUtilization SET ID = 52072,`PlantAllocationID` = 583,`StartHours` = 4916,`EndHours` = 4920,`DateFor` = '2018-06-09',`Fuel` = 0.0,`Notes` = '' WHERE ID = 52072 [23505-176]
+Tue Jul 10 09:30:52 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_6 ON PUBLIC.PLANTUTILIZATION(ID, PLANTALLOCATIONID) VALUES ( /* key:86078 */ 52073, 166, null, null, null, null, null, null)"; SQL statement:
+UPDATE PlantUtilization SET ID = 52073,`PlantAllocationID` = 166,`StartHours` = 6603,`EndHours` = 6609,`DateFor` = '2018-06-09',`Fuel` = 0.0,`Notes` = '' WHERE ID = 52073 [23505-176]
+Tue Jul 10 09:30:52 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_6 ON PUBLIC.PLANTUTILIZATION(ID, PLANTALLOCATIONID) VALUES ( /* key:86080 */ 52074, 651, null, null, null, null, null, null)"; SQL statement:
+UPDATE PlantUtilization SET ID = 52074,`PlantAllocationID` = 651,`StartHours` = 799,`EndHours` = 804,`DateFor` = '2018-06-09',`Fuel` = 0.0,`Notes` = '' WHERE ID = 52074 [23505-176]
+Tue Jul 10 09:30:52 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_6 ON PUBLIC.PLANTUTILIZATION(ID, PLANTALLOCATIONID) VALUES ( /* key:86082 */ 52075, 526, null, null, null, null, null, null)"; SQL statement:
+UPDATE PlantUtilization SET ID = 52075,`PlantAllocationID` = 526,`StartHours` = 5628,`EndHours` = 5628,`DateFor` = '2018-06-09',`Fuel` = 243.43,`Notes` = '' WHERE ID = 52075 [23505-176]
+Tue Jul 10 09:30:52 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_6 ON PUBLIC.PLANTUTILIZATION(ID, PLANTALLOCATIONID) VALUES ( /* key:86084 */ 52076, 81, null, null, null, null, null, null)"; SQL statement:
+UPDATE PlantUtilization SET ID = 52076,`PlantAllocationID` = 81,`StartHours` = 8115,`EndHours` = 8115,`DateFor` = '2018-06-09',`Fuel` = 34.33,`Notes` = '' WHERE ID = 52076 [23505-176]
+Tue Jul 10 09:30:53 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_7E ON PUBLIC.SALES(ID, SITEID) VALUES ( /* key:28160 */ 18787, 5, null, null, null, null, null, null, null)"; SQL statement:
+UPDATE Sales SET ID = 18787,`SiteID` = 5,`ProductID` = 292,`Direction` = 'IN',`Amount` = 46.28,`PriceIncGST` = 4036.21,`PriceExGST` = 3669.28,`DateFor` = '2018-06-08' WHERE ID = 18787 [23505-176]
+Tue Jul 10 09:30:53 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_7E ON PUBLIC.SALES(ID, SITEID) VALUES ( /* key:28162 */ 18788, 5, null, null, null, null, null, null, null)"; SQL statement:
+UPDATE Sales SET ID = 18788,`SiteID` = 5,`ProductID` = 303,`Direction` = 'IN',`Amount` = 110.32,`PriceIncGST` = 26697.44,`PriceExGST` = 24270.4,`DateFor` = '2018-06-08' WHERE ID = 18788 [23505-176]
+Tue Jul 10 09:30:53 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_7E ON PUBLIC.SALES(ID, SITEID) VALUES ( /* key:28164 */ 18789, 5, null, null, null, null, null, null, null)"; SQL statement:
+UPDATE Sales SET ID = 18789,`SiteID` = 5,`ProductID` = 298,`Direction` = 'OUT',`Amount` = 224.66,`PriceIncGST` = 2471.26,`PriceExGST` = 2246.6,`DateFor` = '2018-06-08' WHERE ID = 18789 [23505-176]
+Tue Jul 10 09:30:53 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_7E ON PUBLIC.SALES(ID, SITEID) VALUES ( /* key:28166 */ 18790, 5, null, null, null, null, null, null, null)"; SQL statement:
+UPDATE Sales SET ID = 18790,`SiteID` = 5,`ProductID` = 292,`Direction` = 'IN',`Amount` = 122.44,`PriceIncGST` = 15488.66,`PriceExGST` = 14080.6,`DateFor` = '2018-06-08' WHERE ID = 18790 [23505-176]
+Tue Jul 10 09:30:53 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_7E ON PUBLIC.SALES(ID, SITEID) VALUES ( /* key:28169 */ 18792, 5, null, null, null, null, null, null, null)"; SQL statement:
+UPDATE Sales SET ID = 18792,`SiteID` = 5,`ProductID` = 294,`Direction` = 'IN',`Amount` = 46.48,`PriceIncGST` = 10481.24,`PriceExGST` = 9528.4,`DateFor` = '2018-06-08' WHERE ID = 18792 [23505-176]
+Tue Jul 10 09:30:53 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_7E ON PUBLIC.SALES(ID, SITEID) VALUES ( /* key:28171 */ 18793, 5, null, null, null, null, null, null, null)"; SQL statement:
+UPDATE Sales SET ID = 18793,`SiteID` = 5,`ProductID` = 294,`Direction` = 'IN',`Amount` = 1.0,`PriceIncGST` = 165.0,`PriceExGST` = 150.0,`DateFor` = '2018-06-08' WHERE ID = 18793 [23505-176]
+Tue Jul 10 09:30:53 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_7E ON PUBLIC.SALES(ID, SITEID) VALUES ( /* key:28173 */ 18794, 5, null, null, null, null, null, null, null)"; SQL statement:
+UPDATE Sales SET ID = 18794,`SiteID` = 5,`ProductID` = 300,`Direction` = 'IN',`Amount` = 73.62,`PriceIncGST` = 15386.58,`PriceExGST` = 13987.8,`DateFor` = '2018-06-08' WHERE ID = 18794 [23505-176]
+Tue Jul 10 09:30:53 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_6 ON PUBLIC.PLANTUTILIZATION(ID, PLANTALLOCATIONID) VALUES ( /* key:86090 */ 52070, 336, null, null, null, null, null, null)"; SQL statement:
+UPDATE PlantUtilization SET ID = 52070,`PlantAllocationID` = 336,`StartHours` = 2682,`EndHours` = 2692,`DateFor` = '2018-06-08',`Fuel` = 0.0,`Notes` = '' WHERE ID = 52070 [23505-176]
+Tue Jul 10 09:30:53 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_6 ON PUBLIC.PLANTUTILIZATION(ID, PLANTALLOCATIONID) VALUES ( /* key:86092 */ 52071, 117, null, null, null, null, null, null)"; SQL statement:
+UPDATE PlantUtilization SET ID = 52071,`PlantAllocationID` = 117,`StartHours` = 12674,`EndHours` = 12680,`DateFor` = '2018-06-08',`Fuel` = 0.0,`Notes` = '' WHERE ID = 52071 [23505-176]
+Tue Jul 10 09:30:53 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_6 ON PUBLIC.PLANTUTILIZATION(ID, PLANTALLOCATIONID) VALUES ( /* key:86094 */ 52072, 118, null, null, null, null, null, null)"; SQL statement:
+UPDATE PlantUtilization SET ID = 52072,`PlantAllocationID` = 118,`StartHours` = 1995,`EndHours` = 2002,`DateFor` = '2018-06-08',`Fuel` = 0.0,`Notes` = '' WHERE ID = 52072 [23505-176]
+Tue Jul 10 09:30:53 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_6 ON PUBLIC.PLANTUTILIZATION(ID, PLANTALLOCATIONID) VALUES ( /* key:86096 */ 52073, 598, null, null, null, null, null, null)"; SQL statement:
+UPDATE PlantUtilization SET ID = 52073,`PlantAllocationID` = 598,`StartHours` = 12643,`EndHours` = 12646,`DateFor` = '2018-06-08',`Fuel` = 0.0,`Notes` = '' WHERE ID = 52073 [23505-176]
+Tue Jul 10 09:30:53 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_6 ON PUBLIC.PLANTUTILIZATION(ID, PLANTALLOCATIONID) VALUES ( /* key:86098 */ 52074, 121, null, null, null, null, null, null)"; SQL statement:
+UPDATE PlantUtilization SET ID = 52074,`PlantAllocationID` = 121,`StartHours` = 11759,`EndHours` = 11766,`DateFor` = '2018-06-08',`Fuel` = 0.0,`Notes` = '' WHERE ID = 52074 [23505-176]
+Tue Jul 10 09:30:53 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_6 ON PUBLIC.PLANTUTILIZATION(ID, PLANTALLOCATIONID) VALUES ( /* key:86100 */ 52075, 610, null, null, null, null, null, null)"; SQL statement:
+UPDATE PlantUtilization SET ID = 52075,`PlantAllocationID` = 610,`StartHours` = 11323,`EndHours` = 11330,`DateFor` = '2018-06-08',`Fuel` = 0.0,`Notes` = '' WHERE ID = 52075 [23505-176]
+Tue Jul 10 09:30:53 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_6 ON PUBLIC.PLANTUTILIZATION(ID, PLANTALLOCATIONID) VALUES ( /* key:86102 */ 52076, 580, null, null, null, null, null, null)"; SQL statement:
+UPDATE PlantUtilization SET ID = 52076,`PlantAllocationID` = 580,`StartHours` = 12394,`EndHours` = 12394,`DateFor` = '2018-06-08',`Fuel` = 0.0,`Notes` = '' WHERE ID = 52076 [23505-176]
+Tue Jul 10 09:30:53 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_6 ON PUBLIC.PLANTUTILIZATION(ID, PLANTALLOCATIONID) VALUES ( /* key:86104 */ 52077, 153, null, null, null, null, null, null)"; SQL statement:
+UPDATE PlantUtilization SET ID = 52077,`PlantAllocationID` = 153,`StartHours` = 1804,`EndHours` = 1804,`DateFor` = '2018-06-08',`Fuel` = 0.0,`Notes` = '' WHERE ID = 52077 [23505-176]
+Tue Jul 10 09:30:53 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_6 ON PUBLIC.PLANTUTILIZATION(ID, PLANTALLOCATIONID) VALUES ( /* key:86106 */ 52078, 501, null, null, null, null, null, null)"; SQL statement:
+UPDATE PlantUtilization SET ID = 52078,`PlantAllocationID` = 501,`StartHours` = 6602,`EndHours` = 6602,`DateFor` = '2018-06-08',`Fuel` = 0.0,`Notes` = '' WHERE ID = 52078 [23505-176]
+Tue Jul 10 09:30:53 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_6 ON PUBLIC.PLANTUTILIZATION(ID, PLANTALLOCATIONID) VALUES ( /* key:86108 */ 52079, 612, null, null, null, null, null, null)"; SQL statement:
+UPDATE PlantUtilization SET ID = 52079,`PlantAllocationID` = 612,`StartHours` = 13022,`EndHours` = 13022,`DateFor` = '2018-06-08',`Fuel` = 0.0,`Notes` = '' WHERE ID = 52079 [23505-176]
+Tue Jul 10 09:30:53 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_6 ON PUBLIC.PLANTUTILIZATION(ID, PLANTALLOCATIONID) VALUES ( /* key:86110 */ 52080, 582, null, null, null, null, null, null)"; SQL statement:
+UPDATE PlantUtilization SET ID = 52080,`PlantAllocationID` = 582,`StartHours` = 2566,`EndHours` = 2566,`DateFor` = '2018-06-08',`Fuel` = 0.0,`Notes` = '' WHERE ID = 52080 [23505-176]
+Tue Jul 10 09:30:53 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_6 ON PUBLIC.PLANTUTILIZATION(ID, PLANTALLOCATIONID) VALUES ( /* key:86112 */ 52081, 337, null, null, null, null, null, null)"; SQL statement:
+UPDATE PlantUtilization SET ID = 52081,`PlantAllocationID` = 337,`StartHours` = 30388,`EndHours` = 30388,`DateFor` = '2018-06-08',`Fuel` = 0.0,`Notes` = '' WHERE ID = 52081 [23505-176]
+Tue Jul 10 09:30:53 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_E6 ON PUBLIC.LABORUTILIZATION(ID, LABORALLOCATIONID) VALUES ( /* key:68549 */ 25137, 402, null, null, null, null, null, null)"; SQL statement:
+UPDATE LaborUtilization SET ID = 25137,`LaborAllocationID` = 402,`PlantID` = '',`Hours` = 10.0,`Status` = 0,`Notes` = '',`DateFor` = '2018-06-08',`ApprovalID` = NULL WHERE ID = 25137 [23505-176]
+Tue Jul 10 09:30:53 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_E6 ON PUBLIC.LABORUTILIZATION(ID, LABORALLOCATIONID) VALUES ( /* key:68551 */ 25138, 78, null, null, null, null, null, null)"; SQL statement:
+UPDATE LaborUtilization SET ID = 25138,`LaborAllocationID` = 78,`PlantID` = '',`Hours` = 9.0,`Status` = 0,`Notes` = '',`DateFor` = '2018-06-08',`ApprovalID` = NULL WHERE ID = 25138 [23505-176]
+Tue Jul 10 09:30:53 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_E6 ON PUBLIC.LABORUTILIZATION(ID, LABORALLOCATIONID) VALUES ( /* key:68554 */ 25139, 875, null, null, null, null, null, null)"; SQL statement:
+UPDATE LaborUtilization SET ID = 25139,`LaborAllocationID` = 875,`PlantID` = '',`Hours` = 9.0,`Status` = 0,`Notes` = '',`DateFor` = '2018-06-08',`ApprovalID` = NULL WHERE ID = 25139 [23505-176]
+Tue Jul 10 09:30:53 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_5 ON PUBLIC.PRODUCTUTILIZATION(ID, PRODUCTALLOCATIONID) VALUES ( /* key:9551 */ 6293, 167, null, null, null, null, null)"; SQL statement:
+UPDATE ProductUtilization SET ID = 6293,`ProductAllocationID` = 167,`Qty` = 260.0,`Notes` = '',`TransactionType` = 3,`DateFor` = '2018-06-08' WHERE ID = 6293 [23505-176]
+Tue Jul 10 09:30:53 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_5 ON PUBLIC.PRODUCTUTILIZATION(ID, PRODUCTALLOCATIONID) VALUES ( /* key:9553 */ 6294, 160, null, null, null, null, null)"; SQL statement:
+UPDATE ProductUtilization SET ID = 6294,`ProductAllocationID` = 160,`Qty` = 60.0,`Notes` = '',`TransactionType` = 3,`DateFor` = '2018-06-08' WHERE ID = 6294 [23505-176]
+Tue Jul 10 09:30:53 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_5 ON PUBLIC.PRODUCTUTILIZATION(ID, PRODUCTALLOCATIONID) VALUES ( /* key:9555 */ 6295, 161, null, null, null, null, null)"; SQL statement:
+UPDATE ProductUtilization SET ID = 6295,`ProductAllocationID` = 161,`Qty` = 20.0,`Notes` = '',`TransactionType` = 3,`DateFor` = '2018-06-08' WHERE ID = 6295 [23505-176]
+Tue Jul 10 09:30:53 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_5 ON PUBLIC.PRODUCTUTILIZATION(ID, PRODUCTALLOCATIONID) VALUES ( /* key:9557 */ 6296, 162, null, null, null, null, null)"; SQL statement:
+UPDATE ProductUtilization SET ID = 6296,`ProductAllocationID` = 162,`Qty` = 20.0,`Notes` = '',`TransactionType` = 3,`DateFor` = '2018-06-08' WHERE ID = 6296 [23505-176]
+Tue Jul 10 09:30:53 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_6 ON PUBLIC.PLANTUTILIZATION(ID, PLANTALLOCATIONID) VALUES ( /* key:86114 */ 52082, 157, null, null, null, null, null, null)"; SQL statement:
+UPDATE PlantUtilization SET ID = 52082,`PlantAllocationID` = 157,`StartHours` = 3313,`EndHours` = 3315,`DateFor` = '2018-06-08',`Fuel` = 0.0,`Notes` = '' WHERE ID = 52082 [23505-176]
+Tue Jul 10 09:30:53 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_6 ON PUBLIC.PLANTUTILIZATION(ID, PLANTALLOCATIONID) VALUES ( /* key:86116 */ 52083, 114, null, null, null, null, null, null)"; SQL statement:
+UPDATE PlantUtilization SET ID = 52083,`PlantAllocationID` = 114,`StartHours` = 7665,`EndHours` = 7669,`DateFor` = '2018-06-08',`Fuel` = 0.0,`Notes` = '' WHERE ID = 52083 [23505-176]
+Tue Jul 10 09:30:53 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_6 ON PUBLIC.PLANTUTILIZATION(ID, PLANTALLOCATIONID) VALUES ( /* key:86118 */ 52084, 617, null, null, null, null, null, null)"; SQL statement:
+UPDATE PlantUtilization SET ID = 52084,`PlantAllocationID` = 617,`StartHours` = 3140,`EndHours` = 3141,`DateFor` = '2018-06-08',`Fuel` = 0.0,`Notes` = '' WHERE ID = 52084 [23505-176]
+Tue Jul 10 09:30:53 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_6 ON PUBLIC.PLANTUTILIZATION(ID, PLANTALLOCATIONID) VALUES ( /* key:86120 */ 52085, 315, null, null, null, null, null, null)"; SQL statement:
+UPDATE PlantUtilization SET ID = 52085,`PlantAllocationID` = 315,`StartHours` = 10070,`EndHours` = 10076,`DateFor` = '2018-06-08',`Fuel` = 0.0,`Notes` = '' WHERE ID = 52085 [23505-176]
+Tue Jul 10 09:30:53 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_E6 ON PUBLIC.LABORUTILIZATION(ID, LABORALLOCATIONID) VALUES ( /* key:68560 */ 25140, 595, null, null, null, null, null, null)"; SQL statement:
+UPDATE LaborUtilization SET ID = 25140,`LaborAllocationID` = 595,`PlantID` = '',`Hours` = 10.0,`Status` = 0,`Notes` = '',`DateFor` = '2018-06-08',`ApprovalID` = NULL WHERE ID = 25140 [23505-176]
+Tue Jul 10 09:30:53 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_E6 ON PUBLIC.LABORUTILIZATION(ID, LABORALLOCATIONID) VALUES ( /* key:68563 */ 25141, 75, null, null, null, null, null, null)"; SQL statement:
+UPDATE LaborUtilization SET ID = 25141,`LaborAllocationID` = 75,`PlantID` = '',`Hours` = 10.0,`Status` = 0,`Notes` = '',`DateFor` = '2018-06-08',`ApprovalID` = NULL WHERE ID = 25141 [23505-176]
+Tue Jul 10 09:30:53 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_E6 ON PUBLIC.LABORUTILIZATION(ID, LABORALLOCATIONID) VALUES ( /* key:68565 */ 25142, 71, null, null, null, null, null, null)"; SQL statement:
+UPDATE LaborUtilization SET ID = 25142,`LaborAllocationID` = 71,`PlantID` = '',`Hours` = 10.0,`Status` = 0,`Notes` = '',`DateFor` = '2018-06-08',`ApprovalID` = NULL WHERE ID = 25142 [23505-176]
+Tue Jul 10 09:30:53 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_E6 ON PUBLIC.LABORUTILIZATION(ID, LABORALLOCATIONID) VALUES ( /* key:68567 */ 25143, 74, null, null, null, null, null, null)"; SQL statement:
+UPDATE LaborUtilization SET ID = 25143,`LaborAllocationID` = 74,`PlantID` = '',`Hours` = 9.5,`Status` = 0,`Notes` = '',`DateFor` = '2018-06-08',`ApprovalID` = NULL WHERE ID = 25143 [23505-176]
+Tue Jul 10 09:30:53 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_E6 ON PUBLIC.LABORUTILIZATION(ID, LABORALLOCATIONID) VALUES ( /* key:68569 */ 25144, 596, null, null, null, null, null, null)"; SQL statement:
+UPDATE LaborUtilization SET ID = 25144,`LaborAllocationID` = 596,`PlantID` = '',`Hours` = 9.5,`Status` = 0,`Notes` = '',`DateFor` = '2018-06-08',`ApprovalID` = NULL WHERE ID = 25144 [23505-176]
+Tue Jul 10 09:30:53 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_E6 ON PUBLIC.LABORUTILIZATION(ID, LABORALLOCATIONID) VALUES ( /* key:68571 */ 25145, 886, null, null, null, null, null, null)"; SQL statement:
+UPDATE LaborUtilization SET ID = 25145,`LaborAllocationID` = 886,`PlantID` = '',`Hours` = 7.5,`Status` = 0,`Notes` = '',`DateFor` = '2018-06-08',`ApprovalID` = NULL WHERE ID = 25145 [23505-176]
+Tue Jul 10 09:30:53 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_E6 ON PUBLIC.LABORUTILIZATION(ID, LABORALLOCATIONID) VALUES ( /* key:68577 */ 25146, 888, null, null, null, null, null, null)"; SQL statement:
+UPDATE LaborUtilization SET ID = 25146,`LaborAllocationID` = 888,`PlantID` = '',`Hours` = 0.0,`Status` = 4,`Notes` = '',`DateFor` = '2018-06-08',`ApprovalID` = NULL WHERE ID = 25146 [23505-176]
+Tue Jul 10 09:30:53 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_E6 ON PUBLIC.LABORUTILIZATION(ID, LABORALLOCATIONID) VALUES ( /* key:68583 */ 25147, 402, null, null, null, null, null, null)"; SQL statement:
+UPDATE LaborUtilization SET ID = 25147,`LaborAllocationID` = 402,`PlantID` = '',`Hours` = 0.0,`Status` = 6,`Notes` = '',`DateFor` = '2018-06-11',`ApprovalID` = NULL WHERE ID = 25147 [23505-176]
+Tue Jul 10 09:30:53 AEST 2018
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_E6 ON PUBLIC.LABORUTILIZATION(ID, LABORALLOCATIONID) VALUES ( /* key:68585 */ 25148, 78, null, null, null, null, null, null)"; SQL statement:
+UPDATE LaborUtilization SET ID = 25148,`LaborAllocationID` = 78,`PlantID` = '',`Hours` = 0.0,`Status` = 6,`Notes` = '',`DateFor` = '2018-06-11',`ApprovalID` = NULL WHERE ID = 25148 [23505-176]
+Tue Jul 10 09:30:53 AEST 2018
+org.h2.jdbc.JdbcSQLException: Column "NAME" not found; SQL statement:
+UPDATE Login SET Name = 'Greg', LastName = 'Leghissa', Password = 'bf12d690fa045ae4c769c7fee905f679', Rights = '{"Pages":["plantutilization","labourutilization","Sales","Productutilization","Stocks","dashboard","Transport"],"Rights":1,"Sites":[1,2,3,4,5,6,7,8],"admin":["Sales"]}' WHERE id = '28' [42122-176]
+Tue Jul 10 09:30:53 AEST 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '26689' AND LABORALLOCATIONID = ''1079[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '26689' AND LaborAllocationID = ''1079'' [42000-176]
+Tue Jul 10 09:30:53 AEST 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '26690' AND LABORALLOCATIONID = ''1122[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '26690' AND LaborAllocationID = ''1122'' [42000-176]
+Tue Jul 10 09:30:53 AEST 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '26691' AND LABORALLOCATIONID = ''1143[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '26691' AND LaborAllocationID = ''1143'' [42000-176]
+Tue Jul 10 09:30:54 AEST 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '26692' AND LABORALLOCATIONID = ''1145[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '26692' AND LaborAllocationID = ''1145'' [42000-176]
+Tue Jul 10 09:30:54 AEST 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '26693' AND LABORALLOCATIONID = ''1133[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '26693' AND LaborAllocationID = ''1133'' [42000-176]
+Tue Jul 10 09:30:54 AEST 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '26694' AND LABORALLOCATIONID = ''1147[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '26694' AND LaborAllocationID = ''1147'' [42000-176]
+Tue Jul 10 09:30:54 AEST 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '26723' AND LABORALLOCATIONID = ''1150[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '26723' AND LaborAllocationID = ''1150'' [42000-176]
+Tue Jul 10 09:30:54 AEST 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '26724' AND LABORALLOCATIONID = ''1130[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '26724' AND LaborAllocationID = ''1130'' [42000-176]
+Tue Jul 10 09:30:54 AEST 2018
+org.h2.jdbc.JdbcSQLException: Column "NAME" not found; SQL statement:
+UPDATE Login SET Name = 'Brenda', LastName = 'Gaal', Rights = '{"Pages":["dashboard","plantutilization","labourutilization","Sales","Productutilization","Stocks","Transport"],"Rights":1,"Sites":[1,2,3,4,5,6,7,8],"admin":["Sales"]}' WHERE id = '47' [42122-176]
+Tue Jul 10 09:30:54 AEST 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '26780' AND LABORALLOCATIONID = ''823[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '26780' AND LaborAllocationID = ''823'' [42000-176]
+Tue Jul 10 09:30:54 AEST 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '26781' AND LABORALLOCATIONID = ''770[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '26781' AND LaborAllocationID = ''770'' [42000-176]
+Tue Jul 10 09:30:54 AEST 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '26782' AND LABORALLOCATIONID = ''1134[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '26782' AND LaborAllocationID = ''1134'' [42000-176]
+Tue Jul 10 09:30:54 AEST 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '26783' AND LABORALLOCATIONID = ''1125[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '26783' AND LaborAllocationID = ''1125'' [42000-176]
+Tue Jul 10 09:30:54 AEST 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '26784' AND LABORALLOCATIONID = ''1142[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '26784' AND LaborAllocationID = ''1142'' [42000-176]
+Tue Jul 10 09:30:54 AEST 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '26785' AND LABORALLOCATIONID = ''1124[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '26785' AND LaborAllocationID = ''1124'' [42000-176]
+Tue Jul 10 09:30:54 AEST 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '26786' AND LABORALLOCATIONID = ''766[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '26786' AND LaborAllocationID = ''766'' [42000-176]
+Tue Jul 10 09:30:54 AEST 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '26787' AND LABORALLOCATIONID = ''1145[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '26787' AND LaborAllocationID = ''1145'' [42000-176]
+Tue Jul 10 09:30:54 AEST 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '26788' AND LABORALLOCATIONID = ''776[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '26788' AND LaborAllocationID = ''776'' [42000-176]
+Tue Jul 10 09:30:54 AEST 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '26789' AND LABORALLOCATIONID = ''1131[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '26789' AND LaborAllocationID = ''1131'' [42000-176]
+Tue Jul 10 09:30:55 AEST 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '26790' AND LABORALLOCATIONID = ''1133[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '26790' AND LaborAllocationID = ''1133'' [42000-176]
+Tue Jul 10 09:30:55 AEST 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '26791' AND LABORALLOCATIONID = ''1117[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '26791' AND LaborAllocationID = ''1117'' [42000-176]
+Tue Jul 10 09:30:55 AEST 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '26792' AND LABORALLOCATIONID = ''1150[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '26792' AND LaborAllocationID = ''1150'' [42000-176]
+Tue Jul 10 09:30:55 AEST 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '26793' AND LABORALLOCATIONID = ''762[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '26793' AND LaborAllocationID = ''762'' [42000-176]
+Tue Jul 10 09:30:55 AEST 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '26794' AND LABORALLOCATIONID = ''1147[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '26794' AND LaborAllocationID = ''1147'' [42000-176]
+Tue Jul 10 09:30:55 AEST 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '26795' AND LABORALLOCATIONID = ''765[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '26795' AND LaborAllocationID = ''765'' [42000-176]
+Tue Jul 10 09:30:55 AEST 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '26796' AND LABORALLOCATIONID = ''1079[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '26796' AND LaborAllocationID = ''1079'' [42000-176]
+Tue Jul 10 09:30:55 AEST 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '26797' AND LABORALLOCATIONID = ''1122[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '26797' AND LaborAllocationID = ''1122'' [42000-176]
+Tue Jul 10 09:30:55 AEST 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '26798' AND LABORALLOCATIONID = ''1148[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '26798' AND LaborAllocationID = ''1148'' [42000-176]
+Tue Jul 10 09:30:55 AEST 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '26799' AND LABORALLOCATIONID = ''852[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '26799' AND LaborAllocationID = ''852'' [42000-176]
+Tue Jul 10 09:30:55 AEST 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '26800' AND LABORALLOCATIONID = ''1143[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '26800' AND LaborAllocationID = ''1143'' [42000-176]
+Tue Jul 10 09:30:55 AEST 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '26801' AND LABORALLOCATIONID = ''1123[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '26801' AND LaborAllocationID = ''1123'' [42000-176]
+Tue Jul 10 09:30:55 AEST 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '26802' AND LABORALLOCATIONID = ''1137[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '26802' AND LaborAllocationID = ''1137'' [42000-176]
+Tue Jul 10 09:30:55 AEST 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '26803' AND LABORALLOCATIONID = ''1130[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '26803' AND LaborAllocationID = ''1130'' [42000-176]
+Tue Jul 10 09:31:05 AEST 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORALLOCATION WHERE ID = '1196' AND SITEID = ''2018[*]-07-10'' "; SQL statement:
+SELECT * FROM LaborAllocation WHERE ID = '1196' AND SiteID = ''2018-07-10'' [42000-176]
+Tue Jul 10 09:31:05 AEST 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '26804' AND LABORALLOCATIONID = ''1196[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '26804' AND LaborAllocationID = ''1196'' [42000-176]
+Tue Jul 10 09:31:05 AEST 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '26802' AND LABORALLOCATIONID = ''1137[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '26802' AND LaborAllocationID = ''1137'' [42000-176]
+Tue Jul 10 11:05:31 AEST 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORALLOCATION WHERE ID = '1197' AND SITEID = ''2018[*]-07-10'' "; SQL statement:
+SELECT * FROM LaborAllocation WHERE ID = '1197' AND SiteID = ''2018-07-10'' [42000-176]
+Tue Jul 10 11:05:32 AEST 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '26844' AND LABORALLOCATIONID = ''1197[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '26844' AND LaborAllocationID = ''1197'' [42000-176]
+Tue Jul 10 11:05:32 AEST 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '26857' AND LABORALLOCATIONID = ''1125[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '26857' AND LaborAllocationID = ''1125'' [42000-176]
+Tue Jul 10 11:05:33 AEST 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '26858' AND LABORALLOCATIONID = ''1142[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '26858' AND LaborAllocationID = ''1142'' [42000-176]
+Tue Jul 10 11:05:33 AEST 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '26859' AND LABORALLOCATIONID = ''1124[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '26859' AND LaborAllocationID = ''1124'' [42000-176]
+Tue Jul 10 11:05:33 AEST 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '26860' AND LABORALLOCATIONID = ''766[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '26860' AND LaborAllocationID = ''766'' [42000-176]
+Tue Jul 10 11:05:33 AEST 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '26861' AND LABORALLOCATIONID = ''1145[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '26861' AND LaborAllocationID = ''1145'' [42000-176]
+Tue Jul 10 11:05:33 AEST 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '26862' AND LABORALLOCATIONID = ''776[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '26862' AND LaborAllocationID = ''776'' [42000-176]
+Tue Jul 10 11:05:33 AEST 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '26863' AND LABORALLOCATIONID = ''1131[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '26863' AND LaborAllocationID = ''1131'' [42000-176]
+Tue Jul 10 11:05:33 AEST 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '26864' AND LABORALLOCATIONID = ''1133[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '26864' AND LaborAllocationID = ''1133'' [42000-176]
+Tue Jul 10 11:05:33 AEST 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '26865' AND LABORALLOCATIONID = ''1117[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '26865' AND LaborAllocationID = ''1117'' [42000-176]
+Tue Jul 10 11:05:33 AEST 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '26866' AND LABORALLOCATIONID = ''1197[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '26866' AND LaborAllocationID = ''1197'' [42000-176]
+Tue Jul 10 11:05:33 AEST 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '26867' AND LABORALLOCATIONID = ''762[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '26867' AND LaborAllocationID = ''762'' [42000-176]
+Tue Jul 10 11:05:33 AEST 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '26868' AND LABORALLOCATIONID = ''765[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '26868' AND LaborAllocationID = ''765'' [42000-176]
+Tue Jul 10 11:05:33 AEST 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '26869' AND LABORALLOCATIONID = ''1079[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '26869' AND LaborAllocationID = ''1079'' [42000-176]
+Tue Jul 10 11:05:33 AEST 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '26870' AND LABORALLOCATIONID = ''1122[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '26870' AND LaborAllocationID = ''1122'' [42000-176]
+Tue Jul 10 11:05:33 AEST 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '26871' AND LABORALLOCATIONID = ''1148[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '26871' AND LaborAllocationID = ''1148'' [42000-176]
+Tue Jul 10 11:05:33 AEST 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '26872' AND LABORALLOCATIONID = ''852[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '26872' AND LaborAllocationID = ''852'' [42000-176]
+Tue Jul 10 11:05:33 AEST 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '26873' AND LABORALLOCATIONID = ''1143[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '26873' AND LaborAllocationID = ''1143'' [42000-176]
+Tue Jul 10 11:05:33 AEST 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '26874' AND LABORALLOCATIONID = ''1123[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '26874' AND LaborAllocationID = ''1123'' [42000-176]
+Tue Jul 10 11:05:33 AEST 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '26875' AND LABORALLOCATIONID = ''1130[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '26875' AND LaborAllocationID = ''1130'' [42000-176]
+Tue Jul 10 11:05:33 AEST 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '26876' AND LABORALLOCATIONID = ''823[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '26876' AND LaborAllocationID = ''823'' [42000-176]
+Tue Jul 10 11:05:33 AEST 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '26877' AND LABORALLOCATIONID = ''770[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '26877' AND LaborAllocationID = ''770'' [42000-176]
+Tue Jul 10 11:05:33 AEST 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '26878' AND LABORALLOCATIONID = ''1134[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '26878' AND LaborAllocationID = ''1134'' [42000-176]
+Tue Jul 10 11:05:33 AEST 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '26879' AND LABORALLOCATIONID = ''1147[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '26879' AND LaborAllocationID = ''1147'' [42000-176]
+Tue Jul 10 11:05:33 AEST 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '26880' AND LABORALLOCATIONID = ''1137[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '26880' AND LaborAllocationID = ''1137'' [42000-176]

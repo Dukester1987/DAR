@@ -1,0 +1,24 @@
+Thu Oct 05 09:09:21 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Column "GLS017" not found; SQL statement:
+UPDATE PlantList SET `ID` = 'GLS017',`PlantDesc` = 'STAG',`Rate` = '1800',`UnitOfMeasurement` = 'h' WHERE ID = GLS017 [42122-176]
+Thu Oct 05 09:09:21 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Value too long for column "ROWID VARCHAR(5) NOT NULL SELECTIVITY 21": "'GLS017' (6)"; SQL statement:
+INSERT INTO ChangeLog (AffectedTable, RowID, Operation, NewValue, LoginID, Time, UID, DateFor, SiteID) VALUES ('PlantList','GLS017','insert','INSERT INTO PlantList (`ID`, `PlantDesc`, `Rate`, `UnitOfMeasurement`) VALUES (''GLS017'', ''STAG'', ''1800'', ''h'')','3','2017-09-28 20:43:26.0','0b3696f0-05c1-4de8-ae1f-e3864f23a0e2','2017-09-28','0') [22001-176]
+Thu Oct 05 09:09:22 AEDT 2017
+org.h2.jdbc.JdbcSQLException: NULL not allowed for column "SITEID"; SQL statement:
+INSERT INTO Sales (ApprovalID) VALUES (592) [23502-176]
+Thu Oct 05 09:09:22 AEDT 2017
+org.h2.jdbc.JdbcSQLException: NULL not allowed for column "SITEID"; SQL statement:
+INSERT INTO Sales (ApprovalID) VALUES (593) [23502-176]
+Thu Oct 05 09:59:28 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Column "GLS017" not found; SQL statement:
+UPDATE PlantList SET `ID` = 'GLS017',`PlantDesc` = 'STAG',`Rate` = '1800',`UnitOfMeasurement` = 'h' WHERE ID = GLS017 [42122-176]
+Thu Oct 05 09:59:29 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Value too long for column "ROWID VARCHAR(5) NOT NULL SELECTIVITY 21": "'GLS017' (6)"; SQL statement:
+INSERT INTO ChangeLog (AffectedTable, RowID, Operation, NewValue, LoginID, Time, UID, DateFor, SiteID) VALUES ('PlantList','GLS017','insert','INSERT INTO PlantList (`ID`, `PlantDesc`, `Rate`, `UnitOfMeasurement`) VALUES (''GLS017'', ''STAG'', ''1800'', ''h'')','3','2017-09-28 20:43:26.0','0b3696f0-05c1-4de8-ae1f-e3864f23a0e2','2017-09-28','0') [22001-176]
+Thu Oct 05 11:17:15 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Column "GLS017" not found; SQL statement:
+UPDATE PlantList SET `ID` = 'GLS017',`PlantDesc` = 'STAG',`Rate` = '1800',`UnitOfMeasurement` = 'h' WHERE ID = GLS017 [42122-176]
+Thu Oct 05 11:17:15 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Value too long for column "ROWID VARCHAR(5) NOT NULL SELECTIVITY 21": "'GLS017' (6)"; SQL statement:
+INSERT INTO ChangeLog (AffectedTable, RowID, Operation, NewValue, LoginID, Time, UID, DateFor, SiteID) VALUES ('PlantList','GLS017','insert','INSERT INTO PlantList (`ID`, `PlantDesc`, `Rate`, `UnitOfMeasurement`) VALUES (''GLS017'', ''STAG'', ''1800'', ''h'')','3','2017-09-28 20:43:26.0','0b3696f0-05c1-4de8-ae1f-e3864f23a0e2','2017-09-28','0') [22001-176]

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<root version="1.3.09">
+<root version="1.3.14">
   <dir name="inc">
     <file name="dbcon.properties"/>
     <file name="DBCreate.sql"/>
@@ -13,10 +13,12 @@
     <file name="json-simple-1.1.1.jar"/>
     <file name="junit-4.6.jar"/>
     <file name="mysql-connector-java-5.1.39-bin.jar"/>
+    <file name="swingx-1.6.1.jar"/>
     <file name="swingx-core-1.6.2-AutoCompletition.jar"/>
   </dir>
   <file name="DAR.jar"/>  
-  <file name="DAR_Updater.jar"/>
+  <file name="eDAR.exe"/>
+  <file name="DAR_Updater.jar"/>  
   <dir name="changelog">
     <file name="version_manifest.properties"/>
   </dir>

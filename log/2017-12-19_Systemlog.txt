@@ -1,0 +1,123 @@
+Tue Dec 19 09:16:15 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM SITENOTES WHERE ID = '1069' AND SITEID = ''2017[*]-10-11'' "; SQL statement:
+SELECT * FROM SiteNotes WHERE ID = '1069' AND SiteID = ''2017-10-11'' [42000-176]
+Tue Dec 19 09:16:18 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM SITENOTES WHERE ID = '1134' AND SITEID = ''2017[*]-11-02'' "; SQL statement:
+SELECT * FROM SiteNotes WHERE ID = '1134' AND SiteID = ''2017-11-02'' [42000-176]
+Tue Dec 19 09:16:18 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Unique index or primary key violation: "PRIMARY_KEY_7E ON PUBLIC.SALES(ID, SITEID) VALUES ( /* key:16825 */ 10846, 8, null, null, null, null, null, null, null)"; SQL statement:
+UPDATE Sales SET ID = 10846,`SiteID` = 8,`ProductID` = 232,`Direction` = 'OUT',`Amount` = 85.48,`PriceIncGST` = 2378.49,`PriceExGST` = 2162.26,`DateFor` = '2017-11-06' WHERE ID = 10846 [23505-176]
+Tue Dec 19 09:16:18 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Column "NAME" not found; SQL statement:
+UPDATE `Login` SET `Name` = 'Genefer', `LastName` = 'Formento' WHERE `ID` = 75; [42122-176]
+Tue Dec 19 09:16:19 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM SITENOTES WHERE ID = '1153' AND SITEID = ''2017[*]-11-10'' "; SQL statement:
+SELECT * FROM SiteNotes WHERE ID = '1153' AND SiteID = ''2017-11-10'' [42000-176]
+Tue Dec 19 09:16:19 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Value too long for column "ROWID VARCHAR(5) NOT NULL SELECTIVITY 21": "'DH32189' (7)"; SQL statement:
+INSERT INTO ChangeLog (AffectedTable, RowID, Operation, NewValue, LoginID, Time, UID, DateFor, SiteID) VALUES ('PlantList','DH32189','insert','INSERT INTO PlantList (`ID`, `PlantDesc`, `Rate`, `UnitOfMeasurement`) VALUES (''DH32189'', ''45 Tonne excavator'', ''121'', ''h'')','3','2017-11-13 04:18:44.0','86ba351d-2192-430c-ba59-1027200335da','2017-11-13','0') [22001-176]
+Tue Dec 19 09:16:20 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Column "NAME" not found; SQL statement:
+UPDATE Login SET Name = 'Lukass',LastName = 'Dulka' WHERE id = '3' [42122-176]
+Tue Dec 19 09:16:20 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Column "NAME" not found; SQL statement:
+UPDATE Login SET Name = 'Lukas',LastName = 'Dulka' WHERE id = '3' [42122-176]
+Tue Dec 19 09:16:20 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Column "NAME" not found; SQL statement:
+UPDATE Login SET Name = 'Lukas', LastName = 'Dulka', Password = '2fae7330fe63aa996902e0606caa2bc0' WHERE id = '3' [42122-176]
+Tue Dec 19 09:16:20 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Column "NAME" not found; SQL statement:
+INSERT INTO Login (Name, LastName) VALUES ('Kaajal', 'Narayan') [42122-176]
+Tue Dec 19 09:16:20 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Column "NAME" not found; SQL statement:
+UPDATE Login SET Name = 'Lukas', LastName = 'Dulka' WHERE id = '3' [42122-176]
+Tue Dec 19 09:16:20 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Column "NAME" not found; SQL statement:
+UPDATE Login SET Name = 'Lukas', LastName = 'Dulka' WHERE id = '3' [42122-176]
+Tue Dec 19 09:16:20 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM SITENOTES WHERE ID = '1213' AND SITEID = ''2017[*]-11-22'' "; SQL statement:
+SELECT * FROM SiteNotes WHERE ID = '1213' AND SiteID = ''2017-11-22'' [42000-176]
+Tue Dec 19 09:16:20 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Column "NAME" not found; SQL statement:
+UPDATE Login SET Name = 'Ricky', LastName = 'Jarrett', Password = 'd907d41e14a1b49cf196f8ab17930911' WHERE id = '64' [42122-176]
+Tue Dec 19 09:16:25 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Column "NAME" not found; SQL statement:
+UPDATE Login SET Name = 'Lukas', LastName = 'Dulka' WHERE id = '3' [42122-176]
+Tue Dec 19 09:16:25 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Column "NAME" not found; SQL statement:
+UPDATE Login SET Name = 'Lukas', LastName = 'Dulka' WHERE id = '3' [42122-176]
+Tue Dec 19 09:16:25 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Column "NAME" not found; SQL statement:
+UPDATE Login SET Name = 'Lucas', LastName = 'Dulka', Rights = '{"Pages":["dashboard","plantutilization","labourutilization","Sales","Productutilization","Stocks","Transport"],"Rights":1,"Sites":[1,2,3,4,5,6,7,8,9],"admin":["PlantList","Sales","SalesDel","Users"]}' WHERE id = '3' [42122-176]
+Tue Dec 19 09:16:25 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Column "NAME" not found; SQL statement:
+UPDATE Login SET Name = 'Lukas', LastName = 'Dulka', Rights = '{"Pages":["dashboard","plantutilization","labourutilization","Sales","Productutilization","Stocks","Transport"],"Rights":1,"Sites":[1,2,3,4,5,6,7,8,9],"admin":["PlantList","Sales","SalesDel","Users"]}' WHERE id = '3' [42122-176]
+Tue Dec 19 09:16:25 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Column "NAME" not found; SQL statement:
+UPDATE Login SET Name = 'Darryl', LastName = 'Bikoff', Rights = '{"Pages":["dashboard","plantutilization","labourutilization","Sales","Productutilization","Stocks","Transport"],"Rights":1,"Sites":[1,2,3,4,5,6,7,8,9],"admin":["PlantList","Sales","SalesDel","Users"]}' WHERE id = '3' [42122-176]
+Tue Dec 19 09:16:25 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Column "NAME" not found; SQL statement:
+UPDATE Login SET Name = 'Lukas', LastName = 'Dulka', Rights = '{"Pages":["dashboard","plantutilization","labourutilization","Sales","Productutilization","Stocks","Transport"],"Rights":1,"Sites":[1,2,3,4,5,6,7,8,9],"admin":["PlantList","Sales","SalesDel","Users"]}' WHERE id = '3' [42122-176]
+Tue Dec 19 09:16:25 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Column "NAME" not found; SQL statement:
+UPDATE Login SET Name = 'Lukas', LastName = 'Dulka', Rights = '{"Pages":["dashboard","plantutilization","labourutilization","Sales","Productutilization","Stocks"],"Rights":1,"Sites":[1,2,3,4,5,6,7,8]}' WHERE id = '3' [42122-176]
+Tue Dec 19 09:16:25 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Column "NAME" not found; SQL statement:
+UPDATE Login SET Name = 'Lukas', LastName = 'Dulka', Rights = '{"Pages":["dashboard","plantutilization","labourutilization","Sales","Productutilization","Stocks"],"Rights":1,"Sites":[1,2,3,4,5,6,7,8],"admin":["Sales","Transport","Users"]}' WHERE id = '3' [42122-176]
+Tue Dec 19 09:16:26 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Column "NAME" not found; SQL statement:
+UPDATE Login SET Name = 'My', LastName = 'Test', Rights = '{"Pages":["plantutilization","labourutilization","Sales","Productutilization","Stocks"],"Rights":1,"Sites":[8]}' WHERE id = '39' [42122-176]
+Tue Dec 19 09:16:26 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Column "NAME" not found; SQL statement:
+UPDATE Login SET Name = 'Paul', LastName = 'Fraser', Rights = '{"Pages":[],"Rights":1,"Sites":[3]}' WHERE id = '63' [42122-176]
+Tue Dec 19 09:16:26 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Column "NAME" not found; SQL statement:
+UPDATE Login SET Name = 'Darryl', LastName = 'Bikoff', Rights = '{"Pages":["dashboard","plantutilization","labourutilization","Sales","Productutilization","Stocks","Transport"],"Rights":1,"Sites":[1,2,3,4,5,6,7,8,9],"admin":["PlantList","Sales","SalesDel","Users"]}' WHERE id = '3' [42122-176]
+Tue Dec 19 09:16:26 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Column "NAME" not found; SQL statement:
+UPDATE Login SET Name = 'Lukas', LastName = 'Dulka', Rights = '{"Pages":["dashboard","plantutilization","labourutilization","Sales","Productutilization","Stocks","Transport"],"Rights":1,"Sites":[1,2,3,4,5,6,7,8,9],"admin":["PlantList","Sales","SalesDel","Users"]}' WHERE id = '3' [42122-176]
+Tue Dec 19 09:16:26 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Column "NAME" not found; SQL statement:
+UPDATE Login SET Name = '', LastName = '', Rights = '{"Pages":["plantutilization","labourutilization"],"Rights":1,"Sites":[1,2,3,4,5,6,7,8]}' WHERE id = '3' [42122-176]
+Tue Dec 19 09:16:26 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Column "NAME" not found; SQL statement:
+UPDATE Login SET Name = 'Lukas', LastName = 'Dulka', Rights = '{"Pages":["dashboard","plantutilization","labourutilization","Sales","Productutilization","Stocks","Transport"],"Rights":1,"Sites":[1,2,3,4,5,6,7,8,9],"admin":["PlantList","Sales","SalesDel","Users"]}' WHERE id = '3' [42122-176]
+Tue Dec 19 09:16:26 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Column "NAME" not found; SQL statement:
+UPDATE Login SET Name = 'Test', LastName = 'User', Password = '2fae7330fe63aa996902e0606caa2bc0', Rights = '{"Pages":["dashboard","plantutilization","labourutilization","Sales","Productutilization","Stocks","Transport"],"Rights":1,"Sites":[1,2,3,4,5,6,7,8,9],"admin":["PlantList","Sales","SalesDel","Users"]}' WHERE id = '3' [42122-176]
+Tue Dec 19 09:16:26 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Column "NAME" not found; SQL statement:
+UPDATE Login SET Name = 'Test', LastName = 'User', Password = '2fae7330fe63aa996902e0606caa2bc0', Rights = '{"Pages":["dashboard","plantutilization","labourutilization","Sales","Productutilization","Stocks","Transport"],"Rights":1,"Sites":[1,2,3,4,5,6,7,8,9],"admin":["PlantList","Sales","SalesDel","Users"]}' WHERE id = '3' [42122-176]
+Tue Dec 19 09:16:26 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Column "NAME" not found; SQL statement:
+UPDATE Login SET Name = 'Lukas', LastName = 'Dulka', Rights = '{"Pages":["dashboard","plantutilization","labourutilization","Sales","Productutilization","Stocks","Transport"],"Rights":1,"Sites":[1,2,3,4,5,6,7,8,9],"admin":["PlantList","Sales","SalesDel","Users"]}' WHERE id = '3' [42122-176]
+Tue Dec 19 09:16:26 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Column "NAME" not found; SQL statement:
+UPDATE Login SET Name = 'Lukas', LastName = 'Dulka test', Rights = '{"Pages":["dashboard","plantutilization","labourutilization","Sales","Productutilization","Stocks","Transport"],"Rights":1,"Sites":[1,2,3,4,5,6,7,8,9],"admin":["PlantList","Sales","SalesDel","Users"]}' WHERE id = '3' [42122-176]
+Tue Dec 19 09:16:26 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Column "NAME" not found; SQL statement:
+UPDATE Login SET Name = 'Lukas', LastName = 'Dulka', Rights = '{"Pages":["dashboard","plantutilization","labourutilization","Sales","Productutilization","Stocks","Transport"],"Rights":1,"Sites":[1,2,3,4,5,6,7,8,9],"admin":["PlantList","Sales","SalesDel","Users"]}' WHERE id = '3' [42122-176]
+Tue Dec 19 09:16:26 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Column "NAME" not found; SQL statement:
+UPDATE Login SET Name = 'Test', LastName = 'User', Password = '2fae7330fe63aa996902e0606caa2bc0', Rights = '{"Pages":["dashboard","plantutilization","labourutilization","Sales","Productutilization","Stocks","Transport"],"Rights":1,"Sites":[1,2,3,4,5,6,7,8,9],"admin":["PlantList","Sales","SalesDel","Users"]}' WHERE id = '39' [42122-176]
+Tue Dec 19 09:16:26 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Column "NAME" not found; SQL statement:
+UPDATE Login SET Name = 'Darryl', LastName = 'Bikoff', Rights = '{"Pages":["dashboard","plantutilization","labourutilization","Sales","Productutilization","Stocks","Transport"],"Rights":1,"Sites":[1,2,3,4,5,6,7,8,9],"admin":["PlantList","Sales","SalesDel","Users"]}' WHERE id = '57' [42122-176]
+Tue Dec 19 09:16:28 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Column "NAME" not found; SQL statement:
+UPDATE Login SET Name = 'Lukas', LastName = 'Dulka', Password = '2fae7330fe63aa996902e0606caa2bc0', Rights = '{"Pages":["dashboard","plantutilization","labourutilization","Sales","Productutilization","Stocks","Transport"],"Rights":1,"Sites":[1,2,3,4,5,6,7,8,9],"admin":["PlantList","Sales","SalesDel","Users"]}' WHERE id = '3' [42122-176]
+Tue Dec 19 09:16:28 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Column "NAME" not found; SQL statement:
+UPDATE Login SET Name = 'Test', LastName = 'User', Password = '098f6bcd4621d373cade4e832627b4f6', Rights = '{"Pages":["dashboard","plantutilization","labourutilization","Sales","Productutilization","Stocks","Transport"],"Rights":1,"Sites":[1,2,3,4,5,6,7,8,9],"admin":["PlantList","Sales","SalesDel","Users"]}' WHERE id = '39' [42122-176]
+Tue Dec 19 09:18:27 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Column "DH32189" not found; SQL statement:
+UPDATE PlantList SET `ID` = 'DH32189',`PlantDesc` = '45 Tonne excavator',`Rate` = '121',`UnitOfMeasurement` = 'h' WHERE ID = DH32189 [42122-176]
+Tue Dec 19 09:18:27 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Value too long for column "ROWID VARCHAR(5) NOT NULL SELECTIVITY 21": "'DH32189' (7)"; SQL statement:
+INSERT INTO ChangeLog (AffectedTable, RowID, Operation, NewValue, LoginID, Time, UID, DateFor, SiteID) VALUES ('PlantList','DH32189','insert','INSERT INTO PlantList (`ID`, `PlantDesc`, `Rate`, `UnitOfMeasurement`) VALUES (''DH32189'', ''45 Tonne excavator'', ''121'', ''h'')','3','2017-11-13 04:18:44.0','86ba351d-2192-430c-ba59-1027200335da','2017-11-13','0') [22001-176]
+Tue Dec 19 09:22:17 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Column "DH32189" not found; SQL statement:
+UPDATE PlantList SET `ID` = 'DH32189',`PlantDesc` = '45 Tonne excavator',`Rate` = '121',`UnitOfMeasurement` = 'h' WHERE ID = DH32189 [42122-176]
+Tue Dec 19 09:22:17 AEDT 2017
+org.h2.jdbc.JdbcSQLException: Value too long for column "ROWID VARCHAR(5) NOT NULL SELECTIVITY 21": "'DH32189' (7)"; SQL statement:
+INSERT INTO ChangeLog (AffectedTable, RowID, Operation, NewValue, LoginID, Time, UID, DateFor, SiteID) VALUES ('PlantList','DH32189','insert','INSERT INTO PlantList (`ID`, `PlantDesc`, `Rate`, `UnitOfMeasurement`) VALUES (''DH32189'', ''45 Tonne excavator'', ''121'', ''h'')','3','2017-11-13 04:18:44.0','86ba351d-2192-430c-ba59-1027200335da','2017-11-13','0') [22001-176]

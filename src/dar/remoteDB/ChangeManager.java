@@ -15,7 +15,14 @@ import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.stream.Collectors;
 import javax.swing.JLabel;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 /**
  *
@@ -45,15 +52,15 @@ public class ChangeManager {
         //initialize the variables        
         changeList = new ArrayList<>();
         getLastUpdate();
-        String SQLString = "SELECT ID, AffectedTable, RowID, Operation, NewValue, LoginID, Time, UID, DateFor, SiteID FROM ChangeLog WHERE Time>='%s' ORDER BY Time,ID";
+        String SQLString = "SELECT ID, AffectedTable, RowID, Operation, NewValue, LoginID, Time, UID, DateFor, SiteID FROM ChangeLog WHERE Time>='%s' AND AffectedTable IN (%s) ORDER BY Time,ID";
         
         //get things to download        
-        String query = String.format(SQLString,lastUpdate.get(updateID[0]));                
+        String query = String.format(SQLString,lastUpdate.get(updateID[0]),getSQLSites());                
         //String query = String.format(SQLString,stamp);                
         addResultIntoList(ServerCon,changeList,query,0);
         
         //get things to upload
-        query = String.format(SQLString,lastUpdate.get(updateID[1]));  
+        query = String.format(SQLString,lastUpdate.get(updateID[1]),getSQLSites());  
         //query = String.format(SQLString,stamp);        
         addResultIntoList(LocalCon,changeList, query, 1);
                 
@@ -252,6 +259,7 @@ public class ChangeManager {
         String columns = "";
         String values = "";
         String firstParse = " SET ";
+        System.out.println(query);
         String[] splices = query.substring(query.indexOf(firstParse)+firstParse.length(),query.lastIndexOf(" WHERE ")).split(",");       
         for (int i = 0; i < splices.length; i++) {
             columns += String.format("%s%s", splices[i].substring(0,splices[i].indexOf(" = ")).trim(),i <splices.length-1?", ":"");
@@ -377,6 +385,29 @@ public class ChangeManager {
         int rtv = returnValue-1>=data.length-1?data.length-1:returnValue-1;
         return data[rtv];
     }
+    
+     private List<String> getAllovedTables(){
+        String JSONString = DBWrapper.SYNCTABLES;
+        List<String> list = new ArrayList<String>();
+        try {
+            JSONObject jString = (JSONObject) new JSONParser().parse(JSONString);
+            JSONArray msg = (JSONArray) jString.get("tables");
+            Iterator<String> iterator = msg.iterator();
+            while (iterator.hasNext()) {
+                String actualName = iterator.next();
+                list.add("'"+actualName+"'");
+            }
+        } catch (ParseException ex) {
+            ex.printStackTrace();
+        } 
+        return list;
+    }
+    
+    private String getSQLSites(){
+        List<String> list = getAllovedTables();
+        return list.stream()        
+                .collect(Collectors.joining(", "));
+    }       
 
     
 }

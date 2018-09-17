@@ -1,0 +1,17 @@
+Mon Jan 08 08:21:02 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Column "NAME" not found; SQL statement:
+UPDATE Login SET Name = 'Pat', LastName = 'Hallinan', Password = '245b16b198a0f6d9a39363839bb10cc1', Rights = '{"Pages":["dashboard","plantutilization","labourutilization","Sales","Productutilization","Stocks"],"Rights":1,"Sites":[1,2,3,4,5,6,7,8]}' WHERE id = '50' [42122-176]
+Mon Jan 08 08:21:05 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Column "NAME" not found; SQL statement:
+UPDATE Login SET Name = 'Genefer', LastName = 'Formento', Password = 'a5264f972e8bb24b4929c8ac70ddfe6b', Rights = '{"Pages":["Sales"],"Rights":1,"Sites":[1,2,3,4,5,6,7],"admin":["Sales"]}' WHERE id = '75' [42122-176]
+Mon Jan 08 08:24:33 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Column "NAME" not found; SQL statement:
+UPDATE Login SET Name = 'Genefer', LastName = 'Formento', Rights = '{"Pages":["Sales"],"Rights":1,"Sites":[1,2,3,4,5,6,7],"admin":["Sales","SalesDel"]}' WHERE id = '75' [42122-176]
+Mon Jan 08 08:24:33 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Column "NAME" not found; SQL statement:
+UPDATE Login SET Name = 'Colin', LastName = 'McDonald', Rights = '{"Pages":["Sales"],"Rights":1,"Sites":[8],"admin":["Sales"]}' WHERE id = '79' [42122-176]
+Mon Jan 08 08:24:33 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Column "NAME" not found; SQL statement:
+UPDATE Login SET Name = 'Colin', LastName = 'McDonald', Rights = '{"Pages":["Sales"],"Rights":1,"Sites":[8],"admin":["Sales"]}' WHERE id = '79' [42122-176]
+Mon Jan 08 08:24:55 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-176]

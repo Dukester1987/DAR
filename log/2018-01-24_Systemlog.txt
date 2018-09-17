@@ -1,0 +1,416 @@
+Wed Jan 24 10:59:38 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORALLOCATION WHERE ID = '786' AND SITEID = ''2018[*]-01-23'' "; SQL statement:
+SELECT * FROM LaborAllocation WHERE ID = '786' AND SiteID = ''2018-01-23'' [42000-176]
+Wed Jan 24 10:59:38 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORALLOCATION WHERE ID = '787' AND SITEID = ''2018[*]-01-23'' "; SQL statement:
+SELECT * FROM LaborAllocation WHERE ID = '787' AND SiteID = ''2018-01-23'' [42000-176]
+Wed Jan 24 10:59:38 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '17279' AND LABORALLOCATIONID = ''786[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '17279' AND LaborAllocationID = ''786'' [42000-176]
+Wed Jan 24 10:59:38 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '17280' AND LABORALLOCATIONID = ''763[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '17280' AND LaborAllocationID = ''763'' [42000-176]
+Wed Jan 24 10:59:38 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '17281' AND LABORALLOCATIONID = ''764[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '17281' AND LaborAllocationID = ''764'' [42000-176]
+Wed Jan 24 10:59:38 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '17282' AND LABORALLOCATIONID = ''775[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '17282' AND LaborAllocationID = ''775'' [42000-176]
+Wed Jan 24 10:59:38 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '17283' AND LABORALLOCATIONID = ''787[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '17283' AND LaborAllocationID = ''787'' [42000-176]
+Wed Jan 24 10:59:38 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '17284' AND LABORALLOCATIONID = ''765[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '17284' AND LaborAllocationID = ''765'' [42000-176]
+Wed Jan 24 10:59:38 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORALLOCATION WHERE ID = '788' AND SITEID = ''2018[*]-01-23'' "; SQL statement:
+SELECT * FROM LaborAllocation WHERE ID = '788' AND SiteID = ''2018-01-23'' [42000-176]
+Wed Jan 24 10:59:38 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '17285' AND LABORALLOCATIONID = ''788[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '17285' AND LaborAllocationID = ''788'' [42000-176]
+Wed Jan 24 10:59:38 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '17286' AND LABORALLOCATIONID = ''776[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '17286' AND LaborAllocationID = ''776'' [42000-176]
+Wed Jan 24 10:59:38 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '17287' AND LABORALLOCATIONID = ''772[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '17287' AND LaborAllocationID = ''772'' [42000-176]
+Wed Jan 24 10:59:39 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '17288' AND LABORALLOCATIONID = ''777[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '17288' AND LaborAllocationID = ''777'' [42000-176]
+Wed Jan 24 10:59:39 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '17289' AND LABORALLOCATIONID = ''785[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '17289' AND LaborAllocationID = ''785'' [42000-176]
+Wed Jan 24 10:59:39 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '17290' AND LABORALLOCATIONID = ''762[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '17290' AND LaborAllocationID = ''762'' [42000-176]
+Wed Jan 24 10:59:39 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '17291' AND LABORALLOCATIONID = ''784[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '17291' AND LaborAllocationID = ''784'' [42000-176]
+Wed Jan 24 10:59:39 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '17292' AND LABORALLOCATIONID = ''782[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '17292' AND LaborAllocationID = ''782'' [42000-176]
+Wed Jan 24 10:59:39 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Value too long for column "PLANTID VARCHAR(5) NOT NULL SELECTIVITY 1": "'GLS017' (6)"; SQL statement:
+INSERT INTO `LaborUtilization` (`ID`, `LaborAllocationID`, `PlantID`, `Hours`, `Status`, `Notes`, `DateFor`, `ApprovalID`) VALUES (17292, '782', 'GLS017', '1', '1', '', '2018-01-23', NULL); [22001-176]
+Wed Jan 24 10:59:39 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '17293' AND LABORALLOCATIONID = ''771[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '17293' AND LaborAllocationID = ''771'' [42000-176]
+Wed Jan 24 10:59:39 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '17294' AND LABORALLOCATIONID = ''770[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '17294' AND LaborAllocationID = ''770'' [42000-176]
+Wed Jan 24 10:59:39 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '17295' AND LABORALLOCATIONID = ''768[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '17295' AND LaborAllocationID = ''768'' [42000-176]
+Wed Jan 24 10:59:39 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Column "NAME" not found; SQL statement:
+UPDATE Login SET Name = 'Kasanita', LastName = 'Teulilo', Rights = '{"Pages":["Transport"],"Rights":1,"Sites":[1,2,3,4,5,6,7,8,9]}' WHERE id = '80' [42122-176]
+Wed Jan 24 10:59:39 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORALLOCATION WHERE ID = '789' AND SITEID = ''2018[*]-01-22'' "; SQL statement:
+SELECT * FROM LaborAllocation WHERE ID = '789' AND SiteID = ''2018-01-22'' [42000-176]
+Wed Jan 24 10:59:39 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '17307' AND LABORALLOCATIONID = ''789[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '17307' AND LaborAllocationID = ''789'' [42000-176]
+Wed Jan 24 10:59:39 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '17308' AND LABORALLOCATIONID = ''789[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '17308' AND LaborAllocationID = ''789'' [42000-176]
+Wed Jan 24 10:59:39 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '17309' AND LABORALLOCATIONID = ''766[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '17309' AND LaborAllocationID = ''766'' [42000-176]
+Wed Jan 24 10:59:39 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '17310' AND LABORALLOCATIONID = ''789[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '17310' AND LaborAllocationID = ''789'' [42000-176]
+Wed Jan 24 10:59:39 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '17311' AND LABORALLOCATIONID = ''786[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '17311' AND LaborAllocationID = ''786'' [42000-176]
+Wed Jan 24 10:59:39 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '17312' AND LABORALLOCATIONID = ''763[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '17312' AND LaborAllocationID = ''763'' [42000-176]
+Wed Jan 24 10:59:39 AEDT 2018
+org.h2.jdbc.JdbcSQLException: NULL not allowed for column "LABORID"; SQL statement:
+INSERT INTO LaborAllocation (EndDate) VALUES ('2018-01-22') [23502-176]
+Wed Jan 24 10:59:39 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '17344' AND LABORALLOCATIONID = ''766[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '17344' AND LaborAllocationID = ''766'' [42000-176]
+Wed Jan 24 10:59:39 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '17345' AND LABORALLOCATIONID = ''765[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '17345' AND LaborAllocationID = ''765'' [42000-176]
+Wed Jan 24 10:59:39 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '17346' AND LABORALLOCATIONID = ''788[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '17346' AND LaborAllocationID = ''788'' [42000-176]
+Wed Jan 24 10:59:39 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '17347' AND LABORALLOCATIONID = ''776[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '17347' AND LaborAllocationID = ''776'' [42000-176]
+Wed Jan 24 10:59:39 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '17348' AND LABORALLOCATIONID = ''772[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '17348' AND LaborAllocationID = ''772'' [42000-176]
+Wed Jan 24 10:59:39 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '17349' AND LABORALLOCATIONID = ''764[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '17349' AND LaborAllocationID = ''764'' [42000-176]
+Wed Jan 24 10:59:39 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '17350' AND LABORALLOCATIONID = ''775[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '17350' AND LaborAllocationID = ''775'' [42000-176]
+Wed Jan 24 10:59:39 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '17351' AND LABORALLOCATIONID = ''777[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '17351' AND LaborAllocationID = ''777'' [42000-176]
+Wed Jan 24 10:59:40 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '17352' AND LABORALLOCATIONID = ''767[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '17352' AND LaborAllocationID = ''767'' [42000-176]
+Wed Jan 24 10:59:40 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '17353' AND LABORALLOCATIONID = ''785[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '17353' AND LaborAllocationID = ''785'' [42000-176]
+Wed Jan 24 10:59:40 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '17354' AND LABORALLOCATIONID = ''762[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '17354' AND LaborAllocationID = ''762'' [42000-176]
+Wed Jan 24 10:59:40 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '17355' AND LABORALLOCATIONID = ''770[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '17355' AND LaborAllocationID = ''770'' [42000-176]
+Wed Jan 24 10:59:40 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '17356' AND LABORALLOCATIONID = ''771[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '17356' AND LaborAllocationID = ''771'' [42000-176]
+Wed Jan 24 10:59:40 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '17357' AND LABORALLOCATIONID = ''784[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '17357' AND LaborAllocationID = ''784'' [42000-176]
+Wed Jan 24 10:59:40 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '17358' AND LABORALLOCATIONID = ''782[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '17358' AND LaborAllocationID = ''782'' [42000-176]
+Wed Jan 24 10:59:40 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Value too long for column "PLANTID VARCHAR(5) NOT NULL SELECTIVITY 1": "'GLS017' (6)"; SQL statement:
+INSERT INTO `LaborUtilization` (`ID`, `LaborAllocationID`, `PlantID`, `Hours`, `Status`, `Notes`, `DateFor`, `ApprovalID`) VALUES (17358, '782', 'GLS017', '1', '1', '', '2018-01-24', NULL); [22001-176]
+Wed Jan 24 10:59:40 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM LABORUTILIZATION WHERE ID = '17359' AND LABORALLOCATIONID = ''768[*]'' "; SQL statement:
+SELECT * FROM LaborUtilization WHERE ID = '17359' AND LaborAllocationID = ''768'' [42000-176]
+Wed Jan 24 11:01:23 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Column "S.PRODUCTION" must be in the GROUP BY list; SQL statement:
+SELECT 
+s.ProductID,
+s.ProductName,
+s.Production-s.UsedInProduction+s.SalesIN-s.SalesOUT+COALESCE(SUM(sa.Qty),0) as StockPile
+FROM `Stock` s
+left JOIN StockAdjustments sa on s.ProductID = sa.ProductID and s.SiteID = sa.SiteID
+inner JOIN SiteList sl on s.SiteID = sl.ID
+WHERE s.SiteID = 2
+GROUP BY s.ProductID [90016-176]
+Wed Jan 24 11:01:42 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Column "S.PRODUCTION" must be in the GROUP BY list; SQL statement:
+SELECT 
+s.ProductID,
+s.ProductName,
+s.Production-s.UsedInProduction+s.SalesIN-s.SalesOUT+COALESCE(SUM(sa.Qty),0) as StockPile
+FROM `Stock` s
+left JOIN StockAdjustments sa on s.ProductID = sa.ProductID and s.SiteID = sa.SiteID
+inner JOIN SiteList sl on s.SiteID = sl.ID
+WHERE s.SiteID = 2
+GROUP BY s.ProductID [90016-176]
+Wed Jan 24 11:02:23 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Column "S.PRODUCTION" must be in the GROUP BY list; SQL statement:
+SELECT 
+s.ProductID,
+s.ProductName,
+s.Production-s.UsedInProduction+s.SalesIN-s.SalesOUT+COALESCE(SUM(sa.Qty),0) as StockPile
+FROM `Stock` s
+left JOIN StockAdjustments sa on s.ProductID = sa.ProductID and s.SiteID = sa.SiteID
+inner JOIN SiteList sl on s.SiteID = sl.ID
+WHERE s.SiteID = 2
+GROUP BY s.ProductID [90016-176]
+Wed Jan 24 11:03:23 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Column "S.PRODUCTION" must be in the GROUP BY list; SQL statement:
+SELECT 
+s.ProductID,
+s.ProductName,
+s.Production-s.UsedInProduction+s.SalesIN-s.SalesOUT+COALESCE(SUM(sa.Qty),0) as StockPile
+FROM `Stock` s
+left JOIN StockAdjustments sa on s.ProductID = sa.ProductID and s.SiteID = sa.SiteID
+inner JOIN SiteList sl on s.SiteID = sl.ID
+WHERE s.SiteID = 2
+GROUP BY s.ProductID [90016-176]
+Wed Jan 24 11:04:23 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Column "S.PRODUCTION" must be in the GROUP BY list; SQL statement:
+SELECT 
+s.ProductID,
+s.ProductName,
+s.Production-s.UsedInProduction+s.SalesIN-s.SalesOUT+COALESCE(SUM(sa.Qty),0) as StockPile
+FROM `Stock` s
+left JOIN StockAdjustments sa on s.ProductID = sa.ProductID and s.SiteID = sa.SiteID
+inner JOIN SiteList sl on s.SiteID = sl.ID
+WHERE s.SiteID = 2
+GROUP BY s.ProductID [90016-176]
+Wed Jan 24 11:05:23 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Column "S.PRODUCTION" must be in the GROUP BY list; SQL statement:
+SELECT 
+s.ProductID,
+s.ProductName,
+s.Production-s.UsedInProduction+s.SalesIN-s.SalesOUT+COALESCE(SUM(sa.Qty),0) as StockPile
+FROM `Stock` s
+left JOIN StockAdjustments sa on s.ProductID = sa.ProductID and s.SiteID = sa.SiteID
+inner JOIN SiteList sl on s.SiteID = sl.ID
+WHERE s.SiteID = 2
+GROUP BY s.ProductID [90016-176]
+Wed Jan 24 11:06:23 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Column "S.PRODUCTION" must be in the GROUP BY list; SQL statement:
+SELECT 
+s.ProductID,
+s.ProductName,
+s.Production-s.UsedInProduction+s.SalesIN-s.SalesOUT+COALESCE(SUM(sa.Qty),0) as StockPile
+FROM `Stock` s
+left JOIN StockAdjustments sa on s.ProductID = sa.ProductID and s.SiteID = sa.SiteID
+inner JOIN SiteList sl on s.SiteID = sl.ID
+WHERE s.SiteID = 2
+GROUP BY s.ProductID [90016-176]
+Wed Jan 24 11:07:23 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Column "S.PRODUCTION" must be in the GROUP BY list; SQL statement:
+SELECT 
+s.ProductID,
+s.ProductName,
+s.Production-s.UsedInProduction+s.SalesIN-s.SalesOUT+COALESCE(SUM(sa.Qty),0) as StockPile
+FROM `Stock` s
+left JOIN StockAdjustments sa on s.ProductID = sa.ProductID and s.SiteID = sa.SiteID
+inner JOIN SiteList sl on s.SiteID = sl.ID
+WHERE s.SiteID = 2
+GROUP BY s.ProductID [90016-176]
+Wed Jan 24 11:08:23 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Column "S.PRODUCTION" must be in the GROUP BY list; SQL statement:
+SELECT 
+s.ProductID,
+s.ProductName,
+s.Production-s.UsedInProduction+s.SalesIN-s.SalesOUT+COALESCE(SUM(sa.Qty),0) as StockPile
+FROM `Stock` s
+left JOIN StockAdjustments sa on s.ProductID = sa.ProductID and s.SiteID = sa.SiteID
+inner JOIN SiteList sl on s.SiteID = sl.ID
+WHERE s.SiteID = 2
+GROUP BY s.ProductID [90016-176]
+Wed Jan 24 11:09:23 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Column "S.PRODUCTION" must be in the GROUP BY list; SQL statement:
+SELECT 
+s.ProductID,
+s.ProductName,
+s.Production-s.UsedInProduction+s.SalesIN-s.SalesOUT+COALESCE(SUM(sa.Qty),0) as StockPile
+FROM `Stock` s
+left JOIN StockAdjustments sa on s.ProductID = sa.ProductID and s.SiteID = sa.SiteID
+inner JOIN SiteList sl on s.SiteID = sl.ID
+WHERE s.SiteID = 2
+GROUP BY s.ProductID [90016-176]
+Wed Jan 24 11:10:23 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Column "S.PRODUCTION" must be in the GROUP BY list; SQL statement:
+SELECT 
+s.ProductID,
+s.ProductName,
+s.Production-s.UsedInProduction+s.SalesIN-s.SalesOUT+COALESCE(SUM(sa.Qty),0) as StockPile
+FROM `Stock` s
+left JOIN StockAdjustments sa on s.ProductID = sa.ProductID and s.SiteID = sa.SiteID
+inner JOIN SiteList sl on s.SiteID = sl.ID
+WHERE s.SiteID = 2
+GROUP BY s.ProductID [90016-176]
+Wed Jan 24 11:11:23 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Column "S.PRODUCTION" must be in the GROUP BY list; SQL statement:
+SELECT 
+s.ProductID,
+s.ProductName,
+s.Production-s.UsedInProduction+s.SalesIN-s.SalesOUT+COALESCE(SUM(sa.Qty),0) as StockPile
+FROM `Stock` s
+left JOIN StockAdjustments sa on s.ProductID = sa.ProductID and s.SiteID = sa.SiteID
+inner JOIN SiteList sl on s.SiteID = sl.ID
+WHERE s.SiteID = 2
+GROUP BY s.ProductID [90016-176]
+Wed Jan 24 11:12:23 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Column "S.PRODUCTION" must be in the GROUP BY list; SQL statement:
+SELECT 
+s.ProductID,
+s.ProductName,
+s.Production-s.UsedInProduction+s.SalesIN-s.SalesOUT+COALESCE(SUM(sa.Qty),0) as StockPile
+FROM `Stock` s
+left JOIN StockAdjustments sa on s.ProductID = sa.ProductID and s.SiteID = sa.SiteID
+inner JOIN SiteList sl on s.SiteID = sl.ID
+WHERE s.SiteID = 2
+GROUP BY s.ProductID [90016-176]
+Wed Jan 24 11:13:23 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Column "S.PRODUCTION" must be in the GROUP BY list; SQL statement:
+SELECT 
+s.ProductID,
+s.ProductName,
+s.Production-s.UsedInProduction+s.SalesIN-s.SalesOUT+COALESCE(SUM(sa.Qty),0) as StockPile
+FROM `Stock` s
+left JOIN StockAdjustments sa on s.ProductID = sa.ProductID and s.SiteID = sa.SiteID
+inner JOIN SiteList sl on s.SiteID = sl.ID
+WHERE s.SiteID = 2
+GROUP BY s.ProductID [90016-176]
+Wed Jan 24 11:14:23 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Column "S.PRODUCTION" must be in the GROUP BY list; SQL statement:
+SELECT 
+s.ProductID,
+s.ProductName,
+s.Production-s.UsedInProduction+s.SalesIN-s.SalesOUT+COALESCE(SUM(sa.Qty),0) as StockPile
+FROM `Stock` s
+left JOIN StockAdjustments sa on s.ProductID = sa.ProductID and s.SiteID = sa.SiteID
+inner JOIN SiteList sl on s.SiteID = sl.ID
+WHERE s.SiteID = 2
+GROUP BY s.ProductID [90016-176]
+Wed Jan 24 11:15:23 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Column "S.PRODUCTION" must be in the GROUP BY list; SQL statement:
+SELECT 
+s.ProductID,
+s.ProductName,
+s.Production-s.UsedInProduction+s.SalesIN-s.SalesOUT+COALESCE(SUM(sa.Qty),0) as StockPile
+FROM `Stock` s
+left JOIN StockAdjustments sa on s.ProductID = sa.ProductID and s.SiteID = sa.SiteID
+inner JOIN SiteList sl on s.SiteID = sl.ID
+WHERE s.SiteID = 2
+GROUP BY s.ProductID [90016-176]
+Wed Jan 24 11:16:23 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Column "S.PRODUCTION" must be in the GROUP BY list; SQL statement:
+SELECT 
+s.ProductID,
+s.ProductName,
+s.Production-s.UsedInProduction+s.SalesIN-s.SalesOUT+COALESCE(SUM(sa.Qty),0) as StockPile
+FROM `Stock` s
+left JOIN StockAdjustments sa on s.ProductID = sa.ProductID and s.SiteID = sa.SiteID
+inner JOIN SiteList sl on s.SiteID = sl.ID
+WHERE s.SiteID = 2
+GROUP BY s.ProductID [90016-176]
+Wed Jan 24 11:17:23 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Column "S.PRODUCTION" must be in the GROUP BY list; SQL statement:
+SELECT 
+s.ProductID,
+s.ProductName,
+s.Production-s.UsedInProduction+s.SalesIN-s.SalesOUT+COALESCE(SUM(sa.Qty),0) as StockPile
+FROM `Stock` s
+left JOIN StockAdjustments sa on s.ProductID = sa.ProductID and s.SiteID = sa.SiteID
+inner JOIN SiteList sl on s.SiteID = sl.ID
+WHERE s.SiteID = 2
+GROUP BY s.ProductID [90016-176]
+Wed Jan 24 11:18:23 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Column "S.PRODUCTION" must be in the GROUP BY list; SQL statement:
+SELECT 
+s.ProductID,
+s.ProductName,
+s.Production-s.UsedInProduction+s.SalesIN-s.SalesOUT+COALESCE(SUM(sa.Qty),0) as StockPile
+FROM `Stock` s
+left JOIN StockAdjustments sa on s.ProductID = sa.ProductID and s.SiteID = sa.SiteID
+inner JOIN SiteList sl on s.SiteID = sl.ID
+WHERE s.SiteID = 2
+GROUP BY s.ProductID [90016-176]
+Wed Jan 24 11:19:23 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Column "S.PRODUCTION" must be in the GROUP BY list; SQL statement:
+SELECT 
+s.ProductID,
+s.ProductName,
+s.Production-s.UsedInProduction+s.SalesIN-s.SalesOUT+COALESCE(SUM(sa.Qty),0) as StockPile
+FROM `Stock` s
+left JOIN StockAdjustments sa on s.ProductID = sa.ProductID and s.SiteID = sa.SiteID
+inner JOIN SiteList sl on s.SiteID = sl.ID
+WHERE s.SiteID = 2
+GROUP BY s.ProductID [90016-176]
+Wed Jan 24 11:20:23 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Column "S.PRODUCTION" must be in the GROUP BY list; SQL statement:
+SELECT 
+s.ProductID,
+s.ProductName,
+s.Production-s.UsedInProduction+s.SalesIN-s.SalesOUT+COALESCE(SUM(sa.Qty),0) as StockPile
+FROM `Stock` s
+left JOIN StockAdjustments sa on s.ProductID = sa.ProductID and s.SiteID = sa.SiteID
+inner JOIN SiteList sl on s.SiteID = sl.ID
+WHERE s.SiteID = 2
+GROUP BY s.ProductID [90016-176]
+Wed Jan 24 11:21:23 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Column "S.PRODUCTION" must be in the GROUP BY list; SQL statement:
+SELECT 
+s.ProductID,
+s.ProductName,
+s.Production-s.UsedInProduction+s.SalesIN-s.SalesOUT+COALESCE(SUM(sa.Qty),0) as StockPile
+FROM `Stock` s
+left JOIN StockAdjustments sa on s.ProductID = sa.ProductID and s.SiteID = sa.SiteID
+inner JOIN SiteList sl on s.SiteID = sl.ID
+WHERE s.SiteID = 2
+GROUP BY s.ProductID [90016-176]
+Wed Jan 24 11:22:23 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Column "S.PRODUCTION" must be in the GROUP BY list; SQL statement:
+SELECT 
+s.ProductID,
+s.ProductName,
+s.Production-s.UsedInProduction+s.SalesIN-s.SalesOUT+COALESCE(SUM(sa.Qty),0) as StockPile
+FROM `Stock` s
+left JOIN StockAdjustments sa on s.ProductID = sa.ProductID and s.SiteID = sa.SiteID
+inner JOIN SiteList sl on s.SiteID = sl.ID
+WHERE s.SiteID = 2
+GROUP BY s.ProductID [90016-176]
+Wed Jan 24 11:23:23 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Column "S.PRODUCTION" must be in the GROUP BY list; SQL statement:
+SELECT 
+s.ProductID,
+s.ProductName,
+s.Production-s.UsedInProduction+s.SalesIN-s.SalesOUT+COALESCE(SUM(sa.Qty),0) as StockPile
+FROM `Stock` s
+left JOIN StockAdjustments sa on s.ProductID = sa.ProductID and s.SiteID = sa.SiteID
+inner JOIN SiteList sl on s.SiteID = sl.ID
+WHERE s.SiteID = 2
+GROUP BY s.ProductID [90016-176]
+Wed Jan 24 11:24:23 AEDT 2018
+org.h2.jdbc.JdbcSQLException: Column "S.PRODUCTION" must be in the GROUP BY list; SQL statement:
+SELECT 
+s.ProductID,
+s.ProductName,
+s.Production-s.UsedInProduction+s.SalesIN-s.SalesOUT+COALESCE(SUM(sa.Qty),0) as StockPile
+FROM `Stock` s
+left JOIN StockAdjustments sa on s.ProductID = sa.ProductID and s.SiteID = sa.SiteID
+inner JOIN SiteList sl on s.SiteID = sl.ID
+WHERE s.SiteID = 2
+GROUP BY s.ProductID [90016-176]

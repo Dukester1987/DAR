@@ -52,6 +52,7 @@ public class DBWrapper implements Runnable{
     private boolean checkForUpdates = true;
     public static boolean isSynced = true;
     public final Thread t2;
+    public static String SYNCTABLES;
 
     public DBWrapper(JLabel label, LocalWraper db, Gui g, Thread t2) {
         this.label = label;
@@ -241,6 +242,7 @@ public class DBWrapper implements Runnable{
             FAIL_RECONNECT = new Long(props.getProperty("con.failreconnect")).longValue();
             FAIL_TOTALRECONNECT = new Long(props.getProperty("con.totalfailreconnect")).longValue();
             CHECKCONNECTION = new Long(props.getProperty("con.checkconnection")).longValue();
+            SYNCTABLES = props.getProperty("con.syncTables");
         } catch (FileNotFoundException ex) {
             new FileLogger(ex.toString());
             ex.printStackTrace();

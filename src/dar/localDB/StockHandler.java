@@ -8,15 +8,10 @@ package dar.localDB;
 import dar.Functions.FileLogger;
 import dar.Functions.JControlers;
 import dar.dbObjects.StockData;
-import java.awt.Color;
-import java.awt.Component;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.text.NumberFormat;
 import java.util.ArrayList;
-import javax.swing.JLabel;
 import javax.swing.JTable;
-import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -43,7 +38,7 @@ public class StockHandler {
             "left JOIN StockAdjustments sa on s.ProductID = sa.ProductID and s.SiteID = sa.SiteID\n" +
             "inner JOIN SiteList sl on s.SiteID = sl.ID\n" +
             "WHERE s.SiteID = %s\n" +
-            "GROUP BY s.ProductID",db.userData.getSiteID());
+            "GROUP BY s.ProductID, s.Production",db.userData.getSiteID());
         
         ResultSet rs = db.runQuery(sql);
         if(db.getRowCount(rs)>0){
